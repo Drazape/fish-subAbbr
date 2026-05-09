@@ -54,6 +54,7 @@ subabbr jj ci commit
 ---
 
 # Installation
+**Dependency**: *systemd* (`systemd-escape`)
 ## User
 [**Fisher**](https://github.com/jorgebucaran/fisher): `fisher install Drazape/fish-subAbbr`
 ## System

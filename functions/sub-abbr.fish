@@ -59,9 +59,9 @@ function sub-abbr --description='Create abbreviations for subcommands'
     end
 
     # main operation
-    set --function func_name _sub-attr_(string replace --all ' ' - {$base_command})_{$subcommand} # function name compatible hash, specific to the combination
+    set --function func_name (systemd-escape _sub-attr_expand_{$base_command}\ {$subcommand}) # function name compatible hash, specific to the combination
     abbr {$argv_opts} --add --position=anywhere --function={$func_name} -- "$subcommand"
-    function _expand-subcommand --description='Expand a subcommand' --argument-names={base_command,expansion,subcommand} --inherit-variable=_flag_norun0
+    function _expand-subcommand --description='Expand a subcommand' --argument-names={base_command,expansion,subcommand} --inherit-variable=flag_norun0
         set --function match_command {$base_command}\ {$subcommand}
         set --query --local _flag_norun0 || set --local check_run0 'run0 '"$match_command"
         argparse --move-unknown -- (commandline --tokens-expanded --current-process)
