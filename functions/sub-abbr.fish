@@ -43,7 +43,7 @@ function sub-abbr --description='Create abbreviations for subcommands'
         return 3
     end
     ### Name arguments (`--argument-names` is not used for compatibility with `argparse`)
-    set --function initial_command {$argv[1]}
+    set --function base_command {$argv[1]}
     set --function subcommand {$argv[2]}
     set --function expansion {$argv[3]}
     ### compatible subcommand name: must be a single token
@@ -59,15 +59,15 @@ function sub-abbr --description='Create abbreviations for subcommands'
     end
 
     # main operation
-    set --function func_name _sub-attr_(string replace --all ' ' - {$initial_command})_{$subcommand} # function name compatible hash, specific to the combination
+    set --function func_name _sub-attr_(string replace --all ' ' - {$base_command})_{$subcommand} # function name compatible hash, specific to the combination
     abbr {$argv_opts} --add --position=anywhere --function={$func_name} -- "$subcommand"
-    function _expand-subcommand --description='Expand a subcommand' --argument-names={initial_command,expansion,subcommand} --inherit-variable=_flag_norun0
-        set --function match_command {$initial_command}\ {$subcommand}
+    function _expand-subcommand --description='Expand a subcommand' --argument-names={base_command,expansion,subcommand} --inherit-variable=_flag_norun0
+        set --function match_command {$base_command}\ {$subcommand}
         set --query --local _flag_norun0 || set --local check_run0 'run0 '"$match_command"
         argparse --move-unknown -- (commandline --tokens-expanded --current-process)
         string match --quiet "$argv" {$match_command} {$check_run0} && echo {$expansion}
     end
-    function {$func_name} --argument-names=subcommand --inherit-variable={initial_command,expansion}
-        _expand-subcommand {$initial_command} {$expansion} {$subcommand}
+    function {$func_name} --argument-names=subcommand --inherit-variable={base_command,expansion}
+        _expand-subcommand {$base_command} {$expansion} {$subcommand}
     end
 end
