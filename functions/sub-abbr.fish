@@ -1,7 +1,9 @@
 function sub-abbr --description='Create abbreviations for subcommands'
+    set --local output_name (set_color --dim)(status function)(set_color normal)
+
     # arguments
     ## Switches
-    argparse --name=(set_color --dim)(status function)(set_color normal) 'c/set-cursor=?&' 'h/help&' '0/norun0&' -- {$argv} || return 1
+    argparse --name={$output_name} 'c/set-cursor=?&' 'h/help&' '0/norun0&' -- {$argv} || return 1
     ### Set Cursor
     if test -z {$_flag_set_cursor}
         set -- set_cursor --set-cursor
@@ -25,7 +27,7 @@ function sub-abbr --description='Create abbreviations for subcommands'
     ## Positional
     ### appropriate number of arguments. Not using `argparse` so that `--help can have as many arguments as it wants` and better formatted output
     if test (count {$argv}) -ne 3
-        echo expected (set_color --bold)3(set_color normal) arguments(set_color white)\;(set_color normal) got (set_color --italics)(count {$argv})(set_color normal)
+        echo {$output_name}(set_color --dim white):(set_color normal) expected (set_color --bold)3(set_color normal) arguments(set_color white)\;(set_color normal) got (set_color --italics)(count {$argv})(set_color normal)
         return 3
     end
     ### Name arguments (`--argument-names` is not used for compatibility with `argparse`)
