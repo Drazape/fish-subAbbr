@@ -11,7 +11,7 @@ sub-abbr --set-cursor 'nh os' switch{,' % --bypass-root-check'}
 <img width="1415" height="82" alt="nh-switch" src="https://github.com/user-attachments/assets/394abe78-a4f7-4f82-a77e-488666010b64" />
 ### A combination of switches
 ```fish
-sub-abbr -- eza --long{,' --group'}`
+sub-abbr -- eza --long{,\ --group}`
 ```
 [^eza-why-group]  
 <img width="965" height="82" alt="ls-group" src="https://github.com/user-attachments/assets/bda2680d-980f-4834-ba41-a9086aa3afad" />
