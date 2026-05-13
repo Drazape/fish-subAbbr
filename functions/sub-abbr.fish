@@ -34,7 +34,7 @@ function sub-abbr --description='Create abbreviations for subcommands'
         ### appropriate number of arguments. Not using `argparse` so that `--help can have as many arguments as it wants` and better formatted output
         if test (count {$argv}) -ne 3
             echo {$output_prefix} expected (set_color --bold)3(set_color normal) arguments(set_color white)\;(set_color normal) got (set_color --italics)(count {$argv})(set_color normal)
-            return 3
+            return 2
         end
         ### Name arguments (`--argument-names` is not used for compatibility with `argparse`)
         set --function base_command {$argv[1]}
@@ -48,7 +48,7 @@ function sub-abbr --description='Create abbreviations for subcommands'
             end
             if subcommand-contains ' ' || subcommand-contains \n
                 echo {$output_name} incompatible (set_color --italics)Sub-Command(set_color normal)
-                return 4
+                return 3
             end
         end
     end
