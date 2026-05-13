@@ -15,7 +15,7 @@ function sub-abbr --description='Create abbreviations for subcommands'
         set --local inherited \ (set_color white)'(inherited from '(set_color normal)(set_color --background=red)abbr(set_color normal)(set_color white)\)(set_color normal)
         help-text 'Abbreviate subcommands' \
             --positional={
-                  'Base Command | Comes before the Sub-Command; flags are ignored by default', 
+                  '+Initial Args | All arguments that come before the Sub-Command', 
                   'Sub-Command | Comes after the Base Command; replaced by the Expansion',
                   'Expansion | Replaces the Sub-Command'
             } \
@@ -32,14 +32,15 @@ function sub-abbr --description='Create abbreviations for subcommands'
     begin
         set --local output_prefix {$output_name}(set_color --dim white):(set_color normal)
         ### appropriate number of arguments. Not using `argparse` so that `--help can have as many arguments as it wants` and better formatted output
-        if test (count {$argv}) -ne 3
-            echo {$output_prefix} expected (set_color --bold)3(set_color normal) arguments(set_color white)\;(set_color normal) got (set_color --italics)(count {$argv})(set_color normal)
-            return 2
+        if test (count {$argv}) -lt 3
+            echo {$output_prefix} expected (set_color --bold)2+(set_color normal) arguments(set_color white)\;(set_color normal) got (set_color --italics)(count {$argv})(set_color normal)
+            return 3
         end
-        ### Name arguments (`--argument-names` is not used for compatibility with `argparse`)
+        ### Name arguments
         set --function base_command {$argv[1]}
-        set --function subcommand {$argv[2]}
-        set --function expansion {$argv[3]}
+        set --function initial_args {$argv[2..-3]}
+        set --function subcommand {$argv[-2]}
+        set --function expansion {$argv[-1]}
         ### compatible subcommand name: must be a single token
         begin
             function subcommand-contains --argument-names=substring --inherit-variable=subcommand
@@ -54,23 +55,31 @@ function sub-abbr --description='Create abbreviations for subcommands'
     end
 
     # main operation
-    set --function identity (systemd-escape _sub-attr_expand_{$base_command}\ {$subcommand}) # name compatible hash; specific to the combination
+    set --function identity (systemd-escape _sub-attr_expand_"$base_command $initial_args $subcommand") # name compatible hash; specific to the combination
     begin
-        set --local -- common_flags {$set_cursor} --add --position=anywhere --function={$identity}
+        set --query --local _flag_norun0 || set --local -- tolerate_run0 --command=run0
+        set --local -- common_flags --add --command={$base_command} {$tolerate_run0} --function={$identity} {$set_cursor}
         if set --query --local _flag_regex
             abbr {$common_flags} --regex="$subcommand" -- {$identity}
         else
             abbr {$common_flags} -- "$subcommand"
         end
     end
-    function _expand-subcommand --description='Expand a subcommand' --argument-names={base_command,expansion,subcommand} --inherit-variable=_flag_{norun0,regard_flags}
-        set --function match_command {$base_command}\ {$subcommand}
-        set --query --local _flag_norun0 || set --local check_run0 'run0 '"$match_command"
-        set --function argv (commandline --tokens-expanded --current-process)
+    function _expand-subcommand --description='Expand a subcommand' --inherit-variable=_flag_{norun0,regard_flags} --argument-names={base_command,expansion}
+        set --function initial_args {$argv[3..]}
+        set --local argv (commandline --tokens-expanded --current-process)
         set --local --query _flag_regard_flags || argparse --move-unknown -- {$argv}
-        string match --quiet "$argv" {$match_command} {$check_run0} && echo {$expansion}
+        set --function arg_count (count {$initial_args})
+        set --function active_sub_args {$argv[2..-2]}
+        ! set --local --query _flag_norun0 && test {$argv[1]} = run0 && set --function active_sub_args {$active_sub_args[2..]} # Remove real Base Command from sub arguments
+
+        test {$arg_count} -eq (count {$active_sub_args}) || return 1
+        for i in (seq 1 {$arg_count})
+            test {$initial_args[$i]} = {$active_sub_args[$i]} || return 2
+        end
+        echo {$expansion}
     end
-    function {$identity} --argument-names=subcommand --inherit-variable={base_command,expansion}
-        _expand-subcommand {$base_command} {$expansion} {$subcommand}
+    function {$identity} --argument-names=subcommand --inherit-variable={base_command,expansion,initial_args}
+        _expand-subcommand {$base_command} {$expansion} {$initial_args}
     end
 end

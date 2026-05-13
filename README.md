@@ -5,7 +5,7 @@ Simplify abbrevating subcommands [^simplification]
 ## Defaults (convenience)
 ### Switches for certain subcommands  
 ```fish
-sub-abbr --set-cursor 'nh os' switch{,' % --bypass-root-check'}
+sub-abbr --set-cursor nh os switch{,' % --bypass-root-check'}
 ```
 [^nh-why-allow-root]  
 <img width="1415" height="82" alt="nh-switch" src="https://github.com/user-attachments/assets/394abe78-a4f7-4f82-a77e-488666010b64" />
@@ -19,7 +19,7 @@ sub-abbr -- eza --long{,\ --group}`
 ### Turning short flags into long
 #### `eza`: long flag
 ```fish
-sub-abbr -- eza -l --long`
+sub-abbr -- eza -l --long
 ```
 <img width="684" height="82" alt="ls-longopt" src="https://github.com/user-attachments/assets/97a9b831-2cb5-4f44-a245-6ff01b217e41" />
 
@@ -37,8 +37,8 @@ subabbr jj ci commit
 Create personal Sub-Command abbreviations in the scope
 ### Arguments
 #### Positional
-1. **Base Command**: The initial command that must precede the *Sub-Command*. (This is what differentiates `sub-abbr` from `abbr --position=anywhere`). Becomes the new *Base Command* for *Expansion*
-2. **Sub-Command**: The *Sub-Command* to be replaced (expanded) by the *Expansion*. Comes after the *Base Command*
+1. **Initial Arguments**: precedes the *Sub-Command*. Becomes the new *Initial Arguments* for *Expansion*  
+2. **Sub-Command**: The *Sub-Command* to be replaced (expanded) by the *Expansion*. Comes after the *Initial Arguments*
 3. **Expansion**: The replacement (*Expansion*) of the typed *Sub-Command*. Becomes the new *Sub-Command* for *Base Command*
 #### Switches
 | Name | Description | Long | Short | Inherited [^inherited-switches] |
