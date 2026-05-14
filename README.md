@@ -1,5 +1,5 @@
 # Purpose
-Simplify abbrevating subcommands [^simplification]
+Simplify creating context-aware Sub-Command abbreviations [^simplification]
 
 # Uses
 ## Defaults (convenience)
