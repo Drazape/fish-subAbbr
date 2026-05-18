@@ -9,6 +9,8 @@ assignees: ''
 
 <!-- You are free to edit the issue template's structure -->
 
+<!-- Use screen recordings where relevant -->
+
 # Description
 <!-- A clear description of the feature requested -->
 
@@ -16,7 +18,7 @@ assignees: ''
 <!-- The motivation behind having the feature -->
 
 # Workaround
-<!-- Any alternative workarounds you figured out without the feature -->
+<!-- Any alternative hacks you figured out / considered without the feature -->
 
 # Solution
 <!-- The implementation you suggest. How you would like the feature to be accessible or made -->

@@ -8,7 +8,7 @@ assignees: ''
 ---
 
 <!-- You are free to edit the issue template's structure -->
-<!Packages — even if niche — are leniently added>
+<!-- Packages — even if niche — are leniently added -->
 
 <!-- IF THE PACKAGE ALREADY EXISTS SOMEWHERE. iF THE REQUEST WAS DENIED, IT MAY STILL BE ADDED BY SOMEONE ELSE: -->
 

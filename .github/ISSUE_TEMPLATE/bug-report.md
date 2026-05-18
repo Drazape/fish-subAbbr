@@ -9,6 +9,8 @@ assignees: ''
 
 <!-- You are free to edit the issue template's structure -->
 
+<!-- Use screen recordings where relevant -->
+
 # Description
 <!-- A clear description of the bug -->
 
@@ -16,7 +18,7 @@ assignees: ''
 ## Expected
 <!-- What is supposed to happen, but doesn't -->
 ## Actual
-<!-- What actually happens but shouldn't -->
+<!-- What actually happens, but shouldn't -->
 
 # Reproduction
 <!-- Clear steps on reproducing the behavior, along with an example of the exact usage -->
@@ -30,3 +32,6 @@ assignees: ''
 
 # Solution
 <!-- Any solutions you suggest in order to solve the problem -->
+
+# Workaround
+<!-- Any hacks you have considered -->
