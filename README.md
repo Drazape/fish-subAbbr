@@ -66,69 +66,19 @@ Helper to conveniently enable compatible packages
 ---
 
 # Installation
-**Dependencies**
-- [systemd](https://systemd.io/ "Escape strings for usage in systemd unit names") (`systemd-escape`)
-- [fish-helpText][fish-helpText] (`help-text`)
 ## User
 [**Fisher**](https://github.com/jorgebucaran/fisher "Fish plugin manager"): `fisher install Drazape/fish-subAbbr`
+
 ## System
-### Traditional Distributions
 ```fish
 curl -fsSL 'https://raw.githubusercontent.com/Drazape/fish-subAbbr/main/install.fish' | run0 fish -NP
 ```
-It will update each time it is run
-## NixOS
-A flake with convenient configuration options is planned.
-### Workaround
-For now, the installation can be worked-around (with automatic updates). This way is not supported and may stop working after an update.
-> [!WARNING]
-> You will need to manually install the dependency: [fish-helpText][fish-helpText]
-#### `flake.nix`:
-```nix
-{
-	inputs = {
-		fish-subAbbr = {
-				type="github"; owner="Drazape"; repo="fish-subAbbr";
-				flake = false;
-		};
-		…
-	};
-	outputs = inputs@{ self, nixpkgs, …, ... }: {
-		nixosConfigurations."yourHost" = nixpkgs.lib.nixosSystem {
-			specialArgs = { inherit inputs; };
-			…
-		};
-		…
-	};
-}
-```
-#### Module with the Fish configuration:
-```nix
-{ inputs, … }: {
-	…
-	programs.fish = {
-		shellInit = ( # Fish subcommand abbreviation (workaround)
-			builtins.concatStringsSep "\n" (
-				builtins.map builtins.readFile 
-					(builtins.concatMap
-						(componentType:
-							let subDir = (inputs.fish-subAbbr + ("/"+componentType));
-							in (builtins.map
-								(baseName: (subDir + ("/"+baseName)))
-								(builtins.filter
-									(baseName: ((builtins.match ".*\.fish$" baseName) == []))
-									(builtins.attrNames (builtins.readDir subDir)))))
-						[ "functions" "completions" ]))
-		) + ''
-			…
-		'';
-		…
-};
-```
+
+> [!IMPORTANT]
+> [More ways to install](https://github.com/Drazape/fish-subAbbr/wiki/Installation#Package-Manager "Distribution Package Managers")
+
 
 [^simplification]: You can easily abbreviate base-commands, but there is no straight forward way to do the same with subcommands. After I finished developing this program, I found a [GitHub discussion that comes up with this exact problem](https://github.com/fish-shell/fish-shell/discussions/11682)
 [^eza-why-group]: Shows the group of the owned files. Default `long` switch in standard `ls` (I don't use this one, but you might want to if you see groups frequently. Why I am telling you this is that my aim is to set modern standards, not follow the legacy; as states my bio)
 [^inherited-switches]: These are supported switches inherit from `abbr` that are not already being internally used, and thus can be passed to `sub-abbr`, which it passes directly to `abbr`
 [^multi-bases]: *RegExp* must be passed in order to use the same *Sub-Command* with the same *Base-Command* in a different position. For example, you can only have `jj l{,og}` and `jj op l{,og}` if *RegExp* is used. (You don't have to do anything extra, other than escape any regular expressions)
-
-[fish-helpText]: https://github.com/Drazape/fish-helpText "Generate formatted console help reference texts"
