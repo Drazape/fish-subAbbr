@@ -1,5 +1,5 @@
 function sub-abbr --description='Create abbreviations for subcommands'
-    set --local output_name (set_color --dim)(status function)(set_color normal)
+    set --local output_name (set_color --dim)(status function)(set_color --reset)
 
     # arguments
     ## Switches
@@ -12,7 +12,7 @@ function sub-abbr --description='Create abbreviations for subcommands'
     end
     ### Help (the only native switch)
     if set --query --local _flag_help
-        set --local inherited \ (set_color white)'(inherited from '(set_color normal)(set_color --background=red)abbr(set_color normal)(set_color white)\)(set_color normal)
+        set --local inherited \ (set_color white)'(inherited from '(set_color normal)(set_color --background=red)abbr(set_color normal)(set_color white)\)(set_color --reset)
         help-text 'Abbreviate subcommands' \
             --positional={
                   '+Initial Args | All arguments that come before the Sub-Command', 
@@ -21,9 +21,9 @@ function sub-abbr --description='Create abbreviations for subcommands'
             } \
             --flag={
                 'help:h | Show this reference manual',
-                'no-run0:0 | Disable '(set_color --background=red)run0(set_color normal)' toleration for abbreviations',
+                'no-run0:0 | Disable '(set_color --background=red)run0(set_color --reset)' toleration for abbreviations',
                 'regard-flags:s | Acknowledge flags in the Base Command',
-                'set-cursor:c | Position the cursor at '(set_color --background=brblack)%(set_color normal)' post-expansion'{$inherited},
+                'set-cursor:c | Position the cursor at '(set_color --background=brblack)%(set_color --reset)' post-expansion'{$inherited},
                 'regex:r | Match Sub-Command with Regex. Essential for multiple Initial Args permutations'{$inherited},
                 'function:f | Use the output of a command as the Expansion'
             }
@@ -31,10 +31,10 @@ function sub-abbr --description='Create abbreviations for subcommands'
     end
     ## Positional
     begin
-        set --local output_prefix {$output_name}(set_color --dim white):(set_color normal)
+        set --local output_prefix {$output_name}(set_color --dim white):(set_color --reset)
         ### appropriate number of arguments. Not using `argparse` so that `--help can have as many arguments as it wants` and better formatted output
         if test (count {$argv}) -lt 3
-            echo {$output_prefix} expected (set_color --bold)2+(set_color normal) arguments(set_color white)\;(set_color normal) got (set_color --italics)(count {$argv})(set_color normal)
+            echo {$output_prefix} expected (set_color --bold)2+(set_color --reset) arguments(set_color white)\;(set_color --reset) got (set_color --italics)(count {$argv})(set_color --reset)
             return 3
         end
         ### Name arguments
@@ -45,7 +45,7 @@ function sub-abbr --description='Create abbreviations for subcommands'
         ### compatible subcommand name: must be a single token
         begin
             if _subcommand-contains ' ' || _subcommand-contains \n
-                echo {$output_name} incompatible (set_color --italics)Sub-Command(set_color normal)
+                echo {$output_name} incompatible (set_color --italics)Sub-Command(set_color --reset)
                 return 3
             end
         end
