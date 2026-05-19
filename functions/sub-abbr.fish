@@ -3,7 +3,7 @@ function sub-abbr --description='Create abbreviations for subcommands'
 
     # arguments
     ## Switches
-    argparse --name={$output_name} 'r/regex&' 'c/set-cursor=?&' 'h/help&' '0/no-run0&' 's/regard-flags&' -- {$argv} || return 1
+    argparse --name={$output_name} 'r/regex&' 'f/function&' 'c/set-cursor=?&' 'h/help&' '0/no-run0&' 's/regard-flags&' -- {$argv} || return 1
     ### Set Cursor
     set --query --local _flag_set_cursor && if test -z {$_flag_set_cursor}
         set -- set_cursor --set-cursor
@@ -24,7 +24,8 @@ function sub-abbr --description='Create abbreviations for subcommands'
                 'no-run0:0 | Disable '(set_color --background=red)run0(set_color normal)' toleration for abbreviations',
                 'regard-flags:s | Acknowledge flags in the Base Command',
                 'set-cursor:c | Position the cursor at '(set_color --background=brblack)%(set_color normal)' post-expansion'{$inherited},
-                'regex:r | Match Sub-Command with Regex. Essential for multiple Base Commands'{$inherited}
+                'regex:r | Match Sub-Command with Regex. Essential for multiple Initial Args permutations'{$inherited},
+                'function:f | Use the output of a command as the Expansion'
             }
         return
     end
@@ -61,7 +62,7 @@ function sub-abbr --description='Create abbreviations for subcommands'
             abbr {$common_flags} -- "$subcommand"
         end
     end
-    function {$identity} --argument-names=subcommand --inherit-variable={expansion,initial_args,_flag_{no_run0,regard_flags}}
-        _expand-subcommand {$_flag_no_run0} {$_flag_regard_flags} -- {$expansion} {$initial_args}
+    function {$identity} --argument-names=subcommand --inherit-variable={expansion,initial_args,_flag_{no_run0,regard_flags,function}}
+        _expand-subcommand {$_flag_function} {$_flag_no_run0} {$_flag_regard_flags} -- {$subcommand} {$expansion} {$initial_args}
     end
 end

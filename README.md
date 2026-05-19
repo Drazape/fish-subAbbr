@@ -48,6 +48,8 @@ Create personal Sub-Command abbreviations in the scope
 | **Regard Flags** | Acknowledge flags in the *Base Command*; If not set, switches in the *Base Command* are ignored | *regard-flags* | *s* | ❌ |
 | **RegExp** | Match *Sub-Command* with Regular Expressions. Essential for abbreviating the same pair of *Sub-Command* & *Base Command* [^multi-bases] | *regex* | *r* | ✅ |
 | **Set Cursor** | Set the cursor to a position. Same usage as the internal switch | *set-cursor* | *c* | ✅ | 
+| **Function** | Use the output of a command as the *Expansion* | *function* | *f* | ✅ |
+
 ## `sub-abbrs`
 Helper to conveniently enable compatible packages
 ### Arguments
