@@ -52,7 +52,7 @@ function sub-abbr --description='Create abbreviations for subcommands'
     end
 
     # main operation
-    set --function identity (systemd-escape _sub-attr_expand_"$base_command $initial_args $subcommand") # name compatible hash; specific to the combination
+    set --function identity (systemd-escape _sub-abbr_expand_"$base_command $initial_args $subcommand") # name compatible hash; specific to the combination
     begin
         set --query --local _flag_no_run0 || set --local -- tolerate_run0 --command=run0
         set --local -- common_flags --add --command={$base_command} {$tolerate_run0} --function={$identity} {$set_cursor}
