@@ -3,7 +3,7 @@ function sub-abbr --description='Create abbreviations for subcommands'
 
     # arguments
     ## Switches
-    argparse --name={$output_name} 'r/regex&' 'f/function&' 'c/set-cursor=?&' 'h/help&' '0/no-run0&' 's/regard-flags&' -- {$argv} || return 1
+    argparse --name={$output_name} 'r/regex&' 'f/function&' 'c/set-cursor=?&' 'h/help&' '0/degrade&' 's/regard-flags&' -- {$argv} || return 1
     ### Set Cursor
     set --query --local _flag_set_cursor && if test -z {$_flag_set_cursor}
         set -- set_cursor --set-cursor
@@ -21,7 +21,7 @@ function sub-abbr --description='Create abbreviations for subcommands'
             } \
             --flag={
                 'help:h | Show this reference manual',
-                'no-run0:0 | Disable '(set_color --background=red)run0(set_color --reset)' toleration for abbreviations',
+                'degrade:0 | Disable '(set_color --background=red)run0(set_color --reset)' prefix toleration for abbreviations',
                 'regard-flags:s | Acknowledge flags in the Initial Args',
                 'set-cursor:c | Position the cursor at '(set_color --background=brblack)%(set_color --reset)' post-expansion'{$inherited},
                 'regex:r | Match Sub-Command with Regex. Essential for multiple Initial Args permutations'{$inherited},
@@ -54,7 +54,7 @@ function sub-abbr --description='Create abbreviations for subcommands'
     # main operation
     set --function identity (systemd-escape _sub-abbr_expand_"$base_command $initial_args $subcommand") # name compatible hash; specific to the combination
     begin
-        set --query --local _flag_no_run0 || set --local -- tolerate_run0 --command=run0
+        set --query --local _flag_degrade || set --local -- tolerate_run0 --command=run0
         set --local -- common_flags --add --command={$base_command} {$tolerate_run0} --function={$identity} {$set_cursor}
         if set --query --local _flag_regex
             abbr {$common_flags} --regex="$subcommand" -- {$identity}
@@ -62,7 +62,7 @@ function sub-abbr --description='Create abbreviations for subcommands'
             abbr {$common_flags} -- "$subcommand"
         end
     end
-    function {$identity} --argument-names=subcommand --inherit-variable={expansion,initial_args,_flag_{no_run0,regard_flags,function}}
-        _expand-subcommand {$_flag_function} {$_flag_no_run0} {$_flag_regard_flags} -- {$subcommand} {$expansion} {$initial_args}
+    function {$identity} --argument-names=subcommand --inherit-variable={expansion,initial_args,_flag_{degrade,regard_flags,function}}
+        _expand-subcommand {$_flag_function} {$_flag_degrade} {$_flag_regard_flags} -- {$subcommand} {$expansion} {$initial_args}
     end
 end

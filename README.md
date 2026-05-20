@@ -5,7 +5,7 @@ Simplify creating context-aware Sub-Command abbreviations [^simplification]
 ## Defaults (convenience)
 ### Switches for certain subcommands  
 ```fish
-sub-abbr --no-run0 --set-cursor run0 nh os switch{,' % --bypass-root-check'}
+sub-abbr --degrade --set-cursor run0 nh os switch{,' % --bypass-root-check'}
 ```
 <img width="1408" height="82" alt="run0-nh-os-switch" src="https://github.com/user-attachments/assets/a944f937-9803-4572-86d4-31b6eefd25e8" />
 
@@ -39,14 +39,14 @@ Create personal Sub-Command abbreviations in the scope
 #### Positional
 1. **Initial Arguments**: precedes the *Sub-Command*. Becomes the new *Initial Arguments* for *Expansion*  
 2. **Sub-Command**: The *Sub-Command* to be replaced (expanded) by the *Expansion*. Comes after the *Initial Arguments*
-3. **Expansion**: The replacement (*Expansion*) of the typed *Sub-Command*. Becomes the new *Sub-Command* for *Base Command*
+3. **Expansion**: The replacement (*Expansion*) of the typed *Sub-Command*. Becomes the new *Sub-Command* for the *Initial Arguments*
 #### Switches
 | Name | Description | Long | Short | Inherited [^inherited-switches] |
 | :--: | ----------- | :--: | :---: | :-----------------------------: |
 | **Help** | Show a reference manual — consisting of the [purpose](#sub-abbr "The purpose of the command") & [arguments](#Arguments "Descriptions on all the supported arguments") | `help` | `h` | ❌ |
-| **Prohibit `run0`** | Disable toleration of `run0` in the command prefix; i.e., do not expand the *Sub-Command* if the the *Base Command* is prefixed with `run0` | `norun0` | `0` | ❌ |
-| **Regard Flags** | Acknowledge flags in the *Base Command*; If not set, switches in the *Base Command* are ignored | `regard-flags` | `s` | ❌ |
-| **RegExp** | Match *Sub-Command* with Regular Expressions. Essential for abbreviating the same pair of *Sub-Command* & *Base Command* [^multi-bases] | `regex` | `r` | ✅ |
+| **Degrade** | Disable toleration of `run0` as the command prefix; i.e., do not expand the *Sub-Command* if the *Initial Args* is prefixed with `run0` | `degrade` | `0` | ❌ |
+| **Regard Flags** | Acknowledge flags in the *Initial Arguments*; If not set, switches in the *Initial Arguments* are ignored | `regard-flags` | `s` | ❌ |
+| **RegExp** | Match *Sub-Command* with Regular Expressions. Essential for abbreviating the same pair of *Sub-Command* & *Initial Arguments* [^multi-bases] | `regex` | `r` | ✅ |
 | **Set Cursor** | Set the cursor to a position. Same usage as the internal switch | `set-cursor` | `c` | ✅ | 
 | **Function** | Use the output of a command as the *Expansion* | `function` | `f` | ✅ |
 
