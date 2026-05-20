@@ -16,13 +16,13 @@ function sub-abbr --description='Create abbreviations for subcommands'
         help-text 'Abbreviate subcommands' \
             --positional={
                   '+Initial Args | All arguments that come before the Sub-Command', 
-                  'Sub-Command | Comes after the Base Command; replaced by the Expansion',
+                  'Sub-Command | Comes after the Initial Args; replaced by the Expansion',
                   'Expansion | Replaces the Sub-Command'
             } \
             --flag={
                 'help:h | Show this reference manual',
                 'no-run0:0 | Disable '(set_color --background=red)run0(set_color --reset)' toleration for abbreviations',
-                'regard-flags:s | Acknowledge flags in the Base Command',
+                'regard-flags:s | Acknowledge flags in the Initial Args',
                 'set-cursor:c | Position the cursor at '(set_color --background=brblack)%(set_color --reset)' post-expansion'{$inherited},
                 'regex:r | Match Sub-Command with Regex. Essential for multiple Initial Args permutations'{$inherited},
                 'function:f | Use the output of a command as the Expansion'
