@@ -21,7 +21,7 @@ function sub-abbr --description='Create abbreviations for subcommands'
             } \
             --flag={
                 'help:h | Show this reference manual',
-                'degrade:0 | Disable '(set_color --background=red)run0(set_color --reset)' prefix toleration for abbreviations',
+                'degrade:0 | Disable '(set_color --background=red)run0(set_color --reset)' prefix toleration',
                 'regard-flags:s | Acknowledge flags in the Initial Args',
                 'set-cursor:c | Position the cursor at '(set_color --background=brblack)%(set_color --reset)' post-expansion'{$inherited},
                 'regex:r | Match Sub-Command with Regex. Essential for multiple Initial Args permutations'{$inherited},
