@@ -25,8 +25,8 @@ sub-abbr -- eza -l --long
 
 #### Jujutsu: *Sub-Command* aliases
 ```fish
-subabbr jj b{,ookmark}
-subabbr jj ci commit
+sub-abbr jj b{,ookmark}
+sub-abbr jj ci commit
 ```
 <img width="702" height="86" alt="jj-subcommands" src="https://github.com/user-attachments/assets/af0e2f6a-1ce3-4f3f-b9c1-242bca0e9471" />
 
