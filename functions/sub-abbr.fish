@@ -54,7 +54,7 @@ function sub-abbr --description='Create abbreviations for subcommands'
     # main operation
     begin
         set --query --local _flag_regex && set --local regexStr regex
-        set --function identity (systemd-escape _sub-abbr_expand_"$regexStr"_"$base_command $initial_args $subcommand") # name compatible hash; specific to the combination
+        set --function identity (string escape --style=var -- _sub-abbr_expand_"$regexStr"_"$base_command $initial_args $subcommand") # name compatible hash; specific to the combination
     end
     begin
         set --query --local _flag_degrade || set --local -- tolerate_run0 --command=run0
