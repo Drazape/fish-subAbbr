@@ -25,7 +25,7 @@ function sub-abbr --description='Create abbreviations for subcommands'
                 'regard-flags:s | Acknowledge flags in the Initial Args',
                 'set-cursor:c | Position the cursor at '(set_color --background=brblack)%(set_color --reset)' post-expansion'{$inherited},
                 'regex:r | Match Sub-Command with Regex. Essential for multiple Initial Args permutations'{$inherited},
-                'function:f | Use the output of a command as the Expansion'
+                'function:f | Use the output of a command as the Expansion'{$inherited}
             }
         return
     end
