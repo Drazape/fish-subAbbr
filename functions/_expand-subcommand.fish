@@ -4,6 +4,8 @@ function _expand-subcommand --description='Expand a subcommand'
     set --function subcommand {$argv[1]}
     set --function expansion {$argv[2]}
     set --function initial_args {$argv[3..]}
+    set --query --local _flag_function &&
+        set --function expansion ($expansion {$subcommand})
 
     # Commandline
     set --local argv (commandline --tokens-expanded --current-process)
@@ -11,10 +13,6 @@ function _expand-subcommand --description='Expand a subcommand'
     set --function arg_count (count {$initial_args})
     set --function active_sub_args {$argv[2..-2]}
     ! set --local --query _flag_degrade && test {$argv[1]} = run0 && set --function active_sub_args {$active_sub_args[2..]} # Remove real Base Command from sub arguments
-
-    # Expansion
-    set --query --local _flag_function &&
-        set --function expansion ($expansion {$active_sub_args} {$subcommand})
 
     # Compare
     test {$arg_count} -eq (count {$active_sub_args}) || return 1
