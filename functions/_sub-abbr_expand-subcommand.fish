@@ -1,4 +1,4 @@
-function _expand-subcommand --description='Expand a subcommand'
+function _sub-abbr_expand-subcommand --description='Expand a subcommand'
     # Input
     argparse f/function\& 0/degrade\& s/regard-flags\& -- {$argv}
     set --local subcommand {$argv[1]}

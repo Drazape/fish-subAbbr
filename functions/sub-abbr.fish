@@ -44,7 +44,7 @@ function sub-abbr --description='Create abbreviations for subcommands'
         set --function expansion {$argv[-1]}
         ### compatible subcommand name: must be a single token
         begin
-            if _subcommand-contains ' ' || _subcommand-contains \n
+            if _sub-abbr_subcommand-contains ' ' || _sub-abbr_subcommand-contains \n
                 echo {$output_name} incompatible (set_color --italics)Sub-Command(set_color --reset)
                 return 3
             end
@@ -66,6 +66,6 @@ function sub-abbr --description='Create abbreviations for subcommands'
         end
     end
     function {$identity} --argument-names=subcommand --inherit-variable={expansion,initial_args,_flag_{degrade,regard_flags,function}}
-        _expand-subcommand {$_flag_function} {$_flag_degrade} {$_flag_regard_flags} -- {$subcommand} {$expansion} {$initial_args}
+        _sub-abbr_expand-subcommand {$_flag_function} {$_flag_degrade} {$_flag_regard_flags} -- {$subcommand} {$expansion} {$initial_args}
     end
 end
