@@ -60,14 +60,14 @@ function sub-abbr --description='Create abbreviations for subcommands'
             end
 
             set --local -- args {$argv[3..]} # Trimmed sub-commands: `identity` `erase`; Arguments used by this specific sub-command
-            _sub-abbr_more-args 2 {$args}
+            _sub-abbr_more-args 1 {$args} || return 1
 
             # main operation
             ## verify existance
             for identity in {$args}
                 if ! contains {$identity} {$identities}
                     $print 'unknown context-aware sub-command abbreviation:' (set_color --bold --italics red){$identity}(set_color --reset)
-                    return 1
+                    return 2
                 end
             end
             ## erase depending on type
