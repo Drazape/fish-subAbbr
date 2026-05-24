@@ -36,10 +36,9 @@ function sub-abbr --description='Create abbreviations for subcommands'
         # common data
         for abbr in (abbr)
             argparse --ignore-unknown '/function=&' -- (commandline --tokens-expanded --input={$abbr})
-            string match --quiet --entire --regex -- ^{$identity_prefix} (string unescape --style=var -- {$_flag_function}) && set --append --function -- context_abbrs {$abbr}
-        end
-        for context_abbr in {$context_abbrs}
-            argparse --ignore-unknown '/command=+&' '/function=&' -- (commandline --tokens-expanded --input={$context_abbr})
+            string match --quiet --entire --regex -- ^{$identity_prefix} (string unescape --style=var -- {$_flag_function}) || continue
+
+            argparse --ignore-unknown '/command=+&' '/function=&' -- (commandline --tokens-expanded --input={$abbr})
             set --local -- unescaped_function (string unescape --style=var -- {$_flag_function})
             set --local -- identity (string sub --start={$identity_start} -- {$unescaped_function})
             string match --quiet -- {$identity_prefix} (string sub --end={$prefix_length} {$unescaped_function}) && set --append --function identities {$identity}
