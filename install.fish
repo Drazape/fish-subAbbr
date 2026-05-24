@@ -1,7 +1,7 @@
 #!/usr/bin/env fish
 # Only allow execution as root
 if ! fish_is_root_user
-    echo (status basename)': Must be ran as root'
+    echo (status basename): 'Must be ran as root'
     return 1
 end
 
@@ -13,7 +13,7 @@ end
 begin
     set --local proj_name fish-subAbbr
     # Clone repository to temporary directory
-    set --global -- repository_dir {$proj_name}-'XXXXXXXXX'
+    set --global -- repository_dir {$proj_name}-XXXXXXXXX
     begin
         set --local clone_repo clone --filter=blob:none https://github.com/Drazape/{$proj_name}.git "$repository_dir"
         git $clone_repo || nix run nixpkgs#git $clone_repo || return 2
