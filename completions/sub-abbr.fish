@@ -1,7 +1,7 @@
 set --local -- common_complete complete --command=sub-abbr --no-files
 
 $common_complete
-$common_complete --short-option=h --long-option=help --description=Help
+$common_complete --short-option=h --long-option=help --description='Reference manuals' --condition='set --local -- subcommands (commandline -xpc)[2..3]; test "$subcommands[1]" = identity && test "$subcommands[2]" != list'
 
 set --local -- subcommand_complete {$common_complete} --condition='test (count (commandline -xpc)) -lt 2'
 $subcommand_complete --arguments=add --description='Create abbrs'
