@@ -91,7 +91,7 @@ function sub-abbr --description='Create abbreviations for subcommands'
     else if test "$argv[1]" = add
         # arguments
         ## Switches
-        $argparse 'r/regex=*&!_sub-abbr_internal_verify-regex-val' 'f/function&' 'c/set-cursor=?&' 'h/help&' '0/degrade&' 's/regard-flags&' -- {$argv} || return 1
+        $argparse 'r/regex=*&!_sub-abbr_internal_verify-regex-val' 'e/expander&' 'c/set-cursor=?&' 'h/help&' '0/degrade&' 's/regard-flags&' -- {$argv} || return 1
         ### Help
         if set --query --local _flag_help
             set --local inherited \ (set_color white)'(inherited from '(set_color normal)(set_color --background=red)abbr(set_color normal)(set_color white)\)(set_color --reset)
@@ -106,7 +106,7 @@ function sub-abbr --description='Create abbreviations for subcommands'
                     'regard-flags:s | Acknowledge flags in the Initial Args',
                     'set-cursor:c | Position the cursor at '(set_color --background=brblack)%(set_color --reset)' post-expansion'{$inherited},
                     'regex:r | Match command-line arguments with Regex. Essential (with '(set_color --background=brblack)sub-command(set_color --reset)') for multiple Initial Args permutations'{$inherited},
-                    'function:f | Use the output of a command as the Expansion'{$inherited}
+                    'expander:e | Use the output of a command as the Expansion'{$inherited}
                 }
             return
         end
@@ -153,8 +153,8 @@ function sub-abbr --description='Create abbreviations for subcommands'
                 abbr {$common_flags} -- "$subcommand"
             end
         end
-        function {$identity} --argument-names=subcommand --inherit-variable={expansion,initial_args,regex_initials,_flag_{degrade,regard_flags,function}}
-            _sub-abbr_internal_expand-subcommand {$regex_initials} {$_flag_function} {$_flag_degrade} {$_flag_regard_flags} -- {$subcommand} {$expansion} {$initial_args}
+        function {$identity} --argument-names=subcommand --inherit-variable={expansion,initial_args,regex_initials,_flag_{degrade,regard_flags,expander}}
+            _sub-abbr_internal_expand-subcommand {$regex_initials} {$_flag_expander} {$_flag_degrade} {$_flag_regard_flags} -- {$subcommand} {$expansion} {$initial_args}
         end
     else
         $print 'unknown sub-command:' (set_color --bold --background=brred){$argv[1]}(set_color --reset) >&2
