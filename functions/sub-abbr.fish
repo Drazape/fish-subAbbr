@@ -66,7 +66,7 @@ function sub-abbr --description='Create abbreviations for subcommands'
             ## verify existance
             for identity in {$args}
                 if ! contains {$identity} {$identities}
-                    $print 'unknown context-aware sub-command abbreviation:' (set_color --bold --italics red){$identity}(set_color --reset)
+                    $print 'unknown context-aware sub-command abbreviation:' (set_color --bold --italics red){$identity}(set_color --reset) >&2
                     return 2
                 end
             end
@@ -82,7 +82,7 @@ function sub-abbr --description='Create abbreviations for subcommands'
                 abbr --erase --command={$$commands} -- {$internal_identity}
             end
         else
-            $print unknown (set_color --italics)Identity(set_color --reset) sub-command: (set_color --bold --background=brred){$argv[2]}(set_color --reset)
+            $print unknown (set_color --italics)Identity(set_color --reset) sub-command: (set_color --bold --background=brred){$argv[2]}(set_color --reset) >&2
         end
     else if test "$argv[1]" = add
         # arguments
@@ -125,7 +125,7 @@ function sub-abbr --description='Create abbreviations for subcommands'
             # compatible subcommand name: must be a single token
             begin
                 if _sub-abbr_subcommand-contains ' ' || _sub-abbr_subcommand-contains \n
-                    $print incompatible (set_color --italics)Sub-Command(set_color --reset)
+                    $print incompatible (set_color --italics)Sub-Command(set_color --reset) >&2
                     return 3
                 end
             end
@@ -150,6 +150,6 @@ function sub-abbr --description='Create abbreviations for subcommands'
             _sub-abbr_expand-subcommand {$_flag_function} {$_flag_degrade} {$_flag_regard_flags} -- {$subcommand} {$expansion} {$initial_args}
         end
     else
-        $print unknown sub-command: (set_color --bold --background=brred){$argv[1]}(set_color --reset)
+        $print 'unknown sub-command:' (set_color --bold --background=brred){$argv[1]}(set_color --reset) >&2
     end
 end
