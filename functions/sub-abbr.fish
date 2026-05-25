@@ -47,6 +47,10 @@ function sub-abbr --description='Create abbreviations for subcommands'
 
         # sub-commands
         if test "$argv[2]" = list
+            if test (count {$argv}) != 2
+                $print 'arguments not accepted'
+                return 1
+            end
             string repeat 1 {$identities}
         else if test "$argv[2]" = erase
             $argparse 'h/help&' -- {$argv}
