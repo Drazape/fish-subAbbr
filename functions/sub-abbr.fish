@@ -82,7 +82,7 @@ function sub-abbr --description='Create abbreviations for subcommands'
                 abbr --erase --command={$$commands} -- {$internal_identity}
             end
         else
-            $print unknown (set_color --italics)Identity(set_color --reset) sub-command: (set_color --bold --italics red){$argv[2]}(set_color --reset)
+            $print unknown (set_color --italics)Identity(set_color --reset) sub-command: (set_color --bold --background=brred){$argv[2]}(set_color --reset)
         end
     else if test "$argv[1]" = add
         # arguments
@@ -150,6 +150,6 @@ function sub-abbr --description='Create abbreviations for subcommands'
             _sub-abbr_expand-subcommand {$_flag_function} {$_flag_degrade} {$_flag_regard_flags} -- {$subcommand} {$expansion} {$initial_args}
         end
     else
-        $print unknown sub-command: (set_color --bold --italics red){$argv[1]}(set_color --reset)
+        $print unknown sub-command: (set_color --bold --background=brred){$argv[1]}(set_color --reset)
     end
 end
