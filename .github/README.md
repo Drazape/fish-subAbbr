@@ -48,7 +48,7 @@ Create personal Sub-Command abbreviations in the scope
 | [**Help**](https://github.com/Drazape/fish-subAbbr/wiki/Switch:-Help "wiki") | Show a reference manual — consisting of the [purpose](#sub-abbr "The purpose of the command") & [arguments](#Arguments "Descriptions on all the supported arguments") | `help` | `h` | ❌ |
 | [**Degrade**](https://github.com/Drazape/fish-subAbbr/wiki/Switch:-Degrade "wiki") | Disable toleration of `run0` as the command prefix; i.e., do not expand the *Sub-Command* if the *Initial Args* is prefixed with `run0` | `degrade` | `0` | ❌ |
 | [**Regard Flags**](https://github.com/Drazape/fish-subAbbr/wiki/Switch:-Regard-Flags "wiki") | Acknowledge flags in the *Initial Arguments*; If not set, switches in the *Initial Arguments* are ignored | `regard-flags` | `s` | ❌ |
-| [**RegExp**](https://github.com/Drazape/fish-subAbbr/wiki/Switch:-Regular-Expression "wiki") | Match *Sub-Command* with Regular Expressions. Essential for abbreviating the same pair of *Sub-Command* & *Initial Arguments* [^multi-bases] | `regex` | `r` | ✅ |
+| [**RegExp**](https://github.com/Drazape/fish-subAbbr/wiki/Switch:-Regular-Expression "wiki") | Match *Sub-Command* with Regular Expressions. Essential (with `sub-command`) for abbreviating the same pair of *Sub-Command* & *Initial Arguments* [^multi-bases] | `regex` | `r` | ✅ |
 | [**Set Cursor**](https://github.com/Drazape/fish-subAbbr/wiki/Switch:-Set-Cursor "wiki") | Set the cursor to a position. Same usage as the internal switch | `set-cursor` | `c` | ✅ | 
 | [**Function**](https://github.com/Drazape/fish-subAbbr/wiki/Switch:-Function "wiki") | Use the output of a command as the *Expansion* | `function` | `f` | ✅ |
 ##### Identity

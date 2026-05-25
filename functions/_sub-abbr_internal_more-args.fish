@@ -1,4 +1,4 @@
-function _sub-abbr_more-args --description='Make sure no less arguments are supplied' --argument-names=expected
+function _sub-abbr_internal_more-args --description='Make sure no less arguments are supplied' --argument-names=expected
     set --function supplied (count {$argv[2..]})
     test {$supplied} -ge {$expected} && return
 

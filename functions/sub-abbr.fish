@@ -60,7 +60,7 @@ function sub-abbr --description='Create abbreviations for subcommands'
             end
 
             set --local -- args {$argv[3..]} # Trimmed sub-commands: `identity` `erase`; Arguments used by this specific sub-command
-            _sub-abbr_more-args 1 {$args} || return 1
+            _sub-abbr_internal_more-args 1 {$args} || return 1
 
             # main operation
             ## verify existance
@@ -87,7 +87,7 @@ function sub-abbr --description='Create abbreviations for subcommands'
     else if test "$argv[1]" = add
         # arguments
         ## Switches
-        $argparse 'r/regex=*&!_sub-abbr_verify-regex-val' 'f/function&' 'c/set-cursor=?&' 'h/help&' '0/degrade&' 's/regard-flags&' -- {$argv} || return 1
+        $argparse 'r/regex=*&!_sub-abbr_internal_verify-regex-val' 'f/function&' 'c/set-cursor=?&' 'h/help&' '0/degrade&' 's/regard-flags&' -- {$argv} || return 1
         ### Help
         if set --query --local _flag_help
             set --local inherited \ (set_color white)'(inherited from '(set_color normal)(set_color --background=red)abbr(set_color normal)(set_color white)\)(set_color --reset)
@@ -101,7 +101,7 @@ function sub-abbr --description='Create abbreviations for subcommands'
                     'degrade:0 | Disable '(set_color --background=red)run0(set_color --reset)' prefix toleration',
                     'regard-flags:s | Acknowledge flags in the Initial Args',
                     'set-cursor:c | Position the cursor at '(set_color --background=brblack)%(set_color --reset)' post-expansion'{$inherited},
-                    'regex:r | Match command-line arguments with Regex. Essential for multiple Initial Args permutations'{$inherited},
+                    'regex:r | Match command-line arguments with Regex. Essential (with '(set_color --background=brblack)sub-command(set_color --reset)') for multiple Initial Args permutations'{$inherited},
                     'function:f | Use the output of a command as the Expansion'{$inherited}
                 }
             return
@@ -119,7 +119,7 @@ function sub-abbr --description='Create abbreviations for subcommands'
         begin
             set --local -- args {$argv[2..]} # Trimmed sub-command `add`; Arguments used by this specific sub-command
             # appropriate number of arguments. Not using `argparse` so that `--help can have as many arguments as it wants` and better formatted output
-            _sub-abbr_more-args 3 {$args} || return 2
+            _sub-abbr_internal_more-args 3 {$args} || return 2
             # Name arguments
             set --function base_command {$args[1]}
             set --function initial_args {$args[2..-3]}
@@ -127,7 +127,7 @@ function sub-abbr --description='Create abbreviations for subcommands'
             set --function expansion {$args[-1]}
             # compatible subcommand name: must be a single token
             begin
-                if _sub-abbr_subcommand-contains ' ' || _sub-abbr_subcommand-contains \n
+                if _sub-abbr_internal_subcommand-contains ' ' || _sub-abbr_internal_subcommand-contains \n
                     $print incompatible (set_color --italics)Sub-Command(set_color --reset) >&2
                     return 3
                 end
@@ -150,7 +150,7 @@ function sub-abbr --description='Create abbreviations for subcommands'
             end
         end
         function {$identity} --argument-names=subcommand --inherit-variable={expansion,initial_args,regex_initials,_flag_{degrade,regard_flags,function}}
-            _sub-abbr_expand-subcommand {$regex_initials} {$_flag_function} {$_flag_degrade} {$_flag_regard_flags} -- {$subcommand} {$expansion} {$initial_args}
+            _sub-abbr_internal_expand-subcommand {$regex_initials} {$_flag_function} {$_flag_degrade} {$_flag_regard_flags} -- {$subcommand} {$expansion} {$initial_args}
         end
     else
         $print 'unknown sub-command:' (set_color --bold --background=brred){$argv[1]}(set_color --reset) >&2
