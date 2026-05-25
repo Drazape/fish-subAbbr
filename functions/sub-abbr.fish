@@ -41,8 +41,8 @@ function sub-abbr --description='Create abbreviations for subcommands'
             argparse --ignore-unknown '/command=+&' '/function=&' -- (commandline --tokens-expanded --input={$abbr})
             set --local -- unescaped_function (string unescape --style=var -- {$_flag_function})
             set --local -- identity (string sub --start={$identity_start} -- {$unescaped_function})
-            string match --quiet -- {$identity_prefix} (string sub --end={$prefix_length} {$unescaped_function}) && set --append --function identities {$identity}
-            set --append --function (string escape --style=var -- $identity)_commands {$_flag_command}
+            string match --quiet -- {$identity_prefix} (string sub --end={$prefix_length} {$unescaped_function}) && set --append --function -- identities {$identity}
+            set --append --function -- (string escape --style=var -- $identity)_commands {$_flag_command}
         end
 
         # sub-commands
@@ -87,14 +87,8 @@ function sub-abbr --description='Create abbreviations for subcommands'
     else if test "$argv[1]" = add
         # arguments
         ## Switches
-        $argparse 'r/regex&' 'f/function&' 'c/set-cursor=?&' 'h/help&' '0/degrade&' 's/regard-flags&' -- {$argv} || return 1
-        ### Set Cursor
-        set --query --local _flag_set_cursor && if test -z {$_flag_set_cursor}
-            set -- set_cursor --set-cursor
-        else
-            set -- set_cursor --set-cursor={$_flag_set_cursor}
-        end
-        ### Help (the only native switch)
+        $argparse 'r/regex=*&!_sub-abbr_verify-regex-val' 'f/function&' 'c/set-cursor=?&' 'h/help&' '0/degrade&' 's/regard-flags&' -- {$argv} || return 1
+        ### Help
         if set --query --local _flag_help
             set --local inherited \ (set_color white)'(inherited from '(set_color normal)(set_color --background=red)abbr(set_color normal)(set_color white)\)(set_color --reset)
             help-text 'Create context-aware Sub-Command abbreviations' \
@@ -107,11 +101,20 @@ function sub-abbr --description='Create abbreviations for subcommands'
                     'degrade:0 | Disable '(set_color --background=red)run0(set_color --reset)' prefix toleration',
                     'regard-flags:s | Acknowledge flags in the Initial Args',
                     'set-cursor:c | Position the cursor at '(set_color --background=brblack)%(set_color --reset)' post-expansion'{$inherited},
-                    'regex:r | Match Sub-Command with Regex. Essential for multiple Initial Args permutations'{$inherited},
+                    'regex:r | Match command-line arguments with Regex. Essential for multiple Initial Args permutations'{$inherited},
                     'function:f | Use the output of a command as the Expansion'{$inherited}
                 }
             return
         end
+        ### Set Cursor
+        set --query --local _flag_set_cursor && if test -z {$_flag_set_cursor}
+            set -- set_cursor --set-cursor
+        else
+            set -- set_cursor --set-cursor={$_flag_set_cursor}
+        end
+        ### RegExp
+        contains -- \0 {$_flag_regex} && set --function -- regex_subcommand
+        contains -- initials {$_flag_regex} && set --function -- regex_initials --regex
         ## Positional
         begin
             set --local -- args {$argv[2..]} # Trimmed sub-command `add`; Arguments used by this specific sub-command
@@ -134,20 +137,20 @@ function sub-abbr --description='Create abbreviations for subcommands'
         # main operation
         begin
             set --local -- regexStr \~
-            set --query --local _flag_regex && set --local -- regexStr r
+            set --query --local regex_subcommand && set --local -- regexStr r
             set --function identity (string escape --style=var -- _sub-abbr_expand\ {$regexStr}:" $base_command $initial_args $subcommand") # name compatible hash; specific to the combination
         end
         begin
             set --query --local _flag_degrade || set --local -- tolerate_run0 --command=run0
             set --local -- common_flags --add --command={$base_command} {$tolerate_run0} --function={$identity} {$set_cursor}
-            if set --query --local _flag_regex
+            if set --query --local -- regex_subcommand
                 abbr {$common_flags} --regex="$subcommand" -- {$identity}
             else
                 abbr {$common_flags} -- "$subcommand"
             end
         end
-        function {$identity} --argument-names=subcommand --inherit-variable={expansion,initial_args,_flag_{degrade,regard_flags,function}}
-            _sub-abbr_expand-subcommand {$_flag_function} {$_flag_degrade} {$_flag_regard_flags} -- {$subcommand} {$expansion} {$initial_args}
+        function {$identity} --argument-names=subcommand --inherit-variable={expansion,initial_args,regex_initials,_flag_{degrade,regard_flags,function}}
+            _sub-abbr_expand-subcommand {$regex_initials} {$_flag_function} {$_flag_degrade} {$_flag_regard_flags} -- {$subcommand} {$expansion} {$initial_args}
         end
     else
         $print 'unknown sub-command:' (set_color --bold --background=brred){$argv[1]}(set_color --reset) >&2

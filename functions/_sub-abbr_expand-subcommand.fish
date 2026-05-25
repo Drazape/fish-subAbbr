@@ -1,6 +1,6 @@
 function _sub-abbr_expand-subcommand --description='Expand a subcommand'
     # Input
-    argparse f/function\& 0/degrade\& s/regard-flags\& -- {$argv}
+    argparse r/regex\& f/function\& 0/degrade\& s/regard-flags\& -- {$argv}
     set --local subcommand {$argv[1]}
     set --function expansion {$argv[2]}
     set --function initial_args {$argv[3..]}
@@ -18,7 +18,11 @@ function _sub-abbr_expand-subcommand --description='Expand a subcommand'
     set --local arg_count (count {$initial_args})
     test {$arg_count} -eq (count {$active_sub_args}) || return 1
     for i in (seq 1 {$arg_count})
-        test {$initial_args[$i]} = {$active_sub_args[$i]} || return 2
+        if set --query --local -- _flag_regex
+            string match --regex --quiet -- {$initial_args[$i]} {$active_sub_args[$i]} || return 2
+        else
+            test {$initial_args[$i]} = {$active_sub_args[$i]} || return 2
+        end
     end
 
     echo {$expansion}

@@ -11,8 +11,14 @@ set --local -- identity_complete {$common_complete} --condition='test "$(command
 $identity_complete --arguments=list --description='Get identities'
 $identity_complete --arguments=erase --description='Erase abbrs with identity'
 
-set --local -- creation_complete $common_complete --condition='test "$(commandline -xpc)[2]" = add'
+set --local -- creation_complete {$common_complete} --condition='test "$(commandline -xpc)[2]" = add'
 $creation_complete --short-option=c --long-option=set-cursor --description='Position the cursor at % post-expansion'
 $creation_complete --short-option=0 --long-option=degrade --description='don\'t tolerate run0 prefix'
 $creation_complete --short-option=s --long-option=regard-flags --description='Acknowledge flags in the Initial Command'
 $creation_complete --short-option=f --long-option=function --description='Use the output of a command as the Expansion'
+
+set --local regex_complete {$creation_complete} --short-option=r --long-option=regex
+$regex_complete --description='Match command-line arguments with RegExp'
+set --local -- regex_value {$regex_complete} --condition='string match --quiet --regex -- \'^(--regex=|-r)\w*$\' (commandline -xtc)'
+$regex_value --arguments=sub-command --description='Match the sub-command with RegExp'
+$regex_value --arguments=initials --description='Match Initial Arguments with RegExp'
