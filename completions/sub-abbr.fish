@@ -10,6 +10,10 @@ $subcommand_complete --arguments=identity --description='Manage abbrs by their i
 set --local -- identity_complete {$common_complete} --condition='test "$(commandline -xpc)[2]" = identity && ! contains "$(commandline -xpc)[3]" list erase'
 $identity_complete --arguments=list --description='Get identities'
 $identity_complete --arguments=erase --description='Erase abbrs with identity'
+$common_complete \
+    --condition='set --local -- subcommands (commandline -xpc)[2..3]
+                test "$subcommands[1]" = identity && test "$subcommands[2]" = erase' \
+    --arguments='(sub-abbr identity list)'
 
 set --local -- creation_complete {$common_complete} --condition='test "$(commandline -xpc)[2]" = add'
 $creation_complete --short-option=c --long-option=set-cursor --description='Position the cursor at % post-expansion'
