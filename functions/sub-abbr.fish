@@ -64,7 +64,7 @@ function sub-abbr --description='Create abbreviations for subcommands'
             end
 
             set --local -- args {$argv[3..]} # Trimmed sub-commands: `identity` `erase`; Arguments used by this specific sub-command
-            _sub-abbr_internal_more-args 1 {$args} || return 1
+            _sub-abbr_internal_verify-arg_more-args 1 {$args} || return 1
 
             # main operation
             ## verify existance
@@ -91,7 +91,7 @@ function sub-abbr --description='Create abbreviations for subcommands'
     else if test "$argv[1]" = add
         # arguments
         ## Switches
-        $argparse 'r/regex=*&!_sub-abbr_internal_verify-regex-val' 'e/expander&' 'c/set-cursor=?&' 'h/help&' '0/degrade&' 's/regard-flags&' -- {$argv} || return 1
+        $argparse 'r/regex=*&!_sub-abbr_internal_verify-arg_regex-val' 'e/expander&' 'c/set-cursor=?&' 'h/help&' '0/degrade&' 's/regard-flags&' -- {$argv} || return 1
         ### Help
         if set --query --local _flag_help
             set --local inherited \ (set_color white)'(inherited from '(set_color normal)(set_color --background=red)abbr(set_color normal)(set_color white)\)(set_color --reset)
@@ -125,7 +125,7 @@ function sub-abbr --description='Create abbreviations for subcommands'
         begin
             set --local -- args {$argv[2..]} # Trimmed sub-command `add`; Arguments used by this specific sub-command
             # appropriate number of arguments. Not using `argparse` so that `--help can have as many arguments as it wants` and better formatted output
-            _sub-abbr_internal_more-args 3 {$args} || return 2
+            _sub-abbr_internal_verify-arg_more-args 3 {$args} || return 2
             # Name arguments
             set --function base_command {$args[1]}
             set --function initial_args {$args[2..-3]}
@@ -133,7 +133,7 @@ function sub-abbr --description='Create abbreviations for subcommands'
             set --function expansion {$args[-1]}
             # compatible subcommand name: must be a single token
             begin
-                if _sub-abbr_internal_subcommand-contains ' ' || _sub-abbr_internal_subcommand-contains \n
+                if _sub-abbr_internal_verify-arg_subcommand-contains ' ' || _sub-abbr_internal_verify-arg_subcommand-contains \n
                     $print incompatible (set_color --italics)Sub-Command(set_color --reset) >&2
                     return 3
                 end
