@@ -1,7 +1,7 @@
 begin
     set --local -- exec_name jj
     set --local -- exec_section _{$exec_name}
-    function _sub-abbr{$exec_section} --description='context-aware expansions for Jujutsu' --on-event=sub-abbr{s,$exec_section} --inherit-variable=exec_name
+    function _sub-abbr_pkg{$exec_section} --description='context-aware expansions for Jujutsu' --on-event=sub-abbr{s,$exec_section} --inherit-variable=exec_name
         set --function -- sub_abbr sub-abbr add {$exec_name}
         $sub_abbr b{,ookmark}
         $sub_abbr c{i,ommit}
