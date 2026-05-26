@@ -77,6 +77,10 @@ Helper to conveniently enable compatible packages
 ---
 
 # Installation
+## User
+[**Fisher**](https://github.com/jorgebucaran/fisher "Fish plugin manager"): `fisher install Drazape/fish-subAbbr`
+
+## System
 ```fish
 curl -fsSL 'https://raw.githubusercontent.com/Drazape/fish-subAbbr/main/install.fish' | run0 fish -NP
 ```
