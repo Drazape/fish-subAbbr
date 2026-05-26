@@ -30,6 +30,9 @@ sub-abbr jj ci commit
 ```
 <img width="702" height="86" alt="jj-subcommands" src="https://github.com/user-attachments/assets/af0e2f6a-1ce3-4f3f-b9c1-242bca0e9471" />
 
+> [!TIP]
+> Check the [packages](#Packages) for more complicated & useful abbreviations
+
 ---
 
 # Usage
@@ -54,8 +57,8 @@ Create personal Sub-Command abbreviations in the scope
 ##### Identity
 Manage context-aware sub-command abbreviation by their identities
 ###### Erase
-Erase an abbr by its identity
-####### Positionals
+Erase an abbr by its identity  
+**Positionals**:
 1. [**Initial Arguments**](https://github.com/Drazape/fish-subAbbr/wiki/Positional:-Initial-Arguments "wiki"): The *Initial Arguments* given to the abbreviation during creation
 2. [**Sub-Command**](https://github.com/Drazape/fish-subAbbr/wiki/Positional:-Sub-Command "wiki"): The *Sub-Command* given to the abbreviation during creation
 ###### List
@@ -71,7 +74,7 @@ Helper to conveniently enable compatible packages
 > [!TIP]
 > ### Packages
 > - Discover
->	- [Official](./functions/)
+>	- [Official](../functions/sub-abbr/pkg/)
 >	- [3rd-party](https://github.com/topics/fish-subabbr)
 > - [Create](./CONTRIBUTING.md)
 ---
