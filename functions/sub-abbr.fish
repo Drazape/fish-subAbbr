@@ -117,7 +117,9 @@ function sub-abbr --description='Create abbreviations for subcommands'
             set -- set_cursor --set-cursor={$_flag_set_cursor}
         end
         ### RegExp
-        contains -- \0 {$_flag_regex} && set --function -- regex_subcommand
+        for value in \0 sub-command
+            contains -- {$value} {$_flag_regex} && set --function -- regex_subcommand
+        end
         contains -- initials {$_flag_regex} && set --function -- regex_initials --regex
         ## Positional
         begin
