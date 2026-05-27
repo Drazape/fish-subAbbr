@@ -1,4 +1,4 @@
-function _sub-abbr_internal_expander_long-flag --description='Expand flag: short → long'
+function _sub-abbr_internal_expander_flag_to-long --description='Expand flag: short → long'
     set --local -- longFlag {$argv[1]}
     test (count {$argv}) -eq 3 && set --local -- cursor {$argv[2]}
     set --local -- shortFlag_value {$argv[-1]}
