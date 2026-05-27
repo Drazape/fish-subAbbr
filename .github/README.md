@@ -92,7 +92,7 @@ curl -fsSL 'https://raw.githubusercontent.com/Drazape/fish-subAbbr/main/install.
 > [More ways to install](https://github.com/Drazape/fish-subAbbr/wiki/Installation#Package-Manager "Distribution Package Managers")
 
 
-[^simplification]: You can easily abbreviate base-commands, but there is no straight forward way to do the same with subcommands. After I finished developing this program, I found a [GitHub discussion that comes up with this exact problem](https://github.com/fish-shell/fish-shell/discussions/11682)
+[^simplification]: You can easily abbreviate base-commands, but there is no straight forward way to do the same with subcommands. After I finished developing this program, I found a GitHub [discussion](https://github.com/fish-shell/fish-shell/discussions/11682) & [Issue](https://github.com/fish-shell/fish-shell/issues/11944) in the Fish repository that comes up with this exact problem
 [^eza-why-group]: Shows the group of the owned files. Default `long` switch in standard `ls` (I don't use this one, but you might want to if you see groups frequently. Why I am telling you this is that my aim is to set modern standards, not follow the legacy; as states my bio)
 [^inherited-switches]: These are supported switches inherit from `abbr` that are not already being internally used, and thus can be passed to `sub-abbr`, which it passes directly to `abbr`
 [^multi-bases]: *RegExp* must be passed in order to use the same *Sub-Command* with the same *Base-Command* in a different position. For example, you can only have `jj l{,og}` and `jj op l{,og}` if *RegExp* is used. (You don't have to do anything extra, other than escape any regular expressions)
