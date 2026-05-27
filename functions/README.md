@@ -20,6 +20,8 @@ Helper functions called by `sub-abbr`
 (`pkg/`)
 Packages that users typically enable using `sub-abbrs` in their Fish shell-initialization configuration
 
-
 > [!TIP]
 > See the [Contribution Guide](../CONTRIBUTING.md#official-packages) to learn how to add more packages — correctly
+
+## Library
+Functions for creating [packages](#Packages)
