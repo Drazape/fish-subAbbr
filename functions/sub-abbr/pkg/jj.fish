@@ -8,6 +8,7 @@ begin
             $sub_abbr c{i,ommit}
             $sub_abbr desc{,ribe}
             $sub_abbr st{,atus}
+            $sub_abbr op{,eration}
         end
 
         begin # switches
