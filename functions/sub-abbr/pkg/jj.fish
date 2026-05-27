@@ -69,6 +69,17 @@ begin
                             $operation --mandatory -- log n limit
                             $operation -- log d op-diff
                         end
+                        begin # Git
+                            set --local git {$long_flag} git
+                            $git --mandatory --regex=initials -- 'clone|fetch' b{,ranch}
+                            begin
+                                set --local -- push {$git} push
+                                $push b{,ookmark}
+                                $push r{,evision}
+                                $push c{,hange}
+                                $push o{,ption}
+                            end
+                        end
                     end
                     begin # File
                         set --local -- file {$long_flag} -- file
@@ -102,6 +113,17 @@ begin
             $mandate --flag=key -- sign
             $mandate --regex=initials --flag=tool -- 'commit|diffedit|resolve|restore|split'
             $mandate --regex=initials --flag=remote -- bookmark 'list|track|untrack'
+            begin # Git
+                set --local -- git {$mandate} git
+                $git --regex=initials --flag=remote -- 'clone|fetch|push'
+                $git --flag={depth,fetch-tags} -- clone
+                $git --flag=git-repo -- init
+                begin # Remote
+                    set --local -- remote {$git} remote
+                    $remote --flag={fetch-tags,push-url} -- add
+                    $remote --flag={push,fetch} -- set-url
+                end
+            end
         end
     end
 end
