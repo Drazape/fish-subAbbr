@@ -8,14 +8,14 @@ function sub-abbr --description='Create abbreviations for subcommands'
     $argparse --stop-nonopt 'h/help&' -- {$argv}
 
     # general sub-command reference
-    if set --local --query _flag_help
+    if set --local --query -- _flag_help
         help-text 'Context-aware Sub-Command abbreviations' \
             --sub-command={
                 'add | Create context-aware sub-command abbreviations',
                 'identity | Manage abbreviations by their identities'
             } \
             --flag='help:h | Show a reference manual for a sub-command'
-        return
+        return 0
     end
 
     # individual sub-commands
@@ -27,7 +27,7 @@ function sub-abbr --description='Create abbreviations for subcommands'
                     'list | List the identity of each loaded abbreviation',
                     'erase | Erase an abbreviation by it\'s identity'
                 }
-            return
+            return 0
         end
 
         set --function -- identity_prefix '_sub-abbr_expand '
@@ -60,7 +60,7 @@ function sub-abbr --description='Create abbreviations for subcommands'
                       '+Initial Args | Initial Arguments passed during creation', 
                       'Sub-Command | Sub-Command passed during creation'
                     }
-                return
+                return 0
             end
 
             set --local -- args {$argv[3..]} # Trimmed sub-commands: `identity` `erase`; Arguments used by this specific sub-command
@@ -108,7 +108,7 @@ function sub-abbr --description='Create abbreviations for subcommands'
                     'regex:r | Match command-line arguments with Regex. Essential (with '(set_color --background=brblack)sub-command(set_color --reset)') for multiple Initial Args permutations'{$inherited},
                     'expander:e | Use the output of a command as the Expansion'{$inherited}
                 }
-            return
+            return 0
         end
         ### Set Cursor
         set --query --local _flag_set_cursor && if test -z {$_flag_set_cursor}
