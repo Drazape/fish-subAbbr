@@ -155,8 +155,8 @@ function sub-abbr --description='Create abbreviations for subcommands'
                 abbr {$common_flags} -- "$subcommand"
             end
         end
-        function {$identity} --argument-names=subcommand --inherit-variable={expansion,initial_args,regex_initials,_flag_{degrade,regard_flags,expander}}
-            _sub-abbr_internal_expand-subcommand {$regex_initials} {$_flag_expander} {$_flag_degrade} {$_flag_regard_flags} -- {$subcommand} {$expansion} {$initial_args}
+        function {$identity} --argument-names=subcommand --inherit-variable={base_command,expansion,initial_args,regex_initials,_flag_{degrade,regard_flags,expander}}
+            _sub-abbr_internal_expand-subcommand {$regex_initials} {$_flag_expander} {$_flag_degrade} {$_flag_regard_flags} -- {$subcommand} {$expansion} {$base_command} {$initial_args}
         end
     else
         $print 'unknown sub-command:' (set_color --bold --background=brred){$argv[1]}(set_color --reset) >&2
