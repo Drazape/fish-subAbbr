@@ -42,25 +42,25 @@ Create personal Sub-Command abbreviations in the scope
 #### Sub-Commands
 ##### Add
 ###### Positional
-1. [**Initial Arguments**](https://github.com/Drazape/fish-subAbbr/wiki/Positional:-Initial-Arguments "wiki"): Precedes the *Sub-Command*. Becomes the new *Initial Arguments* for *Expansion*  
-2. [**Sub-Command**](https://github.com/Drazape/fish-subAbbr/wiki/Positional:-Sub-Command "wiki"): The *Sub-Command* to be replaced (expanded) by the *Expansion*. Comes after the *Initial Arguments*
-3. [**Expansion**](https://github.com/Drazape/fish-subAbbr/wiki/Positional:-Expansion "wiki"): The replacement (*Expansion*) of the typed *Sub-Command*. Becomes the new *Sub-Command* for the *Initial Arguments*
+1. [**Initial Arguments**](https://drazape.github.io/fish-subAbbr/Usage/Arguments/Positionals/Initial-Arguments/ "documentation"): Precedes the *Sub-Command*. Becomes the new *Initial Arguments* for *Expansion*  
+2. [**Sub-Command**](https://drazape.github.io/fish-subAbbr/Usage/Arguments/Positionals/Sub-Command/ "documentation"): The *Sub-Command* to be replaced (expanded) by the *Expansion*. Comes after the *Initial Arguments*
+3. [**Expansion**](https://drazape.github.io/fish-subAbbr/Usage/Arguments/Positionals/Expansion/ "documentation"): The replacement (*Expansion*) of the typed *Sub-Command*. Becomes the new *Sub-Command* for the *Initial Arguments*
 ###### Switches
 | Name | Description | Long | Short | Inherited [^inherited-switches] |
 | :--: | ----------- | :--: | :---: | :-----------------------------: |
-| [**Help**](https://github.com/Drazape/fish-subAbbr/wiki/Switch:-Help "wiki") | Show a reference manual — consisting of the [purpose](#sub-abbr "The purpose of the command") & [arguments](#Arguments "Descriptions on all the supported arguments") | `help` | `h` | ❌ |
-| [**Degrade**](https://github.com/Drazape/fish-subAbbr/wiki/Switch:-Degrade "wiki") | Disable toleration of `run0` as the command prefix; i.e., do not expand the *Sub-Command* if the *Initial Args* is prefixed with `run0` | `degrade` | `0` | ❌ |
-| [**Regard Flags**](https://github.com/Drazape/fish-subAbbr/wiki/Switch:-Regard-Flags "wiki") | Acknowledge flags in the *Initial Arguments*; If not set, switches in the *Initial Arguments* are ignored | `regard-flags` | `s` | ❌ |
-| [**RegExp**](https://github.com/Drazape/fish-subAbbr/wiki/Switch:-Regular-Expression "wiki") | Match *Sub-Command* with Regular Expressions. Essential (with `sub-command`) for abbreviating the same pair of *Sub-Command* & *Initial Arguments* [^multi-bases] | `regex` | `r` | ✅ |
-| [**Set Cursor**](https://github.com/Drazape/fish-subAbbr/wiki/Switch:-Set-Cursor "wiki") | Set the cursor to a position. Same usage as the internal switch | `set-cursor` | `c` | ✅ | 
-| [**Function**](https://github.com/Drazape/fish-subAbbr/wiki/Switch:-Function "wiki") | Use the output of a command as the *Expansion* | `function` | `f` | ✅ |
+| [**Help**](https://drazape.github.io/fish-subAbbr/Usage/Arguments/Universal-Switches/Help/ "documentation") | Show a reference manual — consisting of the [purpose](#sub-abbr "The purpose of the command") & [arguments](#Arguments "Descriptions on all the supported arguments") | `help` | `h` | ❌ |
+| [**Degrade**](https://drazape.github.io/fish-subAbbr/Usage/Arguments/Sub-Commands/Add/Switches/Degrade "documentation") | Disable toleration of `run0` as the command prefix; i.e., do not expand the *Sub-Command* if the *Initial Args* is prefixed with `run0` | `degrade` | `0` | ❌ |
+| [**Regard Flags**](https://drazape.github.io/fish-subAbbr/Usage/Arguments/Sub-Commands/Add/Switches/Regard-Flags "documentation") | Acknowledge flags in the *Initial Arguments*; If not set, switches in the *Initial Arguments* are ignored | `regard-flags` | `s` | ❌ |
+| [**RegExp**](https://drazape.github.io/fish-subAbbr/Usage/Arguments/Sub-Commands/Add/Switches/Regular-Expression "documentation") | Match *Sub-Command* with Regular Expressions. Essential (with `sub-command`) for abbreviating the same pair of *Sub-Command* & *Initial Arguments* [^multi-bases] | `regex` | `r` | ✅ |
+| [**Set Cursor**](https://drazape.github.io/fish-subAbbr/Usage/Arguments/Sub-Commands/Add/Switches/Set-Cursor "documentation") | Set the cursor to a position. Same usage as the internal switch | `set-cursor` | `c` | ✅ | 
+| [**Expander**](https://drazape.github.io/fish-subAbbr/Usage/Arguments/Sub-Commands/Add/Switches/Expander "documentation") | Use the output of a command as the *Expansion* | `function` | `f` | ✅ |
 ##### Identity
 Manage context-aware sub-command abbreviation by their identities
 ###### Erase
 Erase an abbr by its identity  
 **Positionals**:
-1. [**Initial Arguments**](https://github.com/Drazape/fish-subAbbr/wiki/Positional:-Initial-Arguments "wiki"): The *Initial Arguments* given to the abbreviation during creation
-2. [**Sub-Command**](https://github.com/Drazape/fish-subAbbr/wiki/Positional:-Sub-Command "wiki"): The *Sub-Command* given to the abbreviation during creation
+1. [**Initial Arguments**](https://drazape.github.io/fish-subAbbr/Usage/Arguments/Positionals/Initial-Arguments/ "wiki"): The *Initial Arguments* given to the abbreviation during creation
+2. [**Sub-Command**](https://drazape.github.io/fish-subAbbr/Usage/Arguments/Positionals/Sub-Command/ "wiki"): The *Sub-Command* given to the abbreviation during creation
 ###### List
 Get identities of loaded abbrs
 
@@ -89,7 +89,7 @@ curl -fsSL 'https://raw.githubusercontent.com/Drazape/fish-subAbbr/main/install.
 ```
 
 > [!IMPORTANT]
-> [More ways to install](https://github.com/Drazape/fish-subAbbr/wiki/Installation#Package-Manager "Distribution Package Managers")
+> [More ways to install](https://drazape.github.io/fish-subAbbr/Installation/#package-manager "Distribution Package Managers")
 
 
 [^simplification]: You can easily abbreviate base-commands, but there is no straight forward way to do the same with subcommands. After I finished developing this program, I found a GitHub [discussion](https://github.com/fish-shell/fish-shell/discussions/11682) & [Issue](https://github.com/fish-shell/fish-shell/issues/11944) in the Fish repository that comes up with this exact problem

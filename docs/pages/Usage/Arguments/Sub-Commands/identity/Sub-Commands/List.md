@@ -1,0 +1,31 @@
+---
+comments: true
+---
+
+# List
+List the identity of each content-aware abbreviation loaded
+
+## Properties
+|  Name  |  Parent  |
+| :----: | :------: |
+| `list` | [Identity](https://github.com/Drazape/fish-subAbbr/wiki/Sub-Command:-Identity "Manage abbr by their identities") |
+
+## Details
+- **No local args**: This sub-command doesn't accept any local arguments
+- **Uses**
+	- Intuitively erasing content-aware abbreviations (in case of sub-command [RegExp](https://github.com/Drazape/fish-subAbbr/wiki/Switch:-Regular-Expression "Match *Sub-Command* with RegExp"))
+	- Checking if a specific abbreviation already exists
+- **Implementation**: The output from `abbr` is parsed to get the identity encoded into the function name, which is further parsed to generate a human-intuitive identity
+- **Single ID**: Unlike `abbr` which can have the same identity repeated (and would require the `--command` flag), this program uses a content-addressable identity
+
+## Usage
+```fish
+sub-abbr <LIST FLAG>
+```
+
+### Output
+- **Delimiter** (for each entry): New-line (`\n`)
+- **Format**: (`~`|`r`)`: `*Base Command*` `*Initial Arguments*` `*Sub-Command*
+
+> [!NOTE]
+> *Sub-Command* in [Regular Expression](https://github.com/Drazape/fish-subAbbr/wiki/Switch:-Regular-Expression "Match *Sub-Command* with RegExp")s will be indicated with `r` prefixed to the initial `:`, while a fixed string *Sub-Command* will be `~:`*Sub-Command*
