@@ -19,7 +19,7 @@ List the identity of each content-aware abbreviation loaded
 - **Single ID**: Unlike `abbr` which can have the same identity repeated (and would require the `--command` flag), this program uses a content-addressable identity
 
 ## Usage
-```fish
+```fish {title="format"}
 sub-abbr <LIST FLAG>
 ```
 

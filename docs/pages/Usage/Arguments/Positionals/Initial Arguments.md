@@ -25,7 +25,7 @@ These are the arguments that must precede on the command-line for the *Sub-Comma
   - **Fixed String**: Each *Initial Argument* is plainly matched
 
 ## Usage
-```fish
+```fish {title="format"}
 sub-abbr <INITIAL_ARGUMENTS> <Sub-Command> <Expansion>
 ```
 

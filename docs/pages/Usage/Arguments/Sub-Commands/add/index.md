@@ -25,6 +25,6 @@ Create context-aware sub-command abbreviations
 | [**Expander**](https://github.com/Drazape/fish-subAbbr/wiki/Switch:-Expander "Wiki Page") | Use the output of a command as the *Expansion* | `expander` | `e` | ✅ |
 
 ## Usage
-```fish
+```fish {title="format"}
 sub-abbr add … <CREATION FLAGS> (?:`--`) …
 ```

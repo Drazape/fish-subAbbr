@@ -15,6 +15,6 @@ Manage context-aware Sub-Command abbreviations by their identities
 2. [**Erase**](https://github.com/Drazape/fish-subAbbr/wiki/ID:-Erase "Wiki Page"): Erase an abbr by its identity
 
 ## Usage
-```fish
+```fish {title="format"}
 sub-abbr add … <CREATION FLAGS> (?:`--`) …
 ```

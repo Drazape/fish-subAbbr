@@ -31,6 +31,6 @@ Match command-line arguments with *Regular Expression*s
 	- **Initial Arguments**: [*Initial Arguments*] in itself is a `sub-abbr` exclusive feature. Thus, manually matched
 
 ## Usage
-```fish
+```fish {title="format"}
 sub-abbr add … <REGEXP FLAG> (?:`--`) …
 ```

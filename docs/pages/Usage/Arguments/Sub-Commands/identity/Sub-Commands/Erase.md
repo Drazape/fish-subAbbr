@@ -25,6 +25,6 @@ Erase a content-aware abbreviation by its identity
 2. [**Sub-Command**](https://github.com/Drazape/fish-subAbbr/wiki/Positional:-Sub-Command "Wiki Page"): The *Sub-Command* passed during creation
 
 ## Usage
-```fish
+```fish {title="format"}
 sub-abbr identity erase <INITIAL ARGUMENTS> <SUB-COMMANDS>
 ```

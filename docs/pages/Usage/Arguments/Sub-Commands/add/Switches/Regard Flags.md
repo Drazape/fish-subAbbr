@@ -17,13 +17,13 @@ Acknowledge flags part of the *Initial Arguments*
 - **Implementation**: It otherwise uses `builtin argparse` to filter the flags (ignoring positionals disguised as "flags" after `--`)
 
 ## Usage
-```fish
+```fish {title="format"}
 sub-abbr add … <REGARD-FLAGS FLAG> (?:`--`) …
 ```
 
 ### Examples
 #### `eza` Git status only in the long form with icons
 Only show the Git status of files when in the long form, and icons are turned on
-```fish
+```fish {title="command"}
 sub-abbr add -s -- eza --long --icons{,\ --git}
 ```

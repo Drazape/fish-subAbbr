@@ -21,7 +21,7 @@ Dynamically expand using a command's output as the [*Expansion*](https://github.
 - **Implementation**: Not passed to `builtin abbr`. The command is executed manually, but the same arguments are passed.
 
 ## Usage
-```fish
+```fish {title="format"}
 sub-abbr add … <EXPANDER FLAG> (?:`--`) …
 ```
 

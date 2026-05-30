@@ -22,7 +22,7 @@ The string that replaces the *Sub-Command* on match
 - [⚙️](https://github.com/Drazape/fish-subAbbr/wiki/Switch:-Expander "Use a command's output as the *Expansion*") **Static String**: The *Expansion* is a static string that doesn't change.
 
 ## Usage
-```fish
+```fish {title="format"}
 sub-abbr <initial-arguments> <Sub-Command> <EXPANSION>
 ```
 

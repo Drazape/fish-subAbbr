@@ -18,6 +18,6 @@ Position the cursor at the delimiter present in the [*Expansion*](https://github
 - **Implementation**: It is directly passed to `builtin abbr`, along with the value
 
 ## Usage
-```fish
+```fish {title="format"}
 sub-abbr add … <SET-CURSOR FLAG> (?:`--`) …
 ```

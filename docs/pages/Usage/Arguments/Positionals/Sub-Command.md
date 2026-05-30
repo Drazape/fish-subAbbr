@@ -19,7 +19,7 @@ The *Sub-Command* token to be matched on the command-line
 - [⚙️](https://github.com/Drazape/fish-subAbbr/wiki/Switch:-Regular-Expression "Match command-line arguments with RegExp") **Plain String matching**: The expansion occurs when the *Sub-Command* matches as a plain string, not Regex
 
 ## Usage
-```fish
+```fish {title="format"}
 sub-abbr <initial-arguments> <SUB-COMMAND> <Expansion>
 ```
 
