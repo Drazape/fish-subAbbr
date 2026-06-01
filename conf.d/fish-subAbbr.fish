@@ -13,8 +13,8 @@ function _fish-subAbbr_install --on-event=fish-subAbbr_install --description='In
     prevd
 end
 
-function _fish-subAbbr_update --on-event=fish-subAbbr_update --description='Update dependency: fish-helpText'
-    fisher update Drazape/fish-subAbbr
+function _fish-subAbbr_update --on-event=fish-subAbbr_update --description='Update dependency: fish-helpText; redo installation steps'
+    fisher update Drazape/fish-helpText
     _fish-subAbbr_uninstall
     _fish-subAbbr_install
 end
