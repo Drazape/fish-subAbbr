@@ -18,23 +18,23 @@ social = [
   {
     name = "GitHub",
     icon = "fontawesome/brands/github",
-    link = "https://github.com/Drazape"
+    link = "https://github.com/Drazape",
   },
   {
     name = "Discord",
     icon = "fontawesome/brands/discord",
-    link = "https://discord.com/users/847672200139243540"
+    link = "https://discord.com/users/847672200139243540",
   },
   {
     name = "E-mail",
     icon = "fontawesome/solid/envelope",
-    link = "mailto:Drazape@outlook.com"
-  }
+    link = "mailto:Drazape@outlook.com",
+  },
 ]
 
 [project.extra.consent]
 title = "Cookie consent"
-actions = ["accept", "manage"]
+actions = ["accept", "manage",]
 description = """
     We use cookies to recognize your repeated visits and preferences, as well
     as to measure the effectiveness of our documentation and whether users
@@ -63,7 +63,7 @@ features = [
     "navigation.tabs",
     "navigation.sections",
     "navigation.top",
-    "navigation.tracking"
+    "navigation.tracking",
 ]
 
 [project.markdown_extensions]
@@ -80,24 +80,24 @@ arithmatex.generic = true
 betterem = {}
 caret = {}
 details = {}
-emoji = { emoji_generator = "zensical.extensions.emoji.to_svg", emoji_index = "zensical.extensions.emoji.twemoji" }
-highlight = { anchor_linenums = true, line_spans = "__span", pygments_lang_class = true }
+emoji = { emoji_generator = "zensical.extensions.emoji.to_svg", emoji_index = "zensical.extensions.emoji.twemoji", }
+highlight = { anchor_linenums = true, line_spans = "__span", pygments_lang_class = true, }
 inlinehilite = {}
 keys = {}
 magiclink = {}
 mark = {}
 smartsymbols = {}
-superfences.custom_fences = [{ name = "mermaid", class = "mermaid", format = "pymdownx.superfences.fence_code_format" }]
-tabbed = { alternate_style = true, combine_header_slug = true }
+superfences.custom_fences = [{ name = "mermaid", class = "mermaid", format = "pymdownx.superfences.fence_code_format", },]
+tabbed = { alternate_style = true, combine_header_slug = true, }
 tasklist.custom_checkbox = true
 tilde = {}
 
 [[project.theme.palette]]
 media = "(prefers-color-scheme: dark)"
 scheme = "slate"
-toggle = { icon = "lucide/moon", name = "Switch to light mode" }
+toggle = { icon = "lucide/moon", name = "Switch to light mode", }
 
 [[project.theme.palette]]
 media = "(prefers-color-scheme: light)"
 scheme = "default"
-toggle = { icon = "lucide/sun", name = "Switch to dark mode" }
+toggle = { icon = "lucide/sun", name = "Switch to dark mode", }

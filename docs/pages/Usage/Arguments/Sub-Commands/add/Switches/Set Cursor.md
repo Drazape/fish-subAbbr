@@ -3,7 +3,7 @@ comments: true
 ---
 
 # Set Cursor
-Position the cursor at the delimiter present in the [*Expansion*](https://github.com/Drazape/fish-subAbbr/wiki/Positional:-Sub-Command "Token to match & replace")
+Position the cursor at the separator present in the [*Expansion*](https://github.com/Drazape/fish-subAbbr/wiki/Positional:-Sub-Command "Token to match & replace")
 
 ## Properties
 |        Value       | Short |      Long    | Sub-Command | Inherited |
