@@ -11,8 +11,8 @@ Manage context-aware Sub-Command abbreviations by their identities
 | `add` |  None  |
 
 ## Arguments: Positionals: Sub-Commands
-1. [**List**](https://github.com/Drazape/fish-subAbbr/wiki/ID:-List "Wiki Page"): Get identities of loaded abbrs
-2. [**Erase**](https://github.com/Drazape/fish-subAbbr/wiki/ID:-Erase "Wiki Page"): Erase an abbr by its identity
+1. [**List**](Sub-Commands/List.md "Wiki Page"): Get identities of loaded abbrs
+2. [**Erase**](Sub-Commands/Erase.md "Wiki Page"): Erase an abbr by its identity
 
 ## Usage
 ```fish {title="format"}

@@ -18,8 +18,8 @@ The string that replaces the *Sub-Command* on match
 	- **Argument Passing**: Passed as a single token
 	- **Command-line**: Can comprise of multiple tokens (by including spaces; it replaces the *Sub-Command* as a literal string, not a token)
 ### Customizable Behavior
-- [⚙️](https://github.com/Drazape/fish-subAbbr/wiki/Switch:-Set-Cursor "Position the cursor at `%`") **End of command-line**: The cursor is placed after the ` ` suffix added to the *Expansion*
-- [⚙️](https://github.com/Drazape/fish-subAbbr/wiki/Switch:-Expander "Use a command's output as the *Expansion*") **Static String**: The *Expansion* is a static string that doesn't change.
+- [⚙️](../Sub-Commands/Add/Switches/Set-Cursor.md "Position the cursor at `%`") **End of command-line**: The cursor is placed after the ` ` suffix added to the *Expansion*
+- [⚙️](../Sub-Commands/Add/Switches/Expander.md "Use a command's output as the *Expansion*") **Static String**: The *Expansion* is a static string that doesn't change.
 
 ## Usage
 ```fish {title="format"}
