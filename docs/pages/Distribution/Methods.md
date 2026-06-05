@@ -4,7 +4,7 @@ comments: true
 
 # Methods
 ## Comparison
-|  ~  | [Official Repository](#Official-Repository){data-preview} | [3rd-party](#3rd-party){data-preview} |
+|  ~  | [Official Repository](#official-repository){data-preview} | [3rd-party](#3rd-party){data-preview} |
 | :-: | :-----------------------------------------: | ---------------------- |
 | **Distribution** | Via base package | Yourself. Users will have to install the package before using it. |
 | **Configuration** | ❌ | Optional |

@@ -28,3 +28,5 @@ Create context-aware sub-command abbreviations
 ```fish {title="format"}
 sub-abbr add … <CREATION FLAGS> (?:`--`) …
 ```
+
+[^inherited-switches]: These are supported switches inherited from `abbr` that can also be used with `sub-abbr`. These switches may or may not be passed directly to `abbr` and could also contain enhancements.
