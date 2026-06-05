@@ -8,8 +8,8 @@ This is an abstraction for Fish to create context-aware Sub-Command abbreviation
 
 ## Purpose
 This is a 3rd-party solution to the problems:
-- [Discussion](https://github.com/fish-shell/fish-shell/discussions/11682){data-preview}
-- [Issue](https://github.com/fish-shell/fish-shell/issues/11944){data-preview}
+- [Discussion](https://github.com/fish-shell/fish-shell/discussions/11682 "Discussion in the official Fish repository"){data-preview}
+- [Issue](https://github.com/fish-shell/fish-shell/issues/11944 "Issue in the official Fish repository"){data-preview}
 
 > [!NOTE]
 > These discussions in the official Fish repository were discovered after the first pre-release of the program. That means, it is primarily the product of the personal problem being faced by the developer.
