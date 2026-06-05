@@ -11,7 +11,7 @@ Acknowledge flags part of the *Initial Arguments*
 |  None |  `s`  | `regard-flags` |     Add     |     ❌    |
 
 ## Details
-- **Relation**: [*Initial Arguments*](../../../Positionals/Initial-Arguments.md "Args preceding *Sub-Command*") (command-line): flags — if found as one of the [*Initial Arguments*](../../../Positionals/Initial-Arguments.md "Args preceding *Sub-Command*") — aren't ignored, and must match for the expansion to occur
+- **Relation**: [*Initial Arguments*](../../../Positionals/Initial-Arguments.md "Args preceding *Sub-Command*"){data-preview} (command-line): flags — if found as one of the [*Initial Arguments*](../../../Positionals/Initial-Arguments.md "Args preceding *Sub-Command*"){data-preview} — aren't ignored, and must match for the expansion to occur
 - **Use-case**: Abbreviations only meaningful with a specific flag
 - **Effect**: It doesn't affect the passed *Initial Arguments*'s parsing, but makes abbreviations with flags passed (before `--`, obviously) expandable
 - **Implementation**: It otherwise uses `builtin argparse` to filter the flags (ignoring positionals disguised as "flags" after `--`)

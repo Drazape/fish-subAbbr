@@ -8,8 +8,8 @@ This is an abstraction for Fish to create context-aware Sub-Command abbreviation
 
 ## Purpose
 This is a 3rd-party solution to the problems:
-- [Discussion](https://github.com/fish-shell/fish-shell/discussions/11682)
-- [Issue](https://github.com/fish-shell/fish-shell/issues/11944)
+- [Discussion](https://github.com/fish-shell/fish-shell/discussions/11682){data-preview}
+- [Issue](https://github.com/fish-shell/fish-shell/issues/11944){data-preview}
 
 > [!NOTE]
 > These discussions in the official Fish repository were discovered after the first pre-release of the program. That means, it is primarily the product of the personal problem being faced by the developer.
@@ -21,9 +21,9 @@ Though the original `abbr` built-in is capable of creating all sorts of abbrevia
 - Hard customization
 
 ### Individual solutions
-The problem with this approach is that multiple repetitive functions are created, violating the [DRY principle](https://en.wikipedia.org/wiki/Don%27t_repeat_yourself "Wikipedia: Don't Repeat Yourself").
+The problem with this approach is that multiple repetitive functions are created, violating the [DRY principle](https://en.wikipedia.org/wiki/Don%27t_repeat_yourself "Wikipedia: Don't Repeat Yourself"){data-preview}.
 This leads to maintainability hell and difficulty & time-consumption in creating abbreviations. Any simple solutions lead to abbreviations that: 
-- [Fail on only Enter (not followed by space)](https://github.com/fish-shell/fish-shell/issues/11944#issuecomment-3478417297 "Fish issue")
+- [Fail on only Enter (not followed by space)](https://github.com/fish-shell/fish-shell/issues/11944#issuecomment-3478417297 "Fish issue"){data-preview}
 - Not expanded when used with switches
 - Require explicit handling of `run0`
 - Are tedious to modify

@@ -4,7 +4,7 @@ comments: true
 
 # Methods
 ## Comparison
-|  ~  | [Official Repository](#Official-Repository) | [3rd-party](#3rd-party) |
+|  ~  | [Official Repository](#Official-Repository){data-preview} | [3rd-party](#3rd-party){data-preview} |
 | :-: | :-----------------------------------------: | ---------------------- |
 | **Distribution** | Via base package | Yourself. Users will have to install the package before using it. |
 | **Configuration** | ❌ | Optional |
@@ -30,7 +30,7 @@ Each package is a single function in the repository that provides abbreviations 
 > The ancients can build their own museum (legacy-stone repository).
 
 > [!TIP]
-> Use the [function library](https://github.com/Drazape/fish-subAbbr/tree/main/functions/sub-abbr/lib/) to create packages more easily using abstractions
+> Use the [function library](https://github.com/Drazape/fish-subAbbr/tree/main/functions/sub-abbr/lib/){data-preview} to create packages more easily using abstractions
 
 ### 3rd-party
 3rd-party packages/repositories can use the program however they want. For example:
@@ -40,4 +40,4 @@ Each package is a single function in the repository that provides abbreviations 
 You might be able to get some creative inspiration by exploring existing packages/repositories, or you could also choose an unofficial repository if it suits your project better. 
 
 > [!TIP]
-> Make your 3rd-party project discoverable with the [topic](https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/classifying-your-repository-with-topics#adding-topics-to-your-repository): [`fish-subabbr`](https://github.com/topics/fish-subabbr)
+> Make your 3rd-party project discoverable with the [topic](https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/classifying-your-repository-with-topics#adding-topics-to-your-repository){data-preview}: [`fish-subabbr`](https://github.com/topics/fish-subabbr){data-preview}

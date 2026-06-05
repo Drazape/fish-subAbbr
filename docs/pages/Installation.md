@@ -4,12 +4,12 @@ comments: true
 
 # Installation
 ## Dependencies
-- [fish-helpText](https://github.com/Drazape/fish-helpText "Generate formatted console help reference texts") (`help-text`)
+- [fish-helpText](https://github.com/Drazape/fish-helpText "Generate formatted console help reference texts"){data-preview} (`help-text`)
 
 ## Procedure
 The installation involves moving Fish files from the directories
-- [`functions`](https://github.com/Drazape/fish-subAbbr/tree/main/functions) (→ `$fish_function_path`)
-- [`conf.d`](https://github.com/Drazape/fish-subAbbr/tree/main/conf.d)
+- [`functions`](https://github.com/Drazape/fish-subAbbr/tree/main/functions){data-preview} (→ `$fish_function_path`)
+- [`conf.d`](https://github.com/Drazape/fish-subAbbr/tree/main/conf.d){data-preview}
 
 to the appropriate paths in the host system, depending on the installation type.
 
@@ -21,7 +21,7 @@ Each file in `functions/` must be renamed such that each sub-directory's name is
 ### User
 #### Automatic: Package Manager
 Auto-updates via the package manager  
-[**Fisher**](https://github.com/jorgebucaran/fisher "Fish plugin manager"): `fisher install Drazape/fish-subAbbr`
+[**Fisher**](https://github.com/jorgebucaran/fisher "Fish plugin manager"){data-preview}: `fisher install Drazape/fish-subAbbr`
 #### Manual
 Move the directories into your Fish configuration in the home directory (`~/.config/fish/`):
 
@@ -41,7 +41,7 @@ A flake with convenient configuration options is planned.
 For now, the installation can be worked around (with automatic updates). This method is not supported and may stop working after an update.
 
 > [!WARNING]
-> You will need to manually install the dependency: [fish-helpText](https://github.com/Drazape/fish-helpText "Generate formatted console help reference texts")
+> You will need to manually install the dependency: [fish-helpText](https://github.com/Drazape/fish-helpText "Generate formatted console help reference texts"){data-preview}
 
 ```nix {hl_lines="3 4 5" title="flake.nix"}
 {
