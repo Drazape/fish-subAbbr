@@ -70,10 +70,10 @@ begin
                             $operation -- log d op-diff
                         end
                         begin # Git
-                            set --local git {$long_flag} git
-                            $git --mandatory --regex=initials -- 'clone|fetch' b{,ranch}
+                            set --local git {$long_flag} --mandatory git
+                            $git --regex=initials -- 'clone|fetch' b{,ranch}
                             begin
-                                set --local -- push {$git} push
+                                set --local -- push {$git} -- push
                                 $push b{,ookmark}
                                 $push r{,evision}
                                 $push c{,hange}
