@@ -1,5 +1,6 @@
 ---
 comments: true
+icon: lucide/id-card
 description: Manage context-aware Sub-Command abbreviations by their identities
 ---
 

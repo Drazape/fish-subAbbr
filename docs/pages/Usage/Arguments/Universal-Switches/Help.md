@@ -1,5 +1,6 @@
 ---
 comments: true
+icon: lucide/life-buoy
 description: Show a reference manual for the given sub-command
 ---
 

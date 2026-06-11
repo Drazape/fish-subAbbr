@@ -1,5 +1,6 @@
 ---
 comments: true
+icon: lucide/replace
 description: The *Sub-Command* token to be matched on the command-line
 ---
 

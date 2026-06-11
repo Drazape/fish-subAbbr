@@ -1,5 +1,6 @@
 ---
 comments: true
+icon: lucide/flag
 description: Acknowledge flags part of the *Initial Arguments*
 ---
 

@@ -1,5 +1,6 @@
 ---
 comments: true
+icon: lucide/list
 description: List the identity of each content-aware abbreviation loaded
 ---
 

@@ -1,5 +1,6 @@
 ---
 comments: true
+icon: lucide/circle-plus
 description: Create context-aware sub-command abbreviations
 ---
 

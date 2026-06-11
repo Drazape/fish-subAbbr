@@ -1,5 +1,6 @@
 ---
 comments: true
+icon: lucide/expand
 description: The string that replaces the *Sub-Command* on match
 ---
 

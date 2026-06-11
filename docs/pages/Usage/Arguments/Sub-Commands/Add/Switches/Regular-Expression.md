@@ -1,5 +1,6 @@
 ---
 comments: true
+icon: lucide/equal-approximately
 description: Match command-line arguments with *Regular Expression*s
 ---
 

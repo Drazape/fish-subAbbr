@@ -1,5 +1,6 @@
 ---
 comments: true
+icon: lucide/eraser
 description: Erase a content-aware abbreviation by its identity
 ---
 

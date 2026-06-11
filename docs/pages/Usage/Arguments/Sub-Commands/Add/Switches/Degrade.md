@@ -1,5 +1,6 @@
 ---
 comments: true
+icon: lucide/arrow-big-down-dash
 description: Disable `run0` command-prefix toleration
 ---
 

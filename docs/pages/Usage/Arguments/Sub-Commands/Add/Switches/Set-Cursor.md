@@ -1,5 +1,6 @@
 ---
 comments: true
+icon: lucide/map-pin
 description: Position the cursor at the separator present in the [*Expansion*](../../../Positionals/Sub-Command.md "Token to match & replace"){data-preview}
 ---
 
