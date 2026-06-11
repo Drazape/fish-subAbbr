@@ -26,8 +26,8 @@ sub-abbr <initial-arguments> <SUB-COMMAND> <Expansion>
 ```
 
 ### Examples
-> [!NOTE]
-> The *Sub-Command*s are indicated in **Bold**
+!!! note
+    The *Sub-Command*s are indicated in **Bold**
 
 - `sub-abbr jj `**`ci`**` commit`
 - `sub-abbr -0c run0 nh os `**`switch`**` 'switch % --bypass-root-check'`

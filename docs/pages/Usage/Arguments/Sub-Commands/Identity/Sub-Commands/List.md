@@ -29,5 +29,5 @@ sub-abbr <LIST FLAG>
 - **Delimiter** (for each entry): New-line (`\n`)
 - **Format**: (`~`|`r`)`: `*Base Command*` `*Initial Arguments*` `*Sub-Command*
 
-> [!NOTE]
-> *Sub-Command* in [Regular Expression](../../Add/Switches/Regular-Expression.md "Match *Sub-Command* with RegExp"){data-preview}s will be indicated with `r` prefixed to the initial `:`, while a fixed string *Sub-Command* will be `~:`*Sub-Command*
+!!! note
+    *Sub-Command* in [Regular Expression](../../Add/Switches/Regular-Expression.md "Match *Sub-Command* with RegExp"){data-preview}s will be indicated with `r` prefixed to the initial `:`, while a fixed string *Sub-Command* will be `~:`*Sub-Command*

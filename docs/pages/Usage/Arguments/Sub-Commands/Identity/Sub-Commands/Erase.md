@@ -19,8 +19,8 @@ Erase a content-aware abbreviation by its identity
 	- *RegExp*: the entire command-line
 	- *Fixed String*: The Sub-Command (`builtin abbr` limitation)
 
-> [!TIP]
-> In case of Fixed Strings, it is always more intuitive to use the built-in `abbr --erase <Sub-Command>` (interactively)
+!!! tip
+    In case of Fixed Strings, it is always more intuitive to use the built-in `abbr --erase <Sub-Command>` (interactively)
 
 ## Arguments
 1. [**Initial Arguments**](../../../Positionals/Initial-Arguments.md "Wiki Page"){data-preview}: The *Initial Arguments* passed during creation

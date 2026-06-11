@@ -12,9 +12,9 @@ These are the arguments that must precede on the command-line for the *Sub-Comma
 | :------: | :----------------: |
 | `1`:`-3` |          1         |
 
-> [!NOTE]
-> ### Requirement
-> This is the part that differentiates the built-in `abbr` from `sub-abbr`. If it is not to be passed, then `abbr` can be directly used.
+!!! note
+    ### Requirement
+    This is the part that differentiates the built-in `abbr` from `sub-abbr`. If it is not to be passed, then `abbr` can be directly used.
 
 ## Details
 - **Relation with other positionals**: The *Initial Arguments* given that precede the *Sub-Command* to be expanded become the *Initial Arguments* of the *Expansion* upon expansion
@@ -32,11 +32,10 @@ sub-abbr <INITIAL_ARGUMENTS> <Sub-Command> <Expansion>
 ```
 
 ### Examples
-> [!NOTE]
-> The *Initial Arguments* are indicated in **Bold**
-
-- `sub-abbr `**`jj`**` ci commit`
-- `sub-abbr -0c `**`run0 nh os`**` switch 'switch % --bypass-root-check'`
+!!! note
+    The *Initial Arguments* are indicated in **Bold**
+    - `sub-abbr `**`jj`**` ci commit`
+    - `sub-abbr -0c `**`run0 nh os`**` switch 'switch % --bypass-root-check'`
 
 ## Implementation Details
 Each argument is separately matched by parsing the command-line so that:
