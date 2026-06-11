@@ -1,5 +1,6 @@
 ---
 comments: true
+description: Disable `run0` command-prefix toleration
 ---
 
 # Degrade

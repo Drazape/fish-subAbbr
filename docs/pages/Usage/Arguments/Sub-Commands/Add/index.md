@@ -1,5 +1,6 @@
 ---
 comments: true
+description: Create context-aware sub-command abbreviations
 ---
 
 # Add

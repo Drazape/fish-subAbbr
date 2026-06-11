@@ -1,5 +1,6 @@
 ---
 comments: true
+description: List the identity of each content-aware abbreviation loaded
 ---
 
 # List

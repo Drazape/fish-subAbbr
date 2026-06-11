@@ -1,5 +1,6 @@
 ---
 comments: true
+description: Manage context-aware Sub-Command abbreviations by their identities
 ---
 
 # Identity

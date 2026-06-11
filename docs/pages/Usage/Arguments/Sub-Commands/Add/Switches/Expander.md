@@ -1,5 +1,6 @@
 ---
 comments: true
+description: Dynamically expand using a command's output as the [*Expansion*](Expander.md "Use a command's output as the *Expansion*"){data-preview}) string
 ---
 
 # Expander

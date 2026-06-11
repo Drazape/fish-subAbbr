@@ -1,5 +1,6 @@
 ---
 comments: true
+description: Match command-line arguments with *Regular Expression*s
 ---
 
 # Regular Expression

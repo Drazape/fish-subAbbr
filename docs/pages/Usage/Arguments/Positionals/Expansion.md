@@ -1,5 +1,6 @@
 ---
 comments: true
+description: The string that replaces the *Sub-Command* on match
 ---
 
 # Expansion

@@ -1,5 +1,6 @@
 ---
 comments: true
+description: Show a reference manual for the given sub-command
 ---
 
 # Help

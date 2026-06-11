@@ -1,5 +1,6 @@
 ---
 comments: true
+description: The *Sub-Command* token to be matched on the command-line
 ---
 
 # Sub-Command

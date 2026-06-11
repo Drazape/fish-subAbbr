@@ -1,5 +1,6 @@
 ---
 comments: true
+description: Erase a content-aware abbreviation by its identity
 ---
 
 # Erase

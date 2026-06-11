@@ -1,5 +1,6 @@
 ---
 comments: true
+description: These are the arguments that must precede on the command-line for the *Sub-Command* to be expanded.
 ---
 
 # Initial Arguments
