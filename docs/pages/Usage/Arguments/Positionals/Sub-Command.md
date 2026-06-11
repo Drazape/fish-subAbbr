@@ -26,7 +26,7 @@ sub-abbr <initial-arguments> <SUB-COMMAND> <Expansion>
 ```
 
 ### Examples
-!!! note
+!!! note "Indication"
     The *Sub-Command*s are indicated in **Bold**
 
 - `sub-abbr jj `**`ci`**` commit`

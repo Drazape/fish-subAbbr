@@ -15,7 +15,7 @@ The installation involves moving Fish files from the directories
 to the appropriate paths in the host system, depending on the installation type.
 
 Each file in `functions/` must be renamed such that each sub-directory's name is prefixed to it such that the file name is `parentDir_childDir_file`
-!!! tip
+!!! tip "Function Name"
     See the function's name in the respective file to obtain the file-name of it (`.fish` suffixed)
 
 ## Scope
@@ -41,7 +41,7 @@ A flake with convenient configuration options is planned.
 
 For now, the installation can be worked around (with automatic updates). This method is not supported and may stop working after an update.
 
-!!! warning
+!!! warning "Manual Dependency"
     You will need to manually install the dependency: [fish-helpText](https://github.com/Drazape/fish-helpText "Generate formatted console help reference texts"){data-preview}
 
 ```nix {hl_lines="3 4 5" title="flake.nix"}

@@ -19,7 +19,7 @@ Erase a content-aware abbreviation by its identity
 	- *RegExp*: the entire command-line
 	- *Fixed String*: The Sub-Command (`builtin abbr` limitation)
 
-!!! tip
+!!! tip "Alt Fixed Strings eraser"
     In case of Fixed Strings, it is always more intuitive to use the built-in `abbr --erase <Sub-Command>` (interactively)
 
 ## Arguments

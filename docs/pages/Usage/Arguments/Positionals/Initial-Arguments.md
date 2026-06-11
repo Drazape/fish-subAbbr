@@ -12,8 +12,7 @@ These are the arguments that must precede on the command-line for the *Sub-Comma
 | :------: | :----------------: |
 | `1`:`-3` |          1         |
 
-!!! note
-    ### Requirement
+!!! note "Requirement"
     This is the part that differentiates the built-in `abbr` from `sub-abbr`. If it is not to be passed, then `abbr` can be directly used.
 
 ## Details
@@ -32,7 +31,7 @@ sub-abbr <INITIAL_ARGUMENTS> <Sub-Command> <Expansion>
 ```
 
 ### Examples
-!!! note
+!!! note "Indication"
     The *Initial Arguments* are indicated in **Bold**
     - `sub-abbr `**`jj`**` ci commit`
     - `sub-abbr -0c `**`run0 nh os`**` switch 'switch % --bypass-root-check'`
