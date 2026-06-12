@@ -30,6 +30,6 @@ sub-abbr add -0s run0 {,--empower\ }touch
 
 #### Expanding only with `run0`
 Only bypass *root check* on an attempt to run as `root`
-```fish {title="command"}}
+```fish {title="command"}
 sub-abbr add -0c run0 nh os switch{,' % --bypass-root-check'}
 ```
