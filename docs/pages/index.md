@@ -9,6 +9,7 @@ This is an abstraction for Fish to create context-aware Sub-Command abbreviation
 
 ## Purpose
 This is a 3rd-party solution to the problems:
+
 - [Discussion](https://github.com/fish-shell/fish-shell/discussions/11682 "Discussion in the official Fish repository"){data-preview}
 - [Issue](https://github.com/fish-shell/fish-shell/issues/11944 "Issue in the official Fish repository"){data-preview}
 
@@ -17,13 +18,15 @@ This is a 3rd-party solution to the problems:
 
 ### Internal Built-in
 Though the original `abbr` built-in is capable of creating all sorts of abbreviations, if we use the built-in methods without any complex custom functions and parsing of `commandline`, it leads to abbreviations that are
+
 - Fired off even when the subcommand lies in unexpected positions
 - Not fired off when used with `run0`
 - Hard customization
 
 ### Individual solutions
 The problem with this approach is that multiple repetitive functions are created, violating the [DRY principle](https://en.wikipedia.org/wiki/Don%27t_repeat_yourself "Wikipedia: Don't Repeat Yourself"){data-preview}.
-This leads to maintainability hell and difficulty & time-consumption in creating abbreviations. Any simple solutions lead to abbreviations that: 
+This leads to maintainability hell and difficulty & time-consumption in creating abbreviations. Any simple solutions lead to abbreviations that:
+
 - [Fail on only Enter (not followed by space)](https://github.com/fish-shell/fish-shell/issues/11944#issuecomment-3478417297 "Fish issue"){data-preview}
 - Not expanded when used with switches
 - Require explicit handling of `run0`
@@ -34,6 +37,7 @@ This leads to maintainability hell and difficulty & time-consumption in creating
 
 ### Birth Aim
 This program is designed to
+
 - Tackle these issues
 - Accessible creation of such abbreviations
 - Remain customizable for complex abbreviations

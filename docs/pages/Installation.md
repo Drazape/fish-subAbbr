@@ -5,10 +5,12 @@ icon: lucide/download
 
 # Installation
 ## Dependencies
+
 - [fish-helpText](https://github.com/Drazape/fish-helpText "Generate formatted console help reference texts"){data-preview} (`help-text`)
 
 ## Procedure
 The installation involves moving Fish files from the directories
+
 - [`functions`](https://github.com/Drazape/fish-subAbbr/tree/main/functions){data-preview} (→ `$fish_function_path`)
 - [`conf.d`](https://github.com/Drazape/fish-subAbbr/tree/main/conf.d){data-preview}
 
@@ -83,5 +85,6 @@ For now, the installation can be worked around (with automatic updates). This me
 
 #### Manual
 The files must be moved to the vendor (`vendor_*.d`) system-wide path
+
 - **Package Manager**: Normal system path managed by the package manager
 - **Local**: Local directory for non-packaged programs

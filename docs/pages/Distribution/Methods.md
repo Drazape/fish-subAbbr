@@ -14,6 +14,7 @@ icon: lucide/signpost
 
 ???+ note "Prefixes"
     Each official repository-compatible package is simply a function. The functions outside the official repository must have a unique suffix to avoid conflicts, while the official repository packages are prohibited from having one.
+
     - **Official**: `_sub-abbr_pkg_<command>`
     - **3rd-party**:
     	- **Single-Command**: `_sub-abbr_pkg_<command>_<pkgname/purpose>`
@@ -35,6 +36,7 @@ Each package is a single function in the repository that provides abbreviations 
 
 ### 3rd-party
 3rd-party packages/repositories can use the program however they want. For example:
+
 - Simple packages can directly distribute the abbreviations into shell initialization configuration. This way they don't need to be enabled after they have been installed (it was installed for the purpose of using it after all)
 - Complex packages can ship their own commands and front-ends to configure the abbreviations and provide other features
 - Packages may or may not choose to maintain compatibility with the official repository helper: `sub-abbrs`.
