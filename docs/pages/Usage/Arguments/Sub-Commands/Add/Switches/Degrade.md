@@ -13,7 +13,7 @@ Disable `run0` command-prefix toleration
 |  None |  `0`  | `degrade` |     Add     |     ❌    |
 
 ## Details
-- **Relation**: [*Initial Arguments*](../../../Positionals/Initial-Arguments.md "Args preceding *Sub-Command*"){data-preview}: prepended `run0` would no longer be specially accepted
+- **Relation**: *Initial Arguments*: prepended `run0` would no longer be specially accepted
 - **Use-case**: For abbreviating commands that must be elevated for the expansion to occur
 
 ## Usage
