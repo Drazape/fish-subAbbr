@@ -28,9 +28,9 @@ The string that replaces the *Sub-Command* on match
 sub-abbr <initial-arguments> <Sub-Command> <EXPANSION>
 ```
 
-### Examples
-!!! note
-    The *Expansion*s are indicated in **Bold**
+!!! example
+    !!! note "Indication"
+        The [*Expansion*](./Expansion.md){data-preview}s are indicated in **Bold**
 
-- `sub-abbr jj ci `**`commit`**
-- `sub-abbr -0c run0 nh os switch `**`'switch % --bypass-root-check'`**
+    - `sub-abbr jj ci `**`commit`**
+    - `sub-abbr -0c run0 nh os switch `**`'switch % --bypass-root-check'`**

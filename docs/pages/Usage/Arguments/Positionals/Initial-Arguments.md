@@ -30,9 +30,10 @@ These are the arguments that must precede on the command-line for the *Sub-Comma
 sub-abbr <INITIAL_ARGUMENTS> <Sub-Command> <Expansion>
 ```
 
-### Examples
-!!! note "Indication"
-    The *Initial Arguments* are indicated in **Bold**
+!!! example
+    !!! note "Indication"
+        The [*Initial Arguments*](./Initial-Arguments.md){data-preview} are indicated in **Bold**
+
     - `sub-abbr `**`jj`**` ci commit`
     - `sub-abbr -0c `**`run0 nh os`**` switch 'switch % --bypass-root-check'`
 

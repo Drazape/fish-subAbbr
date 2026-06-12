@@ -12,7 +12,7 @@ icon: lucide/signpost
 | **Updates** | Delayed for review | Direct |
 | **Suffix** | Prohibited | Required |
 
-???+ note "Prefixes"
+???+ info "Prefixes"
     Each official repository-compatible package is simply a function. The functions outside the official repository must have a unique suffix to avoid conflicts, while the official repository packages are prohibited from having one.
 
     - **Official**: `_sub-abbr_pkg_<command>`

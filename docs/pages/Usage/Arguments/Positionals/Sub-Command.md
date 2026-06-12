@@ -25,9 +25,9 @@ The *Sub-Command* token to be matched on the command-line
 sub-abbr <initial-arguments> <SUB-COMMAND> <Expansion>
 ```
 
-### Examples
-!!! note "Indication"
-    The *Sub-Command*s are indicated in **Bold**
+!!! Example
+    !!! note "Indication"
+        The *Sub-Command*s are indicated in **Bold**
 
-- `sub-abbr jj `**`ci`**` commit`
-- `sub-abbr -0c run0 nh os `**`switch`**` 'switch % --bypass-root-check'`
+    - `sub-abbr jj `**`ci`**` commit`
+    - `sub-abbr -0c run0 nh os `**`switch`**` 'switch % --bypass-root-check'`

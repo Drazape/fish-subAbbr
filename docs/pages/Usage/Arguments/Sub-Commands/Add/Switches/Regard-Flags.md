@@ -23,9 +23,9 @@ Acknowledge flags part of the *Initial Arguments*
 sub-abbr add … <REGARD-FLAGS FLAG> (?:`--`) …
 ```
 
-### Examples
-#### `eza` Git status only in the long form with icons
-Only show the Git status of files when in the long form, and icons are turned on
-```fish {title="command"}
-sub-abbr add -s -- eza --long --icons{,\ --git}
-```
+!!! example
+    #### `eza` Git status only in the long form with icons
+    Only show the Git status of files when in the long form, and icons are turned on
+    ```fish {title="command"}
+    sub-abbr add -s -- eza --long --icons{,\ --git}
+    ```
