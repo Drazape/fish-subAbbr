@@ -20,7 +20,7 @@ Erase a content-aware abbreviation by its identity
 	- *Fixed String*: The Sub-Command (`builtin abbr` limitation)
 
 !!! tip "Alt Fixed Strings eraser"
-    In case of Fixed Strings, it is always more intuitive to use the built-in `abbr --erase <Sub-Command>` (interactively)
+    In case of Fixed Strings, it is always more intuitive to use the built-in `#!fish abbr --erase <Sub-Command>` (interactively)
 
 ## Arguments
 1. [**Initial Arguments**](../../../Positionals/Initial-Arguments.md "Wiki Page"){data-preview}: The *Initial Arguments* passed during creation

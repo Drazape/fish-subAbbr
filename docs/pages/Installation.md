@@ -24,7 +24,7 @@ Each file in `functions/` must be renamed such that each sub-directory's name is
 ### User
 #### Automatic: Package Manager
 Auto-updates via the package manager  
-[**Fisher**](https://github.com/jorgebucaran/fisher "Fish plugin manager"){data-preview}: `fisher install Drazape/fish-subAbbr`
+[**Fisher**](https://github.com/jorgebucaran/fisher "Fish plugin manager"){data-preview}: `#!fish fisher install Drazape/fish-subAbbr`
 #### Manual
 Move the directories into your Fish configuration in the home directory (`~/.config/fish/`):
 
