@@ -8,10 +8,11 @@ function sub-abbr --description='Create abbreviations for subcommands'
     $argparse --stop-nonopt 'h/help&' -- {$argv}
 
     # general sub-command reference
+    set --local -- add_description 'Create context-aware sub-command abbreviations'
     if set --local --query -- _flag_help
         help-text 'Context-aware Sub-Command abbreviations' \
             --sub-command={
-                'add | Create context-aware sub-command abbreviations',
+                'add | '{$add_description},
                 'identity | Manage abbreviations by their identities'
             } \
             --flag='help:h | Show a reference manual for a sub-command'
@@ -21,12 +22,13 @@ function sub-abbr --description='Create abbreviations for subcommands'
     # individual sub-commands
     switch "$argv[1]"
         case identity
+            set --local -- erase_description 'Erase an abbreviation by it\'s identity'
             $argparse --stop-nonopt 'h/help&' -- {$argv}
             if set --query --local _flag_help
                 help-text 'Manage context-aware Sub-Command abbreviations by their identities' \
                     --sub-command={
                     'list | List the identity of each loaded abbreviation',
-                    'erase | Erase an abbreviation by it\'s identity'
+                    'erase | '{$erase_description}
                 }
                 return 0
             end
@@ -57,7 +59,7 @@ function sub-abbr --description='Create abbreviations for subcommands'
                 case erase
                     $argparse 'h/help&' -- {$argv}
                     if set --query --local _flag_help
-                        help-text 'Erase an abbreviation by it\'s identity' \
+                        help-text {$erase_description} \
                             --positional={
                       '+Initial Args | Initial Arguments passed during creation', 
                       'Sub-Command | Sub-Command passed during creation'
