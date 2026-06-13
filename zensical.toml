@@ -98,6 +98,7 @@ md_in_html = {}
 toc.permalink = true
 
 [project.markdown_extensions.pymdownx]
+blocks.caption = {}
 arithmatex.generic = true
 betterem = {}
 caret = {}
