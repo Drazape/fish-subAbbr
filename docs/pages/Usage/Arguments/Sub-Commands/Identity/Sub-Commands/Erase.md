@@ -27,6 +27,6 @@ Erase a content-aware abbreviation by its identity
 2. [**Sub-Command**](../../../Positionals/Sub-Command.md "Wiki Page"){data-preview}: The *Sub-Command* passed during creation
 
 ## Usage
-```fish {title="format" .no-copy}
+```fish {title="format" .no-copy .no-select}
 sub-abbr identity erase <INITIAL ARGUMENTS> <SUB-COMMANDS>
 ```

@@ -32,7 +32,7 @@ Move the directories into your Fish configuration in the home directory (`~/.con
 #### Automatic
 ##### Script (local)
 This locally installs the program and updates each time it is run
-```fish {title="curl-to-fish script"}
+```fish {title="curl-to-fish script" .no-select}
 curl -fsSL 'https://raw.githubusercontent.com/Drazape/fish-subAbbr/main/install.fish' | run0 fish -NP
 ```
 ##### Package Manager
