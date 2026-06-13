@@ -20,6 +20,6 @@ Position the cursor at the separator present in the [*Expansion*](../../../Posit
 - **Implementation**: It is directly passed to `builtin abbr`, along with the value
 
 ## Usage
-```fish {title="format"}
+```fish {title="format" .no-copy}
 sub-abbr add … <SET-CURSOR FLAG> (?:`--`) …
 ```

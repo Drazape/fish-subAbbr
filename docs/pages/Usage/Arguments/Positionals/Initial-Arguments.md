@@ -26,7 +26,7 @@ These are the arguments that must precede on the command-line for the *Sub-Comma
   - **Fixed String**: Each [*Initial Argument*](./Initial-Arguments.md){data-preview} is plainly matched
 
 ## Usage
-```fish {title="format"}
+```fish {title="format" .no-copy}
 sub-abbr <INITIAL_ARGUMENTS> <Sub-Command> <Expansion>
 ```
 

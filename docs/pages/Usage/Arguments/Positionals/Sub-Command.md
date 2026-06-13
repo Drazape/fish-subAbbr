@@ -21,7 +21,7 @@ The *Sub-Command* token to be matched on the command-line
 - [⚙️](../Sub-Commands/Add/Switches/Regular-Expression.md "Match command-line arguments with RegExp"){data-preview} **Plain String matching**: The expansion occurs when the *Sub-Command* matches as a plain string, not Regex
 
 ## Usage
-```fish {title="format"}
+```fish {title="format" .no-copy}
 sub-abbr <initial-arguments> <SUB-COMMAND> <Expansion>
 ```
 

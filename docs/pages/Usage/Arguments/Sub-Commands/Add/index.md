@@ -27,7 +27,7 @@ Create context-aware sub-command abbreviations
 | [**Expander**](Switches/Expander.md "Wiki Page"){data-preview} | Use the output of a command as the [*Expansion*](../../Positionals/Expansion.md){data-preview} | `expander` | `e` | ✅ |
 
 ## Usage
-```fish {title="format"}
+```fish {title="format" .no-copy}
 sub-abbr add … <CREATION FLAGS> (?:`--`) …
 ```
 

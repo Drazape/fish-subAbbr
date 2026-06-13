@@ -23,7 +23,7 @@ Dynamically expand using a command's output as the [*Expansion*](Expander.md "Us
 - **Implementation**: Not passed to `builtin abbr`. The command is executed manually, but the same arguments are passed.
 
 ## Usage
-```fish {title="format"}
+```fish {title="format" .no-copy}
 sub-abbr add … <EXPANDER FLAG> (?:`--`) …
 ```
 

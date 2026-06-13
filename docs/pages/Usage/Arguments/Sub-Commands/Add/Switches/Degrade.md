@@ -17,7 +17,7 @@ Disable `run0` command-prefix toleration
 - **Use-case**: For abbreviating commands that must be elevated for the expansion to occur
 
 ## Usage
-```fish {title="format"}
+```fish {title="format" .no-copy}
 sub-abbr add … <DEGRADE FLAG> (?:`--`) …
 ```
 

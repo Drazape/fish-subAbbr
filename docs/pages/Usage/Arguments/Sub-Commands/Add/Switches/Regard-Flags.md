@@ -19,7 +19,7 @@ Acknowledge flags part of the *Initial Arguments*
 - **Implementation**: It otherwise uses `builtin argparse` to filter the flags (ignoring positionals disguised as "flags" after `--`)
 
 ## Usage
-```fish {title="format"}
+```fish {title="format" .no-copy}
 sub-abbr add … <REGARD-FLAGS FLAG> (?:`--`) …
 ```
 
