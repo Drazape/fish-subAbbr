@@ -22,8 +22,9 @@ function sub-abbr --description='Create abbreviations for subcommands'
     # individual sub-commands
     switch "$argv[1]"
         case identity
+            set --local -- identity_args {$argv[2..]} # arguments excluding the root sub-command
             set --local -- erase_description 'Erase an abbreviation by it\'s identity'
-            $argparse --stop-nonopt 'h/help&' -- {$argv}
+            $argparse --stop-nonopt 'h/help&' -- {$identity_args}
             if set --query --local _flag_help
                 help-text 'Manage context-aware Sub-Command abbreviations by their identities' \
                     --sub-command={
@@ -49,37 +50,37 @@ function sub-abbr --description='Create abbreviations for subcommands'
             end
 
             # sub-commands
-            switch "$argv[2]"
+            switch "$identity_args[1]"
                 case list
-                    if test (count {$argv}) != 2
+                    if test (count {$identity_args}) != 1
                         $print 'arguments not accepted'
                         return 1
                     end
                     string repeat 1 {$identities}
                 case erase
-                    $argparse 'h/help&' -- {$argv}
+                    set --local -- passed_identities {$identity_args[2..]} # Trimmed sub-commands: `identity` `erase`; Arguments used by this specific sub-command
+                    $argparse 'h/help&' -- {$passed_identities}
                     if set --query --local _flag_help
                         help-text {$erase_description} \
                             --positional={
-                      '+Initial Args | Initial Arguments passed during creation', 
+                      '+Initial passed_identities | Initial Arguments passed during creation', 
                       'Sub-Command | Sub-Command passed during creation'
                     }
                         return 0
                     end
 
-                    set --local -- args {$argv[3..]} # Trimmed sub-commands: `identity` `erase`; Arguments used by this specific sub-command
-                    _sub-abbr_internal_verify-arg_more-args 1 {$args} || return 1
+                    _sub-abbr_internal_verify-arg_more-args 1 {$passed_identities} || return 1
 
                     # main operation
                     ## verify existance
-                    for identity in {$args}
+                    for identity in {$passed_identities}
                         if ! contains {$identity} {$identities}
                             $print 'unknown context-aware sub-command abbreviation:' (set_color --bold --italics red){$identity}(set_color --reset) >&2
                             return 2
                         end
                     end
                     ## erase depending on type
-                    for identity in {$args}
+                    for identity in {$passed_identities}
                         set --local -- internal_identity
                         if test (string sub --end=1 -- {$identity}) = \~
                             set -- internal_identity (string split --right --max=1 --fields=2 -- ' ' {$identity})
@@ -90,7 +91,7 @@ function sub-abbr --description='Create abbreviations for subcommands'
                         abbr --erase --command={$$commands} -- {$internal_identity}
                     end
                 case \*
-                    $print unknown (set_color --italics)Identity(set_color --reset) sub-command: (set_color --bold --background=brred){$argv[2]}(set_color --reset) >&2
+                    $print unknown (set_color --italics)Identity(set_color --reset) sub-command: (set_color --bold --background=brred){$identity_args[1]}(set_color --reset) >&2
             end
         case add
             # arguments
@@ -127,14 +128,14 @@ function sub-abbr --description='Create abbreviations for subcommands'
             contains -- initials {$_flag_regex} && set --function -- regex_initials --regex
             ## Positional
             begin
-                set --local -- args {$argv[2..]} # Trimmed sub-command `add`; Arguments used by this specific sub-command
+                set --local -- add_args {$argv[2..]} # Trimmed sub-command `add`; Arguments used by this specific sub-command
                 # appropriate number of arguments. Not using `argparse` so that `--help can have as many arguments as it wants` and better formatted output
-                _sub-abbr_internal_verify-arg_more-args 3 {$args} || return 2
+                _sub-abbr_internal_verify-arg_more-args 3 {$add_args} || return 2
                 # Name arguments
-                set --function base_command {$args[1]}
-                set --function initial_args {$args[2..-3]}
-                set --function subcommand {$args[-2]}
-                set --function expansion {$args[-1]}
+                set --function base_command {$add_args[1]}
+                set --function initial_args {$add_args[2..-3]}
+                set --function subcommand {$add_args[-2]}
+                set --function expansion {$add_args[-1]}
                 # compatible subcommand name: must be a single token
                 begin
                     if _sub-abbr_internal_verify-arg_subcommand-contains ' ' || _sub-abbr_internal_verify-arg_subcommand-contains \n
