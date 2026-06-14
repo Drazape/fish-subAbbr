@@ -1,17 +1,21 @@
 set --local -- common_complete complete --command=sub-abbr --no-files
 
 $common_complete
-$common_complete --short-option=h --long-option=help --description='Reference manuals' --condition='set --local -- subcommands (commandline -xpc)[2..3]; test "$subcommands[1]" = identity && test "$subcommands[2]" != list'
+$common_complete --short-option=h --long-option=help --description='Reference manuals' \
+    --condition='set --local -- unbase (commandline --tokens-expanded --current-process --cut-at-cursor)[2..3]
+                test "$unbase[1]" = identity && test "$unbase[2]" != list'
 
 set --local -- subcommand_complete {$common_complete} --condition='test (count (commandline -xpc)) -lt 2'
 $subcommand_complete --arguments=add --description='Create abbrs'
 $subcommand_complete --arguments=identity --description='Manage abbrs by their identities'
 
-set --local -- identity_complete {$common_complete} --condition='test "$(commandline -xpc)[2]" = identity && ! contains "$(commandline -xpc)[3]" list erase'
+set --local -- identity_complete {$common_complete} \
+    --condition='set --local -- unbase (commandline --tokens-expanded --current-process --cut-at-cursor)[2..3]
+                test "$unbase[1]" = identity && ! contains "$unbase[2]" list erase'
 $identity_complete --arguments=list --description='Get identities'
 $identity_complete --arguments=erase --description='Erase abbrs with identity'
 $common_complete \
-    --condition='set --local -- subcommands (commandline -xpc)[2..3]
+    --condition='set --local -- subcommands (commandline --tokens-expanded --current-process --cut-at-cursor)[2..3]
                 test "$subcommands[1]" = identity && test "$subcommands[2]" = erase' \
     --arguments='(sub-abbr identity list)'
 
