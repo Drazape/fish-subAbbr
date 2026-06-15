@@ -1,4 +1,4 @@
-function sub-abbrs --description='Repository of sub-abbrs'
+function sub-abbrs --description='Package repository helper for sub-abbrs'
     if test (count {$argv}) = 0 # Call all
         emit sub-abbrs
         for pkg in (path basename --no-extension {$fish_function_path}/* | string match --regex --entire '^_sub-abbr_pkg_')
