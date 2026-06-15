@@ -24,7 +24,7 @@ icon: lucide/signpost
 ### Official Repository
 Each package is a single function in the repository that provides abbreviations (regular and context-aware) for the specific command it corresponds to.
 !!! tip "Gaze at Pre-existing Packages"
-    Have a look at other packages defined in the [repository](https://github.com/Drazape/fish-subAbbr/tree/main/functions/sub-abbr/pkg "Official Package Repository"){data-preview} before pushing your own here.
+    Have a look at other packages defined in the [repository](../Usage/Addons-SDK/Expanders/ "Official Package Repository"){data-preview} before pushing your own here.
 
 !!! warning "Anti-legacy"
     Legacy software with modern alternatives won't be included in the official repository.  
@@ -32,7 +32,7 @@ Each package is a single function in the repository that provides abbreviations 
     The ancients can build their own museum (legacy-stone repository).
 
 !!! tip "Library"
-    Use the [function library](https://github.com/Drazape/fish-subAbbr/tree/main/functions/sub-abbr/lib/){data-preview} to create packages more easily using abstractions
+    Use the [function library](../Usage/Addons-SDK/Expanders){data-preview} to create packages more easily using abstractions
 
 ### 3rd-party
 3rd-party packages/repositories can use the program however they want. For example:
