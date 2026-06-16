@@ -21,7 +21,7 @@ end
 begin
     set --local -- identity_complete {$common_complete} \
         --condition='set --local -- unbase (commandline --tokens-expanded --current-process --cut-at-cursor)[2..3]
-                    test "$unbase[1]" = identity && ! contains "$unbase[2]" list erase'
+                    test (count {$unbase}) -eq 1 && test "$unbase[1]" = identity && ! contains "$unbase[2]" list erase'
     $identity_complete --arguments=list --description='Get identities'
     $identity_complete --arguments=erase --description='Erase abbrs with identity'
 end
