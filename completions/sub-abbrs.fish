@@ -6,5 +6,5 @@ for function in (string match --regex --entire -- '^_sub-abbr_pkg_' (path basena
 
     set --local -- pkg (string split --fields=2 -- _sub-abbr_pkg_ {$function})
     $common_complete --description={$_flag_description} \
-        --arguments={$pkg} --condition='! contains '{$pkg}' (commandline --tokens-expanded --current-process --cut-at-cursor)[2..]'
+        --arguments={$pkg} --condition='! __fish_seen_argument '{$pkg}
 end
