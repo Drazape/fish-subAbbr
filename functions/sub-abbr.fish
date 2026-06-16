@@ -61,11 +61,7 @@ function sub-abbr --description='Create abbreviations for subcommands'
                     set --local -- passed_identities {$identity_args[2..]} # Trimmed sub-commands: `identity` `erase`; Arguments used by this specific sub-command
                     $argparse 'h/help&' -- {$passed_identities}
                     if set --query --local _flag_help
-                        help-text {$erase_description} \
-                            --positional={
-                      '+Initial passed_identities | Initial Arguments passed during creation', 
-                      'Sub-Command | Sub-Command passed during creation'
-                    }
+                        help-text {$erase_description} --positional='+Identity | context-aware sub-command abbreviation identifier'
                         return 0
                     end
 
