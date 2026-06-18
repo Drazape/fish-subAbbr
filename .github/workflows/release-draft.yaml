@@ -1,0 +1,56 @@
+name: Release Draft
+on:
+  push:
+    tags:
+      - 'v[0-9]+.[0-9]+.[0-9]*'
+
+permissions:
+  contents: write
+
+jobs:
+  draft:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+
+      - name: Parse changelog
+        run: |
+          TAG="${GITHUB_REF_NAME}"
+          
+          # Extract release title
+          TITLE=$(awk -v tag="$TAG" '
+            $0 ~ "^# \\[" tag "\\] - " {
+              idx = index($0, " - ")
+              if (idx > 0) { print substr($0, idx + 3); exit }
+            }
+          ' CHANGELOG.md)
+          
+          # Extract notes body
+          awk -v tag="$TAG" '
+            BEGIN { in_code=0; found=0 }
+            /^```/ { in_code = !in_code; next }
+            in_code { print; next }
+            $0 ~ "^# \\[" tag "\\] - " { found=1; next }
+            found && /^# / { found=0; exit }
+            found {
+              if (/^### /) { sub(/^### /, "## "); print; next }
+              if (/^## /)  { sub(/^## /, "# "); print; next }
+              print
+            }
+          ' CHANGELOG.md > notes.md
+
+          if [ -z "$TITLE" ] || [ ! -s notes.md ]; then
+            echo "::error::Changelog entry missing or empty for tag: $TAG"
+            exit 1
+          fi
+
+          echo "RELEASE_TITLE=$TITLE" >> "$GITHUB_ENV"
+
+      - name: Create draft release
+        run: |
+          gh release create "$GITHUB_REF_NAME" \
+            --draft \
+            --title "$RELEASE_TITLE" \
+            --notes-file notes.md
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

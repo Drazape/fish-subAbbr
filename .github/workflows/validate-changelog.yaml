@@ -1,0 +1,44 @@
+name: Validate Changelog Format
+on:
+  push:
+    paths:
+      - 'CHANGELOG.md'
+  pull_request:
+    paths:
+      - 'CHANGELOG.md'
+
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+
+      - name: Validate CHANGELOG.md structure
+        run: |
+          awk '
+          BEGIN { errors=0; section=""; line_num=0; content=0; in_code=0 }
+          /^```/ { in_code = !in_code; next }
+          in_code { next }
+          /^# / {
+            if (section != "" && content == 0) {
+              printf "::error file=CHANGELOG.md,line=%d::Empty section for \"%s\"\n", line_num, section
+              errors++
+            }
+            section = $0; line_num = NR; content = 0
+            if ($0 !~ /^# \[.+\] - .+$/) {
+              printf "::error file=CHANGELOG.md,line=%d::Malformed heading: %s\n", NR, $0
+              errors++
+            }
+            next
+          }
+          /^[[:space:]]*$/ { next }
+          { content++ }
+          END {
+            if (section != "" && content == 0) {
+              printf "::error file=CHANGELOG.md,line=%d::Empty section for \"%s\"\n", line_num, section
+              errors++
+            }
+            if (errors > 0) exit 1
+            print "::notice::CHANGELOG.md format validation passed"
+          }
+          ' CHANGELOG.md
