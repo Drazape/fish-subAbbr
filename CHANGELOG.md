@@ -5,6 +5,7 @@
 - **Release notes as code**: Automatically generate release release-notes using CHANGELOG.md
 ### Readme
 - Link `sub-abbr` *Usage* to the GitHub pages documentation
+- Fix missing bullets in the Usage section of `sub-abbrs`
 ### Docs
 - **Discard tip**: Add tip about abbreviation discard simulation based on conditions to Expander
 

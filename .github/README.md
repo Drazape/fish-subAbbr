@@ -72,8 +72,8 @@ Get identities of loaded abbrs
 Helper to conveniently enable compatible packages
 ### Arguments
 #### Positional
-**None**: When on arguments are specified, all the packages are activated
-**Command Names**: All the packages with support for the given commands are activated
+- **None**: When on arguments are specified, all the packages are activated
+- **Command Names**: All the packages with support for the given commands are activated
 
 > [!TIP]
 > ### Packages
