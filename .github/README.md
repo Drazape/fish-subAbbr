@@ -36,6 +36,11 @@ sub-abbr add jj ci commit
 ---
 
 # Usage
+
+> [!TIP]
+> ### Quick Start
+> Add `sub-abbrs` to your Fish configuration and all official packages (included abbreviations) will automatically be loaded 
+
 ## `sub-abbr`
 
 > [!TIP]
@@ -76,11 +81,10 @@ Helper to conveniently enable compatible packages
 - **Command Names**: All the packages with support for the given commands are activated
 
 > [!TIP]
-> ### Packages
-> - Discover
+> ### Discover Packages
 >	- [Official](../functions/sub-abbr/pkg/)
 >	- [3rd-party](https://github.com/topics/fish-subabbr)
-> - [Create](./CONTRIBUTING.md)
+> #### [Create](./CONTRIBUTING.md)
 ---
 
 # Installation

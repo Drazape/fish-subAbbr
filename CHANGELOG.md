@@ -1,4 +1,4 @@
-# [Unreleased] - Release notes automation
+# [Unreleased] - Meta: Release notes automation, docs enhancements
 <!-- New changes here -->
 ## Meta
 ### Workflows
@@ -6,6 +6,7 @@
 ### Readme
 - Link `sub-abbr` *Usage* to the GitHub pages documentation
 - Fix missing bullets in the Usage section of `sub-abbrs`
+- Add a "Quick Start" tip to the Usage section. Useful when the user doesn't want to read the overview, i.e., when they just want to use the existing packages without learning how to use the program.
 ### Docs
 - **Discard tip**: Add tip about abbreviation discard simulation based on conditions to Expander
 
