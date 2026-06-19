@@ -37,6 +37,10 @@ sub-abbr add jj ci commit
 
 # Usage
 ## `sub-abbr`
+
+> [!TIP]
+> See the detailed [documentation](https://drazape.github.io/fish-subAbbr/Usage/Arguments/Positionals/Expansion/ "GitHub Pages documentation on sub-abbr command usage")
+
 Create personal Sub-Command abbreviations in the scope
 ### Arguments
 #### Sub-Commands

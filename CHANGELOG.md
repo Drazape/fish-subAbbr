@@ -3,6 +3,8 @@
 ## Meta
 ### Workflows
 - **Release notes as code**: Automatically generate release release-notes using CHANGELOG.md
+### Readme
+- Link `sub-abbr` *Usage* to the GitHub pages documentation
 
 
 # [v0.5.4] - exec handling; completion enhancements; SDK docs
