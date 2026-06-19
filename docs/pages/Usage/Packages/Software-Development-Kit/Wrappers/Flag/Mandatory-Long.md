@@ -14,9 +14,9 @@ If the flag token is left without a value (`=` sign), then it puts you back to t
 
 ### Switches
 #### Un-inherited
-- [RegExp: `sub-command`](../../../Arguments/Sub-Commands/Add/Switches/Regular-Expression.md "Match command-line arguments with RegExp"){data-preview}
-- [Expander](../../../Arguments/Sub-Commands/Add/Switches/Expander.md "Use a command's output as the *Expansion*"){data-preview}
-- [Set Cursor](../../../Arguments/Sub-Commands/Add/Switches/Set-Cursor.md "Position the cursor at `%`"){data-preview}
+- [RegExp: `sub-command`](../../../../Arguments/Sub-Commands/Add/Switches/Regular-Expression.md "Match command-line arguments with RegExp"){data-preview}
+- [Expander](../../../../Arguments/Sub-Commands/Add/Switches/Expander.md "Use a command's output as the *Expansion*"){data-preview}
+- [Set Cursor](../../../../Arguments/Sub-Commands/Add/Switches/Set-Cursor.md "Position the cursor at `%`"){data-preview}
 
 #### Exclusive
 |    Name   |  Long  | Short |       Value        |             Description            |                Effect               |

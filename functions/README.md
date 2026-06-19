@@ -17,7 +17,7 @@ Hidden functions installed on the end-user's system.
 Helper functions called by `sub-abbr`
 
 ## Packages
-(`pkg/`)
+(`pkg/official/`)
 Packages that users typically enable using `sub-abbrs` in their Fish shell-initialization configuration
 
 > [!TIP]

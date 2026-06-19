@@ -74,11 +74,13 @@ Erase an abbr by its identity
 Get identities of loaded abbrs
 
 ## `sub-abbrs`
-Helper to conveniently enable compatible packages
+Helper to conveniently enable compatible package groups, or packages.  
+Package groups are groups of packages that can be enabled in bulk.  
+(see detailed [documentation](drazape.github.io/fish-subAbbr/Usage/Packages/Repository-Helper "GitHub pages documentation on the official repository helper"))
 ### Arguments
 #### Positional
 - **None**: When on arguments are specified, all the packages are activated
-- **Command Names**: All the packages with support for the given commands are activated
+- **Group/Package path**: The path to the package group, or package
 
 > [!TIP]
 > ### Discover Packages

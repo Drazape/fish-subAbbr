@@ -1,16 +1,6 @@
 function sub-abbrs --description='Package repository helper for sub-abbrs'
-    if test (count {$argv}) = 0 # Call all
-        emit sub-abbrs
-        for pkg in (path basename --no-extension {$fish_function_path}/* | string match --regex --entire '^_sub-abbr_pkg_')
-            { $pkg }
-        end
-    else
-        for subAbbr_base in sub-abbr_pkg_{$argv}
-            emit {$subAbbr_base}
-            begin
-                set --local repo_func _{$subAbbr_base}
-                functions --query {$repo_func} && { $repo_func }
-            end
-        end
+    test (count {$argv}) -eq 0 && emit sub-abbrs
+    for repo_func in (string match --entire --regex -- ^_sub-abbr_pkg_"$(string join -- _ {$argv})" (string match --entire --regex -- ^_sub-abbr_pkg_ (functions --all) (path basename --no-extension {$fish_function_path}/*)))
+        $repo_func
     end
 end

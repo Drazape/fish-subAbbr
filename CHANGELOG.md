@@ -1,5 +1,16 @@
-# [Unreleased] - Meta: Release notes automation, docs enhancements
-<!-- New changes here -->
+# [Unreleased] - Title
+<!-- New changes here  -->
+
+
+
+# [v0.6.0] - Repository: package groups
+## Breaking: Repository
+The repository helper now manages the repository via package groups in addition to packages. The `sub-abbrs` command is completely backward incompatible (except for no arguments)
+
+Instead of the multiple package identifier, it now accepts only a package path, which may be a package group or a package itself.  
+~This means that you can no longer activate multiple packages.~ Well… you actually can — with [package groups](https://drazape.github.io/fish-subAbbr/Usage/Packages/Repository-Helper/Package-Tree "GitHub Pages documentation: the new tree structure")! It's just not manual anymore.
+> [!TIP]
+> See the new [documentation](https://drazape.github.io/fish-subAbbr/Usage/Packages/Repository-Helper/Package-Tree/ "GitHub Pages documentation: new repository helper: sub-abbrs") added
 ## Meta
 ### Workflows
 - **Release notes as code**: Automatically generate release release-notes using CHANGELOG.md
