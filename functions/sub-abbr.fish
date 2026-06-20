@@ -52,7 +52,7 @@ function sub-abbr --description='Create abbreviations for subcommands'
             # sub-commands
             switch "$identity_args[1]"
                 case list
-                    if test (count {$identity_args}) != 1
+                    if test (count {$identity_args}) -ne 1
                         $print 'arguments not accepted'
                         return 1
                     end
