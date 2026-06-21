@@ -31,7 +31,7 @@ sub-abbr add jj ci commit
 <img width="702" height="86" alt="jj-subcommands" src="https://github.com/user-attachments/assets/af0e2f6a-1ce3-4f3f-b9c1-242bca0e9471" />
 
 > [!TIP]
-> Check the [packages](#Packages) for more complicated & useful abbreviations
+> Check the [packages](#Discover-Packages) for more complicated & useful abbreviations
 
 ---
 
