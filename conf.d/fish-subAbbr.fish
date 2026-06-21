@@ -4,6 +4,7 @@ end
 
 function _fish-subAbbr_install --on-event=fish-subAbbr_install --description='Install dependency: fish-helpText; correct sub-function file-names'
     fisher install Drazape/fish-helpText
+    fisher install Drazape/fish-format
 
     cd ~/.config/fish/functions/
     for file in sub-abbr/**.fish
@@ -14,7 +15,6 @@ function _fish-subAbbr_install --on-event=fish-subAbbr_install --description='In
 end
 
 function _fish-subAbbr_update --on-event=fish-subAbbr_update --description='Update dependency: fish-helpText; redo installation steps'
-    fisher update Drazape/fish-helpText
     _fish-subAbbr_uninstall
     _fish-subAbbr_install
 end

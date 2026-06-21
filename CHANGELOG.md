@@ -1,6 +1,7 @@
 # [Unreleased] - Title
 <!-- New changes here  -->
-
+## Dependency: Library: [Format](https://github.com/Drazape/format "Intuitively generate ANSI sequences")
+Instead of manually generating ANSI sequences with `set_color`, the string formatting is now handled by [fish-format](https://github.com/Drazape/format "GitHub repository")
 
 
 # [v0.6.0] - Repository: package groups

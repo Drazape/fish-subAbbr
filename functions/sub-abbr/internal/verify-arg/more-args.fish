@@ -2,6 +2,6 @@ function _sub-abbr_internal_verify-arg_more-args --description='Make sure no les
     set --function supplied (count {$argv[2..]})
     test {$supplied} -ge {$expected} && return
 
-    echo {$output_prefix} expected (set_color --bold){$expected}+(set_color --reset) arguments(set_color white)\;(set_color --reset) got (set_color --italics){$supplied}(set_color --reset)
+    echo {$output_prefix} expected (format text bold {$expected}+) arguments(format text color white \;) got (format text italics {$supplied})
     return 1
 end

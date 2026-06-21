@@ -1,8 +1,8 @@
 function sub-abbr --description='Create abbreviations for subcommands'
     begin
-        set --local -- output_name (set_color --dim)(status function)(set_color --reset)
+        set --local -- output_name (format text dim (status function))
         set --function -- argparse argparse --name={$output_name}
-        set --function -- print echo {$output_name}(set_color --dim white):(set_color --reset)
+        set --function -- print echo {$output_name}(format text dim (format text color white ':'))
     end
 
     $argparse --stop-nonopt 'h/help&' -- {$argv}
@@ -71,7 +71,7 @@ function sub-abbr --description='Create abbreviations for subcommands'
                     ## verify existance
                     for identity in {$passed_identities}
                         if ! contains {$identity} {$identities}
-                            $print 'unknown context-aware sub-command abbreviation:' (set_color --bold --italics red){$identity}(set_color --reset) >&2
+                            $print 'unknown context-aware sub-command abbreviation:' (format text bold (format text italics (format text color red {$identity}))) >&2
                             return 2
                         end
                     end
@@ -87,7 +87,7 @@ function sub-abbr --description='Create abbreviations for subcommands'
                         abbr --erase --command={$$commands} -- {$internal_identity}
                     end
                 case \*
-                    $print unknown (set_color --italics)Identity(set_color --reset) sub-command: (set_color --bold --background=brred){$identity_args[1]}(set_color --reset) >&2
+                    $print unknown (format text italics 'Identity') sub-command: (format text bold (format background red --bright {$identity_args[1]})) >&2
             end
         case add
             # arguments
@@ -95,7 +95,7 @@ function sub-abbr --description='Create abbreviations for subcommands'
             $argparse 'r/regex=*&!_sub-abbr_internal_verify-arg_regex-val' 'e/expander&' 'c/set-cursor=?&' 'h/help&' '0/degrade&' 's/regard-flags&' -- {$argv} || return 1
             ### Help
             if set --query --local _flag_help
-                set --local inherited \ (set_color white)'(inherited from '(set_color normal)(set_color --background=red)abbr(set_color normal)(set_color white)\)(set_color --reset)
+                set --local inherited \ (format text color white '(inherited from '(format background red 'abbr')\))
                 help-text 'Create context-aware Sub-Command abbreviations' \
                     --positional={
                   '+Initial Args | All arguments that come before the Sub-Command', 
@@ -103,10 +103,10 @@ function sub-abbr --description='Create abbreviations for subcommands'
                   'Expansion | Replaces the Sub-Command'
                 } \
                     --flag={
-                    'degrade:0 | Disable '(set_color --background=red)run0(set_color --reset)' prefix toleration',
+                    'degrade:0 | Disable '(format background red 'run0')' prefix toleration',
                     'regard-flags:s | Acknowledge flags in the Initial Args',
-                    'set-cursor:c | Position the cursor at '(set_color --background=brblack)%(set_color --reset)' post-expansion'{$inherited},
-                    'regex:r | Match command-line arguments with Regex. Essential (with '(set_color --background=brblack)sub-command(set_color --reset)') for multiple Initial Args permutations'{$inherited},
+                    'set-cursor:c | Position the cursor at '(format background black --bright '%')' post-expansion'{$inherited},
+                    'regex:r | Match command-line arguments with Regex. Essential (with '(format background black --bright 'sub-command')') for multiple Initial Args permutations'{$inherited},
                     'expander:e | Use the output of a command as the Expansion'{$inherited}
                 }
                 return 0
@@ -135,7 +135,7 @@ function sub-abbr --description='Create abbreviations for subcommands'
                 # compatible subcommand name: must be a single token
                 begin
                     if _sub-abbr_internal_verify-arg_subcommand-contains ' ' || _sub-abbr_internal_verify-arg_subcommand-contains \n
-                        $print incompatible (set_color --italics)Sub-Command(set_color --reset) >&2
+                        $print incompatible (format text italics 'Sub-Command') >&2
                         return 3
                     end
                 end
@@ -160,6 +160,6 @@ function sub-abbr --description='Create abbreviations for subcommands'
                 _sub-abbr_internal_expand-subcommand {$regex_initials} {$_flag_expander} {$_flag_degrade} {$_flag_regard_flags} -- {$subcommand} {$expansion} {$base_command} {$initial_args}
             end
         case \*
-            $print 'unknown sub-command:' (set_color --bold --background=brred){$argv[1]}(set_color --reset) >&2
+            $print 'unknown sub-command:' (format text bold (format background red --bright {$argv[1]})) >&2
     end
 end

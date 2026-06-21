@@ -6,8 +6,15 @@ desription: Installation procedure and methods
 
 # Installation
 ## Dependencies
-
-- [fish-helpText](https://github.com/Drazape/fish-helpText "Generate formatted console help reference texts"){data-preview} (`help-text`)
+- [helpText](https://github.com/Drazape/fish-helpText "GitHub repository"){data-preview}: Generate formatted console help reference texts
+- [format](https://github.com/Drazape/fish-format "GitHub repository"){data-preview}: Intuitively generate ANSI sequences
+```mermaid
+flowchart TD
+    format(fish-format) --> helpText(fish-helpText)
+    helpText --> format
+    format ==> subAbbr(fish-subAbbr)
+    helpText ==> subAbbr
+```
 
 ## Procedure
 The installation involves moving Fish files from the directories
@@ -45,7 +52,7 @@ A flake with convenient configuration options is planned.
 For now, the installation can be worked around (with automatic updates). This method is not supported and may stop working after an update.
 
 !!! warning "Manual Dependency"
-    You will need to manually install the dependency: [fish-helpText](https://github.com/Drazape/fish-helpText "Generate formatted console help reference texts"){data-preview}
+    You'll need to manually install the [dependencies](#dependencies){data-preview}
 
 ```nix {hl_lines="3 4 5" title="flake.nix"}
 {
