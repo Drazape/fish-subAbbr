@@ -8,7 +8,7 @@ description: These are the arguments that must precede on the command-line for t
 These are the arguments that must precede on the command-line for the *Sub-Command* to be expanded.
 
 ## Properties
-| Position | Required Arguments |
+| Position |  Minimum Arguments |
 | :------: | :----------------: |
 | `1`:`-3` |          1         |
 

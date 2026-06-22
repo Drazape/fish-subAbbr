@@ -34,7 +34,7 @@ This leads to maintainability hell and difficulty & time-consumption in creating
 - Are error-prone to matching
 - Harder distribution
 
-### Birth Aim
+### Aim
 This program is designed to
 
 - Tackle these issues
