@@ -13,9 +13,14 @@ single-switch --short-option=h --long-option=help --description='Reference manua
                  return 1'
 
 begin
-    set --local -- subcommand_complete {$common_complete} --condition='test (count (commandline -xpc)) -lt 2'
+    set --local -- subcommand_complete {$common_complete} --condition='test (__fish_number_of_cmd_args_wo_opts) -lt 2'
     $subcommand_complete --arguments=add --description='Create abbrs'
     $subcommand_complete --arguments=identity --description='Manage abbrs by their identities'
+end
+begin
+    $common_complete --exclusive \
+        --condition='__fish_seen_subcommand_from add && test (__fish_number_of_cmd_args_wo_opts) -eq 2' \
+        --arguments='(__fish_complete_command)'
 end
 
 begin
