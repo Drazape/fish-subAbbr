@@ -19,7 +19,7 @@ Show a reference manual for the given sub-command
 - **Use**: Doesn't do any operation. Only for recalling command usage
 
 ## Usage
-```fish {title="format" .no-copy .no-select}
+```fish {title="Format" .no-copy .no-select}
 sub-abbr (?:<sub-command>) <HELP FLAG> (?:`--`) …
 ```
 

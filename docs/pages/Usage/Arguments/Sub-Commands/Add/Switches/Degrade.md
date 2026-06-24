@@ -20,7 +20,7 @@ Disable `run0` command-prefix toleration
     The command prefix `exec` is especially internally respected, with no switch to disable
 
 ## Usage
-```fish {title="format" .no-copy .no-select}
+```fish {title="Format" .no-copy .no-select}
 sub-abbr add … <DEGRADE FLAG> (?:`--`) …
 ```
 

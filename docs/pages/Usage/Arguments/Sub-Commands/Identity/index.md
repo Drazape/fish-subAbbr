@@ -17,6 +17,6 @@ Manage context-aware Sub-Command abbreviations by their identities
 2. [**Erase**](Sub-Commands/Erase.md "Wiki Page"){data-preview}: Erase an abbr by its identity
 
 ## Usage
-```fish {title="format" .no-copy .no-select}
+```fish {title="Format" .no-copy .no-select}
 sub-abbr add … <CREATION FLAGS> (?:`--`) …
 ```

@@ -33,6 +33,6 @@ Match command-line arguments with *Regular Expression*s
 	- **Initial Arguments**: [*Initial Arguments*](../../../Positionals/Initial-Arguments.md "Args preceding"){data-preview} in itself is a `sub-abbr` exclusive feature. Thus, manually matched
 
 ## Usage
-```fish {title="format" .no-copy .no-select}
+```fish {title="Format" .no-copy .no-select}
 sub-abbr add … <REGEXP FLAG> (?:`--`) …
 ```

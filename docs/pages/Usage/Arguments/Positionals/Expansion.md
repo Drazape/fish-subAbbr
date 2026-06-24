@@ -24,7 +24,7 @@ The string that replaces the *Sub-Command* on match
 - [⚙️](../Sub-Commands/Add/Switches/Expander.md "Use a command's output as the *Expansion*"){data-preview} **Static String**: The *Expansion* is a static string that doesn't change.
 
 ## Usage
-```fish {title="format" .no-copy .no-select}
+```fish {title="Format" .no-copy .no-select}
 sub-abbr <initial-arguments> <Sub-Command> <EXPANSION>
 ```
 
