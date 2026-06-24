@@ -1,5 +1,8 @@
 ---
 title: To Long
+comments: true
+icon: lucide/arrow-right-from-line
+description: Convert flags to long
 ---
 
 # To Long ^`to-long`^

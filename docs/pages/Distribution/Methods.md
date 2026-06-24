@@ -1,6 +1,7 @@
 ---
 comments: true
 icon: lucide/signpost
+description: Distribution ways
 ---
 
 # Methods

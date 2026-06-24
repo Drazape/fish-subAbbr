@@ -1,3 +1,9 @@
+---
+comments: true
+icon: lucide/maximize-2
+description: Dynamic replacement
+---
+
 # Expanders
 Library functions called by `sub-abbr` (used as the [*Expander*](../../../Arguments/Sub-Commands/Add/Switches/Expander.md){data-preview} function) for expansion.
 

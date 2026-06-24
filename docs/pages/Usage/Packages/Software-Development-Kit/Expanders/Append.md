@@ -1,5 +1,8 @@
 ---
+comments: true
 title: Append
+icon: lucide/arrow-big-right-dash
+description: Append string instead of replacing it
 ---
 
 # Append ^`append`^

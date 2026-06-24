@@ -1,5 +1,8 @@
 ---
 title: Mandatory Long
+comments: true
+icon: lucide/octagon-minus
+description: Enforce flag input
 ---
 
 # Mandatory Long ^`mandatory-long`^

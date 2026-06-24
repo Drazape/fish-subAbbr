@@ -1,6 +1,7 @@
 ---
 comments: true
 icon: lucide/landmark
+description: Multiple Base Command permutations
 ---
 
 ## Multi-*Base Command* support

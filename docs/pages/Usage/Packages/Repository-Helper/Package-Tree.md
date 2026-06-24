@@ -1,3 +1,9 @@
+---
+comments: true
+icon: lucide/network
+description: Package structure
+---
+
 # Package Tree
 The packages are organised in a tree data-structure
 

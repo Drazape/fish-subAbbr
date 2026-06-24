@@ -1,6 +1,7 @@
 ---
 comments: true
 icon: lucide/download
+desription: Installation procedure and methods
 ---
 
 # Installation

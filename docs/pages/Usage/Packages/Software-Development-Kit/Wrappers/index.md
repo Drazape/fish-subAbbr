@@ -1,3 +1,9 @@
+---
+comments: true
+icon: lucide/package
+description: Abbreviation frameworks
+---
+
 # Wrappers
 Library frameworks with independent arguments and working; abstractions over other commands.
 
