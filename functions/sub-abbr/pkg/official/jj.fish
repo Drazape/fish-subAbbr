@@ -95,9 +95,13 @@ begin
                 end
 
                 # single sub-command exclusive
-                $long_flag --mandatory -- restore c{,hances-in}
-                $long_flag --mandatory -- rebase b{,ranch}
-                $long_flag --mandatory -- help k{,eyword}
+                begin
+                    set --local -- mandate {$long_flag} --mandatory --
+                    $mandate restore c{,hances-in}
+                    $mandate rebase b{,ranch}
+                    $mandate help k{,eyword}
+                    $mandate tag set r{,evision}
+                end
                 $long_flag -- squash u{,se-destination-message}
                 $long_flag -- squash k{,eep-emptied}
                 $long_flag -- fix a{,ll-lines}
