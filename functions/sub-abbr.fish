@@ -10,7 +10,7 @@ function sub-abbr --description='Create abbreviations for subcommands'
     # general sub-command reference
     set --local -- add_description 'Create context-aware sub-command abbreviations'
     if set --local --query -- _flag_help
-        help-text 'Context-aware Sub-Command abbreviations' \
+        help-text --link=_sub-abbr_internal_helpText-linker 'Context-aware Sub-Command abbreviations' \
             --sub-command={
                 'add | '{$add_description},
                 'identity | Manage abbreviations by their identities'
@@ -26,7 +26,7 @@ function sub-abbr --description='Create abbreviations for subcommands'
             set --local -- erase_description 'Erase an abbreviation by it\'s identity'
             $argparse --stop-nonopt 'h/help&' -- {$identity_args}
             if set --query --local _flag_help
-                help-text 'Manage context-aware Sub-Command abbreviations by their identities' \
+                help-text --link=_sub-abbr_internal_helpText-linker 'Manage context-aware Sub-Command abbreviations by their identities' \
                     --sub-command={
                     'list | List the identity of each loaded abbreviation',
                     'erase | '{$erase_description}
@@ -61,7 +61,7 @@ function sub-abbr --description='Create abbreviations for subcommands'
                     set --local -- passed_identities {$identity_args[2..]} # Trimmed sub-commands: `identity` `erase`; Arguments used by this specific sub-command
                     $argparse 'h/help&' -- {$passed_identities}
                     if set --query --local _flag_help
-                        help-text {$erase_description} --positional='+Identity | context-aware sub-command abbreviation identifier'
+                        help-text --link=_sub-abbr_internal_helpText-linker {$erase_description} --positional='+Identity | context-aware sub-command abbreviation identifier'
                         return 0
                     end
 
@@ -96,7 +96,7 @@ function sub-abbr --description='Create abbreviations for subcommands'
             ### Help
             if set --query --local _flag_help
                 set --local inherited \ (format text color white '(inherited from '(format background red 'abbr')\))
-                help-text 'Create context-aware Sub-Command abbreviations' \
+                help-text --link=_sub-abbr_internal_helpText-linker 'Create context-aware Sub-Command abbreviations' \
                     --positional={
                   '+Initial Args | All arguments that come before the Sub-Command', 
                   'Sub-Command | Comes after the Initial Args; replaced by the Expansion',
