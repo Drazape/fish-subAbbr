@@ -6,7 +6,6 @@ if ! fish_is_root_user
 end
 
 # Install Dependencies
-curl -fsSL 'https://raw.githubusercontent.com/Drazape/fish-format/main/install.fish' | fish --no-config --private
 curl -fsSL 'https://raw.githubusercontent.com/Drazape/fish-helpText/main/install.fish' | fish --no-config --private
 
 # Setup Cleanup
