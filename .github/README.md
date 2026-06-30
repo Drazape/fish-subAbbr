@@ -39,7 +39,11 @@ sub-abbr add jj ci commit
 
 > [!TIP]
 > ### Quick Start
-> Add `sub-abbrs` to your Fish configuration and all official packages (included abbreviations) will automatically be loaded 
+> Simply Add (without any arguments)
+> ```fish
+> sub-abbrs
+> ```
+> to your Fish configuration, and all official packages (included abbreviations) will automatically be loaded
 
 ## `sub-abbr`
 
