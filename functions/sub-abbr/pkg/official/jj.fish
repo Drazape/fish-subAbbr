@@ -1,5 +1,6 @@
 begin
     set --local -- exec_name jj
+    abbr --add --position=command -- j{,j} # Mitigate inergonomic bigram
     function _sub-abbr_pkg_official_{$exec_name} --description='Jujutsu: VCS' --on-event=sub-abbrs --inherit-variable=exec_name
         begin # sub-commands
             set --local -- sub_abbr sub-abbr add {$exec_name} --
