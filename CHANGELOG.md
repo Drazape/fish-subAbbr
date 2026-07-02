@@ -1,10 +1,22 @@
-# [Unreleased] - Title
+# [v0.6.1] - Tighter dependencies
 <!-- New changes here  -->
 ## Dependencies: Fish Libraries
 ### New: [Format](https://github.com/Drazape/format "Intuitively generate ANSI sequences")
 Instead of manually generating ANSI sequences with `set_color`, the string formatting is now handled by [fish-format](https://github.com/Drazape/format "GitHub repository")
 ### [helpText](https://github.com/Drazape/help-text "Generate reference manuals")
 Create linker to automatically hyperlink all the headers to documentation.
+## Packages: Jujutsu
+- Added abbreviations for the `tag` sub-command
+- Automatically expand `j` → `jj` to avoid the bigram
+## Completions
+**Package Descriptions**: Instead of using the fields for indicating what the function is about, describe the package itself for use in completions.
+**Base Commands**: The *Add* sub-command now suggests the base-commands
+## External
+### Documentation
+- **Readme**: Miscallaneous fixes and improvements
+- **Documentation**: Formatting improvements; metadata population
+### Curl-to-Fish Installer
+Automatically install dependencies the dependency's curl-to-fish installer
 
 
 # [v0.6.0] - Repository: package groups
