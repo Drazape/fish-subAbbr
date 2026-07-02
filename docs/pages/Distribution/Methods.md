@@ -34,7 +34,7 @@ Each package is a single function in the repository that provides abbreviations 
 
 !!! warning "Anti-legacy"
     Legacy software with modern alternatives won't be included in the official repository.  
-    Tradition, familiarity with the legacy, inertia towards innovation—these won't be reasons accepted for "contributions."  
+    Tradition, familiarity with the legacy, inertia towards innovation—these won't be reasons accepted for “contributions.”  
     The ancients can build their own museum (legacy-stone repository).
 
 !!! tip "Library"

@@ -17,7 +17,7 @@ Dynamically expand using a command's output as the [*Expansion*](Expander.md "Us
 	- The [*Expansion*](Expander.md "Use a command's output as the *Expansion*"){data-preview} is determined by a command's output instead of a fixed string
 - **Single token**: Just like `builtin abbr`, the [*Expander*](Expander.md "Use a command's output as the *Expansion*"){data-preview} must only consist of a single command.
 - **Use-case**: Dynamically generating expansions.
-!!! tip ""Discard" expansion"
+!!! tip "“Discard” expansion"
     You can simulate discarding of expansion by simply printing the *sub-command* back, changing nothing
 !!! tip "Switch Combo"
     Pair it with [*RegExp*](Regular-Expression.md "Match command-line arguments with RegExp"){data-preview} to generate [*Expansion*](Expander.md "Use a command's output as the *Expansion*"){data-preview}s based on a dynamic [*Sub-Command*](../../../Positionals/Sub-Command.md "Token to match & replace"){data-preview} on the command-line
