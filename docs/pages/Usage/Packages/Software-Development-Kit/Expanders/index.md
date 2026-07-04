@@ -12,9 +12,9 @@ These functions are simply input → output converters; they parse the text inpu
 
 ## Uses
 - Directly as the [*Expander*](../../../Arguments/Sub-Commands/Add/Switches/Expander.md){data-preview} for simple abbreviations
-??? note "sub-command pass"
+!!! note "sub-command pass"
     In this case, the last argument to the function is always the sub-command matched on the command-line
-??? info "Usage"
+!!! info "Usage"
     ```fish { title="Expander" .no-copy .no-select }
     sub-abbr add --expander (?:--) <args> <EXPANDER_FUNCTION>
     ```

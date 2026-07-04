@@ -12,7 +12,7 @@ These functions are not limited to just changing the expansion, but to every asp
 
 ## Uses
 - Directly called from the package instead of calling `sub-abbr`
-??? info "Usage"
+!!! info "Usage"
     ```fish
     <WRAPPER> <args>
     ```
@@ -20,5 +20,5 @@ These functions are not limited to just changing the expansion, but to every asp
         `<args>` depend on the wrapper
 
 - Called by other wrappers
-??? example "Example: Mandatory Flags"
+!!! example "Example: Mandatory Flags"
     When [To Long](Flag/To-Long.md){data-preview} is used with the *Mandatory* switch, the wrapper internally calls [Mandatory Long](Flag/Mandatory-Long.md){data-preview} to keep things [DRY](https://en.wikipedia.org/wiki/Don%27t_repeat_yourself "Wikipedia: Don't Repeat Yourself"){data-preview}
