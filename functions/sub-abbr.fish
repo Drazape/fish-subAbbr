@@ -95,7 +95,6 @@ function sub-abbr --description='Create abbreviations for subcommands'
             $argparse 'r/regex=*&!_sub-abbr_internal_verify-arg_regex-val' 'e/expander&' 'c/set-cursor=?&' 'h/help&' '0/degrade&' 's/regard-flags&' -- {$argv} || return 1
             ### Help
             if set --query --local _flag_help
-                set --local inherited \ (format text color white '(inherited from '(format background red 'abbr')\))
                 help-text --link=_sub-abbr_internal_helpText-linker 'Create context-aware Sub-Command abbreviations' \
                     --positional={
                   '+Initial Args | All arguments that come before the Sub-Command', 
@@ -105,9 +104,9 @@ function sub-abbr --description='Create abbreviations for subcommands'
                     --flag={
                     'degrade:0 | Disable '(format background red 'run0')' prefix toleration',
                     'regard-flags:s | Acknowledge flags in the Initial Args',
-                    'set-cursor:c | Position the cursor at '(format background black --bright '%')' post-expansion'{$inherited},
-                    'regex:r | Match command-line arguments with Regex. Essential (with '(format background black --bright 'sub-command')') for multiple Initial Args permutations'{$inherited},
-                    'expander:e | Use the output of a command as the Expansion'{$inherited}
+                    'set-cursor:c | Position the cursor at '(format background black --bright '%')' post-expansion',
+                    'regex:r | Match command-line arguments with Regex',
+                    'expander:e | Use the output of a command as the Expansion'
                 }
                 return 0
             end

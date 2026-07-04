@@ -2,6 +2,9 @@
 <!-- New changes here  -->
 ## Completions: `sub-abbrs`
 **Fix sub-pkg description on group**: Fixed a bug where a group would display the description of one of it's sub-packages
+## Documentation
+### help-text: Add
+**Debloat Switch Descriptions**: Remove inherit labels and the Regular Expressions edge case: *Initial Argument* permutation in the same *Base Command*
 
 
 # [v0.6.1] - Tighter dependencies
