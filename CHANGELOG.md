@@ -1,5 +1,10 @@
-# [v0.6.1] - Tighter dependencies
+# [v0.6.2] - Completions: no group description
 <!-- New changes here  -->
+## Completions: `sub-abbrs`
+**Fix sub-pkg description on group**: Fixed a bug where a group would display the description of one of it's sub-packages
+
+
+# [v0.6.1] - Tighter dependencies
 ## Dependencies: Fish Libraries
 ### New: [Format](https://github.com/Drazape/format "Intuitively generate ANSI sequences")
 Instead of manually generating ANSI sequences with `set_color`, the string formatting is now handled by [fish-format](https://github.com/Drazape/format "GitHub repository")

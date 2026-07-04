@@ -8,7 +8,7 @@ function sub
     for subfunc in (string match --regex --entire -- ^(string escape --style=regex -- {$parent_group}) (functions --all) (path basename --no-extension {$fish_function_path}/*))
         set --local sub_path (string split --max=1 --fields=2 -- {$parent_group} {$subfunc} | string split -- _)
         echo -n {$sub_path[1]}
-        argparse --ignore-unknown /description=+\& -- (commandline --tokens-expanded --input=(functions --no-details -- {$subfunc})[1])
+        argparse --ignore-unknown /description=+\& -- (commandline --tokens-expanded --input=(functions --no-details -- {$parent_group}{$sub_path[1]})[1])
         echo -n \t{$_flag_description}
         echo # Seperate new line from description, in case it doesn't exist
     end
