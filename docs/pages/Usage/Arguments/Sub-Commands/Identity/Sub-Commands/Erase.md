@@ -8,9 +8,9 @@ description: Erase a content-aware abbreviation by its identity
 Erase a content-aware abbreviation by its identity
 
 ## Properties
-|  Name  |  Parent  |
-| :----: | :------: |
-| `list` | [Identity](../index.md "Manage abbr by their identities"){data-preview} |
+|   Name  |  Parent  |
+| :-----: | :------: |
+| `erase` | [Identity](../index.md "Manage abbr by their identities"){data-preview} |
 
 ## Details
 - **Identity**: The identity can be obtained from the [List sub-command](List.md "Get identities of loaded abbrs"){data-preview}

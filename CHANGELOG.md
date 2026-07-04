@@ -6,6 +6,7 @@
 ### Pages: Full Revision
 - **Values**: Add details on the values accepted by the *Add* switches: *Set-Cursor* & *Expander*
 - **Formatting**: Fixed formatting issues for lists in *Initial Arguments*: *Customizable Behavior*
+- **Erase Name**: Correct the name of the sub-command: `list` → `erase`
 ### help-text: Add
 **Debloat Switch Descriptions**: Remove inherit labels and the Regular Expressions edge case: *Initial Argument* permutation in the same *Base Command*
 
