@@ -8,13 +8,13 @@ description: Dynamically expand using a command's output as the [*Expansion*](Ex
 Dynamically expand using a command's output as the [*Expansion*](Expander.md "Use a command's output as the *Expansion*"){data-preview}) string
 
 ## Properties
-| Value| Short |    Long    | Sub-Command |   Inherited   |
-| :--: | :---: | :--------: | :---------: | :-----------: |
-| None |  `e`  | `expander` |     Add     | ✅ (improved) |
+|   Value  | Short |    Long    | Sub-Command |   Inherited   |
+| :------: | :---: | :--------: | :---------: | :-----------: |
+| Required |  `e`  | `expander` |     Add     | ✅ (improved) |
 
 ## Details
-- **Relation**
-	- The [*Expansion*](Expander.md "Use a command's output as the *Expansion*"){data-preview} is determined by a command's output instead of a fixed string
+- **Relation**: The [*Expansion*](Expander.md "Use a command's output as the *Expansion*"){data-preview} is determined by a command's output instead of a fixed string
+- **Value**: The command to execute for obtaining the replacement string
 - **Single token**: Just like `builtin abbr`, the [*Expander*](Expander.md "Use a command's output as the *Expansion*"){data-preview} must only consist of a single command.
 - **Use-case**: Dynamically generating expansions.
 !!! tip "“Discard” expansion"
