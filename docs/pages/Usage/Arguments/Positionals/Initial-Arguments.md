@@ -21,9 +21,9 @@ These are the arguments that must precede on the command-line for the *Sub-Comma
 ### Customizable Behavior
 - [⚙️](../Sub-Commands/Add/Switches/Regard-Flags.md "Acknowledge flags in Initial Args"){data-preview} **Ignored Flags**: Flags in the Initial Arguments on the command-line are ignored.
 - [⚙️](../Sub-Commands/Add/Switches/Degrade.md "Disable `run0` toleration"){data-preview} **`run0` Acknowledgement**: Expansion will be considered even if the command is prefixed with `run0` for elevation.
-- [⚙️](../Sub-Commands/Add/Switches/Regular-Expression.md "Match command-line arguments with RegExp"){data-preview}
+- [⚙️](../Sub-Commands/Add/Switches/Regular-Expression.md "Match command-line arguments with RegExp"){data-preview} **Regular Expressions**
 	- **Single Permutation**: Due to Fish's internal restrictions, you cannot have the same *Sub-Command* with different [*Initial Argument*](./Initial-Arguments.md){data-preview} permutations (excluding the *Base Command* — the 1st argument) with plain text Sub-Command matching.
-  - **Fixed String**: Each [*Initial Argument*](./Initial-Arguments.md){data-preview} is plainly matched
+	- **Fixed String**: Each [*Initial Argument*](./Initial-Arguments.md){data-preview} is plainly matched
 
 ## Usage
 ```fish {title="Format" .no-copy .no-select}
