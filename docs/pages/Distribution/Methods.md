@@ -32,11 +32,6 @@ Each package is a single function in the repository that provides abbreviations 
 !!! tip "Gaze at Pre-existing Packages"
     Have a look at other packages defined in the [repository](https://github.com/Drazape/fish-subAbbr/tree/main/functions/sub-abbr/pkg/official/ "Official Package Repository"){data-preview} before pushing your own here.
 
-!!! warning "Anti-legacy"
-    Legacy software with modern alternatives won't be included in the official repository.  
-    Tradition, familiarity with the legacy, inertia towards innovation—these won't be reasons accepted for “contributions.”  
-    The ancients can build their own museum (legacy-stone repository).
-
 !!! tip "Library"
     Use the [function library](../Usage/Packages/Software-Development-Kit/Expanders){data-preview} to create packages more easily using abstractions
 
