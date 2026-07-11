@@ -16,7 +16,7 @@ end
 begin
     set --local proj_name fish-subAbbr
     # Clone repository to temporary directory
-    set --global -- repository_dir {$proj_name}-XXXXXXXXX
+    set --global -- repository_dir (mktemp -- {$proj_name}-XXXXXXXXX)
     begin
         set --local clone_repo clone --filter=blob:none https://github.com/Drazape/{$proj_name}.git "$repository_dir"
         git $clone_repo || nix run nixpkgs#git $clone_repo || return 2
@@ -25,10 +25,10 @@ begin
 end
 
 # Operate
-function install-components --description='Install a component of the program'
+function install-component --description='Install a component of the program'
     for component in {$argv[1]}/**.fish
         install -D --mode=644 -- {$component} {$argv[2]}/(string split --fields=2 -- / {$component})/(string split --fields=3 --max=2 -- / {$component})
     end
 end
-install-components functions /usr/local/share/fish/vendor_functions.d # Functions
-install-components completions /usr/local/share/fish/vendor_completions.d # Completions
+install-component functions /usr/local/share/fish/vendor_functions.d # Functions
+install-component completions /usr/local/share/fish/vendor_completions.d # Completions
