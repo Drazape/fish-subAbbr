@@ -1,5 +1,8 @@
-# [v0.6.2] - Completions: no group description
+# [v0.6.2] - Flake, Completions: rm group desc
 <!-- New changes here  -->
+## Packaging
+- **Nix Flake Package**: The program was packaged as a Nix flake. This means that you no longer have to workaround installation by concatenating all the functions into the shell initialization configuration, and the functions would load on-demand.
+- **Fix Curl Install cloning**: Fixed a bug causing the sub-functions to not be intalled correctly
 ## Completions: `sub-abbrs`
 **Fix sub-pkg description on group**: Fixed a bug where a group would display the description of one of it's sub-packages
 ## Documentation
