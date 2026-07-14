@@ -57,10 +57,8 @@ For now, the installation can be worked around (with automatic updates). This me
 ```nix {hl_lines="3 4 5" title="flake.nix"}
 {
 	inputs = {
-		fish-subAbbr = {
-				type="github"; owner="Drazape"; repo="fish-subAbbr";
-				flake = false;
-		};
+		…
+		fish-subAbbr = { type="github"; owner="Drazape"; repo="fish-subAbbr"; };
 		…
 	};
 	outputs = inputs@{ self, nixpkgs, …, ... }: {
@@ -75,26 +73,15 @@ For now, the installation can be worked around (with automatic updates). This me
 ```nix {hl_lines="10" title="Module with the Fish configuration"}
 { inputs, … }: {
 	…
-	programs.fish = {
-		shellInit = ( # Fish subcommand abbreviation (workaround)
-			builtins.concatStringsSep "\n" ( # (4)!
-				builtins.map builtins.readFile 
-					(builtins.concatMap
-						(componentType: (builtins.filter
-									(baseName: ((builtins.match ".*\.fish$" baseName) == [])) # (3)!
-									(lib.filesystem.listFilesRecursive (inputs.fish-subAbbr + ("/"+componentType))))) # (2)!
-						[ "functions" "completions" ])) # (1)!
-		) + ''
-			…
-		'';
+	environment.systemPackages = [
 		…
+		inputs.fish-subAbbr.packages."${stdenv.hostPlatform.system}".default
+		…
+	]
+	…
 };
 ```
 
-1. The directories to source
-2. List of files the specified directories
-3. Filter to only Fish files
-4. Concatenate each file by separating them with a new line
 
 #### Manual
 The files must be moved to the vendor (`vendor_*.d`) system-wide path
