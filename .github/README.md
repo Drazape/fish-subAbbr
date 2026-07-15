@@ -83,7 +83,7 @@ Package groups are groups of packages that can be enabled in bulk.
 (see detailed [documentation](drazape.github.io/fish-subAbbr/Usage/Packages/Repository-Helper "GitHub pages documentation on the official repository helper"))
 ### Arguments
 #### Positional
-- **None**: When on arguments are specified, all the packages are activated
+- **None**: When no arguments are specified, all the packages are activated
 - **Group/Package path**: The path to the package group, or package
 
 > [!TIP]
