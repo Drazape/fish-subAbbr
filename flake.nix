@@ -10,10 +10,10 @@
     flake-parts.lib.mkFlake { inherit inputs; } {
       systems = [ "x86_64-linux" "aarch64-linux" "aarch64-darwin" "x86_64-darwin" ];
       perSystem = { config, self', inputs', pkgs, system, ... }: {
-        packages = {
-          default = self'.packages.fish-subAbbr;
-          fish-subAbbr = builtins.derivation {
-            name = "fish-subAbbr";
+        packages = let pkgName = "fish-subAbbr"; in {
+          default = self'.packages.${pkgName};
+          ${pkgName} = builtins.derivation {
+            name = pkgName;
             inherit system;
             builder = pkgs.lib.getExe pkgs.fish;
             args = [ "--no-config" "--private" "--" ./install.fish ./. ];
