@@ -8,9 +8,9 @@ copyright = """
   Copyright &copy; 2026 Drazape –
   <a href="#__consent">Change cookie settings</a>
 """
-docs_dir = "docs/pages/"
-site_dir = "docs/site/"
-custom_dir = "docs/overrides/"
+docs_dir = "./pages/"
+site_dir = "./site/"
+custom_dir = "./overrides/"
 
 [project.extra]
 generator = false
