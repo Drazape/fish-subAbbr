@@ -8,9 +8,9 @@ description: Match command-line arguments with *Regular Expression*s
 Match command-line arguments with *Regular Expression*s
 
 ## Properties
-|       Values        | Short |   Long  | Sub-Command | Inherited |
-| :-----------------: | :---: | :-----: | :---------: | :-------: |
-| Multiple & Optional |  `r`  | `regex` |     Add     |     ✅    |
+|       Values        | Short |   Long  | Sub-Command |    Inherited       |
+| :-----------------: | :---: | :-----: | :---------: | :----------------: |
+| Multiple & Optional |  `r`  | `regex` |     Add     | ✅ (more features) |
 
 ## Details
 - **Values**

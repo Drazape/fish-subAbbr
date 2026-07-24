@@ -11,8 +11,9 @@
 - **Formatting**: Fixed formatting issues for lists in *Initial Arguments*: *Customizable Behavior*
 - **Erase Name**: Correct the name of the sub-command: `list` → `erase`
 - **Expanded Callouts**: Expand the short callouts previously collapsed by default in *Software Development Kit*
-- **Clearer Properties**
-	- **Blank *Help* inheritance**  Set inherited property for Help as blank, since it's universal
+- **Clearer *Inheritance* Properties**
+	- **Blank *Help***  Set inherited property for Help as blank, since it's universal
+	- **More features for Regex**: Mention that though inherited, the switch adds more features: customizable support for Initials
 ### help-text: Add
 **Debloat Switch Descriptions**: Remove inherit labels and the Regular Expressions edge case: *Initial Argument* permutation in the same *Base Command*
 
