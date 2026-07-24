@@ -1,10 +1,24 @@
-# [v0.6.2] - Flake, Completions: rm group desc
-<!-- New changes here  -->
+# [v0.6.3] - Title Here
+<!-- New changes here -->
+
+
+
+# [v0.6.2] - Flake, pkg:Nix3 ,Completions: rm group desc
+## Package: New Group: Nix
+A new group, Nix, was added alongside the new package for the experimental Nix3 CLI.
+The group has 2 packages: `nh`, which was moved from the root group, and the new `nix` package.
+
+The package for the Nix3 command set only has one abbreviation (context-aware): Moves the `shell` root-subcommand into the super-subcommand: `env`.
+Though shell can be used outside the super-subcommand, putting it under `env` makes it easier for users to switch to the better practice since the root-subcommand is undocumented.
+This will be removed if the root sub-command is ever depreciated.
+
 ## Packaging
 - **Nix Flake Package**: The program was packaged as a Nix flake. This means that you no longer have to workaround installation by concatenating all the functions into the shell initialization configuration, and the functions would load on-demand.
 - **Fix Curl Install cloning**: Fixed a bug causing the sub-functions to not be intalled correctly
+
 ## Completions: `sub-abbrs`
 **Fix sub-pkg description on group**: Fixed a bug where a group would display the description of one of it's sub-packages
+
 ## Documentation
 ### Pages: Full Revision
 - **Values**: Add details on the values accepted by the *Add* switches: *Set-Cursor* & *Expander*
@@ -12,7 +26,7 @@
 - **Erase Name**: Correct the name of the sub-command: `list` → `erase`
 - **Expanded Callouts**: Expand the short callouts previously collapsed by default in *Software Development Kit*
 - **Clearer *Inheritance* Properties**
-	- **Blank *Help***  Set inherited property for Help as blank, since it's universal
+	- **Blank *Help***: Set inherited property for Help as blank, since it's universal
 	- **More features for Regex**: Mention that though inherited, the switch adds more features: customizable support for Initials
 ### help-text: Add
 **Debloat Switch Descriptions**: Remove inherit labels and the Regular Expressions edge case: *Initial Argument* permutation in the same *Base Command*
