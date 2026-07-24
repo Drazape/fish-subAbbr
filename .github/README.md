@@ -61,7 +61,7 @@ Create personal Sub-Command abbreviations in the scope
 ###### Switches
 | Name | Description | Long | Short | Inherited [^inherited-switches] |
 | :--: | ----------- | :--: | :---: | :-----------------------------: |
-| [**Help**](https://drazape.github.io/fish-subAbbr/Usage/Arguments/Universal-Switches/Help/ "documentation") | Show a reference manual — consisting of the [purpose](#sub-abbr "The purpose of the command") & [arguments](#Arguments "Descriptions on all the supported arguments") | `help` | `h` | ❌ |
+| [**Help**](https://drazape.github.io/fish-subAbbr/Usage/Arguments/Universal-Switches/Help/ "documentation") | Show a reference manual — consisting of the [purpose](#sub-abbr "The purpose of the command") & [arguments](#Arguments "Descriptions on all the supported arguments") | `help` | `h` | ~ |
 | [**Degrade**](https://drazape.github.io/fish-subAbbr/Usage/Arguments/Sub-Commands/Add/Switches/Degrade "documentation") | Disable toleration of `run0` as the command prefix; i.e., do not expand the *Sub-Command* if the *Initial Args* is prefixed with `run0` | `degrade` | `0` | ❌ |
 | [**Regard Flags**](https://drazape.github.io/fish-subAbbr/Usage/Arguments/Sub-Commands/Add/Switches/Regard-Flags "documentation") | Acknowledge flags in the *Initial Arguments*; If not set, switches in the *Initial Arguments* are ignored | `regard-flags` | `s` | ❌ |
 | [**RegExp**](https://drazape.github.io/fish-subAbbr/Usage/Arguments/Sub-Commands/Add/Switches/Regular-Expression "documentation") | Match *Sub-Command* with Regular Expressions. Essential (with `sub-command`) for abbreviating the same pair of *Sub-Command* & *Initial Arguments* [^multi-bases] | `regex` | `r` | ✅ |

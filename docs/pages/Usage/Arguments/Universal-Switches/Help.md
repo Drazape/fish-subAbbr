@@ -10,7 +10,7 @@ Show a reference manual for the given sub-command
 ## Properties
 | Value | Short |  Long  | Inherited |
 | :---: | :---: | :----: | :-------: |
-|  None |  `h`  | `help` |     ❌    |
+|  None |  `h`  | `help` |     ~     |
 
 ## Details
 - **Universal**: This switch is supported by all the sub-commands (and without any)
