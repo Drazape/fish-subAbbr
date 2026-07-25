@@ -1,6 +1,7 @@
-# [v0.6.3] - Title Here
+# [v0.6.3] - pkg: Nix3 fmt expansion
 <!-- New changes here -->
-
+## Package: nix: Nix3
+- Binds the alias: `fmt` → `formatter run` 
 
 
 # [v0.6.2] - Flake, pkg:Nix3 ,Completions: rm group desc
