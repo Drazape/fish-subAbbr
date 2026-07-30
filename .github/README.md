@@ -1,3 +1,6 @@
+# Showcase: [Jujutsu](../functions/sub-abbr/pkg/official/jj.fish)
+<img width="1860" height="165" alt="jj-showcase" src="https://github.com/user-attachments/assets/e0ce20db-37ce-400e-aaba-d2983aa8c5ac" />
+
 # Purpose
 Simplify creating context-aware Sub-Command abbreviations [^simplification]
 
