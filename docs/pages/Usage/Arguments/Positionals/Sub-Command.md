@@ -18,7 +18,7 @@ The *Sub-Command* token to be matched on the command-line
 	- **Command-line**: Replaced with the *Expansion*
 - **Single Token**: It must comprise of only one token; i.e., only one token can be replaced by the expansion. (Fish imposed; reasonable: UX)
 ### Customizable Behavior
-- [⚙️](../Sub-Commands/Add/Switches/Regular-Expression.md "Match command-line arguments with RegExp"){data-preview} **Plain String matching**: The expansion occurs when the *Sub-Command* matches as a plain string, not Regex
+- [:lucide-settings: toggle️](../Sub-Commands/Add/Switches/Regular-Expression.md "Match command-line arguments with RegExp"){data-preview .md-button .md-button--primary} **Plain String matching**: The expansion occurs when the *Sub-Command* matches as a plain string, not Regex
 
 ## Usage
 ```fish {title="Format" .no-copy .no-select}
