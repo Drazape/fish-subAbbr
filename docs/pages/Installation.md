@@ -69,11 +69,11 @@ A NixOS module with convenient configuration options is planned. For now, there 
 }
 ```
 ```nix {hl_lines="5" title="Module with the Fish configuration"}
-{ inputs, … }: {
+{ inputs, pkgs, …, ... }: {
 	…
 	environment.systemPackages = [
 		…
-		inputs.fish-subAbbr.packages."${stdenv.hostPlatform.system}".default
+		inputs.fish-subAbbr.packages."${pkgs.stdenv.hostPlatform.system}".default
 		…
 	]
 	…
