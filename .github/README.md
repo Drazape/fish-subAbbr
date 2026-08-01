@@ -91,9 +91,9 @@ Package groups are groups of packages that can be enabled in bulk.
 
 > [!TIP]
 > ### Discover Packages
->	- [Official](../functions/sub-abbr/pkg/)
->	- [3rd-party](https://github.com/topics/fish-subabbr)
-> #### [Create](./CONTRIBUTING.md)
+>	- [Official](../functions/sub-abbr/pkg/official/ "Repository package source")
+>	- [3rd-party](https://github.com/topics/fish-subabbr/ "GitHub topic")
+> #### [Create](./CONTRIBUTING.md "Contribution Redirect")
 ---
 
 # Installation
