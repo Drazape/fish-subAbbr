@@ -49,11 +49,11 @@ sub-abbr add jj ci commit
 > to your Fish configuration, and all official packages (included abbreviations) will automatically be loaded
 
 ## `sub-abbr`
+Create personal Sub-Command abbreviations in the scope
 
 > [!TIP]
 > See the detailed [documentation](https://drazape.github.io/fish-subAbbr/Usage/Arguments/Positionals/Expansion/ "GitHub Pages documentation on sub-abbr command usage")
 
-Create personal Sub-Command abbreviations in the scope
 ### Arguments
 #### Sub-Commands
 ##### Add
