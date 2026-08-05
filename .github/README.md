@@ -48,11 +48,13 @@ sub-abbr add jj ci commit
 > ```
 > to your Fish configuration, and all official packages (included abbreviations) will automatically be loaded
 
+> [!TIP]
+> ### Detailed [documentation](https://drazape.github.io/fish-subAbbr/ "GitHub Pages: Zensical documentation")
+> Everything below (and more) is covered extensively in the main documentation.  
+> You may familiarize yourself with the summary of the top-level features below, and switch to the documentation pages to know them in-depth, with exclusive additional information.
+
 ## `sub-abbr`
 Create personal Sub-Command abbreviations in the scope
-
-> [!TIP]
-> See the detailed [documentation](https://drazape.github.io/fish-subAbbr/Usage/Arguments/Positionals/Expansion/ "GitHub Pages documentation on sub-abbr command usage")
 
 ### Arguments
 #### Sub-Commands
@@ -83,9 +85,6 @@ Get identities of loaded abbrs
 ## `sub-abbrs`
 Helper to conveniently enable compatible package groups, or packages.  
 Package groups are groups of packages that can be enabled in bulk.  
-
-> [!TIP]
-> See the detailed [documentation](drazape.github.io/fish-subAbbr/Usage/Packages/Repository-Helper "GitHub pages documentation on the official repository helper")
 
 ### Arguments
 #### Positional
