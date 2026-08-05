@@ -49,8 +49,8 @@ A NixOS module with convenient configuration options is planned. For now, there 
 
 !!! warning "Manual Dependency"
     You'll need to manually install the [dependencies](#dependencies){data-preview}.
-		!!! info "Future Fish dependencies automation"
-				For the package, a special wrapper for Fish dependencies (planned) needs to be made.
+    !!! info "Future Fish dependencies automation"
+        For the package, a special wrapper for Fish dependencies (planned) needs to be made.
 
 ```nix {hl_lines="4" title="flake.nix"}
 {
