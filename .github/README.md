@@ -83,7 +83,10 @@ Get identities of loaded abbrs
 ## `sub-abbrs`
 Helper to conveniently enable compatible package groups, or packages.  
 Package groups are groups of packages that can be enabled in bulk.  
-(see detailed [documentation](drazape.github.io/fish-subAbbr/Usage/Packages/Repository-Helper "GitHub pages documentation on the official repository helper"))
+
+> [!TIP]
+> See the detailed [documentation](drazape.github.io/fish-subAbbr/Usage/Packages/Repository-Helper "GitHub pages documentation on the official repository helper")
+
 ### Arguments
 #### Positional
 - **None**: When no arguments are specified, all the packages are activated
