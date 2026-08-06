@@ -1,5 +1,5 @@
 {
-	description = "Fish context-aware abbr generater";
+	description = "Fish context-aware abbr generator";
 
 	inputs = {
 		flake-parts = { type="github"; owner="hercules-ci"; repo="flake-parts"; };
