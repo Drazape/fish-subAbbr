@@ -28,7 +28,7 @@ sub-abbr add … <DEGRADE FLAG> (?:`--`) …
 #### abbreviating `run0`
 Always use `--empower` so that the created files are owned by the calling user, not `root`
 ```fish {title="command" .no-select}
-sub-abbr add -0s run0 {,--empower\ }touch
+sub-abbr add -0s -- run0 {,--empower\ }touch
 ```
 
 #### Expanding only with `run0`
