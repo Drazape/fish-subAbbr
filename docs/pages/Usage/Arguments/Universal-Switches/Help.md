@@ -25,5 +25,3 @@ sub-abbr (?:<sub-command>) <HELP FLAG> (?:`--`) …
 
 !!! info "Insignificance of Arguments"
     Any other arguments (`…`) have no significance
-
-##### [output](https://github.com/Drazape/fish-helpText/#fish-subabbr "Library's showcase"){data-preview}
