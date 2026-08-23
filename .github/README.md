@@ -74,13 +74,10 @@ Create personal Sub-Command abbreviations in the scope
 | [**Expander**](https://drazape.github.io/fish-subAbbr/Usage/Arguments/Sub-Commands/Add/Switches/Expander "documentation") | Use the output of a command as the *Expansion* | `function` | `f` | ✅ |
 ##### Identity
 Manage context-aware sub-command abbreviation by their identities
-###### Erase
-Erase an abbr by its identity  
-**Positionals**:
-1. [**Initial Arguments**](https://drazape.github.io/fish-subAbbr/Usage/Arguments/Positionals/Initial-Arguments/ "wiki"): The *Initial Arguments* given to the abbreviation during creation
-2. [**Sub-Command**](https://drazape.github.io/fish-subAbbr/Usage/Arguments/Positionals/Sub-Command/ "wiki"): The *Sub-Command* given to the abbreviation during creation
 ###### List
-Get identities of loaded abbrs
+Get identities of loaded context-aware sub-command abbreviations
+###### Erase
+Erase a context-aware sub-command abbreviation by its identity -obtained from the [list](#List)
 
 ## `sub-abbrs`
 Helper to conveniently enable compatible package groups, or packages.  
