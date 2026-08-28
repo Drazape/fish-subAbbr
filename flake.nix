@@ -12,14 +12,11 @@
 			perSystem = { self', pkgs, lib, system, ... }: {
 				packages = let pkgName = "fish-subAbbr"; in {
 					default = self'.packages.${pkgName};
-					${pkgName} = builtins.derivation {
+					${pkgName} = pkgs.stdenvNoCC.mkDerivation {
 						name = pkgName;
 						inherit system;
-						builder = pkgs.lib.getExe pkgs.fish;
-						args = [ "--no-config" "--private" "--" ./install.fish ./. ];
-
-						HOME = "/tmp/"; # Temporary home directory to write history to
-						PATH = pkgs.coreutils+"/bin";
+						src = ./.;
+						installPhase = ''${lib.meta.getExe pkgs.fish} --no-config --private -- ${./install.fish} ${./.}'';
 					};
 				};
 				devShells.default = pkgs.mkShellNoCC {

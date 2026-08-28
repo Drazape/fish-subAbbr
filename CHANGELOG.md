@@ -6,8 +6,9 @@
 ## Package: nix: Nix3
 - Binds the alias: `fmt` → `formatter run`
 
-## Nix flake: development environment
-- Create a Nix development environment with the package configured, while landing into the Fish shell
+## Nix flake
+- **Development Environment**: Create a Nix development environment with the package configured, while landing into the Fish shell
+- **Derivation**: Instead of using raw derivation, abstract to *mkDerivation* from Nixpkgs.
 
 
 # [v0.6.2] - Flake, pkg:Nix3 ,Completions: rm group desc
