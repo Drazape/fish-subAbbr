@@ -39,12 +39,7 @@
 						'';
 					};
 				};
-				devShells.default = pkgs.mkShellNoCC {
-					shellHook = ''exec ${lib.meta.getExe pkgs.fish} --init-command=source\ ''+pkgs.writers.writeFish "prepend-script-paths" ''
-						set --prepend -- fish_function_path ${self'.packages.default}/share/fish/vendor_functions.d
-						set --prepend -- fish_complete_path ${self'.packages.default}/share/fish/vendor_completions.d
-					'';
-				};
+				devShells.default = pkgs.mkShellNoCC { FISH_NIXPKG = self'.packages.default; };
 			};
 		};
 }

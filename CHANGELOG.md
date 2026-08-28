@@ -1,4 +1,4 @@
-# [v0.6.3] - pkg: Nix3 fmt expansion
+# [v0.6.3] - cleaner env, pkg: Nix3 fmt, flake improvements
 <!-- New changes here -->
 ## Fix: erasure
 - **Erase specialized expanders**: When a context-aware sub-command abbreviation is erased, instead of only erasing it from `abbr`, leaving unreachable garbage: specialized expander functions behind, also collect the orphan expanders for a cleaner environment.
@@ -8,7 +8,7 @@
 
 ## Nix flake
 - **Reproducibility/Automation**: The package now automatically fixes the paths to the dependencies. This means, you no longer have to manually install the dependencies to the system environment (or even add them to the `inputs`).
-- **Development Environment**: Create a Nix development environment with the package configured, while landing into the Fish shell
+- **Development Environment**: Create a Nix development environment with the package [configured](https//github.com/Drazape/fish-nixenv "Allow making direnv devShells for Fish projects"), while landing into the Fish shell
 - **Derivation**: Instead of using raw derivation, abstract to *mkDerivation* from Nixpkgs.
 
 
