@@ -98,7 +98,7 @@ function sub-abbr --description='Create abbreviations for subcommands'
             if set --query --local _flag_help
                 help-text --link=_sub-abbr_internal_helpText-linker 'Create context-aware Sub-Command abbreviations' \
                     --positional={
-                  '+Initial Args | All arguments that come before the Sub-Command', 
+                  '+Initial Args | All arguments that come before the Sub-Command',
                   'Sub-Command | Comes after the Initial Args; replaced by the Expansion',
                   'Expansion | Replaces the Sub-Command'
                 } \
@@ -144,8 +144,8 @@ function sub-abbr --description='Create abbreviations for subcommands'
             # main operation
             begin
                 set --local -- regexStr \~
-                set --query --local regex_subcommand && set --local -- regexStr r
-                set --function identity (string escape --style=var -- _sub-abbr_expand\ {$regexStr}:" $base_command $initial_args $subcommand") # name compatible hash; specific to the combination
+                set --query --local -- regex_subcommand && set --local -- regexStr r
+                set --function -- identity (string escape --style=var -- _sub-abbr_expand\ {$regexStr}:" $base_command $initial_args $subcommand") # name compatible hash; specific to the combination
             end
             begin
                 set --query --local _flag_degrade || set --local -- tolerate_run0 --command=run0
