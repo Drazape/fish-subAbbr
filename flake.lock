@@ -1,5 +1,51 @@
 {
   "nodes": {
+    "fish-format": {
+      "inputs": {
+        "flake-parts": [
+          "flake-parts"
+        ],
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1787838982,
+        "narHash": "sha256-G8lcylyB+mpIJEtcpNf0nD+MqtUlffr/2pcdVxne0TI=",
+        "owner": "Drazape",
+        "repo": "fish-format",
+        "rev": "16cd0e2ee51ae17426d47dc76b0d1b64d1fe1ddf",
+        "type": "github"
+      },
+      "original": {
+        "owner": "Drazape",
+        "repo": "fish-format",
+        "type": "github"
+      }
+    },
+    "fish-helpText": {
+      "inputs": {
+        "flake-parts": [
+          "flake-parts"
+        ],
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1787839073,
+        "narHash": "sha256-NS2CnDig+Uv721AGowDXASTo9uhony3t/zD+M+YThSI=",
+        "owner": "Drazape",
+        "repo": "fish-helpText",
+        "rev": "697a0d69e2e0789a1eb70f4f74aaba59c9221109",
+        "type": "github"
+      },
+      "original": {
+        "owner": "Drazape",
+        "repo": "fish-helpText",
+        "type": "github"
+      }
+    },
     "flake-parts": {
       "inputs": {
         "nixpkgs-lib": "nixpkgs-lib"
@@ -51,6 +97,8 @@
     },
     "root": {
       "inputs": {
+        "fish-format": "fish-format",
+        "fish-helpText": "fish-helpText",
         "flake-parts": "flake-parts",
         "nixpkgs": "nixpkgs"
       }
