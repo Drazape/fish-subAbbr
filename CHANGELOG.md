@@ -7,7 +7,7 @@
 - Binds the alias: `fmt` → `formatter run`
 
 ## Nix flake: development environment
-- Create a Nix development environment that sources all the Fish script source code, while landing into the Fish shell
+- Create a Nix development environment with the package configured, while landing into the Fish shell
 
 
 # [v0.6.2] - Flake, pkg:Nix3 ,Completions: rm group desc

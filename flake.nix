@@ -22,18 +22,11 @@
 						PATH = pkgs.coreutils+"/bin";
 					};
 				};
-				devShells = {
-					default = self'.devShells.pkg;
-					pkg = pkgs.mkShellNoCC {
-						shellHook = ''exec ${lib.meta.getExe pkgs.fish} --init-command='
-							functions --erase -- sub-abbr sub-abbrs (functions --all | string match --entire --regex -- ^_sub-abbr_) (functions --all | string match --entire --regex -- ^__sub_2D_abbr__expand_)
-							for script in ${self'.packages.default}/share/fish/*/*.fish
-								source {$script}
-							end
-							sub-abbr identity erase (sub-abbr identity list)'
-						'';
-					};
-					# Also a shell that directly sources the scripts in the current directory
+				devShells.default = pkgs.mkShellNoCC {
+					shellHook = ''exec ${lib.meta.getExe pkgs.fish} --init-command=source\ ''+pkgs.writers.writeFish "prepend-script-paths" ''
+						set --prepend -- fish_function_path ${self'.packages.default}/share/fish/vendor_functions.d
+						set --prepend -- fish_complete_path ${self'.packages.default}/share/fish/vendor_completions.d
+					'';
 				};
 			};
 		};
