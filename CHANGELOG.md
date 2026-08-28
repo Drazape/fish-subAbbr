@@ -7,6 +7,7 @@
 - Binds the alias: `fmt` → `formatter run`
 
 ## Nix flake
+- **Reproducibility/Automation**: The package now automatically fixes the paths to the dependencies. This means, you no longer have to manually install the dependencies to the system environment (or even add them to the `inputs`).
 - **Development Environment**: Create a Nix development environment with the package configured, while landing into the Fish shell
 - **Derivation**: Instead of using raw derivation, abstract to *mkDerivation* from Nixpkgs.
 

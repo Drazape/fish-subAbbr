@@ -1,4 +1,13 @@
 function sub-abbr --description='Create abbreviations for subcommands'
+    # Nix dependencies: string placements to be overriden with store paths
+    for dependency_configurations in /dev/null # shell-startup directories
+        for dependency_config in {$dependency_configurations}/*
+            source -- {$dependency_config}
+        end
+    end
+    set --local -- additional_function_paths PATHS-TO-DEPENDENCY-FUNCTIONS
+    set --prepend -- fish_function_path {$additional_function_paths}
+
     begin
         set --local -- output_name (format text dim (status function))
         set --function -- argparse argparse --name={$output_name}
@@ -162,4 +171,5 @@ function sub-abbr --description='Create abbreviations for subcommands'
         case \*
             $print 'unknown sub-command:' (format text bold (format background red --bright {$argv[1]})) >&2
     end
+    set --erase -- fish_function_path[1..(count {$additional_function_paths})]
 end
