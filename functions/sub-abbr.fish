@@ -83,6 +83,7 @@ function sub-abbr --description='Create abbreviations for subcommands'
                         else
                             set -- internal_identity (string escape --style=var -- {$identity_prefix}{$identity})
                         end
+                        functions --erase -- {$internal_identity} # internal specialized expander
                         set --local -- commands (string escape --style=var -- {$identity})_commands
                         abbr --erase --command={$$commands} -- {$internal_identity}
                     end

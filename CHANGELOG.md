@@ -1,5 +1,8 @@
 # [v0.6.3] - pkg: Nix3 fmt expansion
 <!-- New changes here -->
+## Fix: erasure
+- **Erase specialized expanders**: When a context-aware sub-command abbreviation is erased, instead of only erasing it from `abbr`, leaving unreachable garbage: specialized expander functions behind, also collect the orphan expanders for a cleaner environment.
+
 ## Package: nix: Nix3
 - Binds the alias: `fmt` → `formatter run` 
 
