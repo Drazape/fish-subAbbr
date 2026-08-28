@@ -4,7 +4,10 @@
 - **Erase specialized expanders**: When a context-aware sub-command abbreviation is erased, instead of only erasing it from `abbr`, leaving unreachable garbage: specialized expander functions behind, also collect the orphan expanders for a cleaner environment.
 
 ## Package: nix: Nix3
-- Binds the alias: `fmt` → `formatter run` 
+- Binds the alias: `fmt` → `formatter run`
+
+## Nix flake: development environment
+- Create a Nix development environment that sources all the Fish script source code, while landing into the Fish shell
 
 
 # [v0.6.2] - Flake, pkg:Nix3 ,Completions: rm group desc
