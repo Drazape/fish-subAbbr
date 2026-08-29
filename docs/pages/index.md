@@ -21,28 +21,28 @@ Though the original `abbr` built-in is capable of creating all sorts of abbrevia
 
 - Fired off even when the subcommand lies in unexpected positions
 - Not fired off when used with `run0`
-- Hard customization
+- Hard to customize
 
 ### Individual solutions
 The problem with this approach is that multiple repetitive functions are created, violating the [DRY principle](https://en.wikipedia.org/wiki/Don%27t_repeat_yourself "Wikipedia: Don't Repeat Yourself"){data-preview}.
 This leads to maintainability hell and difficulty & time-consumption in creating abbreviations. Any simple solutions lead to abbreviations that:
 
-- [Fail on only Enter (not followed by space)](https://github.com/fish-shell/fish-shell/issues/11944#issuecomment-3478417297 "Fish issue"){data-preview}
+- [Fire on Enter only (not by spaces)](https://github.com/fish-shell/fish-shell/issues/11944#issuecomment-3478417297 "Fish issue"){data-preview}
 - Not expanded when used with switches
 - Require explicit handling of `run0`
 - Are tedious to modify
-- Harder to make complex expansions
+- Are harder to make complex expansions
 - Are error-prone to matching
-- Harder distribution
+- Are Harder to distribute
 
 ### Aim
 This program is designed to
 
 - Tackle these issues
-- Accessible creation of such abbreviations
+- Make creation of such abbreviations accessible
 - Remain customizable for complex abbreviations
-- Management of such abbreviations
-- Distribution of abbreviations (like completions) from multiple-sources, and the co-existence of each.
-- Improving upon `builtin abbr`
+- Manage such abbreviations
+- Distribute such abbreviations (like completions) from multiple-sources, and the co-existence of each.
+- Improve upon `builtin abbr`
 	- If a *Sub-Command* was escaped once on the command-line, you don't have to do it again
-  - The flags modifying the argument treatement don't modify the argument structure. (don't accept values if it is already setup to be provided as a positional otherwise)
+	- The flags modifying the argument treatement don't modify the argument structure. (don't accept values if it is already setup to be provided as a positional otherwise)
