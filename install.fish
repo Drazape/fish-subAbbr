@@ -29,6 +29,10 @@ for dir in functions completions
     for source in "$root_dir"{$dir}/**.fish
         set --local -- output_path {$source} # Same output path in case of no root directory
         set --query --local -- root_dir && set --local -- output_path (string split --fields=2 --max=1 -- "$root_dir" {$source}) # Remove root directory from the output path
-        install -D --mode=644 -- {$source} "$out"/"$remote"share/fish/vendor_{$dir}.d/(string split --fields=2 --max=1 -- {$dir}/ {$output_path} | string replace --all -- / _ | string replace -- {,_}sub-abbr_)
+        install -D --mode=644 -- {$source} "$out"/"$remote"share/fish/vendor_{$dir}.d/(
+            string split --fields=2 --max=1 -- {$dir}/ {$output_path} |
+            string replace --all -- / _ |
+            string replace -- {,_}sub-abbr_
+        )
     end
 end
