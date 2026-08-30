@@ -45,6 +45,8 @@ description = """
 
 # Defaults
 [project.theme]
+logo = "icon.png"
+favicon = "icon.png"
 language = "en"
 features = [
     "announce.dismiss",
