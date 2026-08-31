@@ -11,7 +11,7 @@ function _sub-abbr_internal_expand-subcommand --description='Expand a subcommand
 
     # Commandline
     set --local -- argv (commandline --tokens-expanded --current-process)[..-2]
-    set --local --query -- _flag_regard_flags || argparse --move-unknown -- {$argv}
+    set --query --local -- _flag_regard_flags || argparse --move-unknown -- {$argv}
     set --function -- active_sub_args {$argv[2..]}
     begin
         set --local -- popleft (status current-function)_pop-left
@@ -19,7 +19,7 @@ function _sub-abbr_internal_expand-subcommand --description='Expand a subcommand
             $popleft
             set argv {$argv[2]} # change base-command in case used alongside `run0`, for test
         end
-        if ! set --local --query -- _flag_degrade && test {$argv[1]} = run0
+        if ! set --query --local -- _flag_degrade && test {$argv[1]} = run0
             test {$base_command} != {$active_sub_args[1]} && return 1
             $popleft
         end

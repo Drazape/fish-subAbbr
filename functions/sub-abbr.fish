@@ -18,7 +18,7 @@ function sub-abbr --description='Create abbreviations for subcommands'
 
     # general sub-command reference
     set --local -- add_description 'Create context-aware sub-command abbreviations'
-    if set --local --query -- _flag_help
+    if set --query --local -- _flag_help
         help-text --link=_sub-abbr_internal_helpText-linker 'Context-aware Sub-Command abbreviations' \
             --sub-command={
                 'add | '{$add_description},
