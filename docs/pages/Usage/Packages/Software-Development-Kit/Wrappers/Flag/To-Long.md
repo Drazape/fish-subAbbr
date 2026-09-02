@@ -23,4 +23,4 @@ Convert short flags into their long versions
 #### Exclusive
 |    Name   |     Long    | Short | Value |               Description              |                                               Effect                                               |
 | :-------: | :---------: | :---: | :---: | -------------------------------------- | -------------------------------------------------------------------------------------------------- |
-| Mandatory | `mandatory` |  `m`  |  None | Makes it compulsory to provide a value | Puts the cursor with the long flag seperated with `=`; implies [`Mandatory Long`](./Mandatory-Long.md){data-preview} |
+| Mandatory | `mandatory` |  `m`  |  None | Makes it compulsory to provide a value | Puts the cursor with the long flag separated with `=`; implies [`Mandatory Long`](./Mandatory-Long.md){data-preview} |
