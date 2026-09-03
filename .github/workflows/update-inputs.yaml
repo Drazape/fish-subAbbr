@@ -21,7 +21,7 @@ jobs:
         uses: Drazape/commit-flake-inputs@v1
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
-          target_branch: latest
+          target_branch: alpha
           commit_message: "chore(flake): ops: update inputs"
           flake_directory: "."
           gpg_private_key: ${{ secrets.GPG_PRIVATE_KEY }}
