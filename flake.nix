@@ -39,7 +39,7 @@
 						'';
 					};
 				};
-				devShells.default = pkgs.mkShellNoCC { FISH_NIXPKG = self'.packages.default; };
+				devShells.default = pkgs.mkShellNoCC { FISH_NIXPKG = self'.packages.default; }; # use with fish-nixenv
 			};
 		};
 }
