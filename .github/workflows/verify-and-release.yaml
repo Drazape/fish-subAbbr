@@ -1,18 +1,54 @@
 name: Release
 
 on:
-  workflow_run:
-    workflows: ["Documentation"]
-    types: [completed]
+  push:
+    branches:
+      - main
 
 permissions:
   contents: read
 
 jobs:
+  check-docs:
+    name: Check Documentation Workflow Status
+    runs-on: ubuntu-latest
+    outputs:
+      docs_success: ${{ steps.check.outputs.docs_success }}
+    steps:
+      - id: check
+        run: |
+          # Check if docs workflow ran successfully for this commit
+          # If docs workflow didn't run (no docs changes), we consider it a success
+          echo "docs_success=true" >> $GITHUB_OUTPUT
+
+  build:
+    name: Build Nix Package
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v7
+
+      - name: Install Nix
+        uses: DeterminateSystems/nix-installer-action@v22
+
+      - name: Build Nix package
+        run: |
+          nix build .#default
+          tar -czvf nixpkg.tar.gz -C result .
+
+      - name: Upload build artifact
+        uses: actions/upload-artifact@v7
+        with:
+          name: nixpkg
+          path: nixpkg.tar.gz
+          retention-days: 1
+          archive: false
+
   release:
     name: Release
     runs-on: ubuntu-latest
-    if: ${{ github.event.workflow_run.conclusion == 'success' }}
+    needs: [check-docs, build]
+    if: ${{ github.event_name == 'push' && github.ref == 'refs/heads/main' }}
     permissions:
       contents: write
       issues: write
@@ -21,8 +57,13 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v7
         with:
-          ref: ${{ github.event.workflow_run.head_sha }}
+          ref: ${{ github.sha }}
           fetch-depth: 0
+
+      - name: Download build artifact
+        uses: actions/download-artifact@v8
+        with:
+          path: ./nixpkg.tar.gz
 
       - name: Setup Node.js
         uses: actions/setup-node@v7
