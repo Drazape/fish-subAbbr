@@ -17,7 +17,7 @@ description: Helper guide
 
 ---
 
-!!! abstract "Informal Explanation: File System example"
+!!! abstract "Explanation: File System example"
     Think of the package tree like the file system tree that you are familiar with — groups as directories, packages as files.  
     When you read a "directory," instead of getting an error, you concatenate (source) all the files in the directory — as if you did
     ```fish {title="Concatenate each file in a directory"}
