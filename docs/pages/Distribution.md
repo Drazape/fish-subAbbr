@@ -4,7 +4,7 @@ icon: lucide/signpost
 description: Distribution ways
 ---
 
-# Methods
+# Distribution
 ## Comparison
 |  ~  | [Official Repository](#official-repository){data-preview} | [3rd-party](#3rd-party){data-preview} |
 | :-: | :-----------------------------------------: | ---------------------- |

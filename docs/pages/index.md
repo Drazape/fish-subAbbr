@@ -22,7 +22,7 @@ Though the original `abbr` built-in is capable of creating all sorts of abbrevia
 
 ### Individual solutions
 The problem with this approach is that multiple repetitive functions are created, violating the [DRY principle](https://en.wikipedia.org/wiki/Don%27t_repeat_yourself "Wikipedia: Don't Repeat Yourself"){data-preview}.
-This leads to maintainability hell and difficulty & time-consumption in creating abbreviations. Any simple solutions lead to abbreviations that:
+This leads to maintainability hell, along with difficulty, and increased time-consumption in creating abbreviations. Any simple solutions lead to abbreviations that:
 
 - [Fire on Enter only (not by spaces)](https://github.com/fish-shell/fish-shell/issues/11944#issuecomment-3478417297 "Fish issue"){data-preview}
 - Not expanded when used with switches
