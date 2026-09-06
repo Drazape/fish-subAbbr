@@ -112,7 +112,7 @@ keys = {}
 magiclink = {}
 mark = {}
 smartsymbols = {}
-snippets = {}
+snippets.auto_append = ["./includes/abbreviations.md",]
 superfences.custom_fences = [{ name = "mermaid", class = "mermaid", format = "pymdownx.superfences.fence_code_format", },]
 tabbed = { alternate_style = true, combine_header_slug = true, }
 tasklist.custom_checkbox = true

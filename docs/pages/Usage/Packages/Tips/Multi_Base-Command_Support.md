@@ -21,7 +21,6 @@ This allows users to create [*Sub-Command*][subcommand]{data-preview} Abbreviati
     Therefore, `sub-abbr` internally uses its *Function* switch to parse the `commandline`, enabling us to create as many abbreviations for the same [*Sub-Command*][subcommand]{data-preview} as we want.
 
 
-*[Base Command]: The first Initial Argument
 [regexp]: ../../Arguments/Sub-Commands/Add/Switches/Regular-Expression.md
 [subcommand]: ../../Arguments/Positionals/Sub-Command.md
 [initials]: ../../Arguments/Positionals/Initial-Arguments.md
