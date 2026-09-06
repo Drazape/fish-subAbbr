@@ -1,0 +1,34 @@
+name: Build
+
+on:
+  push:
+    branches-ignore:
+      - 'gh-pages'
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    name: Build Nix Package
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v7
+
+      - name: Install Nix
+        uses: DeterminateSystems/nix-installer-action@v22
+
+      - name: Build Nix package
+        run: |
+          nix build .#default
+          tar -czvf nixpkg.tar.gz -C result .
+
+      - name: Upload build artifact
+        uses: actions/upload-artifact@v7
+        with:
+          name: nixpkg
+          path: nixpkg.tar.gz
+          retention-days: 1
+          archive: false

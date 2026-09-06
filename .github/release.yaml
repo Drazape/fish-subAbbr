@@ -1,0 +1,27 @@
+changelog:
+  exclude:
+    labels:
+      - skip changelog
+    authors:
+      - dependabot
+  categories:
+    - title: ⚠️ Breaking Changes
+      labels:
+        - breaking change
+    - title: 📦 New Packages
+      labels:
+        - package
+    - title: ✨ New Features & Enhancements
+      labels:
+        - enhancement
+        - feature
+    - title: 🐛 Bug Fixes
+      labels:
+        - bug
+    - title: 📚 Documentation
+      labels:
+        - documentation
+        - docs
+    - title: 🔧 Other Changes
+      labels:
+        - "*"

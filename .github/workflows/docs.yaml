@@ -1,19 +1,23 @@
 name: Documentation
+
 on:
   push:
     branches:
       - main
     paths:
       - 'docs/**'
+  pull_request:
+    paths:
+      - 'docs/**'
+
 permissions:
   contents: read
   pages: write
   id-token: write
+
 jobs:
-  deploy:
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
+  build:
+    name: Build Documentation
     runs-on: ubuntu-latest
     steps:
       - uses: actions/configure-pages@v6
@@ -26,5 +30,15 @@ jobs:
       - uses: actions/upload-pages-artifact@v5
         with:
           path: docs/site
+
+  deploy:
+    name: Deploy Documentation
+    needs: build
+    if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    steps:
       - uses: actions/deploy-pages@v5
         id: deployment
