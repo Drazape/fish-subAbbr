@@ -19,7 +19,7 @@ description: Helper guide
 
 !!! abstract "Explanation: File System example"
     Think of the package tree like the file system tree that you are familiar with — groups as directories, packages as files.  
-    When you read a "directory," instead of getting an error, you concatenate (source) all the files in the directory — as if you did
+    When you read a “directory,” instead of getting an error, you concatenate (source) all the files in the directory — as if you did
     ```fish {title="Concatenate each file in a directory"}
     for file in (path filter --type=file -- <dir>/**)
         read --null <{$file}
