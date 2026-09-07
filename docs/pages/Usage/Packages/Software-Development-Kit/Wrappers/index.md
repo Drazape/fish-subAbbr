@@ -8,7 +8,7 @@ description: Abbreviation frameworks
 Library frameworks with independent arguments and working; abstractions over other commands.
 
 These are made to make package development more intuitive when a mere Expansion library isn't enough.  
-These functions are not limited to just changing the expansion, but to every aspect of the abbreviation, and beyond.
+These functions are not limited to changing the expansion, but to every aspect of the abbreviation, and beyond.
 
 ## Uses
 - Directly called from the package instead of calling `sub-abbr`

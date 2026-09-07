@@ -8,7 +8,7 @@ description: Package structure
 The packages are organised in a tree data-structure
 
 !!! note "Standard Only"
-    This is just a standard followed by the official repository. Other repositories and packages may choose to make their own structures.
+    This is only a standard followed by the official repository. Other repositories and packages may choose to make their own structures.
 
 ## Data Types
 1. **Groups**: A collection of packages or other groups

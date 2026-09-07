@@ -1,24 +1,24 @@
 ---
 comments: true
 icon: lucide/list
-description: List the identity of each content-aware abbreviation loaded
+description: List the identifier of each content-aware abbreviation loaded
 ---
 
 # List
-List the identity of each content-aware abbreviation loaded
+List the identifier of each content-aware abbreviation loaded
 
 ## Properties
 |  Name  |  Parent  |
 | :----: | :------: |
-| `list` | [Identity](../index.md "Manage abbr by their identities"){data-preview} |
+| `list` | [Identity](../index.md "Manage abbr by their identifiers"){data-preview} |
 
 ## Details
 - **No local args**: This sub-command doesn't accept any local arguments
 - **Uses**
 	- Intuitively erasing content-aware abbreviations (in case of sub-command [RegExp](../../Add/Switches/Regular-Expression.md "Match *Sub-Command* with RegExp"){data-preview})
 	- Checking if a specific abbreviation already exists
-- **Implementation**: The output from `abbr` is parsed to get the identity encoded into the function name, which is further parsed to generate a human-intuitive identity
-- **Single ID**: Unlike `abbr` which can have the same identity repeated (and would require the `--command` flag), this program uses a content-addressable identity
+- **Implementation**: The output from `abbr` is parsed to get the identifier encoded into the function name, which is further parsed to generate a human-intuitive identifier
+- **Single ID**: Unlike `abbr` which can have the same identifier repeated (and would require the `--command` flag), this program uses a content-addressable identifier
 
 ## Usage
 ```fish {title="Format" .no-copy .no-select}

@@ -1,19 +1,19 @@
 ---
 comments: true
 icon: lucide/eraser
-description: Erase a content-aware abbreviation by its identity
+description: Erase a content-aware abbreviation by its identifier
 ---
 
 # Erase
-Erase a content-aware abbreviation by its identity
+Erase a content-aware abbreviation by its identifier
 
 ## Properties
 |   Name  |  Parent  |
 | :-----: | :------: |
-| `erase` | [Identity](../index.md "Manage abbr by their identities"){data-preview} |
+| `erase` | [Identity](../index.md "Manage abbr by their identifiers"){data-preview} |
 
 ## Details
-- **Identity**: The identity can be obtained from the [List sub-command](List.md "Get identities of loaded abbrs"){data-preview}
+- **Identifier Obtainment**: The identifier can be obtained from the [List sub-command](List.md "Get identities of loaded abbrs"){data-preview}
 - **Uses**: Intuitively deletion in case of [RegExp](../../Add/Switches/Regular-Expression.md "Match *Sub-Command* with RegExp"){data-preview} context-aware abbreviations
 - **Implementation**: The human ID is converted into the ID identified by `builtin abbr`
 	- *RegExp*: the entire command-line

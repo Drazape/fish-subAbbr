@@ -24,14 +24,14 @@ The installation involves moving Fish files from the directories
 
 to the appropriate paths in the host system, depending on the installation type.
 
-Each file in `functions/` must be renamed such that each sub-directory's name is prefixed to it such that the file name is `parentDir_childDir_file`
+Each file in `functions/` must be renamed such that each sub-directory's name is prefixed to it such that the filename is `parentDir_childDir_file`
 !!! tip "Function Name"
     See the function's name in the respective file to obtain the file-name of it (`.fish` suffixed)
 
 ## Scope
 ### User
 #### Automatic: Package Manager
-Auto-updates via the package manager  
+Auto-updates from the package manager  
 [**Fisher**](https://github.com/jorgebucaran/fisher "Fish plugin manager"){data-preview}: `#!fish fisher install Drazape/fish-subAbbr`
 #### Manual
 Move the directories into your Fish configuration in the home directory (`~/.config/fish/`):

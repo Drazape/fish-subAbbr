@@ -26,7 +26,7 @@ social = [
     link = "https://discord.com/users/847672200139243540",
   },
   {
-    name = "E-mail",
+    name = "email",
     icon = "fontawesome/solid/envelope",
     link = "mailto:Drazape@outlook.com",
   },

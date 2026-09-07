@@ -15,7 +15,7 @@ Dynamically expand using a command's output as the [*Expansion*](Expander.md "Us
 ## Details
 - **Relation**: The [*Expansion*](Expander.md "Use a command's output as the *Expansion*"){data-preview} is determined by a command's output instead of a fixed string
 - **Value**: The command to execute for obtaining the replacement string
-- **Single token**: Just like `builtin abbr`, the [*Expander*](Expander.md "Use a command's output as the *Expansion*"){data-preview} must only consist of a single command.
+- **Single token**: Like `builtin abbr`, the [*Expander*](Expander.md "Use a command's output as the *Expansion*"){data-preview} must only consist of a single command.
 - **Use-case**: Dynamically generating expansions.
 !!! tip "“Discard” expansion"
     You can simulate discarding of expansion by simply printing the *sub-command* back, changing nothing

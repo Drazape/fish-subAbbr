@@ -1,11 +1,11 @@
 ---
 comments: true
 icon: lucide/id-card
-description: Manage context-aware Sub-Command abbreviations by their identities
+description: Manage context-aware Sub-Command abbreviations by their identifiers
 ---
 
 # Identity
-Manage context-aware Sub-Command abbreviations by their identities
+Manage context-aware Sub-Command abbreviations by their identifiers
 
 ## Properties
 |  Name | Parent |
@@ -14,7 +14,7 @@ Manage context-aware Sub-Command abbreviations by their identities
 
 ## Arguments: Positionals: Sub-Commands
 1. [**List**](Sub-Commands/List.md "Wiki Page"){data-preview}: Get identities of loaded abbrs
-2. [**Erase**](Sub-Commands/Erase.md "Wiki Page"){data-preview}: Erase an abbr by its identity
+2. [**Erase**](Sub-Commands/Erase.md "Wiki Page"){data-preview}: Erase an abbr by its identifier
 
 ## Usage
 ```fish {title="Format" .no-copy .no-select}

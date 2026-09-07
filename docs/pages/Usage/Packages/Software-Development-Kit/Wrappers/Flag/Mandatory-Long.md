@@ -26,5 +26,5 @@ If the flag token is left without a value (`=` sign), then it puts you back to t
 | :-------: | :----: | :---: | :----------------: | ---------------------------------- | ----------------------------------- |
 | Long Flag | `flag` |  `f`  | Required; variable | Mandatory long flags specification | Matches each of the specified flags |
 
-!!! failure "Internal Regex Escaping"
-    The flag is regex-escaped internally since the same flag is often used in different sub-commands for the same command. Hence you must not escape the flag yourself
+!!! failure "Internal RegExp Escaping"
+    The flag is escaped for regular expressions internally because the same flag is often used in different sub-commands for the same command. Hence you must not escape the flag yourself

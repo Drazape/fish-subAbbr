@@ -14,9 +14,9 @@ This is a 3rd-party solution to the problems likewise faced by the developer:
 [Issue](https://github.com/fish-shell/fish-shell/issues/11944 "Issue in the official Fish repository"){ data-preview .md-button }
 
 ### Internal Built-in
-Though the original `abbr` built-in is capable of creating all sorts of abbreviations, if we use the built-in methods without any complex custom functions and parsing of `commandline`, it leads to abbreviations that are
+Though the original `abbr` built-in is capable of creating all sorts of abbreviations, if we use the built-in methods without any complex custom functions and parsing of `commandline`, it leads to abbreviations that are:
 
-- Fired off even when the subcommand lies in unexpected positions
+- Fired off even when the sub-command lies in unexpected positions
 - Not fired off when used with `run0`
 - Hard to customize
 
@@ -41,5 +41,5 @@ This program is designed to
 - Manage such abbreviations
 - Distribute such abbreviations (like completions) from multiple-sources, and the co-existence of each.
 - Improve upon `builtin abbr`
-	- If a *Sub-Command* was escaped once on the command-line, you don't have to do it again
+	- If a *Sub-Command* was escaped once on the command-line, then you don't have to do it again
 	- The flags modifying the argument treatement don't modify the argument structure. (don't accept values if it is already setup to be provided as a positional otherwise)

@@ -1,11 +1,11 @@
 ---
 comments: true
 icon: lucide/arrow-big-down-dash
-description: Disable `run0` command-prefix toleration
+description: Deactivate `run0` command-prefix toleration
 ---
 
 # Degrade
-Disable `run0` command-prefix toleration
+Deactivate `run0` command-prefix toleration
 
 ## Properties
 | Value | Short |    Long   | Sub-Command | Inherited |
@@ -17,7 +17,7 @@ Disable `run0` command-prefix toleration
 - **Use-case**: For abbreviating commands that must be elevated for the expansion to occur
 
 !!! note "internally handled base-prefix: `exec`"
-    The command prefix `exec` is especially internally respected, with no switch to disable
+    The command prefix `exec` is especially internally respected, with no switch to available to deactivate the behavior.
 
 ## Usage
 ```fish {title="Format" .no-copy .no-select}

@@ -15,7 +15,7 @@ single-switch --short-option=h --long-option=help --description='Reference manua
 begin
     set --local -- subcommand_complete {$common_complete} --condition='test (__fish_number_of_cmd_args_wo_opts) -lt 2'
     $subcommand_complete --arguments=add --description='Create abbrs'
-    $subcommand_complete --arguments=identity --description='Manage abbrs by their identities'
+    $subcommand_complete --arguments=identity --description='Manage abbrs by their identifiers'
 end
 begin
     $common_complete --exclusive \
@@ -27,7 +27,7 @@ begin
     set --local -- identity_complete {$common_complete} \
         --condition='set --local -- unbase (commandline --tokens-expanded --current-process --cut-at-cursor)[2..3]
                     test (count {$unbase}) -eq 1 && test "$unbase[1]" = identity && ! contains "$unbase[2]" list erase'
-    $identity_complete --arguments=list --description='Get identities'
+    $identity_complete --arguments=list --description='Get identifiers'
     $identity_complete --arguments=erase --description='Erase abbrs with identity'
 end
 $common_complete \

@@ -1,4 +1,4 @@
-function sub-abbr --description='Create abbreviations for subcommands'
+function sub-abbr --description='Create abbreviations for sub-commands'
     # Nix dependencies: string placements to be overriden with store paths
     for dependency_configurations in /dev/null # shell-startup directories
         for dependency_config in {$dependency_configurations}/*
@@ -22,7 +22,7 @@ function sub-abbr --description='Create abbreviations for subcommands'
         help-text --link=_sub-abbr_internal_helpText-linker 'Context-aware Sub-Command abbreviations' \
             --sub-command={
                 'add | '{$add_description},
-                'identity | Manage abbreviations by their identities'
+                'identity | Manage abbreviations by their identifiers'
             } \
             --flag='help:h | Show a reference manual for a sub-command'
         return 0
@@ -32,30 +32,30 @@ function sub-abbr --description='Create abbreviations for subcommands'
     switch "$argv[1]"
         case identity
             set --local -- identity_args {$argv[2..]} # arguments excluding the root sub-command
-            set --local -- erase_description 'Erase an abbreviation by it\'s identity'
+            set --local -- erase_description 'Erase an abbreviation by it\'s identifier'
             $argparse --stop-nonopt 'h/help&' -- {$identity_args}
             if set --query --local _flag_help
-                help-text --link=_sub-abbr_internal_helpText-linker 'Manage context-aware Sub-Command abbreviations by their identities' \
+                help-text --link=_sub-abbr_internal_helpText-linker 'Manage context-aware Sub-Command abbreviations by their identifiers' \
                     --sub-command={
-                    'list | List the identity of each loaded abbreviation',
+                    'list | List the identifiers of each loaded abbreviation',
                     'erase | '{$erase_description}
                 }
                 return 0
             end
 
-            set --function -- identity_prefix '_sub-abbr_expand '
-            set --local -- prefix_length (string length {$identity_prefix})
-            set --local -- identity_start (math {$prefix_length} + 1)
+            set --function -- identifier_prefix '_sub-abbr_expand '
+            set --local -- prefix_length (string length {$identifier_prefix})
+            set --local -- identifier_start (math {$prefix_length} + 1)
             # common data
             for abbr in (abbr)
                 argparse --ignore-unknown '/function=&' -- (commandline --tokens-expanded --input={$abbr})
-                string match --quiet --entire --regex -- ^{$identity_prefix} (string unescape --style=var -- {$_flag_function}) || continue
+                string match --quiet --entire --regex -- ^{$identifier_prefix} (string unescape --style=var -- {$_flag_function}) || continue
 
                 argparse --ignore-unknown '/command=+&' '/function=&' -- (commandline --tokens-expanded --input={$abbr})
                 set --local -- unescaped_function (string unescape --style=var -- {$_flag_function})
-                set --local -- identity (string sub --start={$identity_start} -- {$unescaped_function})
-                string match --quiet -- {$identity_prefix} (string sub --end={$prefix_length} {$unescaped_function}) && set --append --function -- identities {$identity}
-                set --append --function -- (string escape --style=var -- $identity)_commands {$_flag_command}
+                set --local -- identifier (string sub --start={$identifier_start} -- {$unescaped_function})
+                string match --quiet -- {$identifier_prefix} (string sub --end={$prefix_length} {$unescaped_function}) && set --append --function -- identifiers {$identifier}
+                set --append --function -- (string escape --style=var -- $identifier)_commands {$_flag_command}
             end
 
             # sub-commands
@@ -65,36 +65,36 @@ function sub-abbr --description='Create abbreviations for subcommands'
                         $print 'arguments not accepted'
                         return 1
                     end
-                    string repeat 1 {$identities}
+                    string repeat 1 {$identifiers}
                 case erase
-                    set --local -- passed_identities {$identity_args[2..]} # Trimmed sub-commands: `identity` `erase`; Arguments used by this specific sub-command
-                    $argparse 'h/help&' -- {$passed_identities}
+                    set --local -- passed_identifiers {$identity_args[2..]} # Trimmed sub-commands: `identity` `erase`; Arguments used by this specific sub-command
+                    $argparse 'h/help&' -- {$passed_identifiers}
                     if set --query --local _flag_help
-                        help-text --link=_sub-abbr_internal_helpText-linker {$erase_description} --positional='+Identity | context-aware sub-command abbreviation identifier'
+                        help-text --link=_sub-abbr_internal_helpText-linker {$erase_description} --positional='+Identifier | context-aware sub-command abbreviation identifier'
                         return 0
                     end
 
-                    _sub-abbr_internal_verify-arg_more-args 1 {$passed_identities} || return 1
+                    _sub-abbr_internal_verify-arg_more-args 1 {$passed_identifiers} || return 1
 
                     # main operation
                     ## verify existance
-                    for identity in {$passed_identities}
-                        if ! contains {$identity} {$identities}
-                            $print 'unknown context-aware sub-command abbreviation:' (format text bold (format text italics (format text color red {$identity}))) >&2
+                    for identifier in {$passed_identifiers}
+                        if ! contains {$identifier} {$identifiers}
+                            $print 'unknown context-aware sub-command abbreviation:' (format text bold (format text italics (format text color red {$identifier}))) >&2
                             return 2
                         end
                     end
                     ## erase depending on type
-                    for identity in {$passed_identities}
-                        set --local -- internal_identity
-                        if test (string sub --end=1 -- {$identity}) = \~
-                            set -- internal_identity (string split --right --max=1 --fields=2 -- ' ' {$identity})
+                    for identifier in {$passed_identifiers}
+                        set --local -- internal_identifier
+                        if test (string sub --end=1 -- {$identifier}) = \~
+                            set -- internal_identifier (string split --right --max=1 --fields=2 -- ' ' {$identifier})
                         else
-                            set -- internal_identity (string escape --style=var -- {$identity_prefix}{$identity})
+                            set -- internal_identifier (string escape --style=var -- {$identifier_prefix}{$identifier})
                         end
-                        functions --erase -- {$internal_identity} # internal specialized expander
-                        set --local -- commands (string escape --style=var -- {$identity})_commands
-                        abbr --erase --command={$$commands} -- {$internal_identity}
+                        functions --erase -- {$internal_identifier} # internal specialized expander
+                        set --local -- commands (string escape --style=var -- {$identifier})_commands
+                        abbr --erase --command={$$commands} -- {$internal_identifier}
                     end
                 case \*
                     $print unknown (format text italics 'Identity') sub-command: (format text bold (format background red --bright {$identity_args[1]})) >&2
@@ -112,7 +112,7 @@ function sub-abbr --description='Create abbreviations for subcommands'
                   'Expansion | Replaces the Sub-Command'
                 } \
                     --flag={
-                    'degrade:0 | Disable '(format background red 'run0')' prefix toleration',
+                    'degrade:0 | Deactivate '(format background red 'run0')' prefix toleration',
                     'regard-flags:s | Acknowledge flags in the Initial Args',
                     'set-cursor:c | Position the cursor at '(format background black --bright '%')' post-expansion',
                     'regex:r | Match command-line arguments with Regex',
@@ -154,18 +154,18 @@ function sub-abbr --description='Create abbreviations for subcommands'
             begin
                 set --local -- regexStr \~
                 set --query --local -- regex_subcommand && set --local -- regexStr r
-                set --function -- identity (string escape --style=var -- _sub-abbr_expand\ {$regexStr}:" $base_command $initial_args $subcommand") # name compatible hash; specific to the combination
+                set --function -- identifier (string escape --style=var -- _sub-abbr_expand\ {$regexStr}:" $base_command $initial_args $subcommand") # name compatible hash; specific to the combination
             end
             begin
                 set --query --local _flag_degrade || set --local -- tolerate_run0 --command=run0
-                set --local -- common_flags --add --command={$base_command} {$tolerate_run0} --function={$identity} {$set_cursor}
+                set --local -- common_flags --add --command={$base_command} {$tolerate_run0} --function={$identifier} {$set_cursor}
                 if set --query --local -- regex_subcommand
-                    abbr {$common_flags} --regex="$subcommand" -- {$identity}
+                    abbr {$common_flags} --regex="$subcommand" -- {$identifier}
                 else
                     abbr {$common_flags} -- "$subcommand"
                 end
             end
-            function {$identity} --argument-names=subcommand --inherit-variable={base_command,expansion,initial_args,regex_initials,_flag_{degrade,regard_flags,expander}}
+            function {$identifier} --argument-names=subcommand --inherit-variable={base_command,expansion,initial_args,regex_initials,_flag_{degrade,regard_flags,expander}}
                 _sub-abbr_internal_expand-subcommand {$regex_initials} {$_flag_expander} {$_flag_degrade} {$_flag_regard_flags} -- {$subcommand} {$expansion} {$base_command} {$initial_args}
             end
         case \*
