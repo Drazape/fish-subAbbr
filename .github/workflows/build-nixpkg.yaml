@@ -21,14 +21,14 @@ jobs:
         uses: DeterminateSystems/nix-installer-action@v22
 
       - name: Build Nix package
-        run: |
-          nix build .#default
-          tar -czvf nixpkg.tar.gz -C result .
+        run: nix build .#default
+
+      - name: Archive
+        run: tar -czvf nixpkg.tar.gz -C result .
 
       - name: Upload build artifact
         uses: actions/upload-artifact@v7
         with:
-          name: nixpkg
           path: nixpkg.tar.gz
           retention-days: 1
           archive: false
