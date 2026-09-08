@@ -10,6 +10,8 @@ desription: Installation procedure and methods
 - [format](https://github.com/Drazape/fish-format "GitHub repository"){data-preview}: Intuitively generate ANSI sequences
 ```mermaid
 flowchart TD
+		accTitle: "Dependencies"
+		accDescr: "*fish-subAbbr* depends on 2 inter-dependent Fish plugins: *fish-helpText* and *fish-format*"
     format(fish-format) --> helpText(fish-helpText)
     helpText --> format
     format ==> subAbbr(fish-subAbbr)
