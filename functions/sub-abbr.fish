@@ -5,7 +5,7 @@ function sub-abbr --description='Create abbreviations for sub-commands'
             source -- {$dependency_config}
         end
     end
-    set --local -- additional_function_paths PATHS-TO-DEPENDENCY-FUNCTIONS
+    set --function -- additional_function_paths PATHS-TO-DEPENDENCY-FUNCTIONS
     set --prepend -- fish_function_path {$additional_function_paths}
 
     begin
@@ -25,7 +25,8 @@ function sub-abbr --description='Create abbreviations for sub-commands'
                 'identity | Manage abbreviations by their identifiers'
             } \
             --flag='help:h | Show a reference manual for a sub-command'
-        return 0
+        _sub-abbr_internal_revert-paths
+        return
     end
 
     # individual sub-commands
@@ -40,7 +41,8 @@ function sub-abbr --description='Create abbreviations for sub-commands'
                     'list | List the identifiers of each loaded abbreviation',
                     'erase | '{$erase_description}
                 }
-                return 0
+                _sub-abbr_internal_revert-paths
+                return
             end
 
             set --function -- identifier_prefix '_sub-abbr_expand '
@@ -63,6 +65,7 @@ function sub-abbr --description='Create abbreviations for sub-commands'
                 case list
                     if test (count {$identity_args}) -ne 1
                         $print 'arguments not accepted'
+                        _sub-abbr_internal_revert-paths
                         return 1
                     end
                     string repeat 1 {$identifiers}
@@ -71,17 +74,22 @@ function sub-abbr --description='Create abbreviations for sub-commands'
                     $argparse 'h/help&' -- {$passed_identifiers}
                     if set --query --local _flag_help
                         help-text --link=_sub-abbr_internal_helpText-linker {$erase_description} --positional='+Identifier | context-aware sub-command abbreviation identifier'
-                        return 0
+                        _sub-abbr_internal_revert-paths
+                        return
                     end
 
-                    _sub-abbr_internal_verify-arg_more-args 1 {$passed_identifiers} || return 1
+                    if ! _sub-abbr_internal_verify-arg_more-args 1 {$passed_identifiers}
+                        _sub-abbr_internal_revert-paths
+                        return 2
+                    end
 
                     # main operation
                     ## verify existance
                     for identifier in {$passed_identifiers}
                         if ! contains {$identifier} {$identifiers}
                             $print 'unknown context-aware sub-command abbreviation:' (format text bold (format text italics (format text color red {$identifier}))) >&2
-                            return 2
+                            _sub-abbr_internal_revert-paths
+                            return 3
                         end
                     end
                     ## erase depending on type
@@ -98,11 +106,16 @@ function sub-abbr --description='Create abbreviations for sub-commands'
                     end
                 case \*
                     $print unknown (format text italics 'Identity') sub-command: (format text bold (format background red --bright {$identity_args[1]})) >&2
+                    return 4
             end
         case add
             # arguments
             ## Switches
-            $argparse 'r/regex=*&!_sub-abbr_internal_verify-arg_regex-val' 'e/expander&' 'c/set-cursor=?&' 'h/help&' '0/degrade&' 's/regard-flags&' -- {$argv} || return 1
+            _sub-abbr_internal_revert-paths
+            if ! $argparse 'r/regex=*&!_sub-abbr_internal_verify-arg_regex-val' 'e/expander&' 'c/set-cursor=?&' 'h/help&' '0/degrade&' 's/regard-flags&' -- {$argv}
+                return 5
+                _sub-abbr_internal_revert-paths
+            end
             ### Help
             if set --query --local _flag_help
                 help-text --link=_sub-abbr_internal_helpText-linker 'Create context-aware Sub-Command abbreviations' \
@@ -118,7 +131,8 @@ function sub-abbr --description='Create abbreviations for sub-commands'
                     'regex:r | Match command-line arguments with Regex',
                     'expander:e | Use the output of a command as the Expansion'
                 }
-                return 0
+                _sub-abbr_internal_revert-paths
+                return
             end
             ### Set Cursor
             set --query --local _flag_set_cursor && if test -z {$_flag_set_cursor}
@@ -135,7 +149,10 @@ function sub-abbr --description='Create abbreviations for sub-commands'
             begin
                 set --local -- add_args {$argv[2..]} # Trimmed sub-command `add`; Arguments used by this specific sub-command
                 # appropriate number of arguments. Not using `argparse` so that `--help can have as many arguments as it wants` and better formatted output
-                _sub-abbr_internal_verify-arg_more-args 3 {$add_args} || return 2
+                if ! _sub-abbr_internal_verify-arg_more-args 3 {$add_args}
+                    _sub-abbr_internal_revert-paths
+                    return 6
+                end
                 # Name arguments
                 set --function base_command {$add_args[1]}
                 set --function initial_args {$add_args[2..-3]}
@@ -145,7 +162,8 @@ function sub-abbr --description='Create abbreviations for sub-commands'
                 begin
                     if _sub-abbr_internal_verify-arg_subcommand-contains ' ' || _sub-abbr_internal_verify-arg_subcommand-contains \n
                         $print incompatible (format text italics 'Sub-Command') >&2
-                        return 3
+                        _sub-abbr_internal_revert-paths
+                        return 7
                     end
                 end
             end
@@ -170,6 +188,8 @@ function sub-abbr --description='Create abbreviations for sub-commands'
             end
         case \*
             $print 'unknown sub-command:' (format text bold (format background red --bright {$argv[1]})) >&2
+            _sub-abbr_internal_revert-paths
+            return 8
     end
-    set --erase -- fish_function_path[1..(count {$additional_function_paths})]
+    _sub-abbr_internal_revert-paths
 end
