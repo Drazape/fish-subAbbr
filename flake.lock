@@ -10,11 +10,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1788878786,
-        "narHash": "sha256-Io1ZEHccKNF/9PKXeN5FumAp9Mjb4XgRO3NeWEGesS8=",
+        "lastModified": 1788937779,
+        "narHash": "sha256-P+O2G5/OIqsSCkgASgbLKOe6GA+lfa35MfDEUEB77vc=",
         "owner": "Drazape",
         "repo": "fish-format",
-        "rev": "dd1b427d199d7cc10a0348b9a5dd29f41489b316",
+        "rev": "c12f816e083e551574a233ef609e118b5704c7a0",
         "type": "github"
       },
       "original": {
@@ -33,11 +33,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1788878880,
-        "narHash": "sha256-3+AXltmBh6teTWsyxhqFKULHATNY7inhHP4hOvftd4s=",
+        "lastModified": 1788937810,
+        "narHash": "sha256-OfEr0NcdTAo3M5DAtcLNfnMT9p9oUEKJgvxX9PvMs+U=",
         "owner": "Drazape",
         "repo": "fish-helpText",
-        "rev": "e57f13b5f9ce135e17551e4116e804cbac299ebc",
+        "rev": "42a24f642655d42ff0788908442245b4bdee4bc1",
         "type": "github"
       },
       "original": {
@@ -66,11 +66,11 @@
     },
     "nixpkgs": {
       "locked": {
-        "lastModified": 1788894124,
-        "narHash": "sha256-guyexwrrF5GBKqjO0eg9LNIvrXn4j2frNak63sDr8zg=",
+        "lastModified": 1788982683,
+        "narHash": "sha256-PJCTsE4I20CrJJPcye9/z6brRFysG5+aygr/dZK097k=",
         "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "da39501c8d0a093136854eddcd6927c8a8bb0d8f",
+        "rev": "5052d7ccbcfb7e4ae1586cb2ecf95a2e3707dce9",
         "type": "github"
       },
       "original": {
