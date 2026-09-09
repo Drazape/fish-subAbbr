@@ -14,7 +14,7 @@ description: Distribution ways
 | **Suffix** | Prohibited | Required |
 
 ???+ info "Function Name"
-    To be indexed by the repository, your package's function name must be prefixed with `_sub-abbr_pkg_`.  
+    For the package to be indexed by the repository, its function name must be prefixed with `_sub-abbr_pkg_`.  
     [Groups](../Usage/Packages/Repository-Helper/Package-Tree.md){data-preview} are separated with a `_`; the group organisation is upto the developer, or the packager/distributor.
     ```fish {title="Format"}
     _sub-abbr_pkg_<groups(sep:_)>_<pkgname>

@@ -9,7 +9,7 @@ description: Home Page
 This is an abstraction for Fish to create context-aware Sub-Command abbreviations
 
 ## Purpose
-This is a 3rd-party solution to the problems likewise faced by the developer:
+This is a 3rd-party solution to the problems likewise faced by the developer:  
 [Discussion](https://github.com/fish-shell/fish-shell/discussions/11682 "Discussion in the official Fish repository"){ data-preview .md-button .md-button--primary }
 [Issue](https://github.com/fish-shell/fish-shell/issues/11944 "Issue in the official Fish repository"){ data-preview .md-button }
 
