@@ -106,15 +106,15 @@ function sub-abbr --description='Create abbreviations for sub-commands'
                     end
                 case \*
                     $print unknown (format text italics 'Identity') sub-command: (format text bold (format background red --bright {$identity_args[1]})) >&2
+                    _sub-abbr_internal_revert-paths
                     return 4
             end
         case add
             # arguments
             ## Switches
-            _sub-abbr_internal_revert-paths
             if ! $argparse 'r/regex=*&!_sub-abbr_internal_verify-arg_regex-val' 'e/expander&' 'c/set-cursor=?&' 'h/help&' '0/degrade&' 's/regard-flags&' -- {$argv}
-                return 5
                 _sub-abbr_internal_revert-paths
+                return 5
             end
             ### Help
             if set --query --local _flag_help
