@@ -9,7 +9,7 @@ description: Distribution ways
 |  ~  | [Official Repository](#official-repository) | [3rd-party](#3rd-party) |
 | :-: | :-----------------------------------------: | ---------------------- |
 | **Distribution** | From base package | Yourself. Users will have to install the package before using it. |
-| **Configuration** | ❌ | Optional |
+| **Configuration** | ❌ Unsupported | ❔ Optional |
 | **Updates** | Delayed for review | Direct |
 | **Suffix** | Prohibited | Required |
 

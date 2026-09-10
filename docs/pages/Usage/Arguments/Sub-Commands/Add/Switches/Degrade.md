@@ -10,7 +10,7 @@ Deactivate `run0` command-prefix toleration
 ## Properties
 | Value | Short |    Long   | Sub-Command | Inherited |
 | :---: | :---: | :-------: | :---------: | :-------: |
-|  None |  `0`  | `degrade` |     Add     |     ❌    |
+|  None |  `0`  | `degrade` |     Add     |  ❌ false |
 
 ## Details
 - **Relation**: *Initial Arguments*: prepended `run0` would no longer be specially accepted

@@ -10,7 +10,7 @@ Position the cursor at the separator present in the [*Expansion*](../../../Posit
 ## Properties
 |   Value  | Short |      Long    | Sub-Command | Inherited |
 | :------: | :---: | :----------: | :---------: | :-------: |
-| Optional |  `c`  | `set-cursor` |     Add     |     ✅    |
+| Optional |  `c`  | `set-cursor` |     Add     |  ✅ true  |
 
 ## Details
 ### Relation

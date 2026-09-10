@@ -10,7 +10,7 @@ Acknowledge flags part of the *Initial Arguments*
 ## Properties
 | Value | Short |      Long      | Sub-Command | Inherited |
 | :---: | :---: | :------------: | :---------: | :-------: |
-|  None |  `s`  | `regard-flags` |     Add     |     ❌    |
+|  None |  `s`  | `regard-flags` |     Add     |  ❌ false |
 
 ## Details
 - **Relation**: [*Initial Arguments*](../../../Positionals/Initial-Arguments.md "Args preceding *Sub-Command*"){data-preview} (command-line): flags — if found to be one of the [*Initial Arguments*](../../../Positionals/Initial-Arguments.md "Args preceding *Sub-Command*"){data-preview} — aren't ignored, and must match for the expansion to occur

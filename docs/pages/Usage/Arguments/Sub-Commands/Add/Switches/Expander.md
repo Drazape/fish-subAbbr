@@ -8,9 +8,9 @@ description: Dynamically expand using a command's output as the [*Expansion*](Ex
 Dynamically expand using a command's output as the [*Expansion*](Expander.md "Use a command's output as the *Expansion*"){data-preview}) string
 
 ## Properties
-|   Value  | Short |    Long    | Sub-Command |   Inherited   |
-| :------: | :---: | :--------: | :---------: | :-----------: |
-| Required |  `e`  | `expander` |     Add     | ✅ (improved) |
+|   Value  | Short |    Long    | Sub-Command |      Inherited     |
+| :------: | :---: | :--------: | :---------: | :----------------: |
+| Required |  `e`  | `expander` |     Add     | ✅ true (improved) |
 
 ## Details
 - **Relation**: The [*Expansion*](Expander.md "Use a command's output as the *Expansion*"){data-preview} is determined by a command's output instead of a fixed string

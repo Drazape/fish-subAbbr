@@ -10,7 +10,7 @@ Match command-line arguments with *Regular Expression*s
 ## Properties
 |       Values        | Short |   Long  | Sub-Command |    Inherited       |
 | :-----------------: | :---: | :-----: | :---------: | :----------------: |
-| Multiple & Optional |  `r`  | `regex` |     Add     | ✅ (more features) |
+| Multiple & Optional |  `r`  | `regex` |     Add     | ✅ true (extended) |
 
 ## Details
 ### Values

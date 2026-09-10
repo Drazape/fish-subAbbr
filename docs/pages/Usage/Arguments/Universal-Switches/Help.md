@@ -8,9 +8,9 @@ description: Show a reference manual for the given sub-command
 Show a reference manual for the given sub-command
 
 ## Properties
-| Value | Short |  Long  | Inherited |
-| :---: | :---: | :----: | :-------: |
-|  None |  `h`  | `help` |     ~     |
+| Value | Short |  Long  |
+| :---: | :---: | :----: |
+|  None |  `h`  | `help` |
 
 ## Details
 - **Universal**: This switch is supported by all the sub-commands (and without any)
