@@ -1,5 +1,5 @@
 # Showcase: [Jujutsu](../functions/sub-abbr/pkg/official/jj.fish)
-<img width="1860" height="165" alt="jj-showcase" src="https://github.com/user-attachments/assets/e0ce20db-37ce-400e-aaba-d2983aa8c5ac" />
+![jj-showcase](https://github.com/user-attachments/assets/e0ce20db-37ce-400e-aaba-d2983aa8c5ac)
 
 # Purpose
 Simplify creating context-aware Sub-Command abbreviations [^simplification]
@@ -10,34 +10,34 @@ Simplify creating context-aware Sub-Command abbreviations [^simplification]
 ```fish
 sub-abbr add --degrade --set-cursor run0 nh os switch{,' % --bypass-root-check'}
 ```
-<img width="1408" height="82" alt="run0-nh-os-switch" src="https://github.com/user-attachments/assets/a944f937-9803-4572-86d4-31b6eefd25e8" />
+![run0-nh-os-switch](https://github.com/user-attachments/assets/a944f937-9803-4572-86d4-31b6eefd25e8)
 
 ### A combination of switches
 ```fish
 sub-abbr add -- eza --long{,\ --group}`
 ```
 [^eza-why-group]  
-<img width="965" height="82" alt="ls-group" src="https://github.com/user-attachments/assets/bda2680d-980f-4834-ba41-a9086aa3afad" />
+![ls-group](https://github.com/user-attachments/assets/bda2680d-980f-4834-ba41-a9086aa3afad)
 ## Clarity
 ### Turning short flags into long
 #### `eza`: long flag
 ```fish
 sub-abbr add -- eza -l --long
 ```
-<img width="684" height="82" alt="ls-longopt" src="https://github.com/user-attachments/assets/97a9b831-2cb5-4f44-a245-6ff01b217e41" />
+![ls-longopt](https://github.com/user-attachments/assets/97a9b831-2cb5-4f44-a245-6ff01b217e41)
 
 #### Jujutsu: *Sub-Command* aliases
 ```fish
 sub-abbr add jj b{,ookmark}
 sub-abbr add jj ci commit
 ```
-<img width="702" height="86" alt="jj_sub-commands" src="https://github.com/user-attachments/assets/af0e2f6a-1ce3-4f3f-b9c1-242bca0e9471" />
+![jj_sub-commands](https://github.com/user-attachments/assets/af0e2f6a-1ce3-4f3f-b9c1-242bca0e9471)
 
 > [!TIP]
 > Check the [packages](#Discover-Packages) for more complicated & useful abbreviations
 
 ---
-<img width="1624" height="104" alt="Humorous Expansions" src="https://github.com/user-attachments/assets/93b94e7c-e0b3-4517-a05f-dbf7d76efc9b" />
+![Humorous Expansions](https://github.com/user-attachments/assets/93b94e7c-e0b3-4517-a05f-dbf7d76efc9b)
 
 # Usage
 
