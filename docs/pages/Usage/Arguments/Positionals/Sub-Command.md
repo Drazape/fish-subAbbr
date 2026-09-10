@@ -13,10 +13,11 @@ The *Sub-Command* token to be matched on the command-line
 |   `-2`   | Required |
 
 ## Details
-- **Relation with other positionals**
-	- **Argument Position**: The *Sub-Command* comes between the *Initial Arguments* and the *Expansion*
-	- **Command-line**: Replaced with the *Expansion*
-- **Single Token**: It must comprise only one token; that is, only one token can be replaced by the expansion. (Fish imposed; reasonable: UX)
+### Relation with other positionals
+- **Argument Position**: The *Sub-Command* comes between the *Initial Arguments* and the *Expansion*
+- **Command-line**: Replaced with the *Expansion*
+### Single Token
+It must comprise only one token; that is, only one token can be replaced by the expansion. (Fish imposed; reasonable — since otherwise, it would be a UX nightmare)
 ### Customizable Behavior
 - [:lucide-settings: toggle️](../Sub-Commands/Add/Switches/Regular-Expression.md "Match command-line arguments with RegExp"){data-preview .md-button .md-button--primary} **Plain String matching**: The expansion occurs when the *Sub-Command* matches as a plain string, not Regex
 

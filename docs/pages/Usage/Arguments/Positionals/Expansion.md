@@ -13,12 +13,12 @@ The string that replaces the *Sub-Command* on match
 |   `-1`   | Required |
 
 ## Details
-- **Relation with other positionals**
-	- **Argument Position**: followed by the [*Sub-Command*](./Sub-Command.md){data-preview}; the last positional
-	- **Command-line**: Replaces *Sub-Command* 
-- **Tokens**
-	- **Argument Passing**: Passed as a single token
-	- **Command-line**: Can comprise multiple tokens (by including spaces; it replaces the *Sub-Command* as a literal string, not a token)
+### Relation with other positionals
+- **Argument Position**: followed by the [*Sub-Command*](./Sub-Command.md){data-preview}; the last positional
+- **Command-line**: Replaces *Sub-Command* 
+### Tokens
+- **Argument Passing**: Passed as a single token
+- **Command-line**: Can comprise multiple tokens (by including spaces; it replaces the *Sub-Command* as a literal string, not a token)
 ### Customizable Behavior
 - [:lucide-settings: toggle️](../Sub-Commands/Add/Switches/Set-Cursor.md "Position the cursor at `%`"){data-preview .md-button .md-button--primary} **End of command-line**: The cursor is placed after the ` ` suffix added to the *Expansion*
 - [:lucide-settings: toggle️](../Sub-Commands/Add/Switches/Expander.md "Use a command's output as the *Expansion*"){data-preview .md-button .md-button--primary} **Static String**: The *Expansion* is a static string that doesn't change.

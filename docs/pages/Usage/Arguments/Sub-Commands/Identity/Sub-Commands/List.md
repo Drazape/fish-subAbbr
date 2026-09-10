@@ -13,12 +13,15 @@ List the identifier of each content-aware abbreviation loaded
 | `list` | [Identity](../index.md "Manage abbr by their identifiers"){data-preview} |
 
 ## Details
-- **No local args**: This sub-command doesn't accept any local arguments
-- **Uses**
-	- Intuitively erasing content-aware abbreviations (in case of sub-command [RegExp](../../Add/Switches/Regular-Expression.md "Match *Sub-Command* with RegExp"){data-preview})
-	- Checking if a specific abbreviation already exists
-- **Implementation**: The output from `abbr` is parsed to get the identifier encoded into the function name, which is further parsed to generate a human-intuitive identifier
-- **Single ID**: Unlike `abbr` which can have the same identifier repeated (and would require the `--command` flag), this program uses a content-addressable identifier
+### No local args
+This sub-command doesn't accept any local arguments
+### Uses
+Intuitively erasing content-aware abbreviations (in case of sub-command [RegExp](../../Add/Switches/Regular-Expression.md "Match *Sub-Command* with RegExp"){data-preview})
+Checking if a specific abbreviation already exists
+### Implementation
+The output from `abbr` is parsed to get the identifier encoded into the function name, which is further parsed to generate a human-intuitive identifier
+### Single ID
+Unlike `abbr` which can have the same identifier repeated (and would require the `--command` flag), this program uses a content-addressable identifier
 
 ## Usage
 ```fish {title="Format" .no-copy .no-select}
