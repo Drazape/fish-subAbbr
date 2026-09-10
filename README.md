@@ -37,6 +37,7 @@ sub-abbr add jj ci commit
 > Check the [packages](#Discover-Packages) for more complicated & useful abbreviations
 
 ---
+<img width="1624" height="104" alt="Humorous Expansions" src="https://github.com/user-attachments/assets/93b94e7c-e0b3-4517-a05f-dbf7d76efc9b" />
 
 # Usage
 
