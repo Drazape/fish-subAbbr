@@ -20,7 +20,7 @@ Simplify creating context-aware Sub-Command abbreviations [^simplification]
 sub-abbr add --degrade --set-cursor run0 nh os switch{,' % --bypass-root-check'}
 ```
 ![
-	Showcases 2 new switches.
+	Showcases 2 of the switches.
 	The degrade flag paired with `run0` as the *Base Command* showcasing a lack of special treatment for `run0`.
 	First `nh os switch ` is typed in to showcase that the command doesn't expand without `run0`.
 	Next, it is typed out again with `run0` prefixed, and it expands ba appending `--bypass-root-check` to the command, with the cursor before it.

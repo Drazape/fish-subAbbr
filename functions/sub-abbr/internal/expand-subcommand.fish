@@ -6,7 +6,7 @@ function _sub-abbr_internal_expand-subcommand --description='Expand a subcommand
     set --function -- base_command {$argv[3]}
     set --function -- initial_args {$argv[4..]}
     set --query --local -- _flag_expander &&
-        set --local -- expander_arguments (commandline --tokens-expanded --input={$expansion}) && # As of now, command substitutions can't be used as the Base Command in Fish
+        set --local -- expander_arguments (commandline --tokens-expanded --input={$expansion}) && # command substitutions can't be used as the *Base Command* in Fish
         set --function -- expansion ($expander_arguments {$subcommand})
 
     # Commandline
