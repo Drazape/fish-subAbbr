@@ -39,7 +39,19 @@
 						'';
 					};
 				};
-				devShells.default = pkgs.mkShellNoCC { FISH_NIXPKG = self'.packages.default; }; # use with fish-nixenv
+				devShells.default = pkgs.mkShellNoCC { # use with fish-nixenv
+					FISH_NIXPKG = self'.packages.default;
+					FISH_DIRENV_HOOKS = pkgs.writers.writeFish "reload-packages" ''
+						set --global -- _fish_plugin_remover _sub-abbr_hook_reload
+						function {$_fish_plugin_remover} --description='Re-initiate the environment state based on the function path'
+							# use variables instead of command substitution until https://github.com/fish-shell/fish-shell/issues/12996 is resolved
+							set --local -- subabbr_identifiers (sub-abbr identity list)
+							sub-abbr identity erase {$subabbr_identifiers}
+							sub-abbrs
+						end
+						$_fish_plugin_remover # same function for both exit and enter
+					'';
+				}; 
 			};
 		};
 }
