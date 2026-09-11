@@ -52,6 +52,8 @@ function _sub-abbr_internal_helpText-linker --description='Linker for fish-subAb
                     echo -- {$baseURL}/Sub-Commands/Add/Switches/Set-Cursor/
                 case match
                     echo -- {$baseURL}/Sub-Commands/Identity/Sub-Commands/List/Switches/Match/
+                case invert
+                    echo -- {$baseURL}/Sub-Commands/Identity/Sub-Commands/List/Switches/Invert/
             end
     end
 end

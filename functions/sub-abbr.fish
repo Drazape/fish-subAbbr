@@ -64,16 +64,20 @@ function sub-abbr --description='Create abbreviations for sub-commands'
             set --local -- identity_subcommand_args {$identity_args[2..]} # Trimmed sub-commands: `identity` `list`/`erase`; Arguments used sub-commands `identity`
             switch "$identity_args[1]"
                 case list
-                    if ! $argparse 'm/match=&!_sub-abbr_internal_verify-arg_match-type' 'h/help&' -- {$identity_subcommand_args}
+                    if ! $argparse 'i/invert&' 'm/match=&!_sub-abbr_internal_verify-arg_match-type' 'h/help&' -- {$identity_subcommand_args}
                         _sub-abbr_internal_revert-paths
                         return 1
                     end
                     if set --query --local _flag_help
                         help-text --link=_sub-abbr_internal_helpText-linker 'List the identifiers of each loaded abbreviation' \
-                            --flag='match:m | Only list identifiers with the specified Sub-Command string match type'
+                            --flag={
+                                'match:m | Only list identifiers with the specified Sub-Command string match type',
+                                'invert:i | Invert the match result'
+                            }
                         _sub-abbr_internal_revert-paths
                         return
                     end
+                    set --local -- filtered_identifiers
                     for identifier in {$identifiers}
                         set --local -- identifier_tokens (commandline --tokens-expanded --input={$identifier}) # `commandline` parsing instead of space separation also handles any space escapes
                         if set --query --local -- _flag_match
@@ -98,7 +102,15 @@ function sub-abbr --description='Create abbreviations for sub-commands'
                                 continue
                             end
                         end
-                        echo {$identifier}
+                        set --append -- filtered_identifiers {$identifier}
+                    end
+                    if set --query --local -- _flag_invert
+                        for identifier in {$identifiers}
+                            contains -- {$identifier} {$filtered_identifiers} ||
+                                echo {$identifier}
+                        end
+                    else
+                        string repeat -- 1 {$filtered_identifiers}
                     end
                 case erase
                     $argparse 'h/help&' -- {$identity_subcommand_args}
@@ -112,7 +124,6 @@ function sub-abbr --description='Create abbreviations for sub-commands'
                         _sub-abbr_internal_revert-paths
                         return 2
                     end
-
                     # main operation
                     ## verify existance
                     for identifier in {$identity_subcommand_args}

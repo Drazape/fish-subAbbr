@@ -35,16 +35,20 @@ $common_complete \
                 test "$subcommands[1]" = identity && test "$subcommands[2]" = erase' \
     --arguments='(sub-abbr identity list | string match --invert --regex -- (string escape --style=regex -- (commandline --tokens-expanded --current-process) | string join -- \|))'
 
-# not using `single-switch` since a value is mandatory
-$common_complete \
+begin
+set --local -- list_complete_condition \
     --condition='set --local -- subcommands (commandline --tokens-expanded --current-process --cut-at-cursor)[2..3]
-            test "$subcommands[1]" = identity && test "$subcommands[2]" = list' \
-    --short-option=m --long-option=match --require-parameter \
-    --description='Filter by sub-command match type' \
-    --arguments='
-        fixed\t\'Exactly matched sub-command\'
-        regex\t\'Sub-command matched with RegExp\'
-    '
+            test "$subcommands[1]" = identity && test "$subcommands[2]" = list'
+
+    # not using `single-switch` since a value is mandatory
+    $common_complete {$list_complete_condition} --short-option=m --long-option=match --require-parameter \
+        --description='Filter by sub-command match type' \
+        --arguments='
+            fixed\t\'Exactly matched sub-command\'
+            regex\t\'Sub-command matched with RegExp\'
+        '
+    single-switch {$list_complete_condition} --short-option=i --long-option=invert --description='Invert the match'
+end
 
 begin
     set --local -- creation_condition --condition='test "$(commandline -xpc)[2]" = add'
