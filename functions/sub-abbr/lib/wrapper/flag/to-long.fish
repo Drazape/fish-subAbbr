@@ -11,5 +11,5 @@ function _sub-abbr_lib_wrapper_flag_to-long --description='Convert flags: short 
     sub-abbr add --set-cursor={$cursor} --expander --regex=sub-command {$argv_opts} -- \
         {$initials} \
         (string escape --style=regex -- -{$short_flag}).\* \
-        _sub-abbr_internal_expander_flag_to-long\ {$long_flag}\ "$cursor"
+        _sub-abbr_internal_expander_flag_to-long\ "$_flag_mandatory"\ --\ {$long_flag}\ "$cursor"
 end
