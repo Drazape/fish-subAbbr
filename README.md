@@ -1,5 +1,14 @@
 # Showcase: [Jujutsu](../functions/sub-abbr/pkg/official/jj.fish)
-![jj-showcase](https://github.com/user-attachments/assets/e0ce20db-37ce-400e-aaba-d2983aa8c5ac)
+![
+	Showcase of the abbreviations included in the official Jujutsu package.
+	The showcased sub-command is `rebase`.
+	The command starts with a regular abbreviation of the *Base Command* `j` abbreviating into `jj`.
+	Next, the following tokens are typed and are expanded in the following order:
+	`-R` → `--repository=` (before the value: `/etc/nixos/`)
+	`rebase`, unexpanded
+	`-r@` → `--revisions=@` (includes the value)
+	`-o` → `--onto=` (before the value: @--)
+](https://github.com/user-attachments/assets/e0ce20db-37ce-400e-aaba-d2983aa8c5ac)
 
 # Purpose
 Simplify creating context-aware Sub-Command abbreviations [^simplification]
@@ -10,34 +19,58 @@ Simplify creating context-aware Sub-Command abbreviations [^simplification]
 ```fish
 sub-abbr add --degrade --set-cursor run0 nh os switch{,' % --bypass-root-check'}
 ```
-![run0-nh-os-switch](https://github.com/user-attachments/assets/a944f937-9803-4572-86d4-31b6eefd25e8)
+![
+	Showcases 2 new switches.
+	The degrade flag paired with `run0` as the *Base Command* showcasing a lack of special treatment for `run0`.
+	First `nh os switch ` is typed in to showcase that the command doesn't expand without `run0`.
+	Next, it is typed out again with `run0` prefixed, and it expands ba appending `--bypass-root-check` to the command, with the cursor before it.
+](https://github.com/user-attachments/assets/a944f937-9803-4572-86d4-31b6eefd25e8)
 
 ### A combination of switches
 ```fish
 sub-abbr add -- eza --long{,\ --group}`
 ```
 [^eza-why-group]  
-![ls-group](https://github.com/user-attachments/assets/bda2680d-980f-4834-ba41-a9086aa3afad)
+![
+	The *Base Command* `ls` is typed out, which is expanded using regular abbreviations.
+	Next, the `--long` flag is added alongside, which, upon a *Space*, “expands.”
+	The expansion in question appends the flag `--group` to it.
+	The command is showcased a 2nd time, but this time, the command has `run0` prefixed to it; the expansion is still shown to work the same way.
+](https://github.com/user-attachments/assets/bda2680d-980f-4834-ba41-a9086aa3afad)
 ## Clarity
 ### Turning short flags into long
 #### `eza`: long flag
 ```fish
 sub-abbr add -- eza -l --long
 ```
-![ls-longopt](https://github.com/user-attachments/assets/97a9b831-2cb5-4f44-a245-6ff01b217e41)
+![
+	The *Base Command* `ls` is typed out, which is expanded using regular abbreviations.
+	 Next, the short flag `-l` is added alongside, which upon a *Space*, expands into the long flag variant of the flag: `--long`.
+	 The command is showcased a 2nd time, but this time, the command has `run0` prefixed to it; the expansion is still shown to work the same way.
+](https://github.com/user-attachments/assets/97a9b831-2cb5-4f44-a245-6ff01b217e41)
 
 #### Jujutsu: *Sub-Command* aliases
 ```fish
 sub-abbr add jj b{,ookmark}
 sub-abbr add jj ci commit
 ```
-![jj_sub-commands](https://github.com/user-attachments/assets/af0e2f6a-1ce3-4f3f-b9c1-242bca0e9471)
+![
+	The command starts with a regular abbreviation of the *Base Command* `j` abbreviating into `jj`.
+	Two sub-commands are typed in, and are expanded as follows:
+	`ci` → `commit`
+	`b` → `bookmark`
+](https://github.com/user-attachments/assets/af0e2f6a-1ce3-4f3f-b9c1-242bca0e9471)
 
 > [!TIP]
 > Check the [packages](#Discover-Packages) for more complicated & useful abbreviations
 
 ---
-![Humorous Expansions](https://github.com/user-attachments/assets/93b94e7c-e0b3-4517-a05f-dbf7d76efc9b)
+![
+	Non-practical, humorous expansions for a slight interlude.
+	First, the command `deploy now` is typed out, which is “expanded” to `deploy maybe Friday`
+	Next, the command `teams meeting join` is typed out, and the flags `--mute-all --camera-off` are appended.
+	Lastly, the command `dd if=/dev/disk/by-id/usb* of=Arch.iso` is initially typed out, and the last token is “expanded” from `of=Arch.iso` to `of=NixOS.iso`.
+](https://github.com/user-attachments/assets/93b94e7c-e0b3-4517-a05f-dbf7d76efc9b)
 
 # Usage
 
