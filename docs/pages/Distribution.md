@@ -19,7 +19,7 @@ description: Distribution ways
     If you use multiple triggers, then the amount of time it takes for `sub-abbrs` to execute would double each time in the same session.
 ### Dynamic Functions
 For the package to be indexed by the repository, its function name must be prefixed with `_sub-abbr_pkg_`.  
-[Groups](./Usage/Packages/Repository-Helper/Package-Tree.md){data-preview} are separated with a `_`; the group organisation is upto the developer, or the packager/distributor.
+[Groups](./Usage/Reference/Packages/Repository-Helper/Package-Tree.md){data-preview} are separated with a `_`; the group organisation is upto the developer, or the packager/distributor.
 ```fish {title="Function Name Format"}
 _sub-abbr_pkg_<groups(sep:_)>_<pkgname>
 ```

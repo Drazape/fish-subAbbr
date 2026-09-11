@@ -37,7 +37,7 @@ begin
                         $target 'absorb|diff|diffedit|interdiff|restore|squash' f{,rom}
                         $target 'fix|rebase|simplify-parents' s{,ource}
                         $target 'diffedit|log|rebase|resolve|revert|sign|simplify-parents|split|squash|unsign' r{,evision}
-                        $target 'diff|evolog' r{,evisions}
+                        $target 'diff|evolog' r{,evisions} # notice the `s` suffix
 
                         $target 'absorb|restore|squash' t into
                         $target 'diff|diffedit|interdiff' t{,o}
