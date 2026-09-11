@@ -1,11 +1,11 @@
 ---
 comments: true
 icon: lucide/fullscreen
-description: Dynamically expand using a command's output as the [*Expansion*](Expander.md "Use a command's output as the *Expansion*"){data-preview}) string
+description: Dynamically expand using a command's output as the *Expansion* string
 ---
 
 # Expander
-Dynamically expand using a command's output as the [*Expansion*](Expander.md "Use a command's output as the *Expansion*"){data-preview}) string
+Dynamically expand using a command's output as the [*Expansion*][expansion]{data-preview} string
 
 ## Properties
 |   Value  | Short |    Long    | Sub-Command |      Inherited     |
@@ -13,14 +13,14 @@ Dynamically expand using a command's output as the [*Expansion*](Expander.md "Us
 | Required |  `e`  | `expander` |     Add     | ✅ true (improved) |
 
 ## Details
-- **Relation**: The [*Expansion*](Expander.md "Use a command's output as the *Expansion*"){data-preview} is determined by a command's output instead of a fixed string
+- **Relation**: The *Expansion* is determined by a command's output instead of a fixed string
 - **Value**: The command to execute for obtaining the replacement string
-- **Single token**: Like `builtin abbr`, the [*Expander*](Expander.md "Use a command's output as the *Expansion*"){data-preview} must only consist of a single command.
+- **Single token**: Like `builtin abbr`, the *Expander* must only consist of a single command.
 - **Use-case**: Dynamically generating expansions.
 !!! tip "“Discard” expansion"
     You can simulate discarding of expansion by simply printing the *sub-command* back, changing nothing
 !!! tip "Switch Combo"
-    Pair it with [*RegExp*](Regular-Expression.md "Match command-line arguments with RegExp"){data-preview} to generate [*Expansion*](Expander.md "Use a command's output as the *Expansion*"){data-preview}s based on a dynamic [*Sub-Command*](../../../Positionals/Sub-Command.md "Token to match & replace"){data-preview} on the command-line
+    Pair it with [*Regular Expressions*][regexp]{data-preview} to generate *Expansion*s based on a dynamic [*Sub-Command*][subcommand]{data-preview} on the command-line
 
 - **Implementation**: Not passed to `builtin abbr`. The command is executed manually, but the same arguments are passed.
 
@@ -31,7 +31,11 @@ sub-abbr add … <EXPANDER FLAG> (?:`--`) …
 
 ### Command
 - **Scope**: Unlike Fish, the command can be anything and may even include custom arguments.
-- **Argument**: The argument is called with the matched [*Sub-Command*](../../../Positionals/Sub-Command.md "Token to match & replace"){data-preview} as the only argument (in)
+- **Argument**: The *Expander* is called with the matched *Sub-Command* as the only argument
 
-!!! tip
-    In case of having the [*Expander*](Expander.md "Use a command's output as the *Expansion*"){data-preview} as a command with custom arguments, the [*Sub-Command*](../../../Positionals/Sub-Command.md "Token to match & replace"){data-preview} will be the last argument
+!!! tip "Sub-Command parameter in an Expander with arguments"
+    In case of having the as a command with custom arguments, the *Sub-Command* will be the last argument
+
+[expansion]: ../../../Positionals/Expansion.md
+[regexp]: ./Regular-Expression.md "Match command-line arguments with RegExp"
+[subcommand]: ../../../Positionals/Sub-Command.md "Token to match & replace"
