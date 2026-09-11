@@ -4,11 +4,15 @@
 	The showcased sub-command is `rebase`.
 	The command starts with a regular abbreviation of the *Base Command* `j` abbreviating into `jj`.
 	Next, the following tokens are typed and are expanded in the following order:
-	`-R` → `--repository=` (before the value: `/etc/nixos/`)
-	`rebase`, unexpanded
-	`-r@` → `--revisions=@` (includes the value)
-	`-o` → `--onto=` (before the value: @--)
+	the short flag `-R` expands to `--repository=` (before the value: `/etc/nixos/`).
+	`rebase` remains as-is, unabbreviated.
+	Similarly, the short flag with a value: `-r@` expands to the long flag `--revisions=@`.
+	Lastly, the short flag `-o` expands into the long variant: `--onto=` (before the value: `@--`).
 ](https://github.com/user-attachments/assets/e0ce20db-37ce-400e-aaba-d2983aa8c5ac)
+<!--
+--- While the following information can be better visually parsed with the use of `→`, the whole purpose of alt text is conveying information of the GIF for the visually-impaired readers.
+--- As per the [Google Documentation Style Guide](https://developers.google.com/style/accessibility#general-dos-and-donts), the information should convey the full meaning without any use of “puntuation marks” (the Right Arrow symbol)
+-->
 
 # Purpose
 Simplify creating context-aware Sub-Command abbreviations [^simplification]
@@ -23,7 +27,7 @@ sub-abbr add --degrade --set-cursor run0 nh os switch{,' % --bypass-root-check'}
 	Showcases 2 of the switches.
 	The degrade flag paired with `run0` as the *Base Command* showcasing a lack of special treatment for `run0`.
 	First `nh os switch ` is typed in to showcase that the command doesn't expand without `run0`.
-	Next, it is typed out again with `run0` prefixed, and it expands ba appending `--bypass-root-check` to the command, with the cursor before it.
+	Next, it is typed out again with `run0` prefixed, and it expands by appending `--bypass-root-check` to the command, with the cursor before the flag.
 ](https://github.com/user-attachments/assets/a944f937-9803-4572-86d4-31b6eefd25e8)
 
 ### A combination of switches
@@ -57,9 +61,13 @@ sub-abbr add jj ci commit
 ![
 	The command starts with a regular abbreviation of the *Base Command* `j` abbreviating into `jj`.
 	Two sub-commands are typed in, and are expanded as follows:
-	`ci` → `commit`
-	`b` → `bookmark`
+	The short-hand `ci` expands to the full `commit`
+	similarly, `b` to `bookmark`
 ](https://github.com/user-attachments/assets/af0e2f6a-1ce3-4f3f-b9c1-242bca0e9471)
+<!--
+--- While the following information can be better visually parsed with the use of `→`, the whole purpose of alt text is conveying information of the GIF for the visually-impaired readers.
+--- As per the [Google Documentation Style Guide](https://developers.google.com/style/accessibility#general-dos-and-donts), the information should convey the full meaning without any use of “puntuation marks” (the Right Arrow symbol)
+-->
 
 > [!TIP]
 > Check the [packages](#Discover-Packages) for more complicated & useful abbreviations
