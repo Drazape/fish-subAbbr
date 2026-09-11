@@ -8,6 +8,10 @@ description: Convert flags to long
 # To Long ^`to-long`^
 Convert short flags into their long versions
 
+## Benefits
+- **Visual Feedback**: The user is instantly informed if the flag they entered is the correct one.
+- **Flag Funcionality**: Glancing back, one might not be able to instantly recall the short flag they typed out of muscle memory. The long flag variant the short flag expanded into can provide more information on the flag, while still working as usual.
+
 ## Arguments
 ### Positionals
 1. **Initials**: The same as `sub-abbr`. Directly passed without any modification

@@ -43,6 +43,7 @@ sub-abbr add -- eza --long{,\ --group}`
 ](https://github.com/user-attachments/assets/bda2680d-980f-4834-ba41-a9086aa3afad)
 ## Clarity
 ### Turning short flags into long
+Provides visual feedback that that the short flag is correct!
 #### `eza`: long flag
 ```fish
 sub-abbr add -- eza -l --long
@@ -54,6 +55,7 @@ sub-abbr add -- eza -l --long
 ](https://github.com/user-attachments/assets/97a9b831-2cb5-4f44-a245-6ff01b217e41)
 
 #### Jujutsu: *Sub-Command* aliases
+Provides visual feedback that the sub-command inputted is correct!
 ```fish
 sub-abbr add jj b{,ookmark}
 sub-abbr add jj ci commit
