@@ -20,8 +20,8 @@ description: Distribution ways
     _sub-abbr_pkg_<groups(sep:_)>_<pkgname>
     ```
 
-    If you want your [static](https://fishshell.com/docs/4.7/tutorial.html#startup-where-s-bashrc "Official Fish documentation"){data-preview}[^static-function] (non-[dynamic](https://fishshell.com/docs/4.7/tutorial.html#autoloading-functions "Official Fish documentation"){data-preview}[^dynamic-function]) package to be only activated when all the abbreviations are activated, you don't need to follow the prefix convention.  
-    In this case, you can simply choose to execute only using the [event](https://fishshell.com/docs/4.6/language.html#event-handlers "automatically run when a specific event takes place"){data-preview}: `sub-abbrs`
+    If you want your [static](https://fishshell.com/docs/current/tutorial.html#startup-where-s-bashrc "Official Fish documentation"){data-preview}[^static-function] (non-[dynamic](https://fishshell.com/docs/current/tutorial.html#autoloading-functions "Official Fish documentation"){data-preview}[^dynamic-function]) package to be only activated when all the abbreviations are activated, you don't need to follow the prefix convention.  
+    In this case, you can simply choose to execute only using the [event](https://fishshell.com/docs/current/language.html#event-handlers "automatically run when a specific event takes place"){data-preview}: `sub-abbrs`
 
 ## Methods
 ### Official Repository
