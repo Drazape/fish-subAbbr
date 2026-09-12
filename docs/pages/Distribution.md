@@ -38,7 +38,7 @@ end
 
 ## Methods
 ### Official Repository
-Each package is a single function in the repository that provides abbreviations (regular and context-aware) for the specific command it corresponds to.  
+Each package is a single function in the repository which provides abbreviations (regular and context-aware) for the specific command it corresponds to.  
 
 !!! info "Official Root Group"
     The root group for the repository is `official`.

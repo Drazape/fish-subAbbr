@@ -43,7 +43,7 @@ sub-abbr add -- eza --long{,\ --group}`
 ](https://github.com/user-attachments/assets/bda2680d-980f-4834-ba41-a9086aa3afad)
 ## Clarity
 ### Turning short flags into long
-Provides visual feedback that that the short flag is correct!
+Provides visual feedback that the short flag is correct!
 #### `eza`: long flag
 ```fish
 sub-abbr add -- eza -l --long
@@ -125,7 +125,7 @@ Erase a context-aware sub-command abbreviation by its identifier — obtained fr
 
 ## `sub-abbrs`
 Helper to conveniently enable compatible package groups, or packages.  
-Package groups are groups of packages that can be enabled in bulk.  
+Package groups are groups of packages which can be enabled in bulk.  
 
 ### Arguments
 #### Positional
