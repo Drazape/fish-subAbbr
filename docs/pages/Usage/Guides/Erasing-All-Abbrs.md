@@ -18,7 +18,7 @@ sub-abbr identity erase (sub-abbr identity list)
     ```fish {title="Workaround"}
     begin
         set --local -- subabbr_identifiers (sub-abbr identity list)
-        sub-abbr identity erase {subabbr_identifiers}
+        sub-abbr identity erase {$subabbr_identifiers}
     end
     ```
 
