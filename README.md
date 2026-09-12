@@ -63,8 +63,8 @@ sub-abbr add jj ci commit
 ![
 	The command starts with a regular abbreviation of the *Base Command* `j` abbreviating into `jj`.
 	Two sub-commands are typed in, and are expanded as follows:
-	The short-hand `ci` expands to the full `commit`
-	similarly, `b` to `bookmark`
+	The short-hand `ci` expands to the full `commit`,
+	and similarly, `b` to `bookmark`.
 ](https://github.com/user-attachments/assets/af0e2f6a-1ce3-4f3f-b9c1-242bca0e9471)
 <!--
 --- While the following information can be better visually parsed with the use of `→`, the whole purpose of alt text is conveying information of the GIF for the visually-impaired readers.
@@ -77,7 +77,7 @@ sub-abbr add jj ci commit
 ---
 ![
 	Non-practical, humorous expansions for a slight interlude.
-	First, the command `deploy now` is typed out, which is “expanded” to `deploy maybe Friday`
+	First, the command `deploy now` is typed out, which is “expanded” to `deploy maybe Friday`.
 	Next, the command `teams meeting join` is typed out, and the flags `--mute-all --camera-off` are appended.
 	Lastly, the command `dd if=/dev/disk/by-id/usb* of=Arch.iso` is initially typed out, and the last token is “expanded” from `of=Arch.iso` to `of=NixOS.iso`.
 ](https://github.com/user-attachments/assets/93b94e7c-e0b3-4517-a05f-dbf7d76efc9b)
