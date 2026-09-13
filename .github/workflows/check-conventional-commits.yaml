@@ -1,0 +1,15 @@
+name: Conventional Commits
+
+on:
+  pull_request:
+  push:
+
+jobs:
+  build:
+    name: Conventional Commits
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+      - uses: webiny/action-conventional-commits@v1.4.2
+        with:
+          allowed-commit-types: "feat,fix,refactor,perf,style,test,docs,build,ops,chore" # optional; from [Conventional Commits Cheatsheet @ qoomon](https://gist.github.com/qoomon/5dfcdf8eec66a051ecd85625518cfd13#types "GitHub Markdown Gist")
