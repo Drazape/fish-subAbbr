@@ -8,12 +8,12 @@ description: Manage context-aware Sub-Command abbreviations by their identifiers
 Manage context-aware Sub-Command abbreviations by their identifiers
 
 ## Properties
-|  Name | Parent |
-| :---: | :----: |
-| `add` |  None  |
+|    Name    | Parent |
+| :--------: | :----: |
+| `identity` |  None  |
 
 ## Arguments: Positionals: Sub-Commands
-1. [**List**](Sub-Commands/List.md "Wiki Page"){data-preview}: Get identities of loaded abbrs
+1. [**List**](Sub-Commands/List/index.md "Wiki Page"){data-preview}: Get identities of loaded abbrs
 2. [**Erase**](Sub-Commands/Erase.md "Wiki Page"){data-preview}: Erase an abbr by its identifier
 
 ## Usage

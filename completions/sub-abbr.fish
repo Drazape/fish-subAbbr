@@ -9,7 +9,7 @@ single-switch --short-option=h --long-option=help --description='Reference manua
     --condition='set --local -- unbase (commandline --tokens-expanded --current-process --cut-at-cursor)[2..3]
                  test (count {$unbase}) -eq 0 && return 0
                  test "$unbase[1]" = add && return 0
-                 test "$unbase[1]" = identity && test "$unbase[2]" != list && return 0
+                 test "$unbase[1]" = identity && return 0
                  return 1'
 
 begin
@@ -34,6 +34,17 @@ $common_complete \
     --condition='set --local -- subcommands (commandline --tokens-expanded --current-process --cut-at-cursor)[2..3]
                 test "$subcommands[1]" = identity && test "$subcommands[2]" = erase' \
     --arguments='(sub-abbr identity list | string match --invert --regex -- (string escape --style=regex -- (commandline --tokens-expanded --current-process) | string join -- \|))'
+
+# not using `single-switch` since a value is mandatory
+$common_complete \
+    --condition='set --local -- subcommands (commandline --tokens-expanded --current-process --cut-at-cursor)[2..3]
+            test "$subcommands[1]" = identity && test "$subcommands[2]" = list' \
+    --short-option=m --long-option=match --require-parameter \
+    --description='Filter by sub-command match type' \
+    --arguments='
+        fixed\t\'Exactly matched sub-command\'
+        regex\t\'Sub-command matched with RegExp\'
+    '
 
 begin
     set --local -- creation_condition --condition='test "$(commandline -xpc)[2]" = add'

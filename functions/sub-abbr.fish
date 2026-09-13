@@ -64,12 +64,42 @@ function sub-abbr --description='Create abbreviations for sub-commands'
             set --local -- identity_subcommand_args {$identity_args[2..]} # Trimmed sub-commands: `identity` `list`/`erase`; Arguments used sub-commands `identity`
             switch "$identity_args[1]"
                 case list
-                    if test (count {$identity_args}) -ne 1
-                        $print 'arguments not accepted'
+                    if ! $argparse 'm/match=&!_sub-abbr_internal_verify-arg_match-type' 'h/help&' -- {$identity_subcommand_args}
                         _sub-abbr_internal_revert-paths
                         return 1
                     end
-                    string repeat 1 {$identifiers}
+                    if set --query --local _flag_help
+                        help-text --link=_sub-abbr_internal_helpText-linker 'List the identifiers of each loaded abbreviation' \
+                            --flag='match:m | Only list identifiers with the specified Sub-Command string match type'
+                        _sub-abbr_internal_revert-paths
+                        return
+                    end
+                    for identifier in {$identifiers}
+                        set --local -- identifier_tokens (commandline --tokens-expanded --input={$identifier}) # `commandline` parsing instead of space separation also handles any space escapes
+                        if set --query --local -- _flag_match
+                            switch (string split --fields=1 --max=1 -- : {$identifier_tokens[1]})
+                                case =
+                                    test {$_flag_match} != fixed &&
+                                        continue
+                                case r
+                                    test {$_flag_match} != regex &&
+                                        continue
+                            end
+                        end
+                        if test (count {$argv}) -gt 0
+                            set --local -- index_count 2 # start at 2 to skip the first token—the match type
+                            for passed_arg_match in {$argv}
+                                test "$passed_arg_match" != "$identifier_tokens[$index_count]" &&
+                                    set --function -- arg_unmatched # continue outside the current loop
+                                set -- index_count (math {$index_count} + 1)
+                            end
+                            if set --query --function -- arg_unmatched
+                                set --erase --function -- arg_unmatched
+                                continue
+                            end
+                        end
+                        echo {$identifier}
+                    end
                 case erase
                     $argparse 'h/help&' -- {$identity_subcommand_args}
                     if set --query --local _flag_help
