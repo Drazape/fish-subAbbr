@@ -38,8 +38,8 @@ sub-abbr <INITIAL_ARGUMENTS> <Sub-Command> <Expansion>
     - `#!fish sub-abbr -0c `**`run0 nh os`**` switch 'switch % --bypass-root-check'`
 
 ## Implementation Details
-Each argument is separately matched by parsing the command-line so that:
+Each argument is separately matched by parsing the command-line as follows:
 
-- The arguments don't include the *Base Command*
-- `run0` is stripped out (unless [degraded](../Sub-Commands/Add/Switches/Degrade.md "Deactivate `run0` toleration"){data-preview})
-- Any flags are stripped out (unless [regarded](../Sub-Commands/Add/Switches/Regard-Flags.md "Acknowledge flags in Initial Args"){data-preview})
+1. `run0` is stripped out (unless [degraded](../Sub-Commands/Add/Switches/Degrade.md "Deactivate `run0` toleration"){data-preview})
+2. All the arguments except the *Base Command* are captured (since the only reason the function is executing is because the *Base Command* already matched)
+3. Any flags found are stripped out (unless [regarded](../Sub-Commands/Add/Switches/Regard-Flags.md "Acknowledge flags in Initial Args"){data-preview})

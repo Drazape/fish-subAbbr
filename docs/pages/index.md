@@ -22,24 +22,24 @@ Though the original `abbr` built-in is capable of creating all sorts of abbrevia
 
 ### Individual solutions
 The problem with this approach is that multiple repetitive functions are created, violating the [DRY principle](https://en.wikipedia.org/wiki/Don%27t_repeat_yourself "Wikipedia: Don't Repeat Yourself"){data-preview}.
-This leads to maintainability hell, along with difficulty, and increased time-consumption in creating abbreviations. Any simple solutions lead to abbreviations that:
+This leads to maintainability hell, along with difficulty, and increased time-consumption in creating abbreviations. Any simple solutions lead to abbreviations with the following inefficiencies:
 
-- [Fire on Enter only (not by spaces)](https://github.com/fish-shell/fish-shell/issues/11944#issuecomment-3478417297 "Fish issue"){data-preview}
-- Not expanded when used with switches
-- Require explicit handling of `run0`
-- Are tedious to modify
-- Are harder to make complex expansions
-- Are error-prone to matching
-- Are Harder to distribute
+- The generated abbreviations might [fire only on Enter (not spaces)](https://github.com/fish-shell/fish-shell/issues/11944#issuecomment-3478417297 "Fish issue"){data-preview}
+- When not correctly handled, tokens might not expand when used with switches on the command-line.
+- Unabstracted logic will be repeated to explicit handle `run0`
+- The abbreviations can become quite tedious to modify
+- Making complex expansions becomes harder
+- Matching of the command-line with all the constraints and niche cases can be error-prone
+- Because of the lengths of the scripts, these abbreviations can be harder to casually distribute on communication channels
+- Because there will be so many incomplete bespoke implementations, collaboration on such abbreviations can quickly become an ordeal
 
 ### Aim
-This program is designed to
+This program is designed carefully to tackle these issues; for that, it does the following:
 
-- Tackle these issues
-- Make creation of such abbreviations accessible
-- Remain customizable for complex abbreviations
-- Manage such abbreviations
-- Distribute such abbreviations (like completions) from multiple-sources, and the co-existence of each.
+- Makes creation of such abbreviations accessible by abstracting the complex boilerplate
+- Remain customizable for complex abbreviations with the help of various switches
+- Manage such abbreviations using helpers and abstracte identity databases
+- Make distribution of such abbreviations (like completions) from multiple sources, and let them co-existence.
 - Improve upon `builtin abbr`
-	- If a *Sub-Command* was escaped once on the command-line, then you don't have to do it again
-	- The flags modifying the argument treatement don't modify the argument structure. (don't accept values if it is already setup to be provided as a positional otherwise)
+	- Once the user escapes the *Sub-Command* in the current command, you don't have to escape it again
+	- Unlike `builtin abbr`, the flags modifying the argument treatment don't modify the argument structure itself. (doesn't accept values if it is already setup to be provided as a positional)
