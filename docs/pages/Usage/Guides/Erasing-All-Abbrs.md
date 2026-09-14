@@ -24,7 +24,7 @@ sub-abbr identity erase (sub-abbr identity list)
     ```
 
 !!! info "Working"
-    This works similarly to how commands in the `pacman` package manager work.
+    This works similarly to how [commands in the Pacman package manager](https://wiki.archlinux.org/title/Pacman/Tips_and_tricks#Removing_unused_packages_(orphans) "example from Arch Wiki: Tips and Tricks: Removing unused packages") work.
 
     `list` outputs identifiers for all the abbreviations found that are context-aware sub-command abbreviations — separated by newline.
     The command substitution in Fish converts the output into a list of identifiers.
