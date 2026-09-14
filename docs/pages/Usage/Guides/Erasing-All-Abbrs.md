@@ -12,7 +12,8 @@ sub-abbr identity erase (sub-abbr identity list)
 
 !!! bug "Unknown function"
     `sub-abbr` is made in a way to be reproducible and automated for dependency management in Nix environments.  
-    This niche case is currently [not supported in Fish][unknown-function-bug], and hence would error out, claiming that it didn't find the function `sub-abbr`.
+    This niche case is [not supported in Fish][unknown-function-bug] versions [4.9.3](https://github.com/fish-shell/fish-shell/releases/tag/4.9.3 "GitHub release") and earlier.  
+    Trying this command in unsupported versions would result an error, that claims that it didn't find the function `sub-abbr`.
 
     For now, you can work this around the same way you work around the use of command substitutions in the place of the base commands:
     ```fish {title="Workaround"}
