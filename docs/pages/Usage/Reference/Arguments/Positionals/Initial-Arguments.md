@@ -22,7 +22,7 @@ These are the arguments that must precede on the command-line for the *Sub-Comma
 - [:lucide-settings: toggle️](../Sub-Commands/Add/Switches/Regard-Flags.md "Acknowledge flags in Initial Args"){data-preview .md-button .md-button--primary} **Ignored Flags**: Flags in the Initial Arguments on the command-line are ignored.
 - [:lucide-settings: toggle️](../Sub-Commands/Add/Switches/Degrade.md "Deactivate `run0` toleration"){data-preview .md-button .md-button--primary} **`run0` Acknowledgement**: Expansion will be considered even if the command is prefixed with `run0` for elevation.
 - [:lucide-settings: toggle️](../Sub-Commands/Add/Switches/Regular-Expression.md "Match command-line arguments with RegExp"){data-preview .md-button .md-button--primary} **Regular Expressions**
-	- **Single Permutation**: Due to Fish's internal restrictions, you cannot have the same *Sub-Command* with different [*Initial Argument*](./Initial-Arguments.md){data-preview} permutations (excluding the *Base Command* — the 1st argument) with plain text Sub-Command matching.
+	- **Single Permutation**: Due to Fish's internal restrictions, you cannot have the same *Sub-Command* with different [*Initial Argument*](./Initial-Arguments.md){data-preview} permutations (excluding the *Base Command* — the 1st argument) with plain text Sub-Command matching.
 	- **Fixed String**: Each [*Initial Argument*](./Initial-Arguments.md){data-preview} is plainly matched
 
 ## Usage
@@ -41,5 +41,5 @@ sub-abbr <INITIAL_ARGUMENTS> <Sub-Command> <Expansion>
 Each argument is separately matched by parsing the command-line as follows:
 
 1. `run0` is stripped out (unless [degraded](../Sub-Commands/Add/Switches/Degrade.md "Deactivate `run0` toleration"){data-preview})
-2. All the arguments except the *Base Command* are captured (since the only reason the function is executing is because the *Base Command* already matched)
+2. All the arguments except the *Base Command* are captured (since the only reason the function is executing is because the *Base Command* already matched)
 3. Any flags found are stripped out (unless [regarded](../Sub-Commands/Add/Switches/Regard-Flags.md "Acknowledge flags in Initial Args"){data-preview})

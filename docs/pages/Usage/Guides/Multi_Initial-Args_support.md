@@ -5,15 +5,15 @@ description: Work-around for multiple different *Initial Arguments* permutations
 ---
 
 # Multi *Initial Args* support
-Context-aware sub-command abbreviations must use the [*Regular Expressions* switch][regexp]{data-preview}, atleast with the `subcommand` scope, whenever the same [*Sub-Command*][subcommand]{data-preview} is being abbreviated more than once in the same *Base Command* (different [*Initial Arguments*][initials]{data-preview}, other than the *Base Command*).  
+Context-aware sub-command abbreviations must use the [*Regular Expressions* switch][regexp]{data-preview}, atleast with the `subcommand` scope, whenever the same [*Sub-Command*][subcommand]{data-preview} is being abbreviated more than once in the same *Base Command* (different [*Initial Arguments*][initials]{data-preview}, other than the *Base Command*).  
 
 !!! info "Reason: `abbr` limitation"
-    The reason is that you can't have more than one abbreviation for a *Sub-Command* and *Base Command* pair without using the *Regular Expression* switch.  
+    The reason is that you can't have more than one abbreviation for a *Sub-Command* and *Base Command* pair without using the *Regular Expression* switch.  
 
     This is because of the internal implementation of Fish's builtin: [`abbr`][internal-abbr].  
-    `abbr` identifies an abbreviation as a pair of the *Sub-Command* and *Base Command*, and an identifier can be assigned to only a single abbreviation.
+    `abbr` identifies an abbreviation as a pair of the *Sub-Command* and *Base Command*, and an identifier can be assigned to only a single abbreviation.
 
-    Any attempt to create any more with different *Initial Arguments* (other than the *Base Command*) will result in overwriting of the older one — because the *Initial Arguments* are a concept exclusive to `sub-abbr`.  
+    Any attempt to create any more with different *Initial Arguments* (other than the *Base Command*) will result in overwriting of the older one — because the *Initial Arguments* are a concept exclusive to `sub-abbr`.  
 
     Such a scenario is worked-around using the *Regular Expression* flag.
     When used, this flag allows us to have custom identifiers for the abbreviations.  

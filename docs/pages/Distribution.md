@@ -52,7 +52,7 @@ Each package is a single function in the repository which provides abbreviations
 ### 3rd-party
 3rd-party packages/repositories can use the program however they want. For example:
 
-- Simple packages can directly distribute the abbreviations into shell initialization configuration. This way they don't need to be enabled after they have been installed (it was installed for the purpose of using it after all)
+- Simple packages can directly distribute the abbreviations into shell-initialization configuration. This way they don't need to be enabled after they have been installed (it was installed for the purpose of using it after all)
 - Complex packages can ship their own commands and frontends to configure the abbreviations and provide other features
 - Packages may or may not choose to maintain compatibility with the official repository helper: `sub-abbrs`.
 You might be able to get some creative inspiration by exploring existing packages/repositories, or you may also choose to contribute to an unofficial repository — if it suits your project better. 

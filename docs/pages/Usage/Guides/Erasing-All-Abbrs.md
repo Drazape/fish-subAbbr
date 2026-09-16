@@ -15,7 +15,7 @@ sub-abbr identity erase (sub-abbr identity list)
     This niche case is [not supported in Fish][unknown-function-bug] versions [4.9.3](https://github.com/fish-shell/fish-shell/releases/tag/4.9.3 "GitHub release") and earlier.  
     Trying this command in unsupported versions would result an error, that claims that it didn't find the function `sub-abbr`.
 
-    For now, you can work this around the same way you work around the use of command substitutions in the place of the base commands:
+    For now, you can work this around the same way you work around the use of command substitutions in the place of the base commands:
     ```fish {title="Workaround"}
     begin
         set --local -- subabbr_identifiers (sub-abbr identity list)

@@ -30,7 +30,7 @@ sub-abbr <LIST FLAG>
 
 ### Output
 - **Delimiter** (for each entry): New-line (`\n`)
-- **Format**: (`~`|`r`)`: `*Base Command*` `*Initial Arguments*` `*Sub-Command*
+- **Format**: (`~`|`r`)`: `*Base Command*` `*Initial Arguments*` `*Sub-Command*
 
 !!! note "Sub-command matching indication"
     The character before the initial `:` indicates weather the *Sub-Command* is matched with [Regular Expression][RegExp]{data-preview}
