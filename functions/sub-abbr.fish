@@ -61,6 +61,7 @@ function sub-abbr --description='Create abbreviations for sub-commands'
             end
 
             # sub-commands
+            set --local -- identity_subcommand_args {$identity_args[2..]} # Trimmed sub-commands: `identity` `list`/`erase`; Arguments used sub-commands `identity`
             switch "$identity_args[1]"
                 case list
                     if test (count {$identity_args}) -ne 1
@@ -70,22 +71,21 @@ function sub-abbr --description='Create abbreviations for sub-commands'
                     end
                     string repeat 1 {$identifiers}
                 case erase
-                    set --local -- passed_identifiers {$identity_args[2..]} # Trimmed sub-commands: `identity` `erase`; Arguments used by this specific sub-command
-                    $argparse 'h/help&' -- {$passed_identifiers}
+                    $argparse 'h/help&' -- {$identity_subcommand_args}
                     if set --query --local _flag_help
                         help-text --link=_sub-abbr_internal_helpText-linker {$erase_description} --positional='+Identifier | context-aware sub-command abbreviation identifier'
                         _sub-abbr_internal_revert-paths
                         return
                     end
 
-                    if ! _sub-abbr_internal_verify-arg_more-args 1 {$passed_identifiers}
+                    if ! _sub-abbr_internal_verify-arg_more-args 1 {$identity_subcommand_args}
                         _sub-abbr_internal_revert-paths
                         return 2
                     end
 
                     # main operation
                     ## verify existance
-                    for identifier in {$passed_identifiers}
+                    for identifier in {$identity_subcommand_args}
                         if ! contains {$identifier} {$identifiers}
                             $print 'unknown context-aware sub-command abbreviation:' (format text bold (format text italics (format text color red {$identifier}))) >&2
                             _sub-abbr_internal_revert-paths
@@ -93,7 +93,7 @@ function sub-abbr --description='Create abbreviations for sub-commands'
                         end
                     end
                     ## erase depending on type
-                    for identifier in {$passed_identifiers}
+                    for identifier in {$identity_subcommand_args}
                         set --local -- internal_identifier
                         if test (string sub --end=1 -- {$identifier}) = \~
                             set -- internal_identifier (string split --right --max=1 --fields=2 -- ' ' {$identifier})
