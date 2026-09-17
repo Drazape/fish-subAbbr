@@ -95,7 +95,7 @@ function sub-abbr --description='Create abbreviations for sub-commands'
                     ## erase depending on type
                     for identifier in {$identity_subcommand_args}
                         set --local -- internal_identifier
-                        if test (string sub --end=1 -- {$identifier}) = \~
+                        if test (string sub --end=1 -- {$identifier}) = =
                             set -- internal_identifier (string split --right --max=1 --fields=2 -- ' ' {$identifier})
                         else
                             set -- internal_identifier (string escape --style=var -- {$identifier_prefix}{$identifier})
@@ -170,9 +170,13 @@ function sub-abbr --description='Create abbreviations for sub-commands'
 
             # main operation
             begin
-                set --local -- regexStr \~
+                set --local -- regexStr =
                 set --query --local -- regex_subcommand && set --local -- regexStr r
-                set --function -- identifier (string escape --style=var -- _sub-abbr_expand\ {$regexStr}:" $base_command $initial_args $subcommand") # name compatible hash; specific to the combination
+                set --local -- all_escaped_arguments (string escape --style=script -- $base_command $initial_args $subcommand)
+                # name compatible hash; specific to the combination
+                set --function -- identifier (
+                    string escape --style=var -- _sub-abbr_expand\ {$regexStr}:\ "$all_escaped_arguments"
+                )
             end
             begin
                 set --query --local _flag_degrade || set --local -- tolerate_run0 --command=run0
