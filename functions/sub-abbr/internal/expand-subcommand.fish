@@ -26,13 +26,16 @@ function _sub-abbr_internal_expand-subcommand --description='Expand a subcommand
     end
 
     # Compare
-    set --local -- arg_count (count {$initial_args})
-    test {$arg_count} -eq (count {$active_sub_args}) || return 2
-    for i in (seq 1 {$arg_count})
-        if set --query --local -- _flag_regex
-            string match --regex --quiet -- {$initial_args[$i]} {$active_sub_args[$i]} || return 2
-        else
-            test {$initial_args[$i]} = {$active_sub_args[$i]} || return 3
+    begin
+        test (count {$initial_args}) -eq (count {$active_sub_args}) || return 2
+        set --local -- index_count 1
+        for initial_arg in {$initial_args}
+            if set --query --local -- _flag_regex
+                string match --regex --quiet -- {$initial_arg} {$active_sub_args[$index_count]} || return 2
+            else
+                test {$initial_arg} = {$active_sub_args[$index_count]} || return 3
+            end
+            set -- index_count (math {$index_count} + 1)
         end
     end
 
