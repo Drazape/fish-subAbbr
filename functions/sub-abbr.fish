@@ -38,9 +38,9 @@ function sub-abbr --description='Create abbreviations for sub-commands'
             if set --query --local _flag_help
                 help-text --link=_sub-abbr_internal_helpText-linker 'Manage context-aware Sub-Command abbreviations by their identifiers' \
                     --sub-command={
-                    'list | List the identifiers of each loaded abbreviation',
-                    'erase | '{$erase_description}
-                }
+                        'list | List the identifiers of each loaded abbreviation',
+                        'erase | '{$erase_description}
+                    }
                 _sub-abbr_internal_revert-paths
                 return
             end
@@ -120,17 +120,17 @@ function sub-abbr --description='Create abbreviations for sub-commands'
             if set --query --local _flag_help
                 help-text --link=_sub-abbr_internal_helpText-linker 'Create context-aware Sub-Command abbreviations' \
                     --positional={
-                  '+Initial Args | All arguments that come before the Sub-Command',
-                  'Sub-Command | Comes after the Initial Args; replaced by the Expansion',
-                  'Expansion | Replaces the Sub-Command'
-                } \
+                        '+Initial Args | All arguments that come before the Sub-Command',
+                        'Sub-Command | Comes after the Initial Args; replaced by the Expansion',
+                        'Expansion | Replaces the Sub-Command'
+                    } \
                     --flag={
-                    'degrade:0 | Deactivate '(format background red 'run0')' prefix toleration',
-                    'regard-flags:s | Acknowledge flags in the Initial Args',
-                    'set-cursor:c | Position the cursor at '(format background black --bright '%')' post-expansion',
-                    'regex:r | Match command-line arguments with Regex',
-                    'expander:e | Use the output of a command as the Expansion'
-                }
+                        'degrade:0 | Deactivate '(format background red 'run0')' prefix toleration',
+                        'regard-flags:s | Acknowledge flags in the Initial Args',
+                        'set-cursor:c | Position the cursor at '(format background black --bright '%')' post-expansion',
+                        'regex:r | Match command-line arguments with Regex',
+                        'expander:e | Use the output of a command as the Expansion'
+                    }
                 _sub-abbr_internal_revert-paths
                 return
             end
