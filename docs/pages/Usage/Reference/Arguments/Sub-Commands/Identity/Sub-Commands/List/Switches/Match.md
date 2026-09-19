@@ -12,6 +12,10 @@ Filter the abbreviations listed by how their [Sub-Command][subcommand]{data-prev
 | :---: | :---: | :-----: | :-----------------: | :-------: |
 |  Type |  `m`  | `match` | [List][list]{data-preview} |  ❌ false |
 
+!!! note "Different than Sub-command match type"
+    This switch is different than the [Regular Expressions][./Regular-Expressions.md]{data-preview} switch, which filters the listed identifiers by interpreting the listed positionals as regular expressions rather than fixed strings.
+    Whereas this switch filters the listed identifiers by their sub-command match type as defined during their [addition][add]{data-preview}.  
+
 ## Types
 | Name | flag value | identifier prefix | Description |
 | :--: | :--------: | :---------------: | :---------- |
@@ -34,3 +38,4 @@ Filter the abbreviations listed by how their [Sub-Command][subcommand]{data-prev
 [subcommand]: ../../../../../Positionals/Sub-Command.md
 [list]: ../index.md
 [regexp]: ../../../../Add/Switches/Regular-Expression.md
+[add]: ../../../../Add/index.md

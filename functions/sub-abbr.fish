@@ -64,15 +64,16 @@ function sub-abbr --description='Create abbreviations for sub-commands'
             set --local -- identity_subcommand_args {$identity_args[2..]} # Trimmed sub-commands: `identity` `list`/`erase`; Arguments used sub-commands `identity`
             switch "$identity_args[1]"
                 case list
-                    if ! $argparse 'i/invert&' 'm/match=&!_sub-abbr_internal_verify-arg_match-type' 'h/help&' -- {$identity_subcommand_args}
+                    if ! $argparse 'r/regex&' 'i/invert&' 'm/match=&!_sub-abbr_internal_verify-arg_match-type' 'h/help&' -- {$identity_subcommand_args}
                         _sub-abbr_internal_revert-paths
                         return 1
                     end
                     if set --query --local _flag_help
-                        help-text --link=_sub-abbr_internal_helpText-linker 'List the identifiers of each loaded abbreviation' \
+                        _subabbr_help_list= help-text --link=_sub-abbr_internal_helpText-linker 'List the identifiers of each loaded abbreviation' \
                             --flag={
                                 'match:m | Only list identifiers with the specified Sub-Command string match type',
-                                'invert:i | Invert the match result'
+                                'invert:i | Invert the match result',
+                                'regex:r | Match command-line positionals with RegExp'
                             }
                         _sub-abbr_internal_revert-paths
                         return
@@ -93,7 +94,7 @@ function sub-abbr --description='Create abbreviations for sub-commands'
                         if test (count {$argv}) -gt 0
                             set --local -- index_count 2 # start at 2 to skip the first token—the match type
                             for passed_arg_match in {$argv}
-                                test "$passed_arg_match" != "$identifier_tokens[$index_count]" &&
+                                string match --quiet {$_flag_regex} -- "$passed_arg_match" "$identifier_tokens[$index_count]" ||
                                     set --function -- arg_unmatched # continue outside the current loop
                                 set -- index_count (math {$index_count} + 1)
                             end

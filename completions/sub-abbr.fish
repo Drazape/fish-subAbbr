@@ -48,6 +48,7 @@ set --local -- list_complete_condition \
             regex\t\'Sub-command matched with RegExp\'
         '
     single-switch {$list_complete_condition} --short-option=i --long-option=invert --description='Invert the match'
+    single-switch {$list_complete_condition} --short-option=r --long-option=regex --description='Match command-line positionals with RegExp'
 end
 
 begin
