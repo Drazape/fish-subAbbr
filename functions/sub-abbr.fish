@@ -203,7 +203,7 @@ function sub-abbr --description='Create abbreviations for sub-commands'
                         $print see (format url https://drazape.github.io/fish-subAbbr/Usage/Reference/Configuration/Check_Base-Command/ 'Check Base Command') 'for more information'
                     end
                     _sub-abbr_internal_revert-paths
-                    return 9
+                    return 7
                 end
                 set --function initial_args {$add_args[2..-3]}
                 set --function subcommand {$add_args[-2]}
@@ -213,7 +213,7 @@ function sub-abbr --description='Create abbreviations for sub-commands'
                     if _sub-abbr_internal_verify-arg_subcommand-contains ' ' || _sub-abbr_internal_verify-arg_subcommand-contains \n
                         $print incompatible (format text italics 'Sub-Command') >&2
                         _sub-abbr_internal_revert-paths
-                        return 7
+                        return 8
                     end
                 end
             end
@@ -243,7 +243,7 @@ function sub-abbr --description='Create abbreviations for sub-commands'
         case \*
             $print 'unknown sub-command:' (format text bold (format background red --bright {$argv[1]})) >&2
             _sub-abbr_internal_revert-paths
-            return 8
+            return 9
     end
     _sub-abbr_internal_revert-paths
 end
