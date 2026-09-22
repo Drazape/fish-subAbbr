@@ -36,11 +36,21 @@ $common_complete \
     --arguments='(sub-abbr identity list | string match --invert --regex -- (string escape --style=regex -- (commandline --tokens-expanded --current-process) | string join -- \|))'
 
 begin
-set --local -- list_complete_condition \
-    --condition='set --local -- subcommands (commandline --tokens-expanded --current-process --cut-at-cursor)[2..3]
+    set --local -- list_complete_condition \
+        --condition='set --local -- subcommands (commandline --tokens-expanded --current-process --cut-at-cursor)[2..3]
             test "$subcommands[1]" = identity && test "$subcommands[2]" = list'
 
+    function _subabbr_completion_list
+        set --local -- commandline_positionals (commandline --tokens-expanded --current-process --cut-at-cursor)[4..]
+        for matched_identifier in (sub-abbr identity list {$commandline_positionals})
+            set --local -- identifier_positionals (commandline --tokens-expanded --input={$matched_identifier})[2..]
+            test (count {$identifier_positionals}) -le (count {$commandline_positionals}) &&
+                continue
+            echo {$identifier_positionals[(math 1 + (count {$commandline_positionals}))]}
+        end
+    end
     # not using `single-switch` since a value is mandatory
+    $common_complete {$list_complete_condition} --arguments=\(_subabbr_completion_list\)
     $common_complete {$list_complete_condition} --short-option=m --long-option=match --require-parameter \
         --description='Filter by sub-command match type' \
         --arguments='
