@@ -1,83 +1,85 @@
-set --local -- common_complete complete --command=sub-abbr --no-files
-function single-switch --description='Only suggest the switch once' --inherit-variable=common_complete
-    argparse --move-unknown s/short-option= l/long-option= -- {$argv}
-    $common_complete --condition='! __fish_seen_argument --short='{$_flag_short_option}' --long='{$_flag_long_option} {$argv_opts} -- {$argv}
-end
+begin
+    set --local -- common_complete complete --command=sub-abbr --no-files
+    function single-switch --description='Only suggest the switch once' --inherit-variable=common_complete
+        argparse --move-unknown s/short-option= l/long-option= -- {$argv}
+        $common_complete --condition='! __fish_seen_argument --short='{$_flag_short_option}' --long='{$_flag_long_option} {$argv_opts} -- {$argv}
+    end
 
-$common_complete
-single-switch --short-option=h --long-option=help --description='Reference manuals' \
-    --condition='set --local -- unbase (commandline --tokens-expanded --current-process --cut-at-cursor)[2..3]
+    $common_complete
+    single-switch --short-option=h --long-option=help --description='Reference manuals' \
+        --condition='set --local -- unbase (commandline --tokens-expanded --current-process --cut-at-cursor)[2..3]
                  test (count {$unbase}) -eq 0 && return 0
                  test "$unbase[1]" = add && return 0
                  test "$unbase[1]" = identity && return 0
                  return 1'
 
-begin
-    set --local -- subcommand_complete {$common_complete} --condition='test (__fish_number_of_cmd_args_wo_opts) -lt 2'
-    $subcommand_complete --arguments=add --description='Create abbrs'
-    $subcommand_complete --arguments=identity --description='Manage abbrs by their identifiers'
-end
-begin
-    $common_complete --exclusive \
-        --condition='__fish_seen_subcommand_from add && test (__fish_number_of_cmd_args_wo_opts) -eq 2' \
-        --arguments='(__fish_complete_command)'
-end
+    begin
+        set --local -- subcommand_complete {$common_complete} --condition='test (__fish_number_of_cmd_args_wo_opts) -lt 2'
+        $subcommand_complete --arguments=add --description='Create abbrs'
+        $subcommand_complete --arguments=identity --description='Manage abbrs by their identifiers'
+    end
+    begin
+        $common_complete --exclusive \
+            --condition='__fish_seen_subcommand_from add && test (__fish_number_of_cmd_args_wo_opts) -eq 2' \
+            --arguments='(__fish_complete_command)'
+    end
 
-begin
-    set --local -- identity_complete {$common_complete} \
-        --condition='set --local -- unbase (commandline --tokens-expanded --current-process --cut-at-cursor)[2..3]
+    begin
+        set --local -- identity_complete {$common_complete} \
+            --condition='set --local -- unbase (commandline --tokens-expanded --current-process --cut-at-cursor)[2..3]
                     test (count {$unbase}) -eq 1 && test "$unbase[1]" = identity && ! contains "$unbase[2]" list erase'
-    $identity_complete --arguments=list --description='Get identifiers'
-    $identity_complete --arguments=erase --description='Erase abbrs with identity'
-end
-$common_complete \
-    --condition='set --local -- subcommands (commandline --tokens-expanded --current-process --cut-at-cursor)[2..3]
-                test "$subcommands[1]" = identity && test "$subcommands[2]" = erase' \
-    --arguments='(sub-abbr identity list | string match --invert --regex -- (string escape --style=regex -- (commandline --tokens-expanded --current-process) | string join -- \|))'
-
-begin
-    set --local -- list_complete_condition \
+        $identity_complete --arguments=list --description='Get identifiers'
+        $identity_complete --arguments=erase --description='Erase abbrs with identity'
+    end
+    $common_complete \
         --condition='set --local -- subcommands (commandline --tokens-expanded --current-process --cut-at-cursor)[2..3]
+                test "$subcommands[1]" = identity && test "$subcommands[2]" = erase' \
+        --arguments='(sub-abbr identity list | string match --invert --regex -- (string escape --style=regex -- (commandline --tokens-expanded --current-process) | string join -- \|))'
+
+    begin
+        set --local -- list_complete_condition \
+            --condition='set --local -- subcommands (commandline --tokens-expanded --current-process --cut-at-cursor)[2..3]
             test "$subcommands[1]" = identity && test "$subcommands[2]" = list'
 
-    function _subabbr_completion_list
-        set --local -- commandline_positionals (commandline --tokens-expanded --current-process --cut-at-cursor)[4..]
-        for matched_identifier in (sub-abbr identity list {$commandline_positionals})
-            set --local -- identifier_positionals (commandline --tokens-expanded --input={$matched_identifier})[2..]
-            test (count {$identifier_positionals}) -le (count {$commandline_positionals}) &&
-                continue
-            echo {$identifier_positionals[(math 1 + (count {$commandline_positionals}))]}
+        function _subabbr_completion_list
+            set --local -- commandline_positionals (commandline --tokens-expanded --current-process --cut-at-cursor)[4..]
+            for matched_identifier in (sub-abbr identity list {$commandline_positionals})
+                set --local -- identifier_positionals (commandline --tokens-expanded --input={$matched_identifier})[2..]
+                test (count {$identifier_positionals}) -le (count {$commandline_positionals}) &&
+                    continue
+                echo {$identifier_positionals[(math 1 + (count {$commandline_positionals}))]}
+            end
         end
-    end
-    # not using `single-switch` since a value is mandatory
-    $common_complete {$list_complete_condition} --arguments=\(_subabbr_completion_list\)
-    $common_complete {$list_complete_condition} --short-option=m --long-option=match --require-parameter \
-        --description='Filter by sub-command match type' \
-        --arguments='
+        # not using `single-switch` since a value is mandatory
+        $common_complete {$list_complete_condition} --arguments=\(_subabbr_completion_list\)
+        $common_complete {$list_complete_condition} --short-option=m --long-option=match --require-parameter \
+            --description='Filter by sub-command match type' \
+            --arguments='
             fixed\t\'Exactly matched sub-command\'
             regex\t\'Sub-command matched with RegExp\'
         '
-    single-switch {$list_complete_condition} --short-option=i --long-option=invert --description='Invert the match'
-    single-switch {$list_complete_condition} --short-option=r --long-option=regex --description='Match command-line positionals with RegExp'
-end
-
-begin
-    set --local -- creation_condition --condition='test "$(commandline -xpc)[2]" = add'
-    begin
-        set --local -- creation_complete single-switch {$creation_condition}
-        $creation_complete --short-option=c --long-option=set-cursor --description='Position the cursor at % post-expansion'
-        $creation_complete --short-option=0 --long-option=degrade --description='don\'t tolerate run0 prefix'
-        $creation_complete --short-option=s --long-option=regard-flags --description='Acknowledge flags in the Initial Command'
-        $creation_complete --short-option=e --long-option=expander --description='Use the output of a command as the Expansion'
+        single-switch {$list_complete_condition} --short-option=i --long-option=invert --description='Invert the match'
+        single-switch {$list_complete_condition} --short-option=r --long-option=regex --description='Match command-line positionals with RegExp'
     end
 
     begin
-        set --local regex_complete {$common_complete} {$creation_condition} --short-option=r --long-option=regex
-        $regex_complete --description='Match command-line arguments with RegExp'
+        set --local -- creation_condition --condition='test "$(commandline -xpc)[2]" = add'
         begin
-            set --local -- regex_value {$regex_complete} --condition='string match --quiet --regex -- \'^(--regex=|-r)\w*$\' (commandline -xtc)'
-            $regex_value --arguments=sub-command --description='Match the sub-command with RegExp'
-            $regex_value --arguments=initials --description='Match Initial Arguments with RegExp'
+            set --local -- creation_complete single-switch {$creation_condition}
+            $creation_complete --short-option=c --long-option=set-cursor --description='Position the cursor at % post-expansion'
+            $creation_complete --short-option=0 --long-option=degrade --description='don\'t tolerate run0 prefix'
+            $creation_complete --short-option=s --long-option=regard-flags --description='Acknowledge flags in the Initial Command'
+            $creation_complete --short-option=e --long-option=expander --description='Use the output of a command as the Expansion'
+        end
+
+        begin
+            set --local regex_complete {$common_complete} {$creation_condition} --short-option=r --long-option=regex
+            $regex_complete --description='Match command-line arguments with RegExp'
+            begin
+                set --local -- regex_value {$regex_complete} --condition='string match --quiet --regex -- \'^(--regex=|-r)\w*$\' (commandline -xtc)'
+                $regex_value --arguments=sub-command --description='Match the sub-command with RegExp'
+                $regex_value --arguments=initials --description='Match Initial Arguments with RegExp'
+            end
         end
     end
 end
