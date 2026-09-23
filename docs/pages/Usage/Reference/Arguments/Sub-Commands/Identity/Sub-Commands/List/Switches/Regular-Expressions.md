@@ -32,5 +32,6 @@ This allows much more flexible matching of the arguments, which would otherwise 
 
 
 [list]: ../index.md
+[initials]: ../../../../../Positionals/Initial-Arguments.md
 [subcommand]: ../../../../../Positionals/Sub-Command.md
 [add]: ../../../../Add/index.md
