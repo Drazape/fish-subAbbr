@@ -15,7 +15,7 @@ description: Distribution ways
 
 ## Function Name Scheme
 !!! warning "Single Trigger only"
-    In general, You must only use a single method to activate your package: either the prefix convention, or the event.
+    In general, you must only use a single method to activate your package: either the prefix convention, or the event.
     If you use multiple triggers, then the amount of time it takes for `sub-abbrs` to execute would double each time in the same session.
 ### Dynamic Functions
 For the package to be indexed by the repository, its function name must be prefixed with `_sub-abbr_pkg_`.  
