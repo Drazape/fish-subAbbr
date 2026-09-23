@@ -18,7 +18,7 @@ When this switch is enabled, the positionals are treated as [Regular Expressions
 This allows much more flexible matching of the arguments, which would otherwise not be possible with simply the other built-in filtering options.
 
 !!! note "Different than Sub-command match type"
-    This switch is different than the [Match][./Match.md]{data-preview} switch, which filters the listed identifiers by their sub-command match type as defined during their [addition][add]{data-preview}.  
+    This switch is different than the [Match](./Match.md){data-preview} switch, which filters the listed identifiers by their sub-command match type as defined during their [addition][add]{data-preview}.  
     Whereas this switch filters the listed identifiers by interpreting the listed positionals as regular expressions rather than fixed strings.
 
 !!! example "List abbreviations for the Base Commands: Jujutsu and Nix3"
