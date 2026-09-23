@@ -25,5 +25,5 @@ This is useful for users who enable all their packages without manually filterin
 This setup automatically enables all the new packages that are added.
 
 ### Allow
-If the value of `subabbr_nonexistent_basecommand `allow`, it will simply not check if the Base Command exists, and will add the abbreviation regardless.  
+If the value of `subabbr_nonexistent_basecommand` is set to `allow`, it will simply not check if the Base Command exists, and will add the abbreviation regardless.  
 Also, there would obviously be no warning displayed.
