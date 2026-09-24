@@ -7,6 +7,9 @@ description: The string that replaces the *Sub-Command* on match
 # Expansion
 The string that replaces the *Sub-Command* on match
 
+!!! note "Only for creation"
+    Since this positional is not part of the [identity](../Sub-Commands/Identity/index.md){data-preview}, it is only accepted by the [Add](../Sub-Commands/Add/index.md){data-preview} sub-command.
+
 ## Properties
 | Position | Presence |
 | :------: | :------: |
@@ -32,5 +35,5 @@ sub-abbr <initial-arguments> <Sub-Command> <EXPANSION>
     !!! note "Indication"
         The [*Expansion*](./Expansion.md){data-preview}s are indicated in **Bold**
 
-    - `#!fish sub-abbr jj ci `**`commit`**
-    - `#!fish sub-abbr -0c run0 nh os switch `**`'switch % --bypass-root-check'`**
+    - `#!fish sub-abbr add jj ci `**`commit`**
+    - `#!fish sub-abbr add -0c run0 nh os switch `**`'switch % --bypass-root-check'`**

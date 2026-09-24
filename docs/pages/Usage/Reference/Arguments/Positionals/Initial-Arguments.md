@@ -34,8 +34,10 @@ sub-abbr <INITIAL_ARGUMENTS> <Sub-Command> <Expansion>
     !!! note "Indication"
         The [*Initial Arguments*](./Initial-Arguments.md){data-preview} are indicated in **Bold**
 
-    - `#!fish sub-abbr `**`jj`**` ci commit`
-    - `#!fish sub-abbr -0c `**`run0 nh os`**` switch 'switch % --bypass-root-check'`
+    - `#!fish sub-abbr add `**`jj`**` ci commit`
+    - `#!fish sub-abbr add -0c `**`run0 nh os`**` switch 'switch % --bypass-root-check'`
+    - `#!fish sub-abbr identity list `**`jj`**` ci`
+    - `#!fish sub-abbr identity list `**`run0 nh os`**` switch`
 
 ## Implementation Details
 Each argument is separately matched by parsing the command-line as follows:
