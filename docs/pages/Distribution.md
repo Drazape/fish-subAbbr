@@ -30,7 +30,7 @@ If this is what you want, then you must not follow the prefix convention; otherw
 
 To utilize this feature, you must add a trigger to the package function for the [event](https://fishshell.com/docs/current/language.html#event-handlers "automatically run when a specific event takes place"){data-preview}: `sub-abbrs`
 
-```fish {title"Function Definition Format"}
+```fish {title="Function Definition Format"}
 function <arbitrary-name> --on-event=sub-abbrs
     … # body
 end
