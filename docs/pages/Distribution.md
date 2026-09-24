@@ -47,7 +47,7 @@ Each package is a single function in the repository which provides abbreviations
     Have a look at other packages defined in the [repository](https://github.com/Drazape/fish-subAbbr/tree/main/functions/sub-abbr/pkg/official/ "Official Package Repository"){data-preview} before pushing your own here.
 
 !!! tip "Library"
-    Use the [function library](../Usage/Packages/Software-Development-Kit/Expanders){data-preview} to create packages more easily using abstractions
+    Use the [function library](../Usage/Reference/Packages/Software-Development-Kit/Expanders){data-preview} to create packages more easily using abstractions
 
 ### 3rd-party
 3rd-party packages/repositories can use the program however they want. For example:
