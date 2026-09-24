@@ -29,6 +29,7 @@ function sub-abbr --description='Create abbreviations for sub-commands'
         return
     end
 
+    set --function -- identifier_prefix '_sub-abbr_expand '
     # individual sub-commands
     switch "$argv[1]"
         case identity
@@ -45,7 +46,6 @@ function sub-abbr --description='Create abbreviations for sub-commands'
                 return
             end
 
-            set --function -- identifier_prefix '_sub-abbr_expand '
             set --local -- prefix_length (string length {$identifier_prefix})
             set --local -- identifier_start (math {$prefix_length} + 1)
             # common data
@@ -225,7 +225,7 @@ function sub-abbr --description='Create abbreviations for sub-commands'
                 set --local -- all_escaped_arguments (string escape --style=script -- $base_command $initial_args $subcommand)
                 # name compatible hash; specific to the combination
                 set --function -- identifier (
-                    string escape --style=var -- _sub-abbr_expand\ {$regexStr}:\ "$all_escaped_arguments"
+                    string escape --style=var -- {$identifier_prefix}\ {$regexStr}:\ "$all_escaped_arguments"
                 )
             end
             begin
