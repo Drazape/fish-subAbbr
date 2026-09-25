@@ -29,7 +29,7 @@ begin
     $common_complete \
         --condition='set --local -- subcommands (__fish_print_cmd_args_without_options)[2..3]
                 test "$subcommands[1]" = identity && test "$subcommands[2]" = erase' \
-        --arguments='(sub-abbr identity list | string match --invert --regex -- (string escape --style=regex -- (commandline --tokens-expanded --current-process) | string join -- \|))'
+        --arguments='(sub-abbr identity list)'
 
     begin
         set --local -- list_complete_condition \
