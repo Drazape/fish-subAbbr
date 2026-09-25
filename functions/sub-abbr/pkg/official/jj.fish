@@ -82,7 +82,7 @@ begin
                         end
                     end
                     begin # File
-                        set --local -- file {$long_flag} -- file
+                        set --local -- file {$long_flag} file
                         $file --regex=initials -- 'annotate|chmod|list|search|show' r{,evision}
                         $file --regex=initials -- 'annotate|list|show' T template
                         $file -- search p{,atten}
