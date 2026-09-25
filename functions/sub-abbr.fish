@@ -225,7 +225,7 @@ function sub-abbr --description='Create abbreviations for sub-commands'
                 set --local -- all_escaped_arguments (string escape --style=script -- $base_command $initial_args $subcommand)
                 # name compatible hash; specific to the combination
                 set --function -- identifier (
-                    string escape --style=var -- {$identifier_prefix}\ {$regexStr}:\ "$all_escaped_arguments"
+                    string escape --style=var -- {$identifier_prefix}{$regexStr}:\ "$all_escaped_arguments"
                 )
             end
             begin
