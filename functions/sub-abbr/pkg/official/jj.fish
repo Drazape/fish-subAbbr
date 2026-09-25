@@ -83,8 +83,8 @@ begin
                     end
                     begin # File
                         set --local -- file {$long_flag} file
-                        $file --regex=initials -- 'annotate|chmod|list|search|show' r{,evision}
-                        $file --regex=initials -- 'annotate|list|show' T template
+                        $file --mandatory --regex=initials -- 'annotate|chmod|list|search|show' r{,evision}
+                        $file --mandatory --regex=initials -- 'annotate|list|show' T template
                         $file -- search p{,atten}
                     end
                     $common -- 'commit|restore|split|squash' i{,nteractive}
