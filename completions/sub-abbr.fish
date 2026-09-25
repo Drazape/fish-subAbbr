@@ -18,11 +18,6 @@ begin
         $subcommand_complete --arguments=add --description='Create abbrs'
         $subcommand_complete --arguments=identity --description='Manage abbrs by their identifiers'
     end
-    begin
-        $common_complete --exclusive \
-            --condition='__fish_seen_subcommand_from add && test (__fish_number_of_cmd_args_wo_opts) -eq 2' \
-            --arguments='(__fish_complete_command)'
-    end
 
     begin
         set --local -- identity_complete {$common_complete} \
@@ -64,6 +59,7 @@ begin
 
     begin
         set --local -- creation_condition --condition='test "$(commandline -xpc)[2]" = add'
+        $common_complete {$creation_condition} --arguments='(__fish_complete_subcommand --fcs-skip=2)'
         begin
             set --local -- creation_complete single-switch {$creation_condition}
             $creation_complete --short-option=c --long-option=set-cursor --description='Position the cursor at % post-expansion'
