@@ -7,7 +7,7 @@ begin
 
     $common_complete
     single-switch --short-option=h --long-option=help --description='Reference manuals' \
-        --condition='set --local -- unbase (commandline --tokens-expanded --current-process --cut-at-cursor)[2..3]
+        --condition='set --local -- unbase (__fish_print_cmd_args_without_options)[2..3]
                  test (count {$unbase}) -eq 0 && return 0
                  test "$unbase[1]" = add && return 0
                  test "$unbase[1]" = identity && return 0
@@ -21,23 +21,23 @@ begin
 
     begin
         set --local -- identity_complete {$common_complete} \
-            --condition='set --local -- unbase (commandline --tokens-expanded --current-process --cut-at-cursor)[2..3]
+            --condition='set --local -- unbase (__fish_print_cmd_args_without_options)[2..3]
                     test (count {$unbase}) -eq 1 && test "$unbase[1]" = identity && ! contains "$unbase[2]" list erase'
         $identity_complete --arguments=list --description='Get identifiers'
         $identity_complete --arguments=erase --description='Erase abbrs with identity'
     end
     $common_complete \
-        --condition='set --local -- subcommands (commandline --tokens-expanded --current-process --cut-at-cursor)[2..3]
+        --condition='set --local -- subcommands (__fish_print_cmd_args_without_options)[2..3]
                 test "$subcommands[1]" = identity && test "$subcommands[2]" = erase' \
         --arguments='(sub-abbr identity list | string match --invert --regex -- (string escape --style=regex -- (commandline --tokens-expanded --current-process) | string join -- \|))'
 
     begin
         set --local -- list_complete_condition \
-            --condition='set --local -- subcommands (commandline --tokens-expanded --current-process --cut-at-cursor)[2..3]
+            --condition='set --local -- subcommands (__fish_print_cmd_args_without_options)[2..3]
             test "$subcommands[1]" = identity && test "$subcommands[2]" = list'
 
         function _subabbr_completion_list
-            set --local -- commandline_positionals (commandline --tokens-expanded --current-process --cut-at-cursor)[4..]
+            set --local -- commandline_positionals (__fish_print_cmd_args_without_options)[4..]
             for matched_identifier in (sub-abbr identity list {$commandline_positionals})
                 set --local -- identifier_positionals (commandline --tokens-expanded --input={$matched_identifier})[2..]
                 test (count {$identifier_positionals}) -le (count {$commandline_positionals}) &&
@@ -58,7 +58,7 @@ begin
     end
 
     begin
-        set --local -- creation_condition --condition='test "$(commandline -xpc)[2]" = add'
+        set --local -- creation_condition --condition='test "$(__fish_print_cmd_args_without_options)[2]" = add'
         $common_complete {$creation_condition} --arguments='(__fish_complete_subcommand --fcs-skip=2)'
         begin
             set --local -- creation_complete single-switch {$creation_condition}

@@ -3,7 +3,7 @@ begin
     $common_complete
 
     function sub
-        set --local -- path (commandline --tokens-expanded --current-process --cut-at-cursor)[2..]
+        set --local -- path (__fish_print_cmd_args_without_options)[2..]
 
         set --local -- parent_group _sub-abbr_pkg_"$(string join -- _ {$path} \0)"
         for subfunc in (string match --regex --entire -- ^(string escape --style=regex -- {$parent_group}) (functions --all) (path basename --no-extension {$fish_function_path}/*))
