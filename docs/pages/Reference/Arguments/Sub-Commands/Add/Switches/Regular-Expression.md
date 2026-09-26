@@ -17,6 +17,7 @@ Miscallaneous details about the switch
 ### Values
 `sub-command`
 :   Applies to the [*Sub-Command*](../../../Positionals/Sub-Command.md "Args preceding *Sub-Command*"){data-preview}
+
 `initials`
 :   Applies to the [*Initial Arguments*](../../../Positionals/Initial-Arguments.md "Args preceding"){data-preview}
 ### Relation
@@ -35,6 +36,7 @@ Matching command-line arguments dynamically
 ### Implementation
 Sub-Command
 :   It is directly passed to `builtin abbr` with the [*Sub-Command*](../../../Positionals/Sub-Command.md "Args preceding *Sub-Command*"){data-preview} as the value
+
 Initial Arguments
 :   [*Initial Arguments*](../../../Positionals/Initial-Arguments.md "Args preceding"){data-preview} in itself is a `sub-abbr` exclusive feature. Thus, manually matched
 

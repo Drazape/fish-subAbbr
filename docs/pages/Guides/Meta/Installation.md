@@ -89,5 +89,6 @@ The files must be moved to the vendor (`vendor_*.d`) system-wide path
 
 Package Manager
 :   Normal system path managed by the package manager
+
 Local
 :   Local directory for non-packaged programs

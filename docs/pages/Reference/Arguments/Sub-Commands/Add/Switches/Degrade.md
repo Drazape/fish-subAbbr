@@ -15,6 +15,7 @@ Deactivate `run0` command-prefix toleration
 ## Details
 Relation
 :   *Initial Arguments*: prepended `run0` would no longer be specially accepted
+
 Use-case
 :   For abbreviating commands that must be elevated for the expansion to occur
 

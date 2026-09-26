@@ -11,12 +11,14 @@ Convert short flags into their long variants
 ## Effect
 Alone
 :   If the short flag is encountered alone, then turn it into the long variant
+
 Chained
 :   If the short flag is seen to be chained with other short flags, then the first one is expanded, while the rest of them are separated.
 
 ## Benefits
 Visual Feedback
 :   The user is instantly informed if the flag they entered is the correct one.
+
 Flag Funcionality
 :   Glancing back, one might not be able to instantly recall the short flag they typed out of muscle memory.  
     The long flag variant the short flag expanded into can provide more information on the flag, while still working as usual.
