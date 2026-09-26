@@ -20,7 +20,7 @@ Guide for distributing fish-subAbbr packages
     If you use multiple triggers, then the amount of time it takes for `sub-abbrs` to execute would double each time in the same session.
 ### Dynamic Functions
 For the package to be indexed by the repository, its function name must be prefixed with `_sub-abbr_pkg_`.  
-[Groups](./Usage/Reference/Packages/Repository-Helper/Package-Tree.md){data-preview} are separated with a `_`; the group organisation is upto the developer, or the packager/distributor.
+[Groups](../../Reference/Packages/Repository-Helper/Package-Tree.md){data-preview} are separated with a `_`; the group organisation is upto the developer, or the packager/distributor.
 ```fish {title="Function Name Format"}
 _sub-abbr_pkg_<groups(sep:_)>_<pkgname>
 ```
@@ -49,7 +49,7 @@ Each package is a single function in the repository which provides abbreviations
     Have a look at other packages defined in the [repository](https://github.com/Drazape/fish-subAbbr/tree/main/functions/sub-abbr/pkg/official/ "Official Package Repository"){data-preview} before pushing your own here.
 
 !!! tip "Library"
-    Use the [function library](../Usage/Reference/Packages/Software-Development-Kit/Expanders){data-preview} to create packages more easily using abstractions
+    Use the [function library](../../Reference/Packages/Software-Development-Kit/Expanders){data-preview} to create packages more easily using abstractions
 
 ### 3rd-party
 3rd-party packages/repositories can use the program however they want. For example:

@@ -4,7 +4,7 @@ function _sub-abbr_internal_helpText-linker --description='Linker for fish-subAb
         echo -- {$baseURL}/
         return
     end
-    set --local -- baseURL {$baseURL}/Usage/Arguments
+    set --local -- baseURL {$baseURL}/Arguments
 
     switch {$type}
         case heading

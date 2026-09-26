@@ -62,9 +62,9 @@ The easiest way to create such context-aware sub-command abbreviations is creati
 
 [relevant Fish discussion](https://github.com/fish-shell/fish-shell/discussions/11682 "GitHub discussion on the Fish Shell repository"){ data-preview .md-button .md-button--primary }
 
-[initials]: ../Reference/Arguments/Positionals/Initial-Arguments.md
-[subcommand]: ../Reference/Arguments/Positionals/Sub-Command.md
-[expansion]: ../Reference/Arguments/Positionals/Expansion.md
-[regexp]: ../Reference/Arguments/Sub-Commands/Add/Switches/Regular-Expression.md
-[expander]: ../Reference/Arguments/Sub-Commands/Add/Switches/Expander.md
+[initials]: ../../Reference/Arguments/Positionals/Initial-Arguments.md
+[subcommand]: ../../Reference/Arguments/Positionals/Sub-Command.md
+[expansion]: ../../Reference/Arguments/Positionals/Expansion.md
+[regexp]: ../../Reference/Arguments/Sub-Commands/Add/Switches/Regular-Expression.md
+[expander]: ../../Reference/Arguments/Sub-Commands/Add/Switches/Expander.md
 [internal-abbr]: https://fishshell.com/docs/current/cmds/abbr.html "The internal abbreviation backend used by sub-abbr"

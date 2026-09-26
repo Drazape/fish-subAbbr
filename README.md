@@ -110,18 +110,18 @@ Distinct operations that the command performs
 ##### Add
 Sub-command to create context-aware sub-command abbreviations
 ###### Positional
-1. [**Initial Arguments**](https://drazape.github.io/fish-subAbbr/Usage/Arguments/Positionals/Initial-Arguments/ "documentation"): Precedes the *Sub-Command*. Becomes the new *Initial Arguments* for *Expansion*  
-2. [**Sub-Command**](https://drazape.github.io/fish-subAbbr/Usage/Arguments/Positionals/Sub-Command/ "documentation"): The *Sub-Command* to be replaced (expanded) by the *Expansion*. Comes after the *Initial Arguments*
-3. [**Expansion**](https://drazape.github.io/fish-subAbbr/Usage/Arguments/Positionals/Expansion/ "documentation"): The replacement (*Expansion*) of the typed *Sub-Command*. Becomes the new *Sub-Command* for the *Initial Arguments*
+1. [**Initial Arguments**](https://drazape.github.io/fish-subAbbr/Reference/Arguments/Positionals/Initial-Arguments/ "documentation"): Precedes the *Sub-Command*. Becomes the new *Initial Arguments* for *Expansion*  
+2. [**Sub-Command**](https://drazape.github.io/fish-subAbbr/Reference/Arguments/Positionals/Sub-Command/ "documentation"): The *Sub-Command* to be replaced (expanded) by the *Expansion*. Comes after the *Initial Arguments*
+3. [**Expansion**](https://drazape.github.io/fish-subAbbr/Reference/Arguments/Positionals/Expansion/ "documentation"): The replacement (*Expansion*) of the typed *Sub-Command*. Becomes the new *Sub-Command* for the *Initial Arguments*
 ###### Switches
 | Name | Description | Long | Short | Inherited [^inherited-switches] |
 | :--: | ----------- | :--: | :---: | :-----------------------------: |
-| [**Help**](https://drazape.github.io/fish-subAbbr/Usage/Arguments/Universal-Switches/Help/ "documentation") | Show a reference manual — consisting of the [purpose](#sub-abbr "The purpose of the command") & [arguments](#Arguments "Descriptions on all the supported arguments") | `help` | `h` | ❔ universal |
-| [**Degrade**](https://drazape.github.io/fish-subAbbr/Usage/Arguments/Sub-Commands/Add/Switches/Degrade "documentation") | Deactivate toleration of `run0` as the command prefix; that is, do not expand the *Sub-Command* if the *Initial Args* is prefixed with `run0` | `degrade` | `0` | ❌ false |
-| [**Regard Flags**](https://drazape.github.io/fish-subAbbr/Usage/Arguments/Sub-Commands/Add/Switches/Regard-Flags "documentation") | Acknowledge flags in the *Initial Arguments*; If not set, switches in the *Initial Arguments* are ignored | `regard-flags` | `s` | ❌ false |
-| [**RegExp**](https://drazape.github.io/fish-subAbbr/Usage/Arguments/Sub-Commands/Add/Switches/Regular-Expression "documentation") | Match *Sub-Command* with Regular Expressions. Essential (with `sub-command`) for abbreviating the same pair of *Sub-Command* & *Initial Arguments* [^multi-bases] | `regex` | `r` | ⏫ extended |
-| [**Set Cursor**](https://drazape.github.io/fish-subAbbr/Usage/Arguments/Sub-Commands/Add/Switches/Set-Cursor "documentation") | Set the cursor to a position. Same usage as the internal switch | `set-cursor` | `c` | ✅ true | 
-| [**Expander**](https://drazape.github.io/fish-subAbbr/Usage/Arguments/Sub-Commands/Add/Switches/Expander "documentation") | Use the output of a command as the *Expansion* | `expander` | `e` | ✅ true |
+| [**Help**](https://drazape.github.io/fish-subAbbr/Reference/Arguments/Universal-Switches/Help/ "documentation") | Show a reference manual — consisting of the [purpose](#sub-abbr "The purpose of the command") & [arguments](#Arguments "Descriptions on all the supported arguments") | `help` | `h` | ❔ universal |
+| [**Degrade**](https://drazape.github.io/fish-subAbbr/Reference/Arguments/Sub-Commands/Add/Switches/Degrade "documentation") | Deactivate toleration of `run0` as the command prefix; that is, do not expand the *Sub-Command* if the *Initial Args* is prefixed with `run0` | `degrade` | `0` | ❌ false |
+| [**Regard Flags**](https://drazape.github.io/fish-subAbbr/Reference/Arguments/Sub-Commands/Add/Switches/Regard-Flags "documentation") | Acknowledge flags in the *Initial Arguments*; If not set, switches in the *Initial Arguments* are ignored | `regard-flags` | `s` | ❌ false |
+| [**RegExp**](https://drazape.github.io/fish-subAbbr/Reference/Arguments/Sub-Commands/Add/Switches/Regular-Expression/ "documentation") | Match *Sub-Command* with Regular Expressions. Essential (with `sub-command`) for abbreviating the same pair of *Sub-Command* & *Initial Arguments* [^multi-bases] | `regex` | `r` | ⏫ extended |
+| [**Set Cursor**](https://drazape.github.io/fish-subAbbr/Reference/Arguments/Sub-Commands/Add/Switches/Set-Cursor "documentation") | Set the cursor to a position. Same usage as the internal switch | `set-cursor` | `c` | ✅ true | 
+| [**Expander**](https://drazape.github.io/fish-subAbbr/Reference/Arguments/Sub-Commands/Add/Switches/Expander "documentation") | Use the output of a command as the *Expansion* | `expander` | `e` | ✅ true |
 ##### Identity
 Manage context-aware sub-command abbreviation by their identifiers
 ###### List
@@ -157,7 +157,7 @@ curl -fsSL 'https://raw.githubusercontent.com/Drazape/fish-subAbbr/main/install.
 ```
 
 > [!IMPORTANT]
-> [More specialized ways to install](https://drazape.github.io/fish-subAbbr/Installation/#package-manager "Distribution Package Managers")
+> [More specialized ways to install](https://drazape.github.io/fish-subAbbr/Guides/Meta/Installation/#package-manager "Distribution Package Managers")
 
 
 [^simplification]: You can easily abbreviate base-commands, but there is no straight-forward way to do the same with sub-commands. After the initial development, a GitHub [discussion](https://github.com/fish-shell/fish-shell/discussions/11682) & [Issue](https://github.com/fish-shell/fish-shell/issues/11944) in the Fish repository was discovered that comes up with this exact problem
