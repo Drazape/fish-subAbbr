@@ -18,7 +18,9 @@
 Simplify creating context-aware Sub-Command abbreviations [^simplification]
 
 # Uses
+Following are some example uses of the program.
 ## Defaults (convenience)
+In these examples, additional functionality is added via abbreviations as a default
 ### Switches for certain sub-commands  
 ```fish
 sub-abbr add --degrade --set-cursor run0 nh os switch{,' % --bypass-root-check'}
@@ -42,6 +44,7 @@ sub-abbr add -- eza --long{,\ --group}`
 	The command is showcased a 2nd time, but this time, the command has `run0` prefixed to it; the expansion is still shown to work the same way.
 ](https://github.com/user-attachments/assets/bda2680d-980f-4834-ba41-a9086aa3afad)
 ## Clarity
+These are examples of some cosmetic abbreviations that provide clarity and visual feedback
 ### Turning short flags into long
 Provides visual feedback that the short flag is correct!
 #### `eza`: long flag
@@ -101,8 +104,11 @@ sub-abbr add jj ci commit
 Create personal Sub-Command abbreviations in the scope
 
 ### Arguments
+The arguments that `sub-abbr` accepts on the command-line
 #### Sub-Commands
+Distinct operations that the command performs
 ##### Add
+Sub-command to create context-aware sub-command abbreviations
 ###### Positional
 1. [**Initial Arguments**](https://drazape.github.io/fish-subAbbr/Usage/Arguments/Positionals/Initial-Arguments/ "documentation"): Precedes the *Sub-Command*. Becomes the new *Initial Arguments* for *Expansion*  
 2. [**Sub-Command**](https://drazape.github.io/fish-subAbbr/Usage/Arguments/Positionals/Sub-Command/ "documentation"): The *Sub-Command* to be replaced (expanded) by the *Expansion*. Comes after the *Initial Arguments*
@@ -128,6 +134,7 @@ Helper to conveniently enable compatible package groups, or packages.
 Package groups are groups of packages which can be enabled in bulk.  
 
 ### Arguments
+Various arguments supported by `sub-abbrs` on the command-line
 #### Positional
 - **None**: When no arguments are specified, all the packages are activated
 - **Group/Package path**: The path to the package group, or package
@@ -140,6 +147,7 @@ Package groups are groups of packages which can be enabled in bulk.
 ---
 
 # Installation
+The following are some universal installation methods, for you can use them on any distribution.
 ## User
 [**Fisher**](https://github.com/jorgebucaran/fisher "Fish plugin manager"): `fisher install Drazape/fish-subAbbr`
 
@@ -149,7 +157,7 @@ curl -fsSL 'https://raw.githubusercontent.com/Drazape/fish-subAbbr/main/install.
 ```
 
 > [!IMPORTANT]
-> [More ways to install](https://drazape.github.io/fish-subAbbr/Installation/#package-manager "Distribution Package Managers")
+> [More specialized ways to install](https://drazape.github.io/fish-subAbbr/Installation/#package-manager "Distribution Package Managers")
 
 
 [^simplification]: You can easily abbreviate base-commands, but there is no straight-forward way to do the same with sub-commands. After the initial development, a GitHub [discussion](https://github.com/fish-shell/fish-shell/discussions/11682) & [Issue](https://github.com/fish-shell/fish-shell/issues/11944) in the Fish repository was discovered that comes up with this exact problem

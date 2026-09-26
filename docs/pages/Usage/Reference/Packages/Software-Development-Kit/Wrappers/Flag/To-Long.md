@@ -17,12 +17,14 @@ Convert short flags into their long variants
 - **Flag Funcionality**: Glancing back, one might not be able to instantly recall the short flag they typed out of muscle memory. The long flag variant the short flag expanded into can provide more information on the flag, while still working as usual.
 
 ## Arguments
+Command-line tokens the wrapper accepts as arguments
 ### Positionals
 1. **Initials**: The same as `sub-abbr`. Directly passed without any modification
 2. **Short Flag**: The character after the `-`
 3. **Long Flag**: The word after the `--`. Expands *Short Flag* into it
 
 ### Switches
+Optional arguments that modify the behavior of the wrapper
 #### Un-inherited
 - [RegExp: `sub-command`](../../../../Arguments/Sub-Commands/Add/Switches/Regular-Expression.md "Match command-line arguments with RegExp"){data-preview}
 - [Expander](../../../../Arguments/Sub-Commands/Add/Switches/Expander.md "Use a command's output as the *Expansion*"){data-preview}

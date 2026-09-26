@@ -13,6 +13,7 @@ Create context-aware sub-command abbreviations
 | `add` |  None  |
 
 ## Arguments
+Command-line arguments accepted by the *Add* sub-command
 ### Positionals
 1. [**Initial Arguments**](../../Positionals/Initial-Arguments.md){data-preview}: precedes the [*Sub-Command*](../../Positionals/Sub-Command.md){data-preview}. Becomes the new *Initial Arguments* for *Expansion*  
 2. [**Sub-Command**](../../Positionals/Sub-Command.md){data-preview}: The *Sub-Command* to be replaced (expanded) by the [*Expansion*](../../Positionals/Expansion.md){data-preview}. Comes after the [*Initial Arguments*](../../Positionals/Initial-Arguments.md){data-preview}

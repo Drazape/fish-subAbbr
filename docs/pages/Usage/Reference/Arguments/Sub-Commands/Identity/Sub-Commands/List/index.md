@@ -13,6 +13,7 @@ List the identifier of each content-aware abbreviation loaded
 | `list` | [Identity](../../index.md "Manage abbr by their identifiers"){data-preview} |
 
 ## Details
+Miscallaneous details about the sub-command
 ### Uses
 - Intuitively erasing content-aware abbreviations in case of when the sub-command is matched with [Regular Expressions][RegExp]{data-preview})
 - Checking if a specific abbreviation already exists

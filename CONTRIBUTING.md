@@ -13,6 +13,7 @@ The project uses [fish-nixenv](https://github.com/Drazape/fish-nixenv "GitHub Re
 > The development environment does nothing without it being installed
 
 # Documentation
+Following are the guidelines for contributing to the documentation.
 ## Generation
 The documentation site is generated via [Zensical](https://zensical.org/ "Official site: a modern static site generator designed to simplify building and maintaining project documentation")
 ## Style
@@ -20,6 +21,7 @@ We majorly follow the [Google Documentation Style Guidelines](https://developers
 ### Deviations
 In contrast to the straight quotation marks used in the [Google Style](https://developers.google.com/style/quotation-marks "Google Documentation Style Guide: Quotation Marks document") (`"`), we instead use curly quotation marks (`“` & `”`) outside code-blocks.
 ### Project Exclusive Guidelines
+These are guidelines exclusive to this project, for they are not part of the Google Style.
 #### Word: *Base Command*
 Keep the following things in mind when writing *Base Command*:
 - Do not hyphenate the two words (*Base-Command*)

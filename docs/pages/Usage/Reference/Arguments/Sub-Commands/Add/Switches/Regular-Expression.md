@@ -13,6 +13,7 @@ Match command-line arguments with *Regular Expression*s
 | Multiple & Optional |  `r`  | `regex` |     Add     | ✅ true (extended) |
 
 ## Details
+Miscallaneous details about the switch
 ### Values
 - **`sub-command`**: Applies to the [*Sub-Command*](../../../Positionals/Sub-Command.md "Args preceding *Sub-Command*"){data-preview}
 - **`initials`**: Applies to the [*Initial Arguments*](../../../Positionals/Initial-Arguments.md "Args preceding"){data-preview}

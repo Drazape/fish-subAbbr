@@ -5,8 +5,7 @@ description: Home Page
 ---
 
 # Home
-## Description
-This is an abstraction for Fish to create context-aware Sub-Command abbreviations
+A Fish abstraction to create context-aware Sub-Command abbreviations
 
 ## Purpose
 This is a 3rd-party solution to the problems likewise faced by the developer:  

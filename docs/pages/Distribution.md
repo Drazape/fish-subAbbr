@@ -4,7 +4,8 @@ icon: lucide/signpost
 description: Distribution ways
 ---
 
-# Distribution
+# Package Distribution
+Guide for distributing fish-subAbbr packages
 ## Comparison
 |  ~  | [Official Repository](#official-repository) | [3rd-party](#3rd-party) |
 | :-: | :-----------------------------------------: | ---------------------- |
@@ -37,6 +38,7 @@ end
 ```
 
 ## Methods
+Different methods of distributing packages, with each having their pros and cons.
 ### Official Repository
 Each package is a single function in the repository which provides abbreviations (regular and context-aware) for the specific command it corresponds to.  
 

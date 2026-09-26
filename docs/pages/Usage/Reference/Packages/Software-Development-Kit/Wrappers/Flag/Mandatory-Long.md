@@ -19,6 +19,7 @@ One might not be sure if the flag accepts a value, or if we're simply chaining s
 : The same as `sub-abbr`. Directly passed without any modification
 
 ### Switches
+Optional arguments that modify the behavior of the wrapper
 #### Un-inherited
 - [RegExp: `sub-command`](../../../../Arguments/Sub-Commands/Add/Switches/Regular-Expression.md "Match command-line arguments with RegExp"){data-preview}
 - [Expander](../../../../Arguments/Sub-Commands/Add/Switches/Expander.md "Use a command's output as the *Expansion*"){data-preview}

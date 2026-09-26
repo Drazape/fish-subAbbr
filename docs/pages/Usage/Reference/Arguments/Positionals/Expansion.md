@@ -16,6 +16,7 @@ The string that replaces the *Sub-Command* on match
 |   `-1`   | Required |
 
 ## Details
+Miscallaneous details about the positional
 ### Relation with other positionals
 - **Argument Position**: followed by the [*Sub-Command*](./Sub-Command.md){data-preview}; the last positional
 - **Command-line**: Replaces *Sub-Command* 
