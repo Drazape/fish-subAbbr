@@ -44,12 +44,17 @@
 					FISH_DIRENV_HOOKS = pkgs.writers.writeFish "reload-packages" ''
 						set --global -- _fish_plugin_remover _sub-abbr_hook_reload
 						function {$_fish_plugin_remover} --description='Re-initiate the environment state based on the function path'
+							set --function -- log_prefix (set_color --dim)'fish-nixenv: arbitrary: fish-subAbbr:'(set_color --reset)
 							if functions --query -- sub-abbr
+								echo {$log_prefix} 'removing all context-aware sub-command abbreviations'
 								set --local -- subabbr_identifiers (sub-abbr identity list)
 								test (count {$subabbr_identifiers}) -ne 0 &&
 									sub-abbr identity erase {$subabbr_identifiers}
 							end
-							functions --query -- sub-abbrs && sub-abbrs
+							if functions --query -- sub-abbrs
+								echo {$log_prefix} 'loading all packages'
+								sub-abbrs
+							end
 						end
 						$_fish_plugin_remover # same function for both exit and enter
 					'';
