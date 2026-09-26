@@ -13,8 +13,10 @@ Deactivate `run0` command-prefix toleration
 |  None |  `0`  | `degrade` |     Add     |  ❌ false |
 
 ## Details
-- **Relation**: *Initial Arguments*: prepended `run0` would no longer be specially accepted
-- **Use-case**: For abbreviating commands that must be elevated for the expansion to occur
+Relation
+:   *Initial Arguments*: prepended `run0` would no longer be specially accepted
+Use-case
+:   For abbreviating commands that must be elevated for the expansion to occur
 
 !!! note "internally handled base-prefix: `exec`"
     The command prefix `exec` is especially internally respected, with no switch to available to deactivate the behavior.

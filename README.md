@@ -136,8 +136,11 @@ Package groups are groups of packages which can be enabled in bulk.
 ### Arguments
 Various arguments supported by `sub-abbrs` on the command-line
 #### Positional
-- **None**: When no arguments are specified, all the packages are activated
-- **Group/Package path**: The path to the package group, or package
+None
+:   When no arguments are specified, all the packages are activated
+
+Group or Package path
+:   The path to the package group, or package
 
 > [!TIP]
 > ### Discover Packages

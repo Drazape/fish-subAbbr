@@ -8,12 +8,14 @@ description: Helper guide
 `sub-abbrs` accepts a single path to a package or a group, where each argument is an element to that path.
 
 ## Loading on Selection
-- **Group**: all the packages inside (including packages in the nested groups inside)
+Group
+:   all the packages inside (including packages in the nested groups inside)
 
     !!! tip "Enable all packages"
         Specify the [Universal group](./Package-Tree.md#ranks){data-preview} (no arguments) to load all the installed packages.
 
-- **Package**: ofcourse, only the selected package
+Package
+:   ofcourse, only the selected package
 
 ---
 

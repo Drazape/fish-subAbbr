@@ -87,5 +87,7 @@ A NixOS module with convenient configuration options is planned. For now, there 
 #### Manual
 The files must be moved to the vendor (`vendor_*.d`) system-wide path
 
-- **Package Manager**: Normal system path managed by the package manager
-- **Local**: Local directory for non-packaged programs
+Package Manager
+:   Normal system path managed by the package manager
+Local
+:   Local directory for non-packaged programs

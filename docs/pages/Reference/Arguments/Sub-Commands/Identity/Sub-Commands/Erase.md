@@ -13,11 +13,14 @@ Erase a content-aware abbreviation by its identifier
 | `erase` | [Identity](../index.md "Manage abbr by their identifiers"){data-preview} |
 
 ## Details
-- **Identifier Obtainment**: The identifier can be obtained from the [List sub-command](./List/index.md "Get identities of loaded abbrs"){data-preview}
-- **Uses**: Intuitively deletion in case of [RegExp](../../Add/Switches/Regular-Expression.md "Match *Sub-Command* with RegExp"){data-preview} context-aware abbreviations
-- **Implementation**: The human ID is converted into the ID identified by `builtin abbr`
-	- *RegExp*: the entire command-line
-	- *Fixed String*: The Sub-Command (`builtin abbr` limitation)
+Identifier Obtainment
+:   The identifier can be obtained from the [List sub-command](./List/index.md "Get identities of loaded abbrs"){data-preview}
+Uses
+:   Intuitively deletion in case of [RegExp](../../Add/Switches/Regular-Expression.md "Match *Sub-Command* with RegExp"){data-preview} context-aware abbreviations
+Implementation
+:   The human ID is converted into the ID identified by `builtin abbr`
+    - *RegExp*: the entire command-line
+    - *Fixed String*: The Sub-Command (`builtin abbr` limitation)
 
 !!! tip "Alt Fixed Strings eraser"
     In case of Fixed Strings, it is always more intuitive to use the built-in `#!fish abbr --erase <Sub-Command>` (interactively)

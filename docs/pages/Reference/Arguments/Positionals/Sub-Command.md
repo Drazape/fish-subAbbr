@@ -15,8 +15,10 @@ The *Sub-Command* token to be matched on the command-line
 ## Details
 Miscallaneous details about the sub-command
 ### Relation with other positionals
-- **Argument Position**: The *Sub-Command* comes between the *Initial Arguments* and the *Expansion*
-- **Command-line**: Replaced with the *Expansion*
+Argument Position
+:   The *Sub-Command* comes between the *Initial Arguments* and the *Expansion*
+Command-line
+:   Replaced with the *Expansion*
 ### Single Token
 It must comprise only one token; that is, only one token can be replaced by the expansion. (Fish imposed; reasonable — since otherwise, it would be a UX nightmare)
 ### Customizable Behavior
