@@ -38,7 +38,7 @@ This program is designed carefully to tackle these issues; for that, it does the
 - Makes creation of such abbreviations accessible by abstracting the complex boilerplate
 - Remain customizable for complex abbreviations with the help of various switches
 - Manage such abbreviations using helpers and abstracte identity databases
-- Make distribution of such abbreviations (like completions) from multiple sources, and let them co-existence.
+- Lets the distribution of such abbreviations originate multiple sources (like possible with completions), and allow them to them co-exist.
 - Improve upon `builtin abbr`
 	- Once the user escapes the *Sub-Command* in the current command, you don't have to escape it again
 	- Unlike `builtin abbr`, the flags modifying the argument treatment don't modify the argument structure itself. (doesn't accept values if it is already setup to be provided as a positional)
