@@ -26,8 +26,8 @@ Context-aware sub-command abbreviations must use the [*Regular Expressions* swit
     - The *Expansion* is the same
     You can use *Regular Expressions* at the *Initial Arguments* to match the different *Initial Arguments* instead.
     !!! example "Jujutsu: *interactive* flag"
-        The same flag, `--interactive`, is supported on 4 different sub-commands of `jj`.
-        Instead of creating 4 different context-aware sub-command abbreviations by needlessly matching the *Sub-Command* with *Regular Expressions*
+        The same flag, `--interactive`, is supported on 4 different sub-commands of `jj`.
+        Instead of creating 4 different context-aware sub-command abbreviations by needlessly matching the *Sub-Command* with *Regular Expressions*
         ```fish {title="Definition"}
         sub-abbr add --regex=initials -- jj 'commit|restore|split|squash' -i --interactive
         ```
@@ -35,7 +35,7 @@ Context-aware sub-command abbreviations must use the [*Regular Expressions* swit
 ### Different Indexes
 You need to use this workaround in case the same *Sub-Command* is used at different levels of positionals.
 !!! example "Jujutsu: `log`"
-    For both `jj operation l` and `jj l` to co-exist (even if they have the same expansion), you must create 2 context-aware sub-command abbreviations.
+    For both `jj operation l` and `jj l` to co-exist (even if they have the same expansion), you must create 2 context-aware sub-command abbreviations.
     ```fish {title="Definitions"}
     sub-abbr add --regex=sub-command -- jj l{,og}
     sub-abbr add --regex=sub-command -- jj operation l{,og}

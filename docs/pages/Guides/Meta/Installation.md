@@ -12,7 +12,7 @@ Different installation methods officially recognised, curated for different scen
 ```mermaid
 flowchart TD
 		accTitle: "Dependencies"
-		accDescr: "*fish-subAbbr* depends on 2 inter-dependent Fish plugins: *fish-helpText* and *fish-format*"
+		accDescr: "*fish-subAbbr* depends on 2 inter-dependent Fish plugins: *fish-helpText* and *fish-format*"
     format(fish-format) --> helpText(fish-helpText)
     helpText --> format
     format ==> subAbbr(fish-subAbbr)

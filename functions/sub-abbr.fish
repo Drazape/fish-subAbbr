@@ -92,7 +92,7 @@ function sub-abbr --description='Create abbreviations for sub-commands'
                             end
                         end
                         if test (count {$argv}) -gt 0
-                            set --local -- index_count 2 # start at 2 to skip the first token—the match type
+                            set --local -- index_count 2 # start at 2 to skip the first token—the match type
                             for passed_arg_match in {$argv}
                                 string match --quiet {$_flag_regex} -- "$passed_arg_match" "$identifier_tokens[$index_count]" ||
                                     set --function -- arg_unmatched # continue outside the current loop

@@ -5,7 +5,7 @@ description: Filter the listed identifier by their command-line arguments.
 ---
 
 # Positionals
-[List](./index.md){data-preview} accepts the first 2 positional arguments accepted by [Add][add]{data-preview}
+[List](./index.md){data-preview} accepts the first 2 positional arguments accepted by [Add][add]{data-preview}
 
 | Name | Position |
 | :--: | :------: |

@@ -21,7 +21,7 @@ Manage context-aware Sub-Command abbreviations by their identifiers
     Essentially, the user storing multiple identifiers (for any purpose) would have to work it around somehow; that could be possibly done by:
 
     - Storing a [list of variable strings that each point to a separate identifier][dereference-variables]. This method is native to Fish, and is easier. If this method is used, if the identifiers are to be passed around—which is their entire purpose, one would have to either make the variables global, or call the command repeatedly; this easily makes this method impractical for all most scenarios.
-    - Storing each of the identifiers as a parsable string in a List, which is later parsed by the commands. This is the current internal implementation, since it is the only implementation possible out of the 2 to be directly embedded into the command.
+    - Storing each of the identifiers as a parsable string in a List, which is later parsed by the commands. This is the current internal implementation, since it is the only implementation possible out of the 2 to be directly embedded into the command.
 
     If an internal implementation is not maintained, each of the commands the identifiers are passed to would have to manually do this labor.
 
