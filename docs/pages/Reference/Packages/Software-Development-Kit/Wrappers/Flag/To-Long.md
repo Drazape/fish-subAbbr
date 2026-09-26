@@ -24,7 +24,7 @@ Command-line tokens the wrapper accepts as arguments
 3. **Long Flag**: The word after the `--`. Expands *Short Flag* into it
 
 ### Switches
-Optional arguments that modify the behavior of the wrapper
+Optional arguments which modify the behavior of the wrapper
 #### Un-inherited
 - [RegExp: `sub-command`](../../../../Arguments/Sub-Commands/Add/Switches/Regular-Expression.md "Match command-line arguments with RegExp"){data-preview}
 - [Expander](../../../../Arguments/Sub-Commands/Add/Switches/Expander.md "Use a command's output as the *Expansion*"){data-preview}
