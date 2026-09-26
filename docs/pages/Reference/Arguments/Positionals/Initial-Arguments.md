@@ -22,18 +22,16 @@ Relation with other positionals
 Variable Arguments
 :   Each argument is given separately. This is to ensure that the expansion occurs for equifinal token expansions.
 ### Customizable Behavior
-
-[:lucide-settings: toggle️](../Sub-Commands/Add/Switches/Regard-Flags.md "Acknowledge flags in Initial Args"){data-preview .md-button .md-button--primary} Ignored Flags
+[:lucide-settings: Regard Flags](../Sub-Commands/Add/Switches/Regard-Flags.md "Acknowledge flags in Initial Args"){data-preview .md-button .md-button--primary} Ignored Flags
 :   Flags in the Initial Arguments on the command-line are ignored.
 
-[:lucide-settings: toggle️](../Sub-Commands/Add/Switches/Degrade.md "Deactivate `run0` toleration"){data-preview .md-button .md-button--primary} `run0` Acknowledgement
+[:lucide-settings: Degrade](../Sub-Commands/Add/Switches/Degrade.md "Deactivate `run0` toleration"){data-preview .md-button .md-button--primary} `run0` Acknowledgement
 :   Expansion will be considered even if the command is prefixed with `run0` for elevation.
-[:lucide-settings: toggle️](../Sub-Commands/Add/Switches/Regular-Expression.md "Match command-line arguments with RegExp"){data-preview .md-button .md-button--primary} **Regular Expressions**
 
-Single Permutation
+[:lucide-settings: Regular Expressions](../Sub-Commands/Add/Switches/Regular-Expression.md "Match command-line arguments with RegExp"){data-preview .md-button .md-button--primary} Single Permutation
 :   Due to Fish's internal restrictions, you cannot have the same *Sub-Command* with different [*Initial Argument*](./Initial-Arguments.md){data-preview} permutations (excluding the *Base Command* — the 1st argument) with plain text Sub-Command matching.
 
-Fixed String
+[:lucide-settings: Regular Expressions](../Sub-Commands/Add/Switches/Regular-Expression.md "Match command-line arguments with RegExp"){data-preview .md-button .md-button--primary} Fixed String
 :   Each [*Initial Argument*](./Initial-Arguments.md){data-preview} is plainly matched
 
 ## Usage

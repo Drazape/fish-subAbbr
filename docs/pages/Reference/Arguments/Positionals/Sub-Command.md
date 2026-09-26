@@ -23,7 +23,8 @@ Command-line
 ### Single Token
 It must comprise only one token; that is, only one token can be replaced by the expansion. (Fish imposed; reasonable — since otherwise, it would be a UX nightmare)
 ### Customizable Behavior
-- [:lucide-settings: toggle️](../Sub-Commands/Add/Switches/Regular-Expression.md "Match command-line arguments with RegExp"){data-preview .md-button .md-button--primary} **Plain String matching**: The expansion occurs when the *Sub-Command* matches as a plain string, not Regex
+[:lucide-settings: Regular Expressions](../Sub-Commands/Add/Switches/Regular-Expression.md "Match command-line arguments with RegExp"){data-preview .md-button .md-button--primary} Plain String matching
+:   The expansion occurs when the *Sub-Command* matches as a plain string, not Regex
 
 ## Usage
 ```fish {title="Format" .no-copy .no-select}
