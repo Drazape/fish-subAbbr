@@ -11,7 +11,7 @@ Enforce input for flags that require a value
 ## Effect
 If the flag token is left without a value (`=` sign), then it puts you back to the flag's token in front of the `=`
 
-# Benefit: Value Provision
+## Benefit: Value Provision
 One might not be sure if the flag accepts a value, or if we're simply chaining short flags. With the context-aware `=` separation of the expansion, one can be informed about the input the flag accepts.
 
 ## Positional
