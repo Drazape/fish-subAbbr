@@ -15,6 +15,8 @@ sub-abbr identity erase (sub-abbr identity list <filter>)
     This niche case is [not supported in Fish][unknown-function-bug] versions [4.9.3](https://github.com/fish-shell/fish-shell/releases/tag/4.9.3 "GitHub release") and earlier.  
     Trying this command in unsupported versions would result an error, that claims that it didn't find the function `sub-abbr`.
 
+    [unknown-function-bug]: https://github.com/fish-shell/fish-shell/issues/12996 "Fish bug tracker: error passing output between functions mutating the function path"
+
     For now, you can work this around the same way you work around the use of command substitutions in the place of the base commands:
     ```fish {title="Workaround"}
     begin
@@ -57,4 +59,3 @@ sub-abbr identity erase (sub-abbr identity list <filter>)
     The command substitution in Fish converts the output into a list of identifiers.
     The entire list is passed to `erase`, clearing all the abbreviations.
 
-[unknown-function-bug]: https://github.com/fish-shell/fish-shell/issues/12996 "Fish bug tracker: error passing output between functions mutating the function path"

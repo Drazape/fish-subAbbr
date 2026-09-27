@@ -27,9 +27,9 @@ Command-line arguments accepted by the *Add* sub-command
 | [**Set Cursor**](Switches/Set-Cursor.md){data-preview} | Set the cursor to a position. Same usage as the internal switch | `set-cursor` | `c` | ✅ | 
 | [**Expander**](Switches/Expander.md){data-preview} | Use the output of a command as the [*Expansion*](../../Positionals/Expansion.md){data-preview} | `expander` | `e` | ✅ |
 
+[^inherited-switches]: These are supported switches inherited from `abbr` that can also be used with `sub-abbr`. These switches may or may not be passed directly to `abbr` and could also contain enhancements.
+
 ## Usage
 ```fish {title="Format" .no-copy .no-select}
 sub-abbr add … <CREATION FLAGS> (?:`--`) …
 ```
-
-[^inherited-switches]: These are supported switches inherited from `abbr` that can also be used with `sub-abbr`. These switches may or may not be passed directly to `abbr` and could also contain enhancements.

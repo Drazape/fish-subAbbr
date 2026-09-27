@@ -17,6 +17,8 @@
 # Purpose
 Simplify creating context-aware Sub-Command abbreviations [^simplification]
 
+[^simplification]: You can easily abbreviate base-commands, but there is no straight-forward way to do the same with sub-commands. After the initial development, a GitHub [discussion](https://github.com/fish-shell/fish-shell/discussions/11682) & [Issue](https://github.com/fish-shell/fish-shell/issues/11944) in the Fish repository was discovered that comes up with this exact problem
+
 # Uses
 Following are some example uses of the program.
 ## Defaults (convenience)
@@ -37,6 +39,8 @@ sub-abbr add --degrade --set-cursor run0 nh os switch{,' % --bypass-root-check'}
 sub-abbr add -- eza --long{,\ --group}`
 ```
 [^eza-why-group]  
+[^eza-why-group]: Shows the group of the owned files when viewing in the long format.
+
 ![
 	The *Base Command* `ls` is typed out, which is expanded using regular abbreviations.
 	Next, the `--long` flag is added alongside, which, upon a *Space*, “expands.”
@@ -122,6 +126,9 @@ Sub-command to create context-aware sub-command abbreviations
 | [**RegExp**](https://drazape.github.io/fish-subAbbr/Reference/Arguments/Sub-Commands/Add/Switches/Regular-Expression/ "documentation") | Match *Sub-Command* with Regular Expressions. Essential (with `sub-command`) for abbreviating the same pair of *Sub-Command* & *Initial Arguments* [^multi-bases] | `regex` | `r` | ⏫ extended |
 | [**Set Cursor**](https://drazape.github.io/fish-subAbbr/Reference/Arguments/Sub-Commands/Add/Switches/Set-Cursor "documentation") | Set the cursor to a position. Same usage as the internal switch | `set-cursor` | `c` | ✅ true | 
 | [**Expander**](https://drazape.github.io/fish-subAbbr/Reference/Arguments/Sub-Commands/Add/Switches/Expander "documentation") | Use the output of a command as the *Expansion* | `expander` | `e` | ✅ true |
+
+[^inherited-switches]: These are supported switches inherited from `abbr` that can also be used with `sub-abbr`. These switches may or may not be passed directly to `abbr`, and could also contain enhancements.
+[^multi-bases]: *RegExp* must be passed in order to use the same *Sub-Command* with the same *Base-Command* in a different position. For example, you can only have `jj l{,og}` and `jj op l{,og}` if *RegExp* is used. (You don't have to do anything extra, other than escape any regular expressions)
 ##### Identity
 Manage context-aware sub-command abbreviation by their identifiers
 ###### List
@@ -161,9 +168,3 @@ curl -fsSL 'https://raw.githubusercontent.com/Drazape/fish-subAbbr/main/install.
 
 > [!IMPORTANT]
 > [More specialized ways to install](https://drazape.github.io/fish-subAbbr/Guides/Meta/Installation/#package-manager "Distribution Package Managers")
-
-
-[^simplification]: You can easily abbreviate base-commands, but there is no straight-forward way to do the same with sub-commands. After the initial development, a GitHub [discussion](https://github.com/fish-shell/fish-shell/discussions/11682) & [Issue](https://github.com/fish-shell/fish-shell/issues/11944) in the Fish repository was discovered that comes up with this exact problem
-[^eza-why-group]: Shows the group of the owned files when viewing in the long format.
-[^inherited-switches]: These are supported switches inherited from `abbr` that can also be used with `sub-abbr`. These switches may or may not be passed directly to `abbr`, and could also contain enhancements.
-[^multi-bases]: *RegExp* must be passed in order to use the same *Sub-Command* with the same *Base-Command* in a different position. For example, you can only have `jj l{,og}` and `jj op l{,og}` if *RegExp* is used. (You don't have to do anything extra, other than escape any regular expressions)

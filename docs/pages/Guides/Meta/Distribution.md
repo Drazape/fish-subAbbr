@@ -29,6 +29,12 @@ _sub-abbr_pkg_<groups(sep:_)>_<pkgname>
 In this case, you have the choice to activate your [static][static-function]{data-preview}[^static-function] (non-[dynamic][danamic-function]{data-preview}[^dynamic-function]) package only when all the abbreviations are activated.  
 If this is what you want, then you must not follow the prefix convention; otherwise, do not use this method, and simply stick to the universal method used by [dynamic packages](#dynamic-functions) alike.
 
+[static-function]: https://fishshell.com/docs/current/tutorial.html#startup-where-s-bashrc "Official Fish documentation"
+[^static-function]: A function is statically distributed if it is part of the shell initialization configuration. Functions distributed as such are automatically loaded on the shell start-up; that is, it can be listed with `functions`
+
+[dynamic-function]: https://fishshell.com/docs/current/tutorial.html#autoloading-functions "Official Fish documentation"
+[^dynamic-function]: A function is dynamically distributed if it is distributed as a file in one of `$fish_function_path`; The file is sourced the first time the function is called
+
 To utilize this feature, you must add a trigger to the package function for the [event](https://fishshell.com/docs/current/language.html#event-handlers "automatically run when a specific event takes place"){data-preview}: `sub-abbrs`
 
 ```fish {title="Function Definition Format"}
@@ -61,10 +67,3 @@ You might be able to get some creative inspiration by exploring existing package
 
 !!! tip "Discovery"
     Make your 3rd-party project discoverable with the [topic](https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/classifying-your-repository-with-topics#adding-topics-to-your-repository){data-preview}: [`fish-subabbr`](https://github.com/topics/fish-subabbr){data-preview}
-
-
-[static-functin]: https://fishshell.com/docs/current/tutorial.html#startup-where-s-bashrc "Official Fish documentation"
-[^static-function]: A function is statically distributed if it is part of the shell initialization configuration. Functions distributed as such are automatically loaded on the shell start-up; that is, it can be listed with `functions`
-
-[dynamic-function]: https://fishshell.com/docs/current/tutorial.html#autoloading-functions "Official Fish documentation"
-[^dynamic-function]: A function is dynamically distributed if it is distributed as a file in one of `$fish_function_path`; The file is sourced the first time the function is called
