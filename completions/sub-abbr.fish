@@ -37,9 +37,9 @@ begin
             test "$subcommands[1]" = identity && test "$subcommands[2]" = list'
 
         function _subabbr_completion_list
-            argparse 'm/match=&' -- (__fish_print_cmd_args)
+            argparse 'm/match=&' 'r/regex&' -- (__fish_print_cmd_args)
             set --local -- commandline_positionals (__fish_print_cmd_args_without_options)[4..]
-            for matched_identifier in (sub-abbr identity list --match={$_flag_match} -- {$commandline_positionals})
+            for matched_identifier in (sub-abbr identity list {$_flag_regex} --match={$_flag_match} -- {$commandline_positionals})
                 set --local -- identifier_positionals (commandline --tokens-expanded --input={$matched_identifier})[2..]
                 test (count {$identifier_positionals}) -le (count {$commandline_positionals}) &&
                     continue
