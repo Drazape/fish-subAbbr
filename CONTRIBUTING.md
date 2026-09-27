@@ -19,7 +19,13 @@ The documentation site is generated via [Zensical](https://zensical.org/ "Offici
 ## Style
 We majorly follow the [Google Documentation Style Guidelines](https://developers.google.com/style "Editorial guidelines for writing clear and consistent technical documentation for an audience of software developers and other technical practitioners"), but with some deviations and project-exclusive guidelines.
 ### Deviations
-In contrast to the straight quotation marks used in the [Google Style](https://developers.google.com/style/quotation-marks "Google Documentation Style Guide: Quotation Marks document") (`"`), we instead use curly quotation marks (`“` & `”`) outside code-blocks.
+We take some liberty to move away from the guidelines.  
+The following sections describe the major deviations we made.
+#### Curled Quotation
+In contrast to the straight quotation marks used in the Google Style (`"`), we instead use curly quotation marks (`“` & `”`) outside code-blocks.
+#### Line Breaks
+The Google style prohibits the use of line breaks; consequently, starts of new lines is limited to a new paragraph.  
+In contrast, we extensively use line breaks to make it easier for readers to skip sentences.
 ### Project Exclusive Guidelines
 These are guidelines exclusive to this project, for they are not part of the Google Style.
 #### Word: *Base Command*
