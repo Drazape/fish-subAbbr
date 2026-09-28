@@ -25,13 +25,24 @@ if set --query --local -- remote
 end
 
 # Populate
+set --local -- destination "$out"/"$remote"
+
 for dir in functions completions
     for source in "$root_dir"{$dir}/**.fish
         set --local -- output_path {$source} # Same output path in case of no root directory
-        set --query --local -- root_dir && set --local -- output_path (string split --fields=2 --max=1 -- "$root_dir" {$source}) # Remove root directory from the output path
-        install -D --mode=644 -- {$source} "$out"/"$remote"share/fish/vendor_{$dir}.d/(
+        set --query --local -- root_dir &&
+            set --local -- output_path (string split --fields=2 --max=1 -- "$root_dir" {$source}) # Remove root directory from the output path
+        install -D --mode=644 -- {$source} "$destination"share/fish/vendor_{$dir}.d/(
             string split --fields=2 --max=1 -- {$dir}/ {$output_path} |
             string replace --all -- / _
         )
     end
 end
+
+function place --description='install files into Fish hierarchy' --argument-names={source,target} --inherit-variable=destination
+    set --local -- final_target "$destination"share/fish/{$target}
+    mkdir --parents -- (path dirname -- {$final_target})
+    cp --recursive -- "$rootdir"{$source} {$final_target}
+end
+place packages/ subAbbr-packages/official/
+place conf.d/load-packages.fish vendor_conf.d/subAbbr:load-packages.fish

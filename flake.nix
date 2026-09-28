@@ -36,6 +36,8 @@
 								PATHS-TO-DEPENDENCY-FUNCTIONS '{${inputs'.fish-helpText.packages.default},${inputs'.fish-format.packages.default}}/share/fish/vendor_functions.d'
 							substituteInPlace $out/share/fish/vendor_functions.d/sub-abbr.fish --replace-fail \
 								'/dev/null # shell-startup directories' ${inputs'.fish-format.packages.default}/share/fish/vendor_conf.d
+							substituteInPlace $out/share/fish/vendor_conf.d/subAbbr:load-packages.fish --replace-fail \
+								/usr $out
 						'';
 					};
 				};

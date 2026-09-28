@@ -15,11 +15,13 @@ Guide for distributing fish-subAbbr packages
 | **Suffix** | Prohibited | Required |
 
 ## Function Name Scheme
+The following sections contain information on the function name format used for [activatable packages](){data-preview}.
+
 !!! warning "Single Trigger only"
     In general, you must only use a single method to activate your package: either the prefix convention, or the event.
     If you use multiple triggers, then the amount of time it takes for `sub-abbrs` to execute would double each time in the same session.
 ### Dynamic Functions
-For the package to be indexed by the repository, its function name must be prefixed with `_sub-abbr_pkg_`.  
+For a package to be indexed by the repository, the function name of the activatable package must be prefixed with `_sub-abbr_pkg_`.  
 [Groups](../../Reference/Packages/Repository-Helper/Package-Tree.md){data-preview} are separated with a `_`; the group organisation is upto the developer, or the packager/distributor.
 ```fish {title="Function Name Format"}
 _sub-abbr_pkg_<groups(sep:_)>_<pkgname>
