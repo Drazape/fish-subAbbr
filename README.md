@@ -2,7 +2,7 @@
 ![
 	Showcase of the abbreviations included in the official Jujutsu package.
 	The showcased sub-command is `rebase`.
-	The command starts with a regular abbreviation of the *Base Command* `j` abbreviating into `jj`.
+	The command starts with a regular abbreviation of the *Base Command* `j` abbreviating into `jj`.
 	Next, the following tokens are typed and are expanded in the following order:
 	the short flag `-R` expands to `--repository=` (before the value: `/etc/nixos/`).
 	`rebase` remains as-is, unabbreviated.
@@ -29,7 +29,7 @@ sub-abbr add --degrade --set-cursor run0 nh os switch{,' % --bypass-root-check'}
 ```
 ![
 	Showcases 2 of the switches.
-	The degrade flag paired with `run0` as the *Base Command* showcasing a lack of special treatment for `run0`.
+	The degrade flag paired with `run0` as the *Base Command* showcasing a lack of special treatment for `run0`.
 	First `nh os switch ` is typed in to showcase that the command doesn't expand without `run0`.
 	Next, it is typed out again with `run0` prefixed, and it expands by appending `--bypass-root-check` to the command, with the cursor before the flag.
 ](https://github.com/user-attachments/assets/a944f937-9803-4572-86d4-31b6eefd25e8)
@@ -42,7 +42,7 @@ sub-abbr add -- eza --long{,\ --group}`
 [^eza-why-group]: Shows the group of the owned files when viewing in the long format.
 
 ![
-	The *Base Command* `ls` is typed out, which is expanded using regular abbreviations.
+	The *Base Command* `ls` is typed out, which is expanded using regular abbreviations.
 	Next, the `--long` flag is added alongside, which, upon a *Space*, “expands.”
 	The expansion in question appends the flag `--group` to it.
 	The command is showcased a 2nd time, but this time, the command has `run0` prefixed to it; the expansion is still shown to work the same way.
@@ -56,7 +56,7 @@ Provides visual feedback that the short flag is correct!
 sub-abbr add -- eza -l --long
 ```
 ![
-	The *Base Command* `ls` is typed out, which is expanded using regular abbreviations.
+	The *Base Command* `ls` is typed out, which is expanded using regular abbreviations.
 	 Next, the short flag `-l` is added alongside, which upon a *Space*, expands into the long flag variant of the flag: `--long`.
 	 The command is showcased a 2nd time, but this time, the command has `run0` prefixed to it; the expansion is still shown to work the same way.
 ](https://github.com/user-attachments/assets/97a9b831-2cb5-4f44-a245-6ff01b217e41)
@@ -68,7 +68,7 @@ sub-abbr add jj b{,ookmark}
 sub-abbr add jj ci commit
 ```
 ![
-	The command starts with a regular abbreviation of the *Base Command* `j` abbreviating into `jj`.
+	The command starts with a regular abbreviation of the *Base Command* `j` abbreviating into `jj`.
 	Two sub-commands are typed in, and are expanded as follows:
 	The short-hand `ci` expands to the full `commit`,
 	and similarly, `b` to `bookmark`.

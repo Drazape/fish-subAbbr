@@ -200,7 +200,7 @@ function sub-abbr --description='Create abbreviations for sub-commands'
                 if test "$subabbr_nonexistent_basecommand" != allow && ! type --query -- {$base_command}
                     if test "$subabbr_nonexistent_basecommand" != quiet
                         $print Unknown (format text italics 'Base Command'): (format background red {$base_command}) >&2
-                        $print see (format url https://drazape.github.io/fish-subAbbr/Usage/Reference/Configuration/Check_Base-Command/ 'Check Base Command') 'for more information'
+                        $print see (format url https://drazape.github.io/fish-subAbbr/Usage/Reference/Configuration/Check_Base-Command/ 'Check Base Command') 'for more information'
                     end
                     _sub-abbr_internal_revert-paths
                     return 7

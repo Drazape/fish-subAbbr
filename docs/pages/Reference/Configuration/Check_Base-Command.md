@@ -1,7 +1,7 @@
 ---
 comments: true
 icon: lucide/check-check
-description: Configure checking of the Base Command existence before adding
+description: Configure checking of the Base Command existence before adding
 ---
 
 # Check Base Command

@@ -37,7 +37,7 @@ sub-abbr identity erase (sub-abbr identity list <filter>)
     ```
 !!! example "Clear sub-abbrs for the Jujutsu command"
     To clear all the abbreviations for the Jujutsu command, simply pass the *Base Command* as a positional argument to `sub-abbr identity list`:
-    ```fish {title="Base Command"}
+    ```fish {title="Base Command"}
     sub-abbr identity erase (sub-abbr identity list jj)
     ```
     ---
