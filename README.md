@@ -25,11 +25,11 @@ Following are some example uses of the program.
 In these examples, additional functionality is added via abbreviations as a default
 ### Switches for certain sub-commands  
 ```fish
-sub-abbr add --degrade --set-cursor run0 nh os switch{,' % --bypass-root-check'}
+sub-abbr add --unprefix --set-cursor run0 nh os switch{,' % --bypass-root-check'}
 ```
 ![
 	Showcases 2 of the switches.
-	The degrade flag paired with `run0` as the *Base Command* showcasing a lack of special treatment for `run0`.
+	The Unprefix flag paired with `run0` as the *Base Command* showcasing a lack of special treatment for `run0`.
 	First `nh os switch ` is typed in to showcase that the command doesn't expand without `run0`.
 	Next, it is typed out again with `run0` prefixed, and it expands by appending `--bypass-root-check` to the command, with the cursor before the flag.
 ](https://github.com/user-attachments/assets/a944f937-9803-4572-86d4-31b6eefd25e8)
@@ -121,7 +121,7 @@ Sub-command to create context-aware sub-command abbreviations
 | Name | Description | Long | Short | Inherited [^inherited-switches] |
 | :--: | ----------- | :--: | :---: | :-----------------------------: |
 | [**Help**](https://drazape.github.io/fish-subAbbr/Reference/Arguments/Universal-Switches/Help/ "documentation") | Show a reference manual — consisting of the [purpose](#sub-abbr "The purpose of the command") & [arguments](#Arguments "Descriptions on all the supported arguments") | `help` | `h` | ❔ universal |
-| [**Degrade**](https://drazape.github.io/fish-subAbbr/Reference/Arguments/Sub-Commands/Add/Switches/Degrade "documentation") | Deactivate toleration of `run0` as the command prefix; that is, do not expand the *Sub-Command* if the *Initial Args* is prefixed with `run0` | `degrade` | `0` | ❌ false |
+| [**Unprefix**](https://drazape.github.io/fish-subAbbr/Reference/Arguments/Sub-Commands/Add/Switches/Unprefix "documentation") | Deactivate toleration of `$subabbr_prefix` before the Base Command; that is, do not expand the *Sub-Command* if the *Initial Args* is prefixed with `run0` | `unprefix` | `0` | ❌ false |
 | [**Regard Flags**](https://drazape.github.io/fish-subAbbr/Reference/Arguments/Sub-Commands/Add/Switches/Regard-Flags "documentation") | Acknowledge flags in the *Initial Arguments*; If not set, switches in the *Initial Arguments* are ignored | `regard-flags` | `s` | ❌ false |
 | [**RegExp**](https://drazape.github.io/fish-subAbbr/Reference/Arguments/Sub-Commands/Add/Switches/Regular-Expression/ "documentation") | Match *Sub-Command* with Regular Expressions. Essential (with `sub-command`) for abbreviating the same pair of *Sub-Command* & *Initial Arguments* [^multi-bases] | `regex` | `r` | ⏫ extended |
 | [**Set Cursor**](https://drazape.github.io/fish-subAbbr/Reference/Arguments/Sub-Commands/Add/Switches/Set-Cursor "documentation") | Set the cursor to a position. Same usage as the internal switch | `set-cursor` | `c` | ✅ true | 

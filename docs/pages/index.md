@@ -16,7 +16,7 @@ This is a 3rd-party solution to the problems likewise faced by the developer:
 Though the original `abbr` built-in is capable of creating all sorts of abbreviations, if we use the built-in methods without any complex custom functions and parsing of `commandline`, it leads to abbreviations that are:
 
 - Fired off even when the sub-command lies in unexpected positions
-- Not fired off when used with `run0`
+- Not fired off when used with elevation commands like `run0` and `sudo`
 - Hard to customize
 
 ### Individual solutions

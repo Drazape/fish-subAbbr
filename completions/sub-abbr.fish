@@ -64,7 +64,7 @@ begin
         begin
             set --local -- creation_complete single-switch {$creation_condition}
             $creation_complete --short-option=c --long-option=set-cursor --description='Position the cursor at % post-expansion'
-            $creation_complete --short-option=0 --long-option=degrade --description='don\'t tolerate run0 prefix'
+            $creation_complete --short-option=0 --long-option=unprefix --description='don\'t tolerate prefixes before Base Command'
             $creation_complete --short-option=s --long-option=regard-flags --description='Acknowledge flags in the Initial Command'
             $creation_complete --short-option=e --long-option=expander --description='Use the output of a command as the Expansion'
         end

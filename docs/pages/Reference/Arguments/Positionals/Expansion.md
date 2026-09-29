@@ -47,4 +47,4 @@ sub-abbr <initial-arguments> <Sub-Command> <EXPANSION>
         The [*Expansion*](./Expansion.md){data-preview}s are indicated in **Bold**
 
     - `#!fish sub-abbr add jj ci `**`commit`**
-    - `#!fish sub-abbr add -0c run0 nh os switch `**`'switch % --bypass-root-check'`**
+    - `#!fish sub-abbr add -0c {$subabbr_prefix} nh os switch `**`'switch % --bypass-root-check'`**

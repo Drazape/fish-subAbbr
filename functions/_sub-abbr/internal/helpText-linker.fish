@@ -40,8 +40,8 @@ function _sub-abbr_internal_helpText-linker --description='Linker for fish-subAb
             switch $name
                 case help
                     echo -- {$baseURL}/Universal-Switches/Help/
-                case degrade
-                    echo -- {$baseURL}/Sub-Commands/Add/Switches/Degrade/
+                case unprefix
+                    echo -- {$baseURL}/Sub-Commands/Add/Switches/Unprefix/
                 case expander
                     echo -- {$baseURL}/Sub-Commands/Add/Switches/Expander/
                 case regard-flags

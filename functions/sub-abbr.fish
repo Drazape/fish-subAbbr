@@ -155,7 +155,7 @@ function sub-abbr --description='Create abbreviations for sub-commands'
         case add
             # arguments
             ## Switches
-            if ! $argparse 'r/regex=*&!_sub-abbr_internal_verify-arg_regex-val' 'e/expander&' 'c/set-cursor=?&' 'h/help&' '0/degrade&' 's/regard-flags&' -- {$argv}
+            if ! $argparse 'r/regex=*&!_sub-abbr_internal_verify-arg_regex-val' 'e/expander&' 'c/set-cursor=?&' 'h/help&' '0/unprefix&' 's/regard-flags&' -- {$argv}
                 _sub-abbr_internal_revert-paths
                 return 5
             end
@@ -168,7 +168,7 @@ function sub-abbr --description='Create abbreviations for sub-commands'
                         'Expansion | Replaces the Sub-Command'
                     } \
                     --flag={
-                        'degrade:0 | Deactivate '(format background red 'run0')' prefix toleration',
+                        'unprefix:0 | Deactivate toleration of'(format background red '$subabbr_prefix')' before the Base Command',
                         'regard-flags:s | Acknowledge flags in the Initial Args',
                         'set-cursor:c | Position the cursor at '(format background black --bright '%')' post-expansion',
                         'regex:r | Match command-line arguments with Regex',
@@ -230,16 +230,17 @@ function sub-abbr --description='Create abbreviations for sub-commands'
                 )
             end
             begin
-                set --query --local _flag_degrade || set --local -- tolerate_run0 --command=run0
-                set --local -- common_flags --add --command={$base_command} {$tolerate_run0} --function={$identifier} {$set_cursor}
+                _sub-abbr_internal_default-prefix
+                set --query --local _flag_unprefix || set --local -- tolerate_prefixes --command={$subabbr_prefix}
+                set --local -- common_flags --add --command={$base_command} {$tolerate_prefixes} --function={$identifier} {$set_cursor}
                 if set --query --local -- regex_subcommand
                     abbr {$common_flags} --regex="$subcommand" -- {$identifier}
                 else
                     abbr {$common_flags} -- "$subcommand"
                 end
             end
-            function {$identifier} --argument-names=subcommand --inherit-variable={base_command,expansion,initial_args,regex_initials,_flag_{degrade,regard_flags,expander}}
-                _sub-abbr_internal_expand-subcommand {$regex_initials} {$_flag_expander} {$_flag_degrade} {$_flag_regard_flags} -- {$subcommand} {$expansion} {$base_command} {$initial_args}
+            function {$identifier} --argument-names=subcommand --inherit-variable={base_command,expansion,initial_args,regex_initials,_flag_{unprefix,regard_flags,expander}}
+                _sub-abbr_internal_expand-subcommand {$regex_initials} {$_flag_expander} {$_flag_unprefix} {$_flag_regard_flags} -- {$subcommand} {$expansion} {$base_command} {$initial_args}
             end
         case \*
             $print 'unknown sub-command:' (format text bold (format background red --bright {$argv[1]})) >&2
