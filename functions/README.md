@@ -9,7 +9,7 @@ Conveniently access Sub-Command abbreviation packages from the official reposito
 
 
 # hidden
-(`sub-abbr/*`)
+(`_sub-abbr/*`)
 Hidden functions installed on the end-user's system.  
 
 ## Internal
