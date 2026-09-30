@@ -15,7 +15,7 @@ List the identifier of each content-aware abbreviation loaded
 ## Details
 Miscallaneous details about the sub-command
 ### Uses
-- Intuitively erasing content-aware abbreviations in case of when the sub-command is matched with [Regular Expressions][RegExp]{data-preview})
+- Intuitively erasing content-aware abbreviations in case of when the sub-command is matched with [Regular Expressions][RegExp]{data-preview})
 - Checking if a specific abbreviation already exists
 - Selectively erasing the filtered content-aware abbreviations
 ### Arguments
@@ -32,14 +32,14 @@ sub-abbr <LIST FLAG>
 
 ### Output
 - **Delimiter** (for each entry): New-line (`\n`)
-- **Format**: (`=`|`r`)`: `[*Initial Arguments*][initials]{data-preview}` `[*Sub-Command*][subcommand]{data-preview}
+- **Format**: (`=`|`r`)`: `[*Initial Arguments*][initials]{data-preview}` `[*Sub-Command*][subcommand]{data-preview}
 
 !!! note "Sub-command matching indication"
-    The character before the initial `:` indicates weather the *Sub-Command* is matched with [Regular Expression][RegExp]{data-preview}
+    The character before the initial `:` indicates weather the *Sub-Command* is matched with [Regular Expression][RegExp]{data-preview}
 
     | Prefix |                   Matches                   |
     | :----: | :-----------------------------------------: |
-    |   `r`  |  [Regular Expression][RegExp]{data-preview} |
+    |   `r`  |  [Regular Expression][RegExp]{data-preview} |
     |   `=`  |                 Fixed String                |
 
 [RegExp]: ../../../Add/Switches/Regular-Expression.md

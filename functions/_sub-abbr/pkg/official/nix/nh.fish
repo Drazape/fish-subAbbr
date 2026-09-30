@@ -4,7 +4,7 @@ begin
         # os: allow root
         _sub-abbr_internal_default-prefix
         for prefix in {$subabbr_prefix}
-            sub-abbr add --unprefix --expander --regex -- {$subabbr_prefix} {$exec_name} os '(switch|boot|build\-image|build\-vm|rollback|test)' '_sub-abbr_lib_expander_append --bypass-root-check'
+            sub-abbr add --unprefix --expander --regex --base={$subabbr_prefix} -- {$exec_name} os '(switch|boot|build\-image|build\-vm|rollback|test)' '_sub-abbr_lib_expander_append --bypass-root-check'
         end
     end
 end

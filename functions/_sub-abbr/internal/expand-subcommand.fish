@@ -1,10 +1,9 @@
 function _sub-abbr_internal_expand-subcommand --description='Expand a subcommand'
     # Input
-    argparse r/regex\& e/expander\& 0/unprefix\& s/regard-flags\& -- {$argv}
+    argparse b/base=+\& r/regex\& e/expander\& 0/unprefix\& s/regard-flags\& -- {$argv}
     set --local -- subcommand {$argv[1]}
     set --function -- expansion {$argv[2]}
-    set --function -- base_command {$argv[3]}
-    set --function -- initial_args {$argv[4..]}
+    set --function -- initial_args {$argv[3..]}
     set --query --local -- _flag_expander &&
         set --local -- expander_arguments (commandline --tokens-expanded --input={$expansion}) && # command substitutions can't be used as the *Base Command* in Fish
         set --function -- expansion ($expander_arguments {$subcommand})
@@ -21,7 +20,7 @@ function _sub-abbr_internal_expand-subcommand --description='Expand a subcommand
                 contains -- {$argv[1]} {$subabbr_prefix} &&
                     set --erase -- argv[1]
             end
-            test {$base_command} != {$argv[1]} &&
+            contains -- {$argv[1]} {$_flag_base} ||
                 return 1
         end
     end

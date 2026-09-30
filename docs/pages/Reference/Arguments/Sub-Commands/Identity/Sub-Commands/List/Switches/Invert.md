@@ -10,7 +10,7 @@ Invert the filters applied using the other arguments, to the abbreviations that 
 ## Properties
 | Value | Short |   Long   |     Sub-Command     | Inherited |
 | :---: | :---: | :------: | :-----------------: | :-------: |
-|  Type |  `i`  | `invert` | [List][list]{data-preview} |  ❌ false |
+| None |  `i`  | `invert` | [List][list]{data-preview} |  ❌ false |
 
 The command can invert both the [positionals][positionals]{data-preview}, and the switches applied.
 

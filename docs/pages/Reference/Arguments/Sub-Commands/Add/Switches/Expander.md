@@ -10,7 +10,7 @@ Dynamically expand using a command's output as the [*Expansion*][expansion]{data
 ## Properties
 |   Value  | Short |    Long    | Sub-Command |      Inherited     |
 | :------: | :---: | :--------: | :---------: | :----------------: |
-| Required |  `e`  | `expander` |     Add     | ✅ true (improved) |
+| None (toggle) |  `e`  | `expander` |     Add     | ✅ true (improved) |
 
 ## Details
 Relation
@@ -27,7 +27,7 @@ Use-case
 !!! tip "“Discard” expansion"
     You can simulate discarding of expansion by simply printing the *sub-command* back, changing nothing
 !!! tip "Switch Combo"
-    Pair it with [*Regular Expressions*][regexp]{data-preview} to generate *Expansion*s based on a dynamic [*Sub-Command*][subcommand]{data-preview} on the command-line
+    Pair it with [*Regular Expressions*][regexp]{data-preview} to generate *Expansions* based on a dynamic [*Sub-Command*][subcommand]{data-preview} on the command-line
 
 
 Implementation
@@ -35,7 +35,7 @@ Implementation
 
 ## Usage
 ```fish {title="Format" .no-copy .no-select}
-sub-abbr add … <EXPANDER FLAG> (?:`--`) …
+sub-abbr add --base=<base-command> … <EXPANDER_FLAG> (?:`--`) …
 ```
 
 ### Command

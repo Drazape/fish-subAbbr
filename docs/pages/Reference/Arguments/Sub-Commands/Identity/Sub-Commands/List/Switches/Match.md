@@ -13,14 +13,14 @@ Filter the abbreviations listed by how their [Sub-Command][subcommand]{data-prev
 |  Type |  `m`  | `match` | [List][list]{data-preview} |  ❌ false |
 
 !!! note "Different than Sub-command match type"
-    This switch is different than the [Regular Expressions][./Regular-Expressions.md]{data-preview} switch, which filters the listed identifiers by interpreting the listed positionals as regular expressions rather than fixed strings.
+    This switch is different than the [Regular Expressions][./Regular-Expressions.md]{data-preview} switch, which filters the listed identifiers by interpreting the listed positionals as regular expressions rather than fixed strings.
     Whereas this switch filters the listed identifiers by their sub-command match type as defined during their [addition][add]{data-preview}.  
 
 ## Types
 | Name | flag value | identifier prefix | Description |
 | :--: | :--------: | :---------------: | :---------- |
 | Fixed String | `fixed` | `=` | The sub-command must match the string exactly |
-| [Regular Expression][regexp]{data-preview} | `regex` | `r` | The sub-command must match the regular expression |
+| [Regular Expression][regexp]{data-preview} | `regex` | `r` | The sub-command must match the regular expression |
 
 !!! example "List abbrs with *RegExp*-matched *Sub-Command*"
     ```fish {title="Command"}

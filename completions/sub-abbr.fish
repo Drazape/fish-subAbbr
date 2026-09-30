@@ -36,18 +36,29 @@ begin
             --condition='set --local -- subcommands (__fish_print_cmd_args_without_options)[2..3]
             test "$subcommands[1]" = identity && test "$subcommands[2]" = list'
 
-        function _subabbr_completion_list
-            argparse 'm/match=&' 'r/regex&' -- (__fish_print_cmd_args)
+        function _subabbr_complete_list --argument-names=component
+            argparse --move-unknown 'b/base=*&' 'm/match=&' 'r/regex&' -- (__fish_print_cmd_args)[4..]
             set --local -- commandline_positionals (__fish_print_cmd_args_without_options)[4..]
-            for matched_identifier in (sub-abbr identity list {$_flag_regex} --match={$_flag_match} -- {$commandline_positionals})
-                set --local -- identifier_positionals (commandline --tokens-expanded --input={$matched_identifier})[2..]
-                test (count {$identifier_positionals}) -le (count {$commandline_positionals}) &&
-                    continue
-                echo {$identifier_positionals[(math 1 + (count {$commandline_positionals}))]}
+            if test {$component} = initials
+                for matched_identifier in (sub-abbr identity list {$_flag_regex} --base={$_flag_base} --match={$_flag_match} -- {$commandline_positionals})
+                    set --local -- identifier_positionals (commandline --tokens-expanded --input=(string split --fields=2 --max=1 -- '  ' {$matched_identifier}))
+                    test (count {$identifier_positionals}) -le (count {$commandline_positionals}) &&
+                        continue
+                    echo {$identifier_positionals[(math 1 + (count {$commandline_positionals}))]}
+                end
+            else if test {$component} = base
+                for matched_identifier_unfiltered_base in (sub-abbr identity list {$_flag_regex} --match={$_flag_match} -- {$commandline_positionals})
+                    for found_base in (string repeat -- 1 (commandline --tokens-expanded --input=(string split --{fields,max}=1 -- '  ' {$matched_identifier_unfiltered_base}))[2..])
+                        contains -- {$found_base} {$_flag_base} ||
+                            echo {$found_base}\t(type --type -- {$found_base})
+                    end
+                end
             end
         end
+        $common_complete {$list_complete_condition} --arguments='(_subabbr_complete_list initials)'
         # not using `single-switch` since a value is mandatory
-        $common_complete {$list_complete_condition} --arguments=\(_subabbr_completion_list\)
+            $common_complete {$list_complete_condition} --short-option=b --long-option=base --require-parameter \
+            --description='Filter by mandatorily accepted Base Commands' --arguments='(_subabbr_complete_list base)'
         $common_complete {$list_complete_condition} --short-option=m --long-option=match --require-parameter \
             --description='Filter by sub-command match type' \
             --arguments='
@@ -60,13 +71,33 @@ begin
 
     begin
         set --local -- creation_condition --condition='test "$(__fish_print_cmd_args_without_options)[2]" = add'
-        $common_complete {$creation_condition} --arguments='(__fish_complete_subcommand --fcs-skip=2)'
+        function _subabbr_complete_creation_initials
+            argparse --move-unknown 'b/base=*&' -- (__fish_print_cmd_args)[3..]
+            if test -z "$_flag_base"
+                echo -- --base=
+                return
+            end
+            set --local -- initials (__fish_print_cmd_args_without_options)[3..]
+            if test (count {$_flag_base}) -eq 1
+                complete --do-complete="$_flag_base $initials "
+            else
+                for base_command in {$_flag_base}
+                    for single_completions in (complete --do-complete="$base_command $initials ")
+                        set --local -- completion_components (string split -- \t {$single_completions})
+                        echo -n -- {$completion_components[1]}\t{$base_command}
+                        echo :\ {$completion_components[2]}
+                    end
+                end
+            end
+        end
+        $common_complete {$creation_condition} --arguments='(_subabbr_complete_creation_initials)' --keep-order
+        $common_complete {$creation_condition} --short-option=b --long-option=base --require-parameter --description='Accepted Base Commands' --arguments=\(__fish_complete_command\)
         begin
-            set --local -- creation_complete single-switch {$creation_condition}
-            $creation_complete --short-option=c --long-option=set-cursor --description='Position the cursor at % post-expansion'
-            $creation_complete --short-option=0 --long-option=unprefix --description='don\'t tolerate prefixes before Base Command'
-            $creation_complete --short-option=s --long-option=regard-flags --description='Acknowledge flags in the Initial Command'
-            $creation_complete --short-option=e --long-option=expander --description='Use the output of a command as the Expansion'
+            set --local -- single_complete single-switch {$creation_condition}
+            $single_complete --short-option=c --long-option=set-cursor --description='Position the cursor at % post-expansion'
+            $single_complete --short-option=0 --long-option=unprefix --description='don\'t tolerate prefixes before Base Command'
+            $single_complete --short-option=s --long-option=regard-flags --description='Acknowledge flags in the Initial Command'
+            $single_complete --short-option=e --long-option=expander --description='Use the output of a command as the Expansion'
         end
 
         begin

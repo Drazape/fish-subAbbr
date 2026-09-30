@@ -65,13 +65,14 @@ function sub-abbr --description='Create abbreviations for sub-commands'
             set --local -- identity_subcommand_args {$identity_args[2..]} # Trimmed sub-commands: `identity` `list`/`erase`; Arguments used sub-commands `identity`
             switch "$identity_args[1]"
                 case list
-                    if ! $argparse 'r/regex&' 'i/invert&' 'm/match=&!_sub-abbr_internal_verify-arg_match-type' 'h/help&' -- {$identity_subcommand_args}
+                    if ! $argparse 'b/base=*&' 'r/regex&' 'i/invert&' 'm/match=&!_sub-abbr_internal_verify-arg_match-type' 'h/help&' -- {$identity_subcommand_args}
                         _sub-abbr_internal_revert-paths
                         return 1
                     end
                     if set --query --local _flag_help
                         _subabbr_help_list= help-text --link=_sub-abbr_internal_helpText-linker 'List the identifiers of each loaded abbreviation' \
                             --flag={
+                                'base:b | Filter by Base Commands that must be accepted',
                                 'match:m | Only list identifiers with the specified Sub-Command string match type',
                                 'invert:i | Invert the match result',
                                 'regex:r | Match command-line positionals with RegExp'
@@ -81,9 +82,10 @@ function sub-abbr --description='Create abbreviations for sub-commands'
                     end
                     set --local -- filtered_identifiers
                     for identifier in {$identifiers}
-                        set --local -- identifier_tokens (commandline --tokens-expanded --input={$identifier}) # `commandline` parsing instead of space separation also handles any space escapes
+                        set --local -- identifier_division (string split --max=1 -- '  ' {$identifier})
+                        set --local -- identifier_match_and_bases (commandline --tokens-expanded --input={$identifier_division[1]})
                         if set --query --local -- _flag_match
-                            switch (string split --fields=1 --max=1 -- : {$identifier_tokens[1]})
+                            switch (string split --{fields,max}=1 -- : {$identifier_match_and_bases[1]})
                                 case =
                                     test {$_flag_match} != fixed &&
                                         continue
@@ -92,15 +94,26 @@ function sub-abbr --description='Create abbreviations for sub-commands'
                                         continue
                             end
                         end
+                        if set --query --local -- _flag_base
+                            for passed_base in {$_flag_base}
+                                contains -- {$passed_base} {$identifier_match_and_bases[2..]} ||
+                                    set --function -- bases_unmatched # continue outside the current loop
+                            end
+                            if set --query --function -- bases_unmatched
+                                set --erase --function -- bases_unmatched
+                                continue
+                            end
+                        end
                         if test (count {$argv}) -gt 0
-                            set --local -- index_count 2 # start at 2 to skip the first token—the match type
-                            for passed_arg_match in {$argv}
-                                string match --quiet {$_flag_regex} -- "$passed_arg_match" "$identifier_tokens[$index_count]" ||
-                                    set --function -- arg_unmatched # continue outside the current loop
+                            set --local -- identifier_initials (commandline --tokens-expanded --input={$identifier_division[2..]})
+                            set --local -- index_count 1
+                            for passed_init_match in {$argv}
+                                string match --quiet {$_flag_regex} -- "$passed_init_match" "$identifier_initials[$index_count]" ||
+                                    set --function -- init_unmatched # continue outside the current loop
                                 set -- index_count (math {$index_count} + 1)
                             end
-                            if set --query --function -- arg_unmatched
-                                set --erase --function -- arg_unmatched
+                            if set --query --function -- init_unmatched
+                                set --erase --function -- init_unmatched
                                 continue
                             end
                         end
@@ -155,7 +168,7 @@ function sub-abbr --description='Create abbreviations for sub-commands'
         case add
             # arguments
             ## Switches
-            if ! $argparse 'r/regex=*&!_sub-abbr_internal_verify-arg_regex-val' 'e/expander&' 'c/set-cursor=?&' 'h/help&' '0/unprefix&' 's/regard-flags&' -- {$argv}
+            if ! $argparse 'b/base=+&!_sub-abbr_internal_verify-arg_base-command' 'r/regex=*&!_sub-abbr_internal_verify-arg_regex-val' 'e/expander&' 'c/set-cursor=?&' 'h/help&' '0/unprefix&' 's/regard-flags&' -- {$argv}
                 _sub-abbr_internal_revert-paths
                 return 5
             end
@@ -168,6 +181,7 @@ function sub-abbr --description='Create abbreviations for sub-commands'
                         'Expansion | Replaces the Sub-Command'
                     } \
                     --flag={
+                        'base:b | Specify the Base Commands that can precedes the Initial Args',
                         'unprefix:0 | Deactivate toleration of'(format background red '$subabbr_prefix')' before the Base Command',
                         'regard-flags:s | Acknowledge flags in the Initial Args',
                         'set-cursor:c | Position the cursor at '(format background black --bright '%')' post-expansion',
@@ -176,6 +190,10 @@ function sub-abbr --description='Create abbreviations for sub-commands'
                     }
                 _sub-abbr_internal_revert-paths
                 return
+            end
+            if ! set --query --local -- _flag_base
+                $print 'Missing required option:' (format background black --bright 'base')
+                return 6
             end
             ### Set Cursor
             set --query --local _flag_set_cursor && if test -z {$_flag_set_cursor}
@@ -192,21 +210,12 @@ function sub-abbr --description='Create abbreviations for sub-commands'
             begin
                 set --local -- add_args {$argv[2..]} # Trimmed sub-command `add`; Arguments used by this specific sub-command
                 # appropriate number of arguments. Not using `argparse` so that `--help can have as many arguments as it wants` and better formatted output
-                if ! _sub-abbr_internal_verify-arg_more-args 3 {$add_args}
-                    _sub-abbr_internal_revert-paths
-                    return 6
-                end
-                # Name arguments
-                set --function base_command {$add_args[1]}
-                if test "$subabbr_nonexistent_basecommand" != allow && ! type --query -- {$base_command}
-                    if test "$subabbr_nonexistent_basecommand" != quiet
-                        $print Unknown (format text italics 'Base Command'): (format background red {$base_command}) >&2
-                        $print see (format url https://drazape.github.io/fish-subAbbr/Usage/Reference/Configuration/Check_Base-Command/ 'Check Base Command') 'for more information'
-                    end
+                if ! _sub-abbr_internal_verify-arg_more-args 2 {$add_args}
                     _sub-abbr_internal_revert-paths
                     return 7
                 end
-                set --function initial_args {$add_args[2..-3]}
+                # Name arguments
+                set --function initial_args {$add_args[1..-3]}
                 set --function subcommand {$add_args[-2]}
                 set --function expansion {$add_args[-1]}
                 # compatible subcommand name: must be a single token
@@ -221,26 +230,29 @@ function sub-abbr --description='Create abbreviations for sub-commands'
 
             # main operation
             begin
-                set --local -- regexStr =
-                set --query --local -- regex_subcommand && set --local -- regexStr r
-                set --local -- all_escaped_arguments (string escape --style=script -- $base_command $initial_args $subcommand)
+                set --local -- regex_str =
+                set --query --local -- regex_subcommand && set --local -- regex_str r
+
+                set --local -- escaped_bases $(string escape --style=script --no-quoted -- $_flag_base)
+                set --local -- escaped_arguments (string escape --style=script --no-quoted -- $initial_args $subcommand)
+
                 # name compatible hash; specific to the combination
                 set --function -- identifier (
-                    string escape --style=var -- {$identifier_prefix}{$regexStr}:\ "$all_escaped_arguments"
+                    string escape --style=var -- {$identifier_prefix}{$regex_str}:" $escaped_bases  $escaped_arguments" # separate escaped lists with consequent unescaped spaces. It cannot be part of a token since the second space would always have `\` prefixed to it.
                 )
             end
             begin
                 _sub-abbr_internal_default-prefix
                 set --query --local _flag_unprefix || set --local -- tolerate_prefixes --command={$subabbr_prefix}
-                set --local -- common_flags --add --command={$base_command} {$tolerate_prefixes} --function={$identifier} {$set_cursor}
+                set --local -- common_flags --add --command={$_flag_base} {$tolerate_prefixes} --function={$identifier} {$set_cursor}
                 if set --query --local -- regex_subcommand
                     abbr {$common_flags} --regex="$subcommand" -- {$identifier}
                 else
                     abbr {$common_flags} -- "$subcommand"
                 end
             end
-            function {$identifier} --argument-names=subcommand --inherit-variable={base_command,expansion,initial_args,regex_initials,_flag_{unprefix,regard_flags,expander}}
-                _sub-abbr_internal_expand-subcommand {$regex_initials} {$_flag_expander} {$_flag_unprefix} {$_flag_regard_flags} -- {$subcommand} {$expansion} {$base_command} {$initial_args}
+            function {$identifier} --argument-names=subcommand --inherit-variable={_flag_base,expansion,initial_args,regex_initials,_flag_{unprefix,regard_flags,expander}}
+                _sub-abbr_internal_expand-subcommand --base={$_flag_base} {$regex_initials} {$_flag_expander} {$_flag_unprefix} {$_flag_regard_flags} -- {$subcommand} {$expansion} {$initial_args}
             end
         case \*
             $print 'unknown sub-command:' (format text bold (format background red --bright {$argv[1]})) >&2

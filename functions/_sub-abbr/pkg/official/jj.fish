@@ -3,7 +3,7 @@ begin
     abbr --add --position=command -- j{,j} # Mitigate inergonomic bigram
     function _sub-abbr_pkg_official_{$exec_name} --description='Jujutsu: VCS' --inherit-variable=exec_name
         begin # sub-commands
-            set --local -- sub_abbr sub-abbr add {$exec_name} --
+            set --local -- sub_abbr sub-abbr add --base={$exec_name} --
             $sub_abbr b{,ookmark}
             $sub_abbr c{i,ommit}
             $sub_abbr desc{,ribe}
@@ -13,7 +13,7 @@ begin
 
         begin # switches
             begin # short → long
-                set --local -- long_flag _sub-abbr_lib_wrapper_flag_to-long {$exec_name}
+                set --local -- long_flag _sub-abbr_lib_wrapper_flag_to-long --base={$exec_name}
 
                 # global (universal)
                 $long_flag --mandatory -- R repository
@@ -112,7 +112,7 @@ begin
             end
         end
         begin # mandate values
-            set --local -- mandate _sub-abbr_lib_wrapper_flag_mandatory-long jj
+            set --local -- mandate _sub-abbr_lib_wrapper_flag_mandatory-long --base={$exec_name}
             $mandate --flag={at-operation,color,config{,-file}}
             $mandate --flag=key -- sign
             $mandate --regex=initials --flag=tool -- 'commit|diffedit|resolve|restore|split'

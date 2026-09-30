@@ -15,11 +15,11 @@ With this switch enabled for the respective abbreviations, those tokens are no l
 ## Properties
 | Value | Short |    Long    | Sub-Command | Inherited |
 | :---: | :---: | :--------: | :---------: | :-------: |
-|  None |  `0`  | `unprefix` |     Add     |  ❌ false |
+|  None |  `0`  | `unprefix` |     [Add](../index.md){data-preview}     |  ❌ false |
 
 ## Details
 Relation
-:   *Initial Arguments*: an argument that is one of `$subabbr_prefix` would no longer be specially tolerated
+:   *Initial Arguments*: an argument that is one of `$subabbr_prefix` would no longer be specially tolerated
 
 Use-case
 :   For abbreviating commands that must be elevated for the expansion to occur
@@ -29,18 +29,18 @@ Use-case
 
 ## Usage
 ```fish {title="Format" .no-copy .no-select}
-sub-abbr add … <UNPREFIX FLAG> (?:`--`) …
+sub-abbr add --base=<base-command> … <UNPREFIX-FLAG> (?:`--`) …
 ```
 
 !!! example "abbreviating `run0`"
     Always use `--empower` so that the created files are owned by the calling user, not `root`.
     ```fish {title="command" .no-select}
-    sub-abbr add -0s -- run0 {,--empower\ }touch
+    sub-abbr add -0s --base=run0 -- {,--empower\ }touch
     ```
     Here, *Unprefix* is used since you typically wouldn't prefix `run0`—the prefixes are usually elevation commands.
 
 !!! example "Expanding only with `run0`"
     Only bypass *root check* on an attempt to run as `root`
     ```fish {title="command" .no-select}
-    sub-abbr add -0c run0 nh os switch{,' % --bypass-root-check'}
+    sub-abbr add -0c --base=run0 nh os switch{,' % --bypass-root-check'}
     ```

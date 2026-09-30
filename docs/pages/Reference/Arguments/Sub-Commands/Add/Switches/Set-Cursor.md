@@ -10,7 +10,7 @@ Position the cursor at the separator present in the [*Expansion*](../../../Posit
 ## Properties
 |   Value  | Short |      Long    | Sub-Command | Inherited |
 | :------: | :---: | :----------: | :---------: | :-------: |
-| Optional |  `c`  | `set-cursor` |     Add     |  ✅ true  |
+| Optional |  `c`  | `set-cursor` | [Add](../index.md){data-preview} | ✅ true |
 
 ## Details
 Miscallaneous details about the switch
@@ -26,5 +26,5 @@ It is directly passed to `builtin abbr`, along with the value
 
 ## Usage
 ```fish {title="Format" .no-copy .no-select}
-sub-abbr add … <SET-CURSOR FLAG> (?:`--`) …
+sub-abbr add … <SET-CURSOR_FLAG> (?:`--`) …
 ```

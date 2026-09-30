@@ -5,7 +5,7 @@ desription: Installation procedure and methods
 ---
 
 # Installation
-Different installation methods officially recognised, curated for different scenarios.
+Officially recognised installation methods, curated for different scenarios.
 ## Dependencies
 - [helpText](https://github.com/Drazape/fish-helpText "GitHub repository"){data-preview}: Generate formatted console help reference texts
 - [format](https://github.com/Drazape/fish-format "GitHub repository"){data-preview}: Intuitively generate ANSI sequences

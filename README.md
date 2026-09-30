@@ -25,7 +25,7 @@ Following are some example uses of the program.
 In these examples, additional functionality is added via abbreviations as a default
 ### Switches for certain sub-commands  
 ```fish
-sub-abbr add --unprefix --set-cursor run0 nh os switch{,' % --bypass-root-check'}
+sub-abbr add --unprefix --set-cursor --base=run0 nh os switch{,' % --bypass-root-check'}
 ```
 ![
 	Showcases 2 of the switches.
@@ -36,7 +36,7 @@ sub-abbr add --unprefix --set-cursor run0 nh os switch{,' % --bypass-root-check'
 
 ### A combination of switches
 ```fish
-sub-abbr add -- eza --long{,\ --group}`
+sub-abbr add --base=eza -- --long{,\ --group}`
 ```
 [^eza-why-group]  
 [^eza-why-group]: Shows the group of the owned files when viewing in the long format.
@@ -53,7 +53,7 @@ These are examples of some cosmetic abbreviations that provide clarity and visua
 Provides visual feedback that the short flag is correct!
 #### `eza`: long flag
 ```fish
-sub-abbr add -- eza -l --long
+sub-abbr add --base=eza -- -l --long
 ```
 ![
 	The *Base Command* `ls` is typed out, which is expanded using regular abbreviations.
@@ -64,8 +64,8 @@ sub-abbr add -- eza -l --long
 #### Jujutsu: *Sub-Command* aliases
 Provides visual feedback that the sub-command inputted is correct!
 ```fish
-sub-abbr add jj b{,ookmark}
-sub-abbr add jj ci commit
+sub-abbr add --base=jj b{,ookmark}
+sub-abbr add --base=jj ci commit
 ```
 ![
 	The command starts with a regular abbreviation of the *Base Command* `j` abbreviating into `jj`.
@@ -123,7 +123,7 @@ Sub-command to create context-aware sub-command abbreviations
 | [**Help**](https://drazape.github.io/fish-subAbbr/Reference/Arguments/Universal-Switches/Help/ "documentation") | Show a reference manual — consisting of the [purpose](#sub-abbr "The purpose of the command") & [arguments](#Arguments "Descriptions on all the supported arguments") | `help` | `h` | ❔ universal |
 | [**Unprefix**](https://drazape.github.io/fish-subAbbr/Reference/Arguments/Sub-Commands/Add/Switches/Unprefix "documentation") | Deactivate toleration of `$subabbr_prefix` before the Base Command; that is, do not expand the *Sub-Command* if the *Initial Args* is prefixed with `run0` | `unprefix` | `0` | ❌ false |
 | [**Regard Flags**](https://drazape.github.io/fish-subAbbr/Reference/Arguments/Sub-Commands/Add/Switches/Regard-Flags "documentation") | Acknowledge flags in the *Initial Arguments*; If not set, switches in the *Initial Arguments* are ignored | `regard-flags` | `s` | ❌ false |
-| [**RegExp**](https://drazape.github.io/fish-subAbbr/Reference/Arguments/Sub-Commands/Add/Switches/Regular-Expression/ "documentation") | Match *Sub-Command* with Regular Expressions. Essential (with `sub-command`) for abbreviating the same pair of *Sub-Command* & *Initial Arguments* [^multi-bases] | `regex` | `r` | ⏫ extended |
+| [**RegExp**](https://drazape.github.io/fish-subAbbr/Reference/Arguments/Sub-Commands/Add/Switches/Regular-Expression/ "documentation") | Match *Sub-Command* with Regular Expressions. Essential (with `sub-command`) for abbreviating the same pair of *Sub-Command* & *Initial Arguments* [^multi-bases] | `regex` | `r` | ⏫ extended |
 | [**Set Cursor**](https://drazape.github.io/fish-subAbbr/Reference/Arguments/Sub-Commands/Add/Switches/Set-Cursor "documentation") | Set the cursor to a position. Same usage as the internal switch | `set-cursor` | `c` | ✅ true | 
 | [**Expander**](https://drazape.github.io/fish-subAbbr/Reference/Arguments/Sub-Commands/Add/Switches/Expander "documentation") | Use the output of a command as the *Expansion* | `expander` | `e` | ✅ true |
 
