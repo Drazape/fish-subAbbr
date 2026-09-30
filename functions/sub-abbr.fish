@@ -56,7 +56,8 @@ function sub-abbr --description='Create abbreviations for sub-commands'
                 argparse --ignore-unknown '/command=+&' '/function=&' -- (commandline --tokens-expanded --input={$abbr})
                 set --local -- unescaped_function (string unescape --style=var -- {$_flag_function})
                 set --local -- identifier (string sub --start={$identifier_start} -- {$unescaped_function})
-                string match --quiet -- {$identifier_prefix} (string sub --end={$prefix_length} {$unescaped_function}) && set --append --function -- identifiers {$identifier}
+                test {$identifier_prefix} = (string sub --end={$prefix_length} {$unescaped_function}) &&
+                    set --append --function -- identifiers {$identifier}
                 set --append --function -- (string escape --style=var -- $identifier)_commands {$_flag_command}
             end
 
