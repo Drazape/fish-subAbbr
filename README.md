@@ -120,6 +120,7 @@ Sub-command to create context-aware sub-command abbreviations
 ###### Switches
 | Name | Description | Long | Short | Inherited [^inherited-switches] |
 | :--: | ----------- | :--: | :---: | :-----------------------------: |
+| [**Base**](https://drazape.github.io/fish-subAbbr/Reference/Arguments/Sub-Commands/Add/Switches/Base/ "documentation") | Specify the *Base Commands* the abbreviation triggers for | `base` | `b` | ✅ true |
 | [**Help**](https://drazape.github.io/fish-subAbbr/Reference/Arguments/Universal-Switches/Help/ "documentation") | Show a reference manual — consisting of the [purpose](#sub-abbr "The purpose of the command") & [arguments](#Arguments "Descriptions on all the supported arguments") | `help` | `h` | ❔ universal |
 | [**Unprefix**](https://drazape.github.io/fish-subAbbr/Reference/Arguments/Sub-Commands/Add/Switches/Unprefix "documentation") | Deactivate toleration of `$subabbr_prefix` before the Base Command; that is, do not expand the *Sub-Command* if the *Initial Args* is prefixed with `run0` | `unprefix` | `0` | ❌ false |
 | [**Regard Flags**](https://drazape.github.io/fish-subAbbr/Reference/Arguments/Sub-Commands/Add/Switches/Regard-Flags "documentation") | Acknowledge flags in the *Initial Arguments*; If not set, switches in the *Initial Arguments* are ignored | `regard-flags` | `s` | ❌ false |
