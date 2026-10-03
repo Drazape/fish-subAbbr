@@ -182,7 +182,7 @@ function sub-abbr --description='Create abbreviations for sub-commands'
                     } \
                     --flag={
                         'base:b | Specify the Base Commands that can precedes the Initial Args',
-                        'unprefix:0 | Deactivate toleration of '(format background red '$subabbr_prefix')' before the Base Command',
+                        'unprefix:0 | Deactivate toleration of '(format background black --bright '$subabbr_prefix')' before the Base Command',
                         'regard-flags:s | Acknowledge flags in the Initial Args',
                         'set-cursor:c | Position the cursor at '(format background black --bright '%')' post-expansion',
                         'regex:r | Match command-line arguments with Regex',
