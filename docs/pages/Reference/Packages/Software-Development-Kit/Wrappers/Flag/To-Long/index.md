@@ -6,7 +6,9 @@ description: Convert flags to long
 ---
 
 # To Long ^`to-long`^
-Convert short flags into their long variants
+Convert short flags into their long variants.
+
+Chaining multiple non-mandatory flags is not supported in the normal variant.
 
 ## Effect
 Alone
@@ -33,11 +35,13 @@ Command-line tokens the wrapper accepts as arguments
 ### Switches
 Optional arguments which modify the behavior of the wrapper
 #### Un-inherited
-- [RegExp: `sub-command`](../../../../Arguments/Sub-Commands/Add/Switches/Regular-Expression.md "Match command-line arguments with RegExp"){data-preview}
-- [Expander](../../../../Arguments/Sub-Commands/Add/Switches/Expander.md "Use a command's output as the *Expansion*"){data-preview}
-- [Set Cursor](../../../../Arguments/Sub-Commands/Add/Switches/Set-Cursor.md "Position the cursor at `%`"){data-preview}
+The following are switches that cannot be passed over via this wrapper:
+- [RegExp: `sub-command`](../../../../../Arguments/Sub-Commands/Add/Switches/Regular-Expression.md "Match command-line arguments with RegExp"){data-preview}
+- [Expander](../../../../../Arguments/Sub-Commands/Add/Switches/Expander.md "Use a command's output as the *Expansion*"){data-preview}
+- [Set Cursor](../../../../../Arguments/Sub-Commands/Add/Switches/Set-Cursor.md "Position the cursor at `%`"){data-preview}
+The rest of the switches supported by `sub-abbr` can be passed as is.
 
 #### Exclusive
 |    Name   |     Long    | Short | Value |               Description              | Effect |
 | :-------: | :---------: | :---: | :---: | -------------------------------------- | ------ |
-| Mandatory | `mandatory` |  `m`  |  None | Makes it compulsory to provide a value | Puts the cursor with the long flag separated with `=`, and if a value is assigned, expands it with the value and moves on. Implies [`Mandatory Long`](./Mandatory-Long.md){data-preview} |
+| Mandatory | `mandatory` |  `m`  |  None | Makes it compulsory to provide a value | Puts the cursor with the long flag separated with `=`, and if a value is assigned, expands it with the value and moves on. Implies [`Mandatory Long`](../Mandatory-Long.md){data-preview} |

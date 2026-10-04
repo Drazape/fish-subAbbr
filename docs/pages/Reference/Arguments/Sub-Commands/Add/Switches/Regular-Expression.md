@@ -10,7 +10,7 @@ Match command-line arguments with *Regular Expression*s
 ## Properties
 |       Values        | Short |   Long  | Sub-Command |    Inherited       |
 | :-----------------: | :---: | :-----: | :---------: | :----------------: |
-| Multiple & Optional |  `r`  | `regex` |     [Add](../index.md){data-preview}     | ✅ true (extended) |
+| Multiple & Optional |  `r`  | `regex` | [Add](../index.md){data-preview} | ✅ true (extended) |
 
 ## Details
 Miscallaneous details about the switch

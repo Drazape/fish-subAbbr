@@ -21,4 +21,4 @@ These functions are not limited to changing the expansion, but to every aspect o
 
 - Called by other wrappers
 !!! example "Example: Mandatory Flags"
-    When [To Long](Flag/To-Long.md){data-preview} is used with the *Mandatory* switch, the wrapper internally calls [Mandatory Long](Flag/Mandatory-Long.md){data-preview} to keep things [DRY](https://en.wikipedia.org/wiki/Don%27t_repeat_yourself "Wikipedia: Don't Repeat Yourself"){data-preview}
+    When [To Long](Flag/To-Long/index.md){data-preview} is used with the *Mandatory* switch, the wrapper internally calls [Mandatory Long](Flag/Mandatory-Long.md){data-preview} to keep things [DRY](https://en.wikipedia.org/wiki/Don%27t_repeat_yourself "Wikipedia: Don't Repeat Yourself"){data-preview}
