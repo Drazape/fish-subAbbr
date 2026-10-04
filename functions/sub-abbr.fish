@@ -29,7 +29,7 @@ function sub-abbr --description='Create abbreviations for sub-commands'
         return
     end
 
-    set --function -- identifier_prefix '_sub-abbr_expand '
+    set --function -- identifier_prefix _sub-abbr_definition_
     # individual sub-commands
     switch "$argv[1]"
         case identity
@@ -46,18 +46,18 @@ function sub-abbr --description='Create abbreviations for sub-commands'
                 return
             end
 
+            # common data
             set --local -- prefix_length (string length {$identifier_prefix})
             set --local -- identifier_start (math {$prefix_length} + 1)
-            # common data
             for abbr in (abbr)
-                argparse --ignore-unknown '/function=&' -- (commandline --tokens-expanded --input={$abbr})
-                string match --quiet --entire --regex -- ^{$identifier_prefix} (string unescape --style=var -- {$_flag_function}) || continue
-
-                argparse --ignore-unknown '/command=+&' '/function=&' -- (commandline --tokens-expanded --input={$abbr})
-                set --local -- unescaped_function (string unescape --style=var -- {$_flag_function})
-                set --local -- identifier (string sub --start={$identifier_start} -- {$unescaped_function})
-                test {$identifier_prefix} = (string sub --end={$prefix_length} {$unescaped_function}) &&
-                    set --append --function -- identifiers {$identifier}
+                if ! argparse --ignore-unknown '/command=+&' '/function=&' -- (commandline --tokens-expanded --input={$abbr}) ||
+                        ! string match --quiet -- {$identifier_prefix} (string sub --end={$prefix_length} -- {$_flag_function})
+                    continue
+                end
+                set --local -- identifier (
+                    string unescape --style=var -- (
+                        string sub --start={$identifier_start} -- {$_flag_function}))
+                set --append --function -- identifiers {$identifier}
                 set --append --function -- (string escape --style=var -- $identifier)_commands {$_flag_command}
             end
 
@@ -151,10 +151,14 @@ function sub-abbr --description='Create abbreviations for sub-commands'
                     ## erase depending on type
                     for identifier in {$identity_subcommand_args}
                         set --local -- internal_identifier
-                        if test (string sub --end=1 -- {$identifier}) = =
+                        if test (string sub --end=1 -- {$identifier}) = '='
                             set -- internal_identifier (string split --right --max=1 --fields=2 -- ' ' {$identifier})
                         else
-                            set -- internal_identifier (string escape --style=var -- {$identifier_prefix}{$identifier})
+                            set -- internal_identifier {$identifier_prefix}(
+                                string sub --end=2 -- {$identifier}
+                            )(string escape --style=var -- (
+                                string sub --start=3 -- {$identifier}
+                            ))
                         end
                         functions --erase -- {$internal_identifier} # internal specialized expander
                         set --local -- commands (string escape --style=var -- {$identifier})_commands
@@ -237,8 +241,8 @@ function sub-abbr --description='Create abbreviations for sub-commands'
                 set --local -- escaped_arguments (string escape --style=script --no-quoted -- $initial_args $subcommand)
 
                 # name compatible hash; specific to the combination
-                set --function -- identifier (
-                    string escape --style=var -- {$identifier_prefix}{$regex_str}:" $escaped_bases  $escaped_arguments" # separate escaped lists with consequent unescaped spaces. It cannot be part of a token since the second space would always have `\` prefixed to it.
+                set --function -- identifier {$identifier_prefix}{$regex_str}:(
+                    string escape --style=var -- " $escaped_bases  $escaped_arguments" # separate escaped lists with consequent unescaped spaces. It cannot be part of a token since the second space would always have `\` prefixed to it.
                 )
             end
             begin
