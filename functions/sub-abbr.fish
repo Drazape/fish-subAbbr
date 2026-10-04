@@ -62,7 +62,7 @@ function sub-abbr --description='Create abbreviations for sub-commands'
             end
 
             # sub-commands
-            set --local -- identity_subcommand_args {$identity_args[2..]} # Trimmed sub-commands: `identity` `list`/`erase`; Arguments used sub-commands `identity`
+            set --local -- identity_subcommand_args {$identity_args[2..]} # Trimmed sub-commands: `identity` `list`/`erase`; arguments used sub-commands `identity`
             switch "$identity_args[1]"
                 case list
                     if ! $argparse 'b/base=*&' 'r/regex&' 'i/invert&' 'm/match=&!_sub-abbr_internal_verify-arg_match-type' 'h/help&' -- {$identity_subcommand_args}
