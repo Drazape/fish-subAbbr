@@ -237,8 +237,8 @@ function sub-abbr --description='Create abbreviations for sub-commands'
                 set --local -- regex_str =
                 set --query --local -- regex_subcommand && set --local -- regex_str r
 
-                set --local -- escaped_bases $(string escape --style=script --no-quoted -- $_flag_base)
-                set --local -- escaped_arguments (string escape --style=script --no-quoted -- $initial_args $subcommand)
+                set --local -- escaped_bases (string escape --style=script --no-quoted -- {$_flag_base})
+                set --local -- escaped_arguments (string escape --style=script --no-quoted -- {$initial_args} {$subcommand})
 
                 # name compatible hash; specific to the combination
                 set --function -- identifier {$identifier_prefix}{$regex_str}:(
