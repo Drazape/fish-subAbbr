@@ -13,7 +13,7 @@ function _sub-abbr_internal_expand-subcommand --description='Expand a subcommand
     set --query --local -- _flag_regard_flags ||
         argparse --move-unknown -- {$argv}
     begin
-        test {$argv[1]} = exec &&
+        test "$argv[1]" = exec &&
             set --erase -- argv[1]
         if ! set --query --local -- _flag_unprefix
             for prefix in {$subabbr_prefix}
