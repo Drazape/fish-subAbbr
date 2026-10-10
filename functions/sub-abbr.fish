@@ -36,7 +36,7 @@ function sub-abbr --description='Create abbreviations for sub-commands'
             set --local -- identity_args {$argv[2..]} # arguments excluding the root sub-command
             set --local -- erase_description 'Erase an abbreviation by it\'s identifier'
             $argparse --stop-nonopt 'h/help&' -- {$identity_args}
-            if set --query --local _flag_help
+            if set --query --local -- _flag_help
                 help-text --link=_sub-abbr_internal_helpText-linker 'Manage context-aware Sub-Command abbreviations by their identifiers' \
                     --sub-command={
                         'list | List the identifiers of each loaded abbreviation',
@@ -69,7 +69,7 @@ function sub-abbr --description='Create abbreviations for sub-commands'
                         _sub-abbr_internal_revert-paths
                         return 1
                     end
-                    if set --query --local _flag_help
+                    if set --query --local -- _flag_help
                         _subabbr_help_list= help-text --link=_sub-abbr_internal_helpText-linker 'List the identifiers of each loaded abbreviation' \
                             --flag={
                                 'base:b | Filter by Base Commands that must be accepted',
@@ -129,7 +129,7 @@ function sub-abbr --description='Create abbreviations for sub-commands'
                     end
                 case erase
                     $argparse 'h/help&' -- {$identity_subcommand_args}
-                    if set --query --local _flag_help
+                    if set --query --local -- _flag_help
                         help-text --link=_sub-abbr_internal_helpText-linker {$erase_description} --positional='+Identifier | context-aware sub-command abbreviation identifier'
                         _sub-abbr_internal_revert-paths
                         return
@@ -177,7 +177,7 @@ function sub-abbr --description='Create abbreviations for sub-commands'
                 return 5
             end
             ### Help
-            if set --query --local _flag_help
+            if set --query --local -- _flag_help
                 help-text --link=_sub-abbr_internal_helpText-linker 'Create context-aware Sub-Command abbreviations' \
                     --positional={
                         '+Initial Args | All arguments that come before the Sub-Command',
