@@ -46,6 +46,9 @@ function sub-abbr --description='Create abbreviations for sub-commands'
                 return
             end
 
+            # let hooks change identifers that are recieved. This can be useful for allowing the user to manage identifiers that are distributed in a conditional-loading way.
+            emit -- subabbr_gather-identities {$identity_args}
+
             # common data
             set --local -- prefix_length (string length {$identifier_prefix})
             set --local -- identifier_start (math {$prefix_length} + 1)
@@ -154,6 +157,10 @@ function sub-abbr --description='Create abbreviations for sub-commands'
                             return 3
                         end
                     end
+
+                    # Hook to erase unknown runtime data used by wrappers.
+                    emit -- subabbr_erase-identities {$identity_subcommand_args}
+
                     ## erase depending on type
                     for identifier in {$identity_subcommand_args}
                         set --local -- internal_identifier
@@ -179,13 +186,13 @@ function sub-abbr --description='Create abbreviations for sub-commands'
             # arguments
             ## Switches
             if ! $argparse \
-                    'b/base=+&!_sub-abbr_internal_verify-arg_base-command' \
-                    'r/regex=*&!_sub-abbr_internal_verify-arg_regex-val' \
-                    'e/expander&' \
-                    'c/set-cursor=?&' \
-                    'h/help&' \
-                    '0/unprefix&' \
-                    's/regard-flags&' \
+                    b/base=+!_sub-abbr_internal_verify-arg_base-command \
+                    r/regex=\*!_sub-abbr_internal_verify-arg_regex-val \
+                    e/expander \
+                    c/set-cursor=? \
+                    h/help\& \
+                    0/unprefix \
+                    s/regard-flags \
                     -- {$argv[2..]}
                 _sub-abbr_internal_revert-paths
                 return 5
@@ -244,6 +251,8 @@ function sub-abbr --description='Create abbreviations for sub-commands'
                     end
                 end
             end
+
+            emit -- subabbr_add {$argv_opts} -- {$argv}
 
             # main operation
             begin
