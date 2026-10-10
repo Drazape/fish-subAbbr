@@ -27,10 +27,17 @@ In contrast to the straight quotation marks used in the Google Style (`"`), we i
 The Google style prohibits the use of line breaks; consequently, starts of new lines is limited to a new paragraph.  
 In contrast, we extensively use line breaks to make it easier for readers to skip sentences.
 ### Project Exclusive Guidelines
-These are guidelines exclusive to this project, for they are not part of the Google Style.
-#### Word: *Base Command*
-Keep the following things in mind when writing *Base Command*:
-- Do not hyphenate the two words (*Base-Command*)
-- Do not write the word in [PascalCase](https://wiki.c2.com/?PascalCase "c2 wiki page")
-- Keep both the words capitalized
-- The words should be separated with a non-breaking space (` `). The breaking space (` `) can cause the two words to be unexpectedly separated
+These are guidelines exclusive to this project, for they are not part of the common Google Style.
+#### Word separation with non-breaking space
+The following are guidelines for writing words separated with a non-breaking space (` `).
+##### List
+- `Base Command`
+- `Initial Argument`
+##### Rationale
+Keep the following things in mind when writing the words in the word list:
+|  Guideline | 👎 Examples of unrecommended strings |
+| --------- | :------: |
+| Do not hyphenate the two words | `Base-Command` `Initial-Argument` |
+| Do not write the word in [PascalCase](https://wiki.c2.com/?PascalCase "c2 wiki page") | `BaseCommand` `InitialArgument` |
+| Keep the both the words capitalized | `base command` `initial Argument` |
+| The words should be separated with a non-breaking space (` `). The breaking space (` `) can cause the two words to be unexpectedly separated | `Base Command` `Initial Argument` |
