@@ -172,7 +172,7 @@ function sub-abbr --description='Create abbreviations for sub-commands'
         case add
             # arguments
             ## Switches
-            if ! $argparse 'b/base=+&!_sub-abbr_internal_verify-arg_base-command' 'r/regex=*&!_sub-abbr_internal_verify-arg_regex-val' 'e/expander&' 'c/set-cursor=?&' 'h/help&' '0/unprefix&' 's/regard-flags&' -- {$argv}
+            if ! $argparse 'b/base=+&!_sub-abbr_internal_verify-arg_base-command' 'r/regex=*&!_sub-abbr_internal_verify-arg_regex-val' 'e/expander&' 'c/set-cursor=?&' 'h/help&' '0/unprefix&' 's/regard-flags&' -- {$argv[2..]}
                 _sub-abbr_internal_revert-paths
                 return 5
             end
@@ -212,16 +212,15 @@ function sub-abbr --description='Create abbreviations for sub-commands'
             contains -- initials {$_flag_regex} && set --function -- regex_initials --regex
             ## Positional
             begin
-                set --local -- add_args {$argv[2..]} # Trimmed sub-command `add`; Arguments used by this specific sub-command
                 # appropriate number of arguments. Not using `argparse` so that `--help can have as many arguments as it wants` and better formatted output
-                if ! _sub-abbr_internal_verify-arg_more-args 2 {$add_args}
+                if ! _sub-abbr_internal_verify-arg_more-args 2 {$argv}
                     _sub-abbr_internal_revert-paths
                     return 7
                 end
                 # Name arguments
-                set --function initial_args {$add_args[1..-3]}
-                set --function subcommand {$add_args[-2]}
-                set --function expansion {$add_args[-1]}
+                set --function initial_args {$argv[1..-3]}
+                set --function subcommand {$argv[-2]}
+                set --function expansion {$argv[-1]}
                 # compatible subcommand name: must be a single token
                 begin
                     if _sub-abbr_internal_verify-arg_subcommand-contains ' ' || _sub-abbr_internal_verify-arg_subcommand-contains \n
