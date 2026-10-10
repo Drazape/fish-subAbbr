@@ -65,7 +65,13 @@ function sub-abbr --description='Create abbreviations for sub-commands'
             set --local -- identity_subcommand_args {$identity_args[2..]} # Trimmed sub-commands: `identity` `list`/`erase`; arguments used sub-commands `identity`
             switch "$identity_args[1]"
                 case list
-                    if ! $argparse 'b/base=*&' 'r/regex&' 'i/invert&' 'm/match=&!_sub-abbr_internal_verify-arg_match-type' 'h/help&' -- {$identity_subcommand_args}
+                    if ! $argparse \
+                            'b/base=*&' \
+                            'r/regex&' \
+                            'i/invert&' \
+                            'm/match=&!_sub-abbr_internal_verify-arg_match-type' \
+                            'h/help&' \
+                            -- {$identity_subcommand_args}
                         _sub-abbr_internal_revert-paths
                         return 1
                     end
@@ -172,7 +178,15 @@ function sub-abbr --description='Create abbreviations for sub-commands'
         case add
             # arguments
             ## Switches
-            if ! $argparse 'b/base=+&!_sub-abbr_internal_verify-arg_base-command' 'r/regex=*&!_sub-abbr_internal_verify-arg_regex-val' 'e/expander&' 'c/set-cursor=?&' 'h/help&' '0/unprefix&' 's/regard-flags&' -- {$argv[2..]}
+            if ! $argparse \
+                    'b/base=+&!_sub-abbr_internal_verify-arg_base-command' \
+                    'r/regex=*&!_sub-abbr_internal_verify-arg_regex-val' \
+                    'e/expander&' \
+                    'c/set-cursor=?&' \
+                    'h/help&' \
+                    '0/unprefix&' \
+                    's/regard-flags&' \
+                    -- {$argv[2..]}
                 _sub-abbr_internal_revert-paths
                 return 5
             end
