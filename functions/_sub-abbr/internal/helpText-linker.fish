@@ -56,8 +56,8 @@ function _sub-abbr_internal_helpText-linker --description='Linker for fish-subAb
                     end
                 case set-cursor
                     echo -- {$baseURL}/Sub-Commands/Add/Switches/Set-Cursor/
-                case match
-                    echo -- {$baseURL}/Sub-Commands/List/Switches/Match/
+                case value-regexp
+                    echo -- {$baseURL}/Sub-Commands/List/Switches/Value-RegExp/
                 case sub-command
                     echo -- {$baseURL}/Sub-Commands/List/Switches/Sub-Command/
                 case expansion

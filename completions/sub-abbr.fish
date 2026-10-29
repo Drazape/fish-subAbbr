@@ -33,7 +33,7 @@ begin
             argparse --ignore-unknown \
                 # parse such that invalid or missing values are tolerated
                 # that is, singular values use a `?`, and multiple values use `*` instead of `+`.
-                m/pos-regexp i/invert S/sub-command=?\& E/expansion=?\& \
+                'm/value-regexp=*&' i/invert\& S/sub-command=?\& E/expansion=?\& \
                 'b/base=*&' r/regex=\* e/expander c/set-cursor=? 0/unprefix s/regard-flags \
                 -- (__fish_print_cmd_args)[3..]
             set --local -- commandline_initials {$argv}
@@ -93,12 +93,15 @@ begin
                     --description='Filter by what the sub-command expands to' --argument='(_subabbr_complete_list expansion)'
                 $list_mandatory_complete --short-option=c --long-option=set-cursor \
                     --description='Filter by what cursor placeholder is used' --arguments='(_subabbr_complete_list cursor_placeholder)'
-                $list_mandatory_complete --short-option=m --long-option=match --require-parameter \
-                    --description='Filter by sub-command match type' \
+                $list_mandatory_complete --short-option=m --long-option=value-regexp \
+                    --description='Match any argument value with Regular Expressions' \
                     --arguments='
-                        fixed\t\'Exactly matched sub-command\'
-                        regex\t\'Sub-command matched with RegExp\'
-                '
+                        bases\t\'Base-Commands executed\'
+                        initials\t\'Initial Arguments preceding Sub-Command\'
+                        sub-command\t\'Token to be expanded\'
+                        expansion\t\'Value to expand into\'
+                        cursor\t\'Cursor placeholder string\'
+                    '
             end
         end
         single-switch --condition={$list_complete_condition} --short-option=i --long-option=invert --description='Invert the match'
