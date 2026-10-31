@@ -7,7 +7,7 @@ function _awabbre_internal_identifier-data_gather-list --no-scope-shadowing --in
     contains -- commands
     for abbr in (abbr --show)
         if ! argparse --ignore-unknown {$commands_flag} '/description=&' '/function=&' -- (commandline --tokens-expanded --input={$abbr}) ||
-                ! string match --quiet -- {$identifier_prefix} (string sub --end={$prefix_length} -- {$_flag_function})
+                string match --quiet --invert -- {$identifier_prefix} (string sub --end={$prefix_length} -- {$_flag_function})
             continue
         end
         set --local -- identifier (

@@ -124,13 +124,13 @@ function awabbre --description='Create abbreviations for sub-commands'
                 set --query --local -- _flag_set_cursor &&
                     if ! set --query --local -- cursor_placeholder
                         continue
-                    else if test (count {$_flag_set_cursor}) -eq 1 && ! string match --quiet {$regex_flag_scope_cursor} -- {$_flag_set_cursor} {$cursor_placeholder}
+                    else if test (count {$_flag_set_cursor}) -eq 1 && string match --quiet --invert {$regex_flag_scope_cursor} -- {$_flag_set_cursor} {$cursor_placeholder}
                         continue
                     end
                 if set --query --local -- _flag_base
                     set --local -- bases_unmatched 0
                     for passed_base in {$_flag_base}
-                        if ! string match --quiet {$regex_flag_scope_bases} -- {$passed_base} {$bases}
+                        if string match --quiet --invert {$regex_flag_scope_bases} -- {$passed_base} {$bases}
                             set -- bases_unmatched 1 # continue outside superloop
                             break
                         end
@@ -139,16 +139,16 @@ function awabbre --description='Create abbreviations for sub-commands'
                         continue
                 end
                 set --query --local -- _flag_sub_command &&
-                    ! string match --quiet {$regex_flag_scope_subcommand} -- {$_flag_sub_command} {$subcommand} &&
+                    string match --quiet --invert {$regex_flag_scope_subcommand} -- {$_flag_sub_command} {$subcommand} &&
                     continue
                 set --query --local -- _flag_expansion &&
-                    ! string match --quiet {$regex_flag_scope_expansion} -- {$_flag_expansion} {$expansion} &&
+                    string match --quiet --invert {$regex_flag_scope_expansion} -- {$_flag_expansion} {$expansion} &&
                     continue
                 if test (count {$argv}) -gt 0
                     set --local -- index_count 1
                     set --local -- init_unmatched 0
                     for passed_init_match in {$argv}
-                        if ! string match --quiet {$regex_flag_scope_initials} -- "$passed_init_match" "$initials[$index_count]"
+                        if string match --quiet --invert {$regex_flag_scope_initials} -- "$passed_init_match" "$initials[$index_count]"
                             set -- init_unmatched 1 # continue outside superloop
                             break
                         end
