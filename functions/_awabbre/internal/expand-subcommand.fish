@@ -4,9 +4,10 @@ function _awabbre_internal_expand-subcommand --description='Expand a subcommand'
     set --local -- subcommand {$argv[1]}
     set --function -- expansion {$argv[2]}
     set --function -- initial_args {$argv[3..]}
-    set --query --local -- _flag_expander &&
-        set --local -- expander_arguments (commandline --tokens-expanded --input={$expansion}) && # command substitutions can't be used as the *Base Command* in Fish
+    if set --query --local -- _flag_expander
+        set --local -- expander_arguments (commandline --tokens-expanded --input={$expansion}) # command substitutions can't be used as the *Base Command* in Fish
         set --function -- expansion ($expander_arguments {$subcommand})
+    end
 
     # Commandline
     set --local -- argv (commandline --tokens-expanded --current-process)[..-2]
