@@ -10,7 +10,7 @@ function awabbre --description='Create abbreviations for sub-commands'
 
     begin
         set --local -- output_name (format text dim (status function))
-        set --function -- argparse argparse --name={$output_name}
+        set --function -- argparse{,} --name={$output_name}
         set --function -- error_output_prefix {$output_name}(format text dim (format text color white ':'))
         set --function -- print echo -- {$error_output_prefix}
     end
