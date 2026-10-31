@@ -85,11 +85,11 @@ begin
 
             begin # not using `single-switch` since a value is mandatory
                 set --local -- list_mandatory_complete {$list_complete} --require-parameter
-                $list_mandatory_complete --short-option=b --long-option=base \
+                $list_mandatory_complete --short-option=b --long-option=base --require-parameter \
                     --description='Filter by mandatorily accepted Base Commands' --arguments='(_subabbr_complete_list bases)'
-                $list_mandatory_complete --short-option=s --long-option=sub-command \
+                $list_mandatory_complete --short-option=S --long-option=sub-command --require-parameter \
                     --description='Filter by sub-command to expand' --argument='(_subabbr_complete_list subcommand)'
-                $list_mandatory_complete --short-option=e --long-option=expansion \
+                $list_mandatory_complete --short-option=E --long-option=expansion --require-parameter \
                     --description='Filter by what the sub-command expands to' --argument='(_subabbr_complete_list expansion)'
                 $list_mandatory_complete --short-option=c --long-option=set-cursor \
                     --description='Filter by what cursor placeholder is used' --arguments='(_subabbr_complete_list cursor_placeholder)'
