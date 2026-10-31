@@ -52,7 +52,7 @@ begin
             # variables inherited by `identifier-data` functions
             set --local -- argparse{,} --name='awabbre-list-completions'
             set --local -- internal_description_prefix 'awabbre: '
-            set --local -- identifier_prefix _awabbre_definition_
+            set --local -- identifier_prefix _awabbre-definition_
             set --local -- prefix_length (string length -- {$identifier_prefix})
             set --local -- identifier_start (math {$prefix_length} + 1)
             _awabbre_internal_identifier-data_gather-list

@@ -35,7 +35,10 @@ function awabbre --description='Create abbreviations for sub-commands'
         return
     end
 
-    set --function -- identifier_prefix _awabbre_definition_
+    # The hyphen keeps the generated function names from looking like variable assignments,
+    # since the *Identifier* that follows the prefix starts with an `=` (or `r`) and a colon.
+    # This is necessary to keep the function names using the identifier from looking like variable exports to its first “argument”.
+    set --function -- identifier_prefix _awabbre-definition_
     set --function -- internal_description_prefix 'awabbre: '
     # common prefix length data for identity sub-commands
     if contains -- {$argv[1]} list show erase
