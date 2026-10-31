@@ -33,5 +33,5 @@ Uses
 
 ## Usage
 ```fish {title="Format" .no-copy .no-select}
-sub-abbr erase [<IDENTIFIER>…]
+awabbre erase [<IDENTIFIER>…]
 ```

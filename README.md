@@ -1,4 +1,4 @@
-# Showcase: [Jujutsu](../functions/sub-abbr/pkg/official/jj.fish)
+# Showcase: [Jujutsu](../functions/awabbre/pkg/official/jj.fish)
 ![
 	Showcase of the abbreviations included in the official Jujutsu package.
 	The showcased sub-command is `rebase`.
@@ -15,7 +15,7 @@
 -->
 
 # Purpose
-Simplify creating context-aware Sub-Command abbreviations [^simplification]
+Simplify creating context-aware abbreviations [^simplification]
 
 [^simplification]: You can easily abbreviate base-commands, but there is no straight-forward way to do the same with sub-commands. After the initial development, a GitHub [discussion](https://github.com/fish-shell/fish-shell/discussions/11682) & [Issue](https://github.com/fish-shell/fish-shell/issues/11944) in the Fish repository was discovered that comes up with this exact problem
 
@@ -25,7 +25,7 @@ Following are some example uses of the program.
 In these examples, additional functionality is added as a “default” using abbreviations
 ### Switches for certain sub-commands  
 ```fish
-sub-abbr add --unprefix --set-cursor --base=run0 nh os switch{,' % --bypass-root-check'}
+awabbre add --unprefix --set-cursor --base=run0 nh os switch{,' % --bypass-root-check'}
 ```
 ![
 	Showcases 2 of the switches.
@@ -36,7 +36,7 @@ sub-abbr add --unprefix --set-cursor --base=run0 nh os switch{,' % --bypass-root
 
 ### A combination of switches
 ```fish
-sub-abbr add --base=eza -- --long{,\ --group}`
+awabbre add --base=eza -- --long{,\ --group}`
 ```
 [^eza-why-group]  
 [^eza-why-group]: Shows the group of the owned files when viewing in the long format.
@@ -53,7 +53,7 @@ These are examples of some cosmetic abbreviations that provide clarity and visua
 Provides visual feedback that the short flag is correct!
 #### `eza`: long flag
 ```fish
-sub-abbr add --base=eza -- -l --long
+awabbre add --base=eza -- -l --long
 ```
 ![
 	The *Base Command* `ls` is typed out, which is expanded using regular abbreviations.
@@ -64,8 +64,8 @@ sub-abbr add --base=eza -- -l --long
 #### Jujutsu: *Sub-Command* aliases
 Provides visual feedback that the sub-command inputted is correct!
 ```fish
-sub-abbr add --base=jj b{,ookmark}
-sub-abbr add --base=jj ci commit
+awabbre add --base=jj b{,ookmark}
+awabbre add --base=jj ci commit
 ```
 ![
 	The command starts with a regular abbreviation of the *Base Command* `j` abbreviating into `jj`.
@@ -95,54 +95,54 @@ sub-abbr add --base=jj ci commit
 > ### Quick Start
 > Simply add the following command to your Fish configuration (without any arguments):
 > ```fish
-> sub-abbrs
+> awabbre-pkgs
 > ```
 > Doing so will load all the packages (that is, the included abbreviations) on each shell startup
 
 > [!TIP]
-> ### Detailed [documentation](https://drazape.github.io/fish-subAbbr/ "GitHub Pages: Zensical documentation")
+> ### Detailed [documentation](https://drazape.github.io/fish-awabbre/ "GitHub Pages: Zensical documentation")
 > Everything below (and more) is covered extensively in the main documentation.  
 > You may familiarize yourself with the summary of the top-level features below, and switch to the documentation pages to know them in-depth, with exclusive additional information.
 
-## `sub-abbr`
+## `awabbre`
 Create personal Sub-Command abbreviations in the scope
 
 ### Arguments
-The arguments that `sub-abbr` accepts on the command-line
+The arguments that `awabbre` accepts on the command-line
 #### Sub-Commands
 Distinct operations that the command performs
 ##### Add
-Sub-command to create context-aware sub-command abbreviations
+Sub-command to create context-aware abbreviations
 ###### Positional
-1. [**Initial Arguments**](https://drazape.github.io/fish-subAbbr/Reference/Arguments/Positionals/Initial-Arguments/ "documentation"): Precedes the *Sub-Command*. Becomes the new *Initial Arguments* for *Expansion*  
-2. [**Sub-Command**](https://drazape.github.io/fish-subAbbr/Reference/Arguments/Positionals/Sub-Command/ "documentation"): The *Sub-Command* to be replaced (expanded) by the *Expansion*. Comes after the *Initial Arguments*
-3. [**Expansion**](https://drazape.github.io/fish-subAbbr/Reference/Arguments/Positionals/Expansion/ "documentation"): The replacement (*Expansion*) of the typed *Sub-Command*. Becomes the new *Sub-Command* for the *Initial Arguments*
+1. [**Initial Arguments**](https://drazape.github.io/fish-awabbre/Reference/Arguments/Positionals/Initial-Arguments/ "documentation"): Precedes the *Sub-Command*. Becomes the new *Initial Arguments* for *Expansion*  
+2. [**Sub-Command**](https://drazape.github.io/fish-awabbre/Reference/Arguments/Positionals/Sub-Command/ "documentation"): The *Sub-Command* to be replaced (expanded) by the *Expansion*. Comes after the *Initial Arguments*
+3. [**Expansion**](https://drazape.github.io/fish-awabbre/Reference/Arguments/Positionals/Expansion/ "documentation"): The replacement (*Expansion*) of the typed *Sub-Command*. Becomes the new *Sub-Command* for the *Initial Arguments*
 ###### Switches
 | Name | Description | Long | Short | Inherited [^inherited-switches] |
 | :--: | ----------- | :--: | :---: | :-----------------------------: |
-| [**Help**](https://drazape.github.io/fish-subAbbr/Reference/Arguments/Universal-Switches/Help/ "documentation") | Show a reference manual — consisting of the [purpose](#sub-abbr "The purpose of the command") & [arguments](#Arguments "Descriptions on all the supported arguments") | `help` | `h` | ❔ universal |
-| [**RegExp**](https://drazape.github.io/fish-subAbbr/Reference/Arguments/Sub-Commands/Add/Switches/Regular-Expression/ "documentation") | Match *Sub-Command* with Regular Expressions. Essential (with `sub-command`) for abbreviating the same pair of *Sub-Command* & *Initial Arguments* [^multi-bases] | `regex` | `r` | ⏫ extended |
-| [**Expander**](https://drazape.github.io/fish-subAbbr/Reference/Arguments/Sub-Commands/Add/Switches/Expander "documentation") | Use the output of a command as the *Expansion* | `expander` | `e` | ⏫ extended |
-| [**Base**](https://drazape.github.io/fish-subAbbr/Reference/Arguments/Sub-Commands/Add/Switches/Base/ "documentation") | Specify the *Base Commands* the abbreviation triggers for | `base` | `b` | ✅ retained |
-| [**Set Cursor**](https://drazape.github.io/fish-subAbbr/Reference/Arguments/Sub-Commands/Add/Switches/Set-Cursor "documentation") | Set the cursor to a position. Same usage as the internal switch | `set-cursor` | `c` | ✅ retained | 
-| [**Unprefix**](https://drazape.github.io/fish-subAbbr/Reference/Arguments/Sub-Commands/Add/Switches/Unprefix "documentation") | Deactivate toleration of `$subabbr_prefix` before the Base Command; that is, do not expand the *Sub-Command* if the *Initial Args* is prefixed with `run0` | `unprefix` | `0` | ❌ exclusive |
-| [**Regard Flags**](https://drazape.github.io/fish-subAbbr/Reference/Arguments/Sub-Commands/Add/Switches/Regard-Flags "documentation") | Acknowledge flags in the *Initial Arguments*; If not set, switches in the *Initial Arguments* are ignored | `regard-flags` | `s` | ❌ exclusive |
+| [**Help**](https://drazape.github.io/fish-awabbre/Reference/Arguments/Universal-Switches/Help/ "documentation") | Show a reference manual — consisting of the [purpose](#awabbre "The purpose of the command") & [arguments](#Arguments "Descriptions on all the supported arguments") | `help` | `h` | ❔ universal |
+| [**RegExp**](https://drazape.github.io/fish-awabbre/Reference/Arguments/Sub-Commands/Add/Switches/Regular-Expression/ "documentation") | Match *Sub-Command* with Regular Expressions. Essential (with `sub-command`) for abbreviating the same pair of *Sub-Command* & *Initial Arguments* [^multi-bases] | `regex` | `r` | ⏫ extended |
+| [**Expander**](https://drazape.github.io/fish-awabbre/Reference/Arguments/Sub-Commands/Add/Switches/Expander "documentation") | Use the output of a command as the *Expansion* | `expander` | `e` | ⏫ extended |
+| [**Base**](https://drazape.github.io/fish-awabbre/Reference/Arguments/Sub-Commands/Add/Switches/Base/ "documentation") | Specify the *Base Commands* the abbreviation triggers for | `base` | `b` | ✅ retained |
+| [**Set Cursor**](https://drazape.github.io/fish-awabbre/Reference/Arguments/Sub-Commands/Add/Switches/Set-Cursor "documentation") | Set the cursor to a position. Same usage as the internal switch | `set-cursor` | `c` | ✅ retained | 
+| [**Unprefix**](https://drazape.github.io/fish-awabbre/Reference/Arguments/Sub-Commands/Add/Switches/Unprefix "documentation") | Deactivate toleration of `$awabbre_prefix` before the Base Command; that is, do not expand the *Sub-Command* if the *Initial Args* is prefixed with `run0` | `unprefix` | `0` | ❌ exclusive |
+| [**Regard Flags**](https://drazape.github.io/fish-awabbre/Reference/Arguments/Sub-Commands/Add/Switches/Regard-Flags "documentation") | Acknowledge flags in the *Initial Arguments*; If not set, switches in the *Initial Arguments* are ignored | `regard-flags` | `s` | ❌ exclusive |
 
-[^inherited-switches]: ✅ retained switches are passed to `abbr`; ⏫ extended switches add behavior; ❌ exclusive switches are specific to `sub-abbr`.
+[^inherited-switches]: ✅ retained switches are passed to `abbr`; ⏫ extended switches add behavior; ❌ exclusive switches are specific to `awabbre`.
 [^multi-bases]: *RegExp* must be passed in order to use the same *Sub-Command* with the same *Base-Command* in a different position. For example, you can only have `jj l{,og}` and `jj op l{,og}` if *RegExp* is used. (You don't have to do anything extra, other than escape any regular expressions)
 ##### List
-Get the identifiers of loaded context-aware sub-command abbreviations
+Get the identifiers of loaded context-aware abbreviations
 ##### Show
 Show the definition of an abbreviation, as passed to [*Add*](#Add)
 ##### Erase
-Erase a context-aware sub-command abbreviation by its identifier
+Erase a context-aware abbreviation by its identifier
 
-## `sub-abbrs`
+## `awabbre-pkgs`
 Helper to conveniently enable compatible package groups, or packages.  
 Package groups are groups of packages which can be enabled in bulk.  
 
 ### Arguments
-Various arguments supported by `sub-abbrs` on the command-line
+Various arguments supported by `awabbre-pkgs` on the command-line
 #### Positional
 None
 :   When no arguments are specified, all the packages are activated
@@ -152,8 +152,8 @@ Group or Package path
 
 > [!TIP]
 > ### Discover Packages
->	- [Official](../functions/sub-abbr/pkg/official/ "Repository package source")
->	- [3rd-party](https://github.com/topics/fish-subabbr/ "GitHub topic")
+>	- [Official](../functions/awabbre/pkg/official/ "Repository package source")
+>	- [3rd-party](https://github.com/topics/fish-awabbre/ "GitHub topic")
 > #### [Create](./CONTRIBUTING.md "Contribution Redirect")
 ---
 
@@ -161,13 +161,13 @@ Group or Package path
 The following are some universal installation methods, for you can use them on any distribution.
 ## User: [Fisher](https://github.com/jorgebucaran/fisher "Fish plugin manager")
 ```fish
-fisher install Drazape/fish-subAbbr
+fisher install Drazape/fish-awabbre
 ```
 
 ## System
 ```fish
-curl -fsSL 'https://raw.githubusercontent.com/Drazape/fish-subAbbr/main/install.fish' | run0 fish -NP
+curl -fsSL 'https://raw.githubusercontent.com/Drazape/fish-awabbre/main/install.fish' | run0 fish -NP
 ```
 
 > [!IMPORTANT]
-> [More specialized ways to install](https://drazape.github.io/fish-subAbbr/Guides/Meta/Installation/#package-manager "Distribution Package Managers")
+> [More specialized ways to install](https://drazape.github.io/fish-awabbre/Guides/Meta/Installation/#package-manager "Distribution Package Managers")

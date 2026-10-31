@@ -2,11 +2,11 @@
 status: index
 comments: true
 icon: lucide/terminal
-description: Command-line arguments accepted by sub-abbr.
+description: Command-line arguments accepted by awabbre.
 ---
 
 # Arguments
-The command-line arguments accepted by `sub-abbr`.
+The command-line arguments accepted by `awabbre`.
 
 ## Sections
 | Section | Summary | Pages |

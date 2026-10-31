@@ -27,5 +27,5 @@ Putting arguments after the cursor; when there are arguments that need positione
 
 ## Usage
 ```fish {title="Format" .no-copy .no-select}
-sub-abbr add --base=<base-command>… {-c|--set-cursor} [<creation-flags>…] -- <initials> <sub-command> <expansion>
+awabbre add --base=<base-command>… {-c|--set-cursor} [<creation-flags>…] -- <initials> <sub-command> <expansion>
 ```

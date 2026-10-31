@@ -1,6 +1,6 @@
 # Source Code
 Contribution to the primary codebase doesn't have any special instructions.  
-The [user documentation](https://drazape.github.io/fish-subAbbr/ "The documentation for both the users and distributors") is available to learn how to make and contributing packages
+The [user documentation](https://drazape.github.io/fish-awabbre/ "The documentation for both the users and distributors") is available to learn how to make and contributing packages
 
 # Git Branching
 The `develop` bookmark is used for the following purposes:

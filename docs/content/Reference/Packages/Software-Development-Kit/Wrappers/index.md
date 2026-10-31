@@ -11,7 +11,7 @@ These are made to make package development more intuitive when a mere Expansion 
 These functions are not limited to changing the expansion, but to every aspect of the abbreviation, and beyond.
 
 ## Uses
-- Directly called from the package instead of calling `sub-abbr`
+- Directly called from the package instead of calling `awabbre`
 !!! info "Usage"
     ```fish
     <WRAPPER> <args>

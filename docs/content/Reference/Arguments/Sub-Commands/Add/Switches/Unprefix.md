@@ -5,11 +5,11 @@ description: Deactivate `run0` command-prefix toleration
 ---
 
 # Unprefix
-Deactivate [`$subabbr_prefix`][prefix-config]{data-preview} toleration before the Base Command
+Deactivate [`$awabbre_prefix`][prefix-config]{data-preview} toleration before the Base Command
 
 [prefix-config]: ../../../../Configuration/Prefix.md
 
-Normally, if a token from `$subabbr_prefix` precedes the Base Command on the command-line, it is ignored, and the abbreviation is still performed.  
+Normally, if a token from `$awabbre_prefix` precedes the Base Command on the command-line, it is ignored, and the abbreviation is still performed.  
 With this switch enabled for the respective abbreviations, those tokens are no longer respected.
 
 ## Properties
@@ -19,7 +19,7 @@ With this switch enabled for the respective abbreviations, those tokens are no l
 
 ## Details
 Relation
-:   *Initial Arguments*: an argument that is one of `$subabbr_prefix` would no longer be specially tolerated
+:   *Initial Arguments*: an argument that is one of `$awabbre_prefix` would no longer be specially tolerated
 
 Use-case
 :   For abbreviating commands that must be elevated for the expansion to occur
@@ -29,18 +29,18 @@ Use-case
 
 ## Usage
 ```fish {title="Format" .no-copy .no-select}
-sub-abbr add --base=<base-command> … <UNPREFIX-FLAG> (?:`--`) …
+awabbre add --base=<base-command> … <UNPREFIX-FLAG> (?:`--`) …
 ```
 
 !!! example "abbreviating `run0`"
     Always use `--empower` so that the created files are owned by the calling user, not `root`.
     ```fish {title="command" .no-select}
-    sub-abbr add -0s --base=run0 -- {,--empower\ }touch
+    awabbre add -0s --base=run0 -- {,--empower\ }touch
     ```
     Here, *Unprefix* is used since you typically wouldn't prefix `run0`—the prefixes are usually elevation commands.
 
 !!! example "Expanding only with `run0`"
     Only bypass *root check* on an attempt to run as `root`
     ```fish {title="command" .no-select}
-    sub-abbr add -0c --base=run0 nh os switch{,' % --bypass-root-check'}
+    awabbre add -0c --base=run0 nh os switch{,' % --bypass-root-check'}
     ```

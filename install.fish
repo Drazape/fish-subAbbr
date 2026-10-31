@@ -17,7 +17,7 @@ if set --query --local -- remote
     end
 
     begin
-        set --local -- proj_name fish-subAbbr
+        set --local -- proj_name fish-awabbre
         set --local -- repository_dir /tmp/{$proj_name}-(random)
         git clone --filter=blob:none https://github.com/Drazape/{$proj_name}.git "$repository_dir" || return 2
         cd {$repository_dir}

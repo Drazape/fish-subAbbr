@@ -42,12 +42,12 @@ The valid scopes are described in the following table:
 
 !!! example "List abbreviations for the help switch"
     ```fish {title="Command"}
-    sub-abbr list --value-regexp=sub-command --sub-command='--help|-h'
+    awabbre list --value-regexp=sub-command --sub-command='--help|-h'
     ```
 
 !!! example "List abbreviations for triple-character Base Commands"
     ```fish {title="Command"}
-    sub-abbr list --value-regexp=bases --base=-^.{3}$'
+    awabbre list --value-regexp=bases --base=-^.{3}$'
     ```
 
 

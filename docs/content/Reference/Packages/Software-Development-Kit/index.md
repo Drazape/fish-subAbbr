@@ -2,11 +2,11 @@
 status: index
 comments: true
 icon: lucide/toolbox
-description: Library functions for building fish-subAbbr packages.
+description: Library functions for building fish-awabbre packages.
 ---
 
 # Software Development Kit
-Abstractions officially provided to extend the functionality of fish-subAbbr, and reduce boilerplate in packages.
+Abstractions officially provided to extend the functionality of fish-awabbre, and reduce boilerplate in packages.
 
 ## Library areas
 | Area | Summary | Pages |

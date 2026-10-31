@@ -24,11 +24,11 @@ Filter the abbreviations listed by how their [Initial Arguments][initials]{data-
 
 !!! example "List abbrs with *RegExp*-matched Initials"
     ```fish {title="Command"}
-    sub-abbr list --match=regex
+    awabbre list --match=regex
     ```
 !!! example "List abbrs with exactly-matched Initials"
     ```fish {title="Command"}
-    sub-abbr list --match=fixed
+    awabbre list --match=fixed
     ```
 
 !!! note "Both by default"

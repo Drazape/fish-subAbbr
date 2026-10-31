@@ -6,7 +6,7 @@ description: Show definition of a abbr by its identity
 ---
 
 # Show
-Show the definition of context-aware sub-command abbreviations as it would be passed to [*Add*][add-subcommand]{data-preview}
+Show the definition of context-aware abbreviations as it would be passed to [*Add*][add-subcommand]{data-preview}
 
 ## Properties
 |  Name  | Positional Values |
@@ -31,7 +31,7 @@ Uses
 
 ## Usage
 ```fish {title="Format" .no-copy .no-select}
-sub-abbr show [<IDENTIFIER>…]
+awabbre show [<IDENTIFIER>…]
 ```
 
 ### Output
@@ -71,6 +71,6 @@ That is, each of the flags are kept as flags, and the positionals are escaped by
     set -- expansion {$argv[-1]}
     ```
     !!! warning "Internal Parser"
-        It would be easier to just use the internal function `_sub-abbr_internal_identifier-data_individual-info`, but it isn't part of the public API.
+        It would be easier to just use the internal function `_awabbre_internal_identifier-data_individual-info`, but it isn't part of the public API.
 
 [add-subcommand]: ./Add/index.md

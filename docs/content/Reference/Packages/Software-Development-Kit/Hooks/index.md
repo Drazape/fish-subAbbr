@@ -16,7 +16,7 @@ The hooks are activated through [Fish events](https://fishshell.com/docs/current
     That is, only after the user configuration is resolved, and all the checks are validated.  
     Furthermore, the hook is not triggered when the user simply uses the command to [print out a reference help text](../../../Arguments/Universal-Switch:Help.md){data-preview}
 
-Each event name is prepended with `subabbr`—for example, the [event for Add](./Add.md){data-preview} would be `subabbr_add`
+Each event name is prepended with `awabbre`—for example, the [event for Add](./Add.md){data-preview} would be `awabbre_add`
 
 The hook function can accept these emissions, and use the context tokens passed along as arguments to perform its operations.
 
@@ -37,7 +37,7 @@ Single interface
 :   The users can manage all the abbreviations through the same interface, without having to refer to a new one for each plugin.
 
 Familiarity
-:   Hooks lets the user run the official, familiar `sub-abbr`, without having to learn the additional wrapper program.
+:   Hooks lets the user run the official, familiar `awabbre`, without having to learn the additional wrapper program.
 
 ### Multiple
 There can be multiple hooks for the same event, from multiple plugins.

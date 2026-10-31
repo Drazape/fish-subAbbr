@@ -6,7 +6,7 @@ description: Values shared across sub-commands and their arguments.
 ---
 
 # Common Values
-Values that are shared by multiple `sub-abbr` sub-commands. Depending on the sub-command, a common value can be provided as a positional argument or as a switch.
+Values that are shared by multiple `awabbre` sub-commands. Depending on the sub-command, a common value can be provided as a positional argument or as a switch.
 
 ## Values
 | Value | Summary | Related pages |

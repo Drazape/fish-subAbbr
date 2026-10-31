@@ -6,7 +6,7 @@ description: Installation and distribution guides.
 ---
 
 # Meta
-Guides for installing fish-subAbbr and for distributing abbreviation packages.
+Guides for installing fish-awabbre and for distributing abbreviation packages.
 
 ## Guides
 | Guide | Summary |

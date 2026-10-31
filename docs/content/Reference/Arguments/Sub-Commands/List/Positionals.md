@@ -14,14 +14,14 @@ description: Filter the listed identifier by their command-line arguments.
 
 They are passed exactly as passed to [Add][add]{data-preview}, but without the [Expansion][expansion]{data-preview}, since it is [not part of their identifier](./index.md#output){data-preview}.
 
-After they are provided, only the context-aware sub-command abbreviations whose identifiers match the provided positional arguments will be listed.
+After they are provided, only the context-aware abbreviations whose identifiers match the provided positional arguments will be listed.
 
 !!! example "List identifiers filtered by sub-commands"
     ```fish {title="Jujutsu log"}
-    sub-abbr list log
+    awabbre list log
     ```
     ```fish {title="Nix3 shell"}
-    sub-abbr list shell
+    awabbre list shell
     ```
 
 [add]: ../Add/index.md

@@ -32,17 +32,17 @@ Variable Arguments
 
 ## Usage
 ```fish {title="Format" .no-copy .no-select}
-sub-abbr add --base=<base-command> … -- (?:<INITIAL_ARGUMENTS>) <Sub-Command> <Expansion>
-sub-abbr list … (?:<INITIAL_ARGUMENTS>) <Sub-Command>
+awabbre add --base=<base-command> … -- (?:<INITIAL_ARGUMENTS>) <Sub-Command> <Expansion>
+awabbre list … (?:<INITIAL_ARGUMENTS>) <Sub-Command>
 ```
 
 !!! example
     !!! note "Indication"
         The [*Initial Arguments*](./Initial-Arguments.md){data-preview} are indicated in **Bold**
 
-    - `#!fish sub-abbr add --base=jj ci commit` (does not use *Initial Arguments*)
-    - `#!fish sub-abbr add --base=run0 -0c `**`nh os`**` switch 'switch % --bypass-root-check'`
-    - `#!fish sub-abbr list --base=run0 --sub-command=switch `**`nh os`**
+    - `#!fish awabbre add --base=jj ci commit` (does not use *Initial Arguments*)
+    - `#!fish awabbre add --base=run0 -0c `**`nh os`**` switch 'switch % --bypass-root-check'`
+    - `#!fish awabbre list --base=run0 --sub-command=switch `**`nh os`**
 
 !!! info "Implementation Details"
     Each argument is separately matched by parsing the command-line as follows:

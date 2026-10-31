@@ -7,11 +7,11 @@ description: Trigger for abbr creation
 # Add
 | Trigger | Event |
 | :-----: | :---: |
-| After abbr creation | `subabbr_add` |
+| After abbr creation | `awabbre_add` |
 
 ## Tokens
 When the event is emitted, the following arguments are passed to the hook functions:
-- all the tokens passed by the user (to the [*Add* sub-command][add-subcommand]{data-preview} of `sub-abbr`), as is.
+- all the tokens passed by the user (to the [*Add* sub-command][add-subcommand]{data-preview} of `awabbre`), as is.
 - the identifier of the created abbreviation as an additional final argument (after the [*Expansion*][expansion-positional]{data-preview}).
 
 [expansion-positional]: ../../../Arguments/Common-Values/Components/Expansion.md

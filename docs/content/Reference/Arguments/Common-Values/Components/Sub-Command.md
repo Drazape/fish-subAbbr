@@ -23,15 +23,15 @@ It must comprise only one token; that is, only one token can be replaced by the 
 
 ## Usage
 ```fish {title="Format" .no-copy .no-select}
-sub-abbr add --base=<base-command> [<initial-arguments>] <SUB-COMMAND> <Expansion>
-sub-abbr list [<initial-arguments>] --sub-command=<SUB-COMMAND>
+awabbre add --base=<base-command> [<initial-arguments>] <SUB-COMMAND> <Expansion>
+awabbre list [<initial-arguments>] --sub-command=<SUB-COMMAND>
 ```
 
 !!! Example
     !!! note "Indication"
         The *Sub-Command*s are indicated in **Bold**
 
-    - `#!fish sub-abbr add --base=jj `**`ci`**` commit`
-    - `#!fish sub-abbr add -0c --base=run0 nh os `**`switch`**` 'switch % --bypass-root-check'`
-    - `#!fish sub-abbr list --base=jj `**`ci`**
-    - `#!fish sub-abbr list -0c --base=run0 nh os `**`--sub-command=switch`**
+    - `#!fish awabbre add --base=jj `**`ci`**` commit`
+    - `#!fish awabbre add -0c --base=run0 nh os `**`switch`**` 'switch % --bypass-root-check'`
+    - `#!fish awabbre list --base=jj `**`ci`**
+    - `#!fish awabbre list -0c --base=run0 nh os `**`--sub-command=switch`**

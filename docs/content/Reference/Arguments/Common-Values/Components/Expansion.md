@@ -25,13 +25,13 @@ Command-line
 
 ## Usage
 ```fish {title="Format" .no-copy .no-select}
-sub-abbr --add --base=<base-command> … <initial-arguments> <Sub-Command> <EXPANSION>
+awabbre --add --base=<base-command> … <initial-arguments> <Sub-Command> <EXPANSION>
 ```
 
 !!! example
     !!! note "Indication"
         The [*Expansion*](./Expansion.md){data-preview}s are indicated in **Bold**
 
-    - `#!fish sub-abbr add --base=jj ci `**`commit`**
-    - `#!fish sub-abbr add -0c --base={$subabbr_prefix} nh os switch `**`'switch % --bypass-root-check'`**
-    - `#!fish sub-abbr list --expansion='formatter run'`
+    - `#!fish awabbre add --base=jj ci `**`commit`**
+    - `#!fish awabbre add -0c --base={$awabbre_prefix} nh os switch `**`'switch % --bypass-root-check'`**
+    - `#!fish awabbre list --expansion='formatter run'`

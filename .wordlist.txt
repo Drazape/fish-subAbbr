@@ -38,3 +38,6 @@ Zensical
 PascalCase
 unrecommended
 unescaped
+awabbre
+awabbres
+pkgs

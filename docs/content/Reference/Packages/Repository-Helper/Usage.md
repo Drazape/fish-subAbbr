@@ -5,7 +5,7 @@ description: Helper guide
 ---
 
 # Usage
-`sub-abbrs` accepts a single path to a package or a group, where each argument is an element to that path.
+`awabbre-pkgs` accepts a single path to a package or a group, where each argument is an element to that path.
 
 ## Loading on Selection
 Group

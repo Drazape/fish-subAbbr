@@ -39,7 +39,7 @@ Unlike `abbr` which can have the same identifier repeated (and would require the
 
 ## Usage
 ```fish {title="Format" .no-copy .no-select}
-sub-abbr list [<flags>… -- Initials Sub-Command]
+awabbre list [<flags>… -- Initials Sub-Command]
 ```
 
 ### Output

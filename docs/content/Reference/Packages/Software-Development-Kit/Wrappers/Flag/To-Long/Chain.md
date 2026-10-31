@@ -23,7 +23,7 @@ Chained
 ## Arguments
 Command-line tokens the wrapper accepts as arguments
 ### Positionals
-1. **Initials**: The same as `sub-abbr`. Directly passed without any modification
+1. **Initials**: The same as `awabbre`. Directly passed without any modification
 2. **Short Flag**: The character after the `-`
 3. **Long Flag**: The word after the `--`. Expands *Short Flag* into it
 

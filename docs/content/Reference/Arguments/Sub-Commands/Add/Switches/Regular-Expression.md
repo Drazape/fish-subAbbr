@@ -49,9 +49,9 @@ Matching command-line arguments dynamically
     :   It is directly passed to `builtin abbr` with the [*Sub-Command*](../../../Common-Values/Components/Sub-Command.md "Args preceding *Sub-Command*"){data-preview} as the value
 
     Initial Arguments
-    :   [*Initial Arguments*](../../../Common-Values/Components/Initial-Arguments.md "Args preceding"){data-preview} in itself is a `sub-abbr` exclusive feature. Thus, manually matched
+    :   [*Initial Arguments*](../../../Common-Values/Components/Initial-Arguments.md "Args preceding"){data-preview} in itself is a `awabbre` exclusive feature. Thus, manually matched
 
 ## Usage
 ```fish {title="Format" .no-copy .no-select}
-sub-abbr add --base=<base-commands>… --regex[=<value>…] <creation_flags>… -- <initials> <sub-command> <expansion>
+awabbre add --base=<base-commands>… --regex[=<value>…] <creation_flags>… -- <initials> <sub-command> <expansion>
 ```

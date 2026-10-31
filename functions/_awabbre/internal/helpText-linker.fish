@@ -1,0 +1,69 @@
+function _awabbre_internal_helpText-linker --description='Linker for fish-awabbre itself' --argument-names={type,name}
+    set --local -- baseURL https://drazape.github.io/fish-awabbre
+    if test (count {$argv}) -eq 0
+        echo -- {$baseURL}/
+        return
+    end
+    set --local -- baseURL {$baseURL}/Reference/Arguments
+
+    switch {$type}
+        case heading
+            switch {$name}
+                case Positionals
+                    echo -- {$baseURL}/Positionals/Expansion/
+                case Sub-Commands
+                    echo -- {$baseURL}/Sub-Commands/Add/
+                case Flags
+                    echo -- {$baseURL}/Universal-Switches/Help/
+            end
+        case positional
+            switch {$name}
+                case 'Initial Args'
+                    echo -- {$baseURL}/Positionals/Initial-Arguments/
+                case Sub-Command Expansion
+                    echo -- {$baseURL}/Positionals/{$name}/
+                case \*
+                    return 1
+            end
+        case sub-command
+            switch $name
+                case add
+                    echo -- {$baseURL}/Sub-Commands/Add/
+                case list
+                    echo -- {$baseURL}/Sub-Commands/List/
+                case show
+                    echo -- {$baseURL}/Sub-Commands/Show/
+                case erase
+                    echo -- {$baseURL}/Sub-Commands/Erase/
+            end
+        case flag
+            switch $name
+                case help
+                    echo -- {$baseURL}/Universal-Switches/Help/
+                case unprefix
+                    echo -- {$baseURL}/Sub-Commands/Add/Switches/Unprefix/
+                case expander
+                    echo -- {$baseURL}/Sub-Commands/Add/Switches/Expander/
+                case regard-flags
+                    echo -- {$baseURL}/Sub-Commands/Add/Switches/Regard-Flags/
+                case regex
+                    echo -- {$baseURL}/Sub-Commands/Add/Switches/Regular-Expression/
+                case base
+                    if set --query --local -- _awabbre_help_list
+                        echo -- {$baseURL}/Sub-Commands/List/Switches/Base/
+                    else
+                        echo -- {$baseURL}/Sub-Commands/Add/Switches/Base/
+                    end
+                case set-cursor
+                    echo -- {$baseURL}/Sub-Commands/Add/Switches/Set-Cursor/
+                case value-regexp
+                    echo -- {$baseURL}/Sub-Commands/List/Switches/Value-RegExp/
+                case sub-command
+                    echo -- {$baseURL}/Sub-Commands/List/Switches/Sub-Command/
+                case expansion
+                    echo -- {$baseURL}/Sub-Commands/List/Switches/Expansion/
+                case invert
+                    echo -- {$baseURL}/Sub-Commands/List/Switches/Invert/
+            end
+    end
+end

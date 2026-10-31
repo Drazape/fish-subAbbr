@@ -2,11 +2,11 @@
 status: index
 comments: true
 icon: lucide/squares-subtract
-description: Operations provided by the sub-abbr command.
+description: Operations provided by the awabbre command.
 ---
 
 # Sub-Commands
-Operations that can be performed using `sub-abbr`.
+Operations that can be performed using `awabbre`.
 
 ## Sub-Commands
 | Sub-Command | Operation | Positionals | Arguments |

@@ -5,7 +5,7 @@ description: Distribution ways
 ---
 
 # Package Distribution
-Guide for distributing fish-subAbbr packages
+Guide for distributing fish-awabbre packages
 ## Comparison
 |  ~  | [Official Repository](#official-repository) | [3rd-party](#3rd-party) |
 | :-: | :-----------------------------------------: | ---------------------- |
@@ -17,12 +17,12 @@ Guide for distributing fish-subAbbr packages
 ## Function Name Scheme
 !!! warning "Single Trigger only"
     In general, you must only use a single method to activate your package: either the prefix convention, or the event.
-    If you use multiple triggers, then the amount of time it takes for `sub-abbrs` to execute would double each time in the same session.
+    If you use multiple triggers, then the amount of time it takes for `awabbre-pkgs` to execute would double each time in the same session.
 ### Dynamic Functions
-For the package to be indexed by the repository, its function name must be prefixed with `_sub-abbr_pkg_`.  
+For the package to be indexed by the repository, its function name must be prefixed with `_awabbre_pkg_`.  
 [Groups](../../Reference/Packages/Repository-Helper/Package-Tree.md){data-preview} are separated with a `_`; the group organisation is up to the developer, or the packager/distributor.
 ```fish {title="Function Name Format"}
-_sub-abbr_pkg_<groups(sep:_)>_<pkgname>
+_awabbre_pkg_<groups(sep:_)>_<pkgname>
 ```
 
 ### Static Functions
@@ -35,10 +35,10 @@ If this is what you want, then you must not follow the prefix convention; otherw
 [dynamic-function]: https://fishshell.com/docs/current/tutorial.html#autoloading-functions "Official Fish documentation"
 [^dynamic-function]: A function is dynamically distributed if it is distributed as a file in one of `$fish_function_path`; The file is sourced the first time the function is called
 
-To utilize this feature, you must add a trigger to the package function for the [event](https://fishshell.com/docs/current/language.html#event-handlers "automatically run when a specific event takes place"){data-preview}: `sub-abbrs`
+To utilize this feature, you must add a trigger to the package function for the [event](https://fishshell.com/docs/current/language.html#event-handlers "automatically run when a specific event takes place"){data-preview}: `awabbre-pkgs`
 
 ```fish {title="Function Definition Format"}
-function <arbitrary-name> --on-event=sub-abbrs
+function <arbitrary-name> --on-event=awabbre-pkgs
     … # body
 end
 ```
@@ -52,7 +52,7 @@ Each package is a single function in the repository which provides abbreviations
     The root group for the repository is `official`.
 
 !!! tip "Gaze at Pre-existing Packages"
-    Have a look at other packages defined in the [repository](https://github.com/Drazape/fish-subAbbr/tree/main/functions/sub-abbr/pkg/official/ "Official Package Repository"){data-preview} before pushing your own here.
+    Have a look at other packages defined in the [repository](https://github.com/Drazape/fish-awabbre/tree/main/functions/awabbre/pkg/official/ "Official Package Repository"){data-preview} before pushing your own here.
 
 !!! tip "Library"
     Use the [function library](../../Reference/Packages/Software-Development-Kit/Expanders){data-preview} to create packages more easily using abstractions
@@ -62,8 +62,8 @@ Each package is a single function in the repository which provides abbreviations
 
 - Simple packages can directly distribute the abbreviations into shell-initialization configuration. This way they don't need to be enabled after they have been installed (it was installed for the purpose of using it after all)
 - Complex packages can ship their own commands and front ends to configure the abbreviations and provide other features
-- Packages may or may not choose to maintain compatibility with the official repository helper: `sub-abbrs`.
+- Packages may or may not choose to maintain compatibility with the official repository helper: `awabbre-pkgs`.
 You might be able to get some creative inspiration by exploring existing packages/repositories, or you may also choose to contribute to an unofficial repository — if it suits your project better. 
 
 !!! tip "Discovery"
-    Make your 3rd-party project discoverable with the [topic](https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/classifying-your-repository-with-topics#adding-topics-to-your-repository){data-preview}: [`fish-subabbr`](https://github.com/topics/fish-subabbr){data-preview}
+    Make your 3rd-party project discoverable with the [topic](https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/classifying-your-repository-with-topics#adding-topics-to-your-repository){data-preview}: [`fish-awabbre`](https://github.com/topics/fish-awabbre){data-preview}

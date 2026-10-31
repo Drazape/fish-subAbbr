@@ -24,7 +24,7 @@
 		flake-parts.lib.mkFlake { inherit inputs; } {
 			systems = [ "x86_64-linux" "aarch64-linux" "aarch64-darwin" "x86_64-darwin" ];
 			perSystem = { self', inputs', pkgs, lib, system, ... }: {
-				packages = let pkgName = "fish-subAbbr"; in {
+				packages = let pkgName = "fish-awabbre"; in {
 					default = self'.packages.${pkgName};
 					${pkgName} = pkgs.stdenvNoCC.mkDerivation {
 						name = pkgName;
@@ -32,15 +32,15 @@
 						src = ./.;
 						installPhase = ''${lib.meta.getExe pkgs.fish} --no-config --private -- ${./install.fish} ${./.}'';
 						fixupPhase = ''
-							substituteInPlace $out/share/fish/vendor_functions.d/sub-abbr.fish --replace-fail \
+							substituteInPlace $out/share/fish/vendor_functions.d/awabbre.fish --replace-fail \
 								PATHS-TO-DEPENDENCY-FUNCTIONS '{${inputs'.fish-helpText.packages.default},${inputs'.fish-format.packages.default}}/share/fish/vendor_functions.d'
-							substituteInPlace $out/share/fish/vendor_functions.d/sub-abbr.fish --replace-fail \
+							substituteInPlace $out/share/fish/vendor_functions.d/awabbre.fish --replace-fail \
 								'/dev/null # shell-startup directories' ${inputs'.fish-format.packages.default}/share/fish/vendor_conf.d
 						'';
 
 						meta = {
-							description = "Fish: context-aware sub-command abbreviation plugin";
-							homepage = "https://github.com/Drazape/fish-subAbbr";
+							description = "Fish: context-aware abbreviation plugin";
+							homepage = "https://github.com/Drazape/fish-awabbre";
 							license = lib.licenses.mit;
 							platforms = lib.platforms.linux;
 						};

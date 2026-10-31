@@ -35,7 +35,7 @@ Use-case
 
 ## Usage
 ```fish {title="Format" .no-copy .no-select}
-sub-abbr add --base=<base-commands>… {-e|--expander} -- <initial-arguments> <sub-command> <EXPANDER_COMMAND>
+awabbre add --base=<base-commands>… {-e|--expander} -- <initial-arguments> <sub-command> <EXPANDER_COMMAND>
 ```
 
 ### Command

@@ -27,12 +27,12 @@ Effect
 
 ## Usage
 ```fish {title="Format" .no-copy .no-select}
-sub-abbr add --base=<base-commands>… {-s|--regard-flags} -- <initials-with-flags> <subcommand> <expansion>
+awabbre add --base=<base-commands>… {-s|--regard-flags} -- <initials-with-flags> <subcommand> <expansion>
 ```
 
 !!! example
     #### `eza` Git status only in the long form with icons
     Only show the Git status of files when in the long form, and icons are turned on
     ```fish {title="command" .no-select}
-    sub-abbr add -s --base=eza -- --long --icons{,\ --git}
+    awabbre add -s --base=eza -- --long --icons{,\ --git}
     ```

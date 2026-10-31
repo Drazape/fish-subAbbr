@@ -22,12 +22,12 @@ Filter out the abbreviations that don't accept all the *Base Commands* specifie
 
 !!! example "List all abbreviations defined for Jujutsu"
     ```fish
-    sub-abbr list --base=jj
+    awabbre list --base=jj
     ```
 
 !!! example "List all abbreviations defined for Nix helpers"
     ```fish
-    sub-abbr list --base={nix,nh}
+    awabbre list --base={nix,nh}
     ```
 
 [list]: ../index.md

@@ -6,7 +6,7 @@ description: Package tree and helper usage for loading abbreviation packages.
 ---
 
 # Repository Helper
-`sub-abbrs` loads abbreviation packages from the standard package tree.
+`awabbre-pkgs` loads abbreviation packages from the standard package tree.
 
 ## Pages
 | Page | Summary |
